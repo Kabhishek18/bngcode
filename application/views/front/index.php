@@ -17,7 +17,7 @@
         <div id="home-slider-item"> 
           <h1> <span>Business</span> Network <span>Gateway</span></h1>
           <p>Is hyper-focused on security, verifying all our users to create a trustworthy space for all businesses to easily complete global trade transactions.
-</p>
+        </p>
         </div>
         <div id="search-categorie-item-block">
           <form id="categorie-search-form">

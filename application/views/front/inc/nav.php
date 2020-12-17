@@ -1,7 +1,9 @@
 <body>
+
 <div id="vfx_loader_block">
   <div class="vfx-loader-item"> <img src="<?=base_url()?>resource/images/loading.gif" alt="" /> </div>
 </div>
+
 <div id="logo-header" data-spy="affix" data-offset-top="500">
   <div class="container">
     <div class="row">
@@ -51,3 +53,5 @@
     </div>
   </div>
 </div>
+
+<?php include('status.php')?>

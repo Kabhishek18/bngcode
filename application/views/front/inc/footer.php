@@ -94,12 +94,12 @@
       </div>
       <div class="modal-body">
         <div class="listing-login-form">
-          <form action="#">
+          <form method="post" action="<?=base_url()?>Front/Authenticate">
             <div class="listing-form-field"> <i class="fa fa-user blue-1"></i>
-              <input class="form-field bgwhite" type="text" name="user_name" placeholder="Username" />
+              <input class="form-field bgwhite" type="text" name="email" placeholder="User Email" />
             </div>
             <div class="listing-form-field"> <i class="fa fa-lock blue-1"></i>
-              <input class="form-field bgwhite" type="password" name="user_pass" placeholder="Password"  />
+              <input class="form-field bgwhite" type="password" name="password" placeholder="Password"  />
             </div>
             <div class="listing-form-field clearfix margin-top-20 margin-bottom-20">
               <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" />
@@ -129,7 +129,7 @@
       </div>
       <div class="modal-body">
         <div class="listing-register-form">
-          <form action="#">
+          <form action="<?=base_url()?>Front/Registeration" method="Post">
             <div class="listing-form-field"> <i class="fa fa-user blue-1"></i>
               <input class="form-field bgwhite" type="text" name="user_name" placeholder="Name"  />
             </div>
@@ -140,7 +140,7 @@
               <input class="form-field bgwhite" type="password" name="user_password" placeholder="Password"  />
             </div>
             <div class="listing-form-field"> <i class="fa fa-lock blue-1"></i>
-              <input class="form-field bgwhite" type="password" name="user_confirm_password" placeholder="Confirm Password" />
+              <input class="form-field bgwhite" type="password" name="user_cpassword" placeholder="Confirm Password" />
             </div>
             <div class="listing-form-field clearfix margin-top-20 margin-bottom-20 login_form_text_center">
               <input type="checkbox" id="checkbox-1-2" class="regular-checkbox" />
