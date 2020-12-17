@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Front_model extends CI_Model
+class Vendor_model extends CI_Model
 
 {
 	 function __construct() {
@@ -13,7 +13,7 @@ class Front_model extends CI_Model
     {   
         $this->db->select('*');
         $this->db->from($this->users);
-        $array = array('user_email' => $auth['user_email'],'user_password' => $auth['user_password'],'user_type' => 'user');
+        $array = array('user_email' => $auth['user_email'],'user_password' => $auth['user_password'],'user_type' => 'vendor');
         $this->db->where($array);
         $query = $this->db->get();
         if($query->num_rows() !=0)

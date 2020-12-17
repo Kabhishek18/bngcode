@@ -49,8 +49,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'front/index';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//   ____          _                            
+//  / ___|   _ ___| |_ ___  _ __ ___   ___ _ __ 
+// | |  | | | / __| __/ _ \| '_ ` _ \ / _ \ '__|
+// | |__| |_| \__ \ || (_) | | | | | |  __/ |   
+//  \____\__,_|___/\__\___/|_| |_| |_|\___|_|   
+                                             
+$route['default_controller'] = 'front/index';
 $route['dashboard'] ='front/dashboard';
+$route['logout'] ='front/Logout';
+
+// __     __             _            
+// \ \   / /__ _ __   __| | ___  _ __ 
+//  \ \ / / _ \ '_ \ / _` |/ _ \| '__|
+//   \ V /  __/ | | | (_| | (_) | |   
+//    \_/ \___|_| |_|\__,_|\___/|_|  
+
+$route['vendor/login'] = 'vendor/index';
+$route['vendor/dashboard'] ='vendor/Dashboard';
+$route['vendor/logout'] ='vendor/Logout';
+
+
+//     _       _           _       _     _             _             
+//    / \   __| |_ __ ___ (_)_ __ (_)___| |_ _ __ __ _| |_ ___  _ __ 
+//   / _ \ / _` | '_ ` _ \| | '_ \| / __| __| '__/ _` | __/ _ \| '__|
+//  / ___ \ (_| | | | | | | | | | | \__ \ |_| | | (_| | || (_) | |   
+// /_/   \_\__,_|_| |_| |_|_|_| |_|_|___/\__|_|  \__,_|\__\___/|_|   

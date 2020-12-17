@@ -2,11 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 date_default_timezone_set('Asia/Kolkata');
 
-class Front extends CI_Controller {
+class Vendor extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->library('cart');
-		$this->load->model('front_model');
+		$this->load->model('vendor_model');
 		$this->load->library('session');
 		$this->load->helper('date');
 		if ($this->config->item('secure_site')) {
@@ -16,17 +16,16 @@ class Front extends CI_Controller {
 
 	public function Index()
 	{
-		$this->load->view('front/inc/header');
-		$this->load->view('front/inc/nav');
-		$this->load->view('front/index');
-		$this->load->view('front/inc/footer');
+		$this->load->view('vendor/inc/header');
+		$this->load->view('vendor/index');
+		$this->load->view('vendor/inc/footer');
 	}
 
 	public function Authenticate()
 	{
 		$auth['user_email']=$this->input->post("email");
 		$auth['user_password']=md5($this->input->post("password"));	
-		$data=$this->front_model->Authentication($auth);
+		$data=$this->vendor_model->Authentication($auth);
 		if($data)
 		 {
 	  	 	$this->session->set_userdata('user_account',$data);
@@ -35,7 +34,7 @@ class Front extends CI_Controller {
 		  	 }
 	  	 else{
 	  	 	$red['user_email']=$auth['user_email'];
-			$emailcheck =$this->front_model->CheckEmail($red);
+			$emailcheck =$this->vendor_model->CheckEmail($red);
 				if ($emailcheck==true ) {
 					$this->session->set_flashdata('warning', 'Wrong Password!');
 					redirect('');
@@ -66,7 +65,7 @@ class Front extends CI_Controller {
 		$auth['user_email']=$this->input->post("user_email");
 		$auth['user_password']=md5($this->input->post("user_password"));	
 		$auths['user_cpassword']=md5($this->input->post("user_cpassword"));
-		$emailcheck =$this->front_model->CheckEmail($auth);
+		$emailcheck =$this->vendor_model->CheckEmail($auth);
 		if ($emailcheck==true ) {
 			$this->session->set_flashdata('warning', 'EmailID Already Exist!');
 			redirect('register');
@@ -81,7 +80,7 @@ class Front extends CI_Controller {
 		$messagebomb = 'Click to verify <a href="'.base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID().'" >Link</a>';
 
 		if ($auths['user_cpassword'] == $auth['user_password']) {
-				$insert =$this->front_model->InsertUsers($auth);	
+				$insert =$this->vendor_model->InsertUsers($auth);	
 					if ($insert) {
 
 						$this->load->library('phpmailer_lib');
@@ -149,7 +148,7 @@ class Front extends CI_Controller {
 		$user_token =$this->uri->segment(2,0);
 		$user_name =$this->uri->segment(3,0);
 		$user_verified ='verfied';
-		 $update =$this->front_model->EmailVerify($user_token,$user_verified);
+		 $update =$this->vendor_model->EmailVerify($user_token,$user_verified);
 		if ($update) {
 
 			$this->session->set_flashdata('success', '<span style="color:green">Congratulation, Email Verified Successfully, <p>Please Click to Login <a href="'.base_url().'login">Login</a></p></span>');
@@ -217,10 +216,10 @@ class Front extends CI_Controller {
 	{
 		$data= $this->session->user_account;
 		if($data['user_verified'] =='verified'){
-			$this->load->view('front/inc/header');
-			$this->load->view('front/inc/nav');
-			$this->load->view('front/dashboard',$data);
-			$this->load->view('front/inc/footer');
+			$this->load->view('vendor/inc/header');
+			$this->load->view('vendor/inc/nav');
+			$this->load->view('vendor/dashboard',$data);
+			$this->load->view('vendor/inc/footer');
 		}
 		else{
 			$this->session->set_flashdata('warning', 'Access Denied');
