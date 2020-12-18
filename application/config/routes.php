@@ -61,6 +61,7 @@ $route['translate_uri_dashes'] = FALSE;
                                              
 $route['default_controller'] = 'front/index';
 $route['dashboard'] ='front/dashboard';
+$route['categories'] ='front/category';
 $route['logout'] ='front/Logout';
 
 // __     __             _            

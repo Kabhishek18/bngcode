@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
+<?php if(empty($meta)){?>	
 <meta name="author" content="">
 <meta name="description" content="">
+<title>BUSINESS NETWORK GATEWAY</title>
+<?php }else{?>
+	<?=$meta?>
+<?php }?>	
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BUSINESS NETWORK GATEWAY</title>
+
 
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">

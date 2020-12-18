@@ -227,4 +227,13 @@ class Front extends CI_Controller {
 			redirect('');	
 		}
 	}
+
+
+	public function Category()
+	{
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/category');
+		$this->load->view('front/inc/footer');
+	}
 }
