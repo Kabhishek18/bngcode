@@ -15,7 +15,10 @@ class Vendor extends CI_Controller {
 	}
 
 	public function Index()
-	{
+	{	$data= $this->session->vendor_account;
+		if($data['user_verified'] =='verified'){
+			redirect('vendor/dashboard');
+		}	
 		$this->load->view('vendor/inc/header');
 		$this->load->view('vendor/index');
 		$this->load->view('vendor/inc/footer');
@@ -28,19 +31,19 @@ class Vendor extends CI_Controller {
 		$data=$this->vendor_model->Authentication($auth);
 		if($data)
 		 {
-	  	 	$this->session->set_userdata('user_account',$data);
+	  	 	$this->session->set_userdata('vendor_account',$data);
 	  	 	$this->session->set_flashdata('success', 'Welcome User');
-			redirect('dashboard');
+			redirect('vendor/dashboard');
 		  	 }
 	  	 else{
 	  	 	$red['user_email']=$auth['user_email'];
 			$emailcheck =$this->vendor_model->CheckEmail($red);
 				if ($emailcheck==true ) {
 					$this->session->set_flashdata('warning', 'Wrong Password!');
-					redirect('');
+					redirect('vendor');
 				}else{
 		  	 		$this->session->set_flashdata('warning', 'Invalid Credential');
-		  	 		redirect('');
+		  	 		redirect('vendor');
 	  	 		}
 	  	 }		
 	}
@@ -50,13 +53,19 @@ class Vendor extends CI_Controller {
 	{
 		if(session_destroy())
 		{
-		$this->session->unset_userdata('user_account');	 
+		$this->session->unset_userdata('vendor_account');	 
 		$this->session->set_flashdata('success', 'Successfully Logout');  
 		$this->session->sess_destroy();
-		redirect('');
+		redirect('vendor');
 		}
 	}
 
+	public function Register()
+	{
+		$this->load->view('vendor/inc/header');
+		$this->load->view('vendor/register');
+		$this->load->view('vendor/inc/footer');
+	}
 	//Register
 	public function Registeration()
 	{
@@ -73,7 +82,7 @@ class Vendor extends CI_Controller {
 
 
 		$auth['user_token']=generateUUID();	
-		$auth['user_type']='user';
+		$auth['user_type']='vendor';
 		$auth['user_status']='active';
 		$auth['user_verified']='unverified';
 
@@ -124,11 +133,11 @@ class Vendor extends CI_Controller {
 						}
 						
 						$this->session->set_flashdata('success', '<span style="color:green">Thank You, For Registration, Please Verfiy Your Email</span>');
-						redirect('');		
+						redirect('vendor');		
 					}
 					else{
 						$this->session->set_flashdata('success', '<span style="color:red">Sorry, Something Misfortune Happen! </span>');
-						redirect('');	
+						redirect('vendor');	
 					}
 				
 			
@@ -137,7 +146,7 @@ class Vendor extends CI_Controller {
 		}
 		else{
 			$this->session->set_flashdata('warning', '<span>Sorry, Your Password Did not Match</span>');
-			redirect('');	
+			redirect('vendor');	
 
 		}
 	}
@@ -152,19 +161,19 @@ class Vendor extends CI_Controller {
 		if ($update) {
 
 			$this->session->set_flashdata('success', '<span style="color:green">Congratulation, Email Verified Successfully, <p>Please Click to Login <a href="'.base_url().'login">Login</a></p></span>');
-			redirect('');	
+			redirect('vendor');	
 
 			}
 		else{
 			$this->session->set_flashdata('warning', '<span>Sorry, Verification Failed</span>');
-			redirect('');	
+			redirect('vendor');	
 		}			
 	}
 
 	//Email Reverfication
 	public function ResendEmailVerification()
 	{
-		$auth= $this->session->user_account;
+		$auth= $this->session->vendor_account;
 		
 		$messagebomb = 'Click to verify <a href="'.base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID().'" >Link</a>';
 		$this->load->library('phpmailer_lib');
@@ -206,24 +215,24 @@ class Vendor extends CI_Controller {
 					$mail->ErrorInfo;
 
 				}
-				$this->session->unset_userdata('user_account');	   
+				$this->session->unset_userdata('vendor_account');	   
 				$this->session->sess_destroy();	
 				$this->session->set_flashdata('success', '<span style="color:green">Thank You, For Reverification, Please Verfiy Your Email</span>');	
-				redirect('');			
+				redirect('vendor');			
 	}
 
 	public function Dashboard()
 	{
-		$data= $this->session->user_account;
+		$data= $this->session->vendor_account;
 		if($data['user_verified'] =='verified'){
 			$this->load->view('vendor/inc/header');
-			$this->load->view('vendor/inc/nav');
-			$this->load->view('vendor/dashboard',$data);
+			$this->load->view('vendor/inc/nav',$data);
+			$this->load->view('vendor/dashboard');
 			$this->load->view('vendor/inc/footer');
 		}
 		else{
 			$this->session->set_flashdata('warning', 'Access Denied');
-			redirect('');	
+			redirect('vendor');	
 		}
 	}
 }

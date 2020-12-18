@@ -79,3 +79,7 @@ $route['vendor/logout'] ='vendor/Logout';
 //   / _ \ / _` | '_ ` _ \| | '_ \| / __| __| '__/ _` | __/ _ \| '__|
 //  / ___ \ (_| | | | | | | | | | | \__ \ |_| | | (_| | || (_) | |   
 // /_/   \_\__,_|_| |_| |_|_|_| |_|_|___/\__|_|  \__,_|\__\___/|_|   
+
+$route['admin/login'] = 'admin/index';
+$route['admin/dashboard'] ='admin/Dashboard';
+$route['admin/logout'] ='admin/Logout';

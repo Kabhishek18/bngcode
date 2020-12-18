@@ -1,5 +1,39 @@
-<body class="vertical-layout vertical-menu-modern 1-column  navbar-floating footer-static bg-full-screen-image  blank-page blank-page" data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
+<body class="vertical-layout vertical-menu-modern dark-layout 1-column  navbar-floating footer-static bg-full-screen-image  blank-page blank-page" data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
     <!-- BEGIN: Content-->
+    <?php if($this->session->flashdata('success')){ ?>
+                                <div class="alert alert-success alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>    
+                                    <strong><?php echo $this->session->flashdata('success'); ?></strong>
+                                </div>
+                            <?php }?>
+                              
+                            <?php if($this->session->flashdata('danger')){ ?>
+                            <div class="alert alert-danger alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>    
+                                <strong><?php echo $this->session->flashdata('danger'); ?></strong>
+                            </div>
+                            <?php }?>
+                               
+                            <?php if($this->session->flashdata('warning')){ ?>
+                            <div class="alert alert-warning alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>    
+                                <strong><?php echo $this->session->flashdata('warning'); ?></strong>
+                            </div>
+                            <?php }?>
+                               
+                            <?php if($this->session->flashdata('info')){ ?>
+                            <div class="alert alert-info alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>    
+                                <strong><?php echo $this->session->flashdata('info'); ?></strong>
+                            </div>
+                            <?php }?>
+                              
+                            <?php if($this->session->flashdata('any')){ ?>
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert">×</button>    
+                                Please check the form below for errors
+                            </div>
+                            <?php }?>
     <div class="app-content content">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
@@ -24,7 +58,7 @@
                                         <p class="px-2">Welcome back, please login to your account.</p>
                                         <div class="card-content">
                                             <div class="card-body pt-1">
-                                                <form method="post" action="<?=base_url()?>Vendor/Authenticate">
+                                                <form method="post" action="<?=base_url()?>Admin/Authenticate">
                                                     <fieldset class="form-label-group form-group position-relative has-icon-left">
                                                         <input type="text" name="email" class="form-control" id="user-name" placeholder="User Email" required>
                                                         <div class="form-control-position">
@@ -41,18 +75,16 @@
                                                         <label for="user-password">Password</label>
                                                     </fieldset>
                                                     <div class="form-group d-flex justify-content-between align-items-center">
-                                                        <div class="text-left">
-                                                            
-                                                        </div>
-                                                        <div class="text-right"><a href="auth-forgot-password.html" class="card-link">Forgot Password?</a></div>
+                                                        
+                                                        
                                                     </div>
-                                                    <a href="<?=base_url()?>vendor/Register" class="btn btn-outline-primary float-left btn-inline">Register</a>
+                                                  
                                                     <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
                                                 </form>
                                             </div>
                                         </div>
                                         <div class="login-footer">
-                                         <br>
+                                          <br>
                                         </div>
                                     </div>
                                 </div>
