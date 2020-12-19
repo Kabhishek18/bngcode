@@ -6,6 +6,7 @@ class Front_model extends CI_Model
 {
 	 function __construct() {
         $this->users   = 'users';
+        $this->category   = 'categories';
     }
 
  
@@ -26,35 +27,6 @@ class Front_model extends CI_Model
         }
     }
 
-    public function GetOrderSid($id)
-    {
-         
-        $this->db->select('*');
-        $this->db->from('orders');
-            $array = array('sid' => $id);
-            $this->db->where($array);
-            $query  = $this->db->get();
-            $result = $query->result_array();
-        
-        // return fetched data
-        return !empty($result)?$result:false;
-    }
-
-    
-
-      public function GetInvoiceSid($sid,$id)
-    {
-         
-        $this->db->select('*');
-        $this->db->from('orders');
-            $array = array('sid' => $sid,'id' => $id);
-            $this->db->where($array);
-            $query  = $this->db->get();
-            $result = $query->row_array();
-        
-        // return fetched data
-        return !empty($result)?$result:false;
-    }
 
     public function CheckEmail($auth)
     {
@@ -88,35 +60,19 @@ class Front_model extends CI_Model
     }
 
 
-    function GetAttendanceId($id ='')
+    public function GetCategory($id ='')
     {
         $this->db->select('*');
-        $this->db->from($this->attendance);
+        $this->db->from($this->category);
        
         if($id){
-            $array = array('sid' => $id);
+            $array = array('id' => $id,'parent_id' =>'0','category_status'=>'active','status'=>'active');
             $this->db->where($array);
             $query  = $this->db->get();
-            $result = $query->result_array();
+            $result = $query->row_array();
         }else{
-            $query  = $this->db->get();
-            $result = $query->result_array();
-        }
-        
-        // return fetched data
-        return !empty($result)?$result:false;
-    }
-    function GetAttendanceCount($id,$title)
-    {
-        $this->db->select('*');
-        $this->db->from($this->attendance);
-       
-        if($id){
-            $array = array('sid' => $id,'title'=> $title);
+            $array = array('parent_id' =>'0');
             $this->db->where($array);
-            $query  = $this->db->get();
-            $result = $query->result_array();
-        }else{
             $query  = $this->db->get();
             $result = $query->result_array();
         }
@@ -125,40 +81,37 @@ class Front_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
-    function GetTrainerId($id ='')
+
+    public function GetCatSub($id='')
     {
+          
         $this->db->select('*');
-        $this->db->from($this->users);
-        if($id){
-            $array = array('id' => $id,'user_type' =>'trainer');
-            $this->db->where($array);
-            $query  = $this->db->get();
-            $result = $query->result_array();
-        }else{
-            $array = array('user_type' =>'trainer');
-            $this->db->where($array);
-            $query  = $this->db->get();
-            $result = $query->result_array();
-        }    
-        // return fetched data
+        $this->db->from('categories as c1');
+        $this->db->join('categories as c2', ' c1.id = c2.parent_id AND c1.id  ='.$id);
+        $this->db->where("c2.category_status ='active' AND c2.status ='active'",NULL,FALSE);
+      
+        $query = $this->db->get();
+        $result = $query->result_array();
         return !empty($result)?$result:false;
+    
     }
 
-    public function InsertFeedback($auth)
-    {
-        $insert = $this->db->insert($this->feedback,$auth);
-         return $insert?true:false;
-    }
-
-    function CheckFeedback($id,$tid)
+    public function GetSub($id ='')
     {
         $this->db->select('*');
-        $this->db->from($this->feedback);
+        $this->db->from($this->category);
        
-            $array = array('student_id' => $id,'tutor_id' =>$tid);
+        if($id){
+            $array = array('id' => $id,'parent_id !=' =>'0','category_status'=>'active','status'=>'active');
             $this->db->where($array);
             $query  = $this->db->get();
-            $result = $query->num_rows();
+            $result = $query->row_array();
+        }else{
+            $array = array('parent_id !=' =>'0');
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
         
         // return fetched data
         return !empty($result)?$result:false;

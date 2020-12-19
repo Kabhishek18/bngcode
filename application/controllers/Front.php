@@ -231,9 +231,32 @@ class Front extends CI_Controller {
 
 	public function Category()
 	{
+		$data['categories'] = $this->front_model->GetCategory();
 		$this->load->view('front/inc/header');
 		$this->load->view('front/inc/nav');
-		$this->load->view('front/category');
+		$this->load->view('front/category',$data);
 		$this->load->view('front/inc/footer');
+	}
+
+	public function SubCategory()
+	{
+		if (is_numeric($this->uri->segment(2,0))) {
+			$data = $this->front_model->GetSub($this->uri->segment(2,0));
+			if($data){
+				$value['categories'] = $this->front_model->GetCategory($data['parent_id']);
+				$this->load->view('front/inc/header');
+				$this->load->view('front/inc/nav');
+				$this->load->view('front/subcategory',$value);
+				$this->load->view('front/inc/footer');
+			}
+			else{
+				$this->session->set_flashdata('warning', 'Url That You Are Looking For Does Not Exit');
+				redirect('');
+			}
+		}else {
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('');
+		}
+
 	}
 }
