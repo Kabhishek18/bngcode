@@ -7,6 +7,7 @@ class Front_model extends CI_Model
 	 function __construct() {
         $this->users   = 'users';
         $this->category   = 'categories';
+        $this->product   = 'products';
     }
 
  
@@ -66,12 +67,12 @@ class Front_model extends CI_Model
         $this->db->from($this->category);
        
         if($id){
-            $array = array('id' => $id,'parent_id' =>'0','category_status'=>'active','status'=>'active');
+            $array = array('id' => $id,'parent_id' =>'0','category_status'=>'active','status'=>'Active');
             $this->db->where($array);
             $query  = $this->db->get();
             $result = $query->row_array();
         }else{
-            $array = array('parent_id' =>'0');
+            $array = array('parent_id' =>'0','category_status'=>'active','status'=>'Active');
             $this->db->where($array);
             $query  = $this->db->get();
             $result = $query->result_array();
@@ -88,7 +89,7 @@ class Front_model extends CI_Model
         $this->db->select('*');
         $this->db->from('categories as c1');
         $this->db->join('categories as c2', ' c1.id = c2.parent_id AND c1.id  ='.$id);
-        $this->db->where("c2.category_status ='active' AND c2.status ='active'",NULL,FALSE);
+        $this->db->where("c2.category_status ='active' AND c2.status ='Active'",NULL,FALSE);
       
         $query = $this->db->get();
         $result = $query->result_array();
@@ -102,12 +103,12 @@ class Front_model extends CI_Model
         $this->db->from($this->category);
        
         if($id){
-            $array = array('id' => $id,'parent_id !=' =>'0','category_status'=>'active','status'=>'active');
+            $array = array('id' => $id,'parent_id !=' =>'0','category_status'=>'active','status'=>'Active');
             $this->db->where($array);
             $query  = $this->db->get();
             $result = $query->row_array();
         }else{
-            $array = array('parent_id !=' =>'0');
+            $array = array('parent_id !=' =>'0','category_status'=>'active','status'=>'Active');
             $this->db->where($array);
             $query  = $this->db->get();
             $result = $query->result_array();
@@ -117,4 +118,38 @@ class Front_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
+    public function GetProduct($id='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->product);
+       
+        if($id){
+            $array = array('id' => $id,'product_status'=>'active','status'=>'Active');
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $array = array('product_status'=>'active','status'=>'Active');
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function GetSubPro($id='')
+    {
+          
+        $this->db->select('*');
+        $this->db->from('categories as c1');
+        $this->db->join('products as c2', ' c1.id = c2.category_id AND c1.id  ='.$id);
+        $this->db->where("c2.product_status ='active' AND c2.status ='Active'",NULL,FALSE);
+      
+        $query = $this->db->get();
+        $result = $query->result_array();
+        return !empty($result)?$result:false;
+    
+    }
 }

@@ -164,5 +164,12 @@
 <script src="<?=base_url()?>resource/js/jquery_custom.js"></script> 
 <script src="<?=base_url()?>resource/js/homemap_custom.js"></script> 
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+
+<?php if($this->uri->segment(1) == 'products'){?>
+  <script src="<?=base_url()?>resource/js/colorbox/jquery.colorbox-min.js"></script> 
+<script src="<?=base_url()?>resource/js/bootstrap-select/bootstrap-select.min.js"></script> 
+<script src="<?=base_url()?>resource/js/owl.carousel/owl.carousel.js"></script> 
+<script src="<?=base_url()?>resource/js/superlist.js"></script> 
+<?php }?>
 </body>
 </html>

@@ -63,6 +63,7 @@ $route['default_controller'] = 'front/index';
 $route['dashboard'] ='front/dashboard';
 $route['categories'] ='front/category';
 $route['subcategories/(:num)'] ='front/SubCategory';
+$route['products/(:num)'] ='front/Products';
 $route['logout'] ='front/Logout';
 
 // __     __             _            

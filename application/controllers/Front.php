@@ -244,7 +244,8 @@ class Front extends CI_Controller {
 			$data = $this->front_model->GetSub($this->uri->segment(2,0));
 			if($data){
 				$value['categories'] = $this->front_model->GetCategory($data['parent_id']);
-				$this->load->view('front/inc/header');
+				$meta['meta'] =$value['categories']['category_meta'];
+				$this->load->view('front/inc/header',$meta);
 				$this->load->view('front/inc/nav');
 				$this->load->view('front/subcategory',$value);
 				$this->load->view('front/inc/footer');
@@ -257,6 +258,32 @@ class Front extends CI_Controller {
 			$this->session->set_flashdata('warning', 'Access Denied');
 			redirect('');
 		}
+	}
 
+	public function SubProductJson()
+	{
+		$id=$this->input->post('matchvalue');
+		$products = $this->front_model->GetSubPro($id);
+		echo json_encode($products);
+	}
+
+	public function Products()
+	{
+		if (is_numeric($this->uri->segment(2,0))) {
+			$data = $this->front_model->GetProduct($this->uri->segment(2,0));
+			if($data){
+				$this->load->view('front/inc/header');
+				$this->load->view('front/inc/nav');
+				$this->load->view('front/product',$data);
+				$this->load->view('front/inc/footer');
+			}
+			else{
+				$this->session->set_flashdata('warning', 'Url That You Are Looking For Does Not Exit');
+				redirect('');
+			}
+		}else {
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('');
+		}
 	}
 }

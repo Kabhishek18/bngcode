@@ -22,7 +22,7 @@
                 <li><a href="#">Exporter</a></li>
                 <li><a href="#">Logistics Lead</a></li>
                 <li><a href="#">Products</a></li>
-                <li><a href="categories">Categories</a></li>
+                <li><a href="<?=base_url()?>categories">Categories</a></li>
                 <li><a href="#">Listing <i class="fa fa-caret-down"></i></a>
                   <ul class="dropdown">
                     <li><a href="dashboard"><i class="fa fa-angle-double-right"></i> Dashboard</a></li>
