@@ -89,48 +89,22 @@
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
-                <li class=" nav-item "><a href="javascript:void(0)"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
-                    <ul class="menu-content">
-                        <li><a href="<?=base_url()?>dashboard"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Dashboard</span></a>
-                        </li>
-                        <li><a href="<?=base_url()?>freezone"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">FreeZone</span></a>
-                        </li>
-                    </ul>
+                <li class=" nav-item "><a href="<?=base_url()?>admin/dashboard"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
                 </li>
-                <li class=" navigation-header"><span>Dates, Slots</span>
+            
 
-               <li class=" nav-item "><a href="javascript:void(0)"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dates & Slots</span></a>
-                    <ul class="menu-content">
-                       <li  class=" nav-item"><a href="<?=base_url()?>dates"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Dates</span></a>
-                        </li>
-                        <li  class=" nav-item"><a href="<?=base_url()?>slot"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Slots</span></a>
-                        </li>
-                   </ul>
+                <li class=" navigation-header"><span>Categories & Products</span>
                 </li>
-
-                <li class=" navigation-header"><span>Categories, Courses</span>
-                </li>
-                <li class=" nav-item"><a href="<?=base_url()?>tutor"><i class="feather icon-list"></i><span class="menu-title" data-i18n="User">Courses,Category</span></a>
+                <li class=" nav-item"><a href="javascript:void(0)"><i class="feather icon-list"></i><span class="menu-title" data-i18n="User">Category,Products</span></a>
                     <ul class="menu-content">
-                        <li><a href="<?=base_url()?>category"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Category</span></a>
+                        <li><a href="<?=base_url()?>admin/category"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Category</span></a>
                         </li>
-                        <li><a href="<?=base_url()?>course"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Courses</span></a>
+                        <li><a href="<?=base_url()?>admin/products"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Product</span></a>
                         </li>
                     </ul>
                 </li>
                
-                <li class=" navigation-header"><span>Student</span>
-                </li>
-                <li class=" nav-item"><a href="<?=base_url()?>student"><i class="feather icon-user"></i><span class="menu-title" data-i18n="User">Student</span></a>
-                </li>
-                <li class=" navigation-header"><span>Tutor</span>
-                </li>
-                <li class=" nav-item"><a href="<?=base_url()?>tutor"><i class="feather icon-user"></i><span class="menu-title" data-i18n="User">Tutor</span></a>
-                </li>
-                 <li class=" navigation-header"><span>Order</span>
-                </li>
-                <li class=" nav-item"><a href="<?=base_url()?>order"><i class="feather icon-user"></i><span class="menu-title" data-i18n="User">Order</span></a>
-                </li>
+         
              
 
 

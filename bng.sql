@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 17, 2020 at 06:52 PM
--- Server version: 5.7.32-0ubuntu0.18.04.1
+-- Generation Time: Dec 20, 2020 at 12:42 AM
+-- Server version: 10.1.47-MariaDB-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -39,6 +39,52 @@ CREATE TABLE `categories` (
   `date_created` date NOT NULL,
   `date_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `parent_id`, `category_meta`, `category_name`, `category_slug`, `category_description`, `category_image`, `category_status`, `status`, `date_created`, `date_modified`) VALUES
+(1, 0, 'Meta', 'Cat', 'Catslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(2, 0, 'Meta', 'Cat2', 'Catslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(3, 0, 'Meta', 'Cat3', 'Catslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(4, 0, 'Meta', 'Cat4', 'Catslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(5, 0, 'Meta', 'Cat5', 'Catslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(6, 0, 'Meta', 'Cat6', 'Catslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(7, 0, 'Meta', 'Cat7', 'Catslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(8, 0, 'Meta', 'Cat8', 'Catslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(9, 1, 'Meta', 'SubCat', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(10, 1, 'Meta', 'SubCat2', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(11, 1, 'Meta', 'SubCat3', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(12, 1, 'Meta', 'SubCat4 cat 1', 'SubCatslug', 'Description', 'image.jpeg', 'inactive', 'Active', '2020-12-16', '2020-12-19 08:01:27'),
+(13, 2, 'Meta', 'SubCat', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(14, 2, 'Meta', 'SubCat2', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(15, 2, 'Meta', 'SubCat3', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(16, 2, 'Meta', 'SubCat4', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(17, 3, 'Meta', 'SubCat', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(18, 3, 'Meta', 'SubCat2', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(19, 3, 'Meta', 'SubCat3', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(20, 3, 'Meta', 'SubCat4', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(21, 4, 'Meta', 'SubCat', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(22, 4, 'Meta', 'SubCat2', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(23, 4, 'Meta', 'SubCat3', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(24, 4, 'Meta', 'SubCat4', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(25, 5, 'Meta', 'SubCat', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(26, 5, 'Meta', 'SubCat2', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(27, 5, 'Meta', 'SubCat3', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(28, 5, 'Meta', 'SubCat4', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(29, 6, 'Meta', 'SubCat', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(30, 6, 'Meta', 'SubCat2', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(31, 6, 'Meta', 'SubCat3', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(32, 6, 'Meta', 'SubCat4', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(33, 7, 'Meta', 'SubCat', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(34, 7, 'Meta', 'SubCat2', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(35, 7, 'Meta', 'SubCat3', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(36, 7, 'Meta', 'SubCat4', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(37, 8, 'Meta', 'SubCat', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(38, 8, 'Meta', 'SubCat2', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(39, 8, 'Meta', 'SubCat3', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09'),
+(40, 8, 'Meta', 'SubCat4', 'SubCatslug', 'Description', 'image.jpeg', 'active', 'Active', '2020-12-16', '2020-12-19 05:41:09');
 
 -- --------------------------------------------------------
 
@@ -114,6 +160,18 @@ CREATE TABLE `products` (
   `date_modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `category_id`, `product_meta`, `product_name`, `product_slug`, `product_image`, `product_information`, `product_description`, `product_status`, `status`, `date_created`, `date_modified`) VALUES
+(1, 9, 'Prodyct _meta', 'Product Name', 'Product Slug', 'Product Image', 'Product image', 'Product Description', 'active', 'Active', '2020-12-16', '2020-12-19 14:54:35'),
+(2, 9, 'Prodyct _meta', 'Product Name2', 'Product Slug', 'Product Image', 'Product image', 'Product Description', 'active', 'Active', '2020-12-16', '2020-12-19 09:46:29'),
+(3, 9, 'Prodyct _meta', 'Product Name3', 'Product Slug', 'Product Image', 'Product image', 'Product Description', 'active', 'Inactive', '2020-12-16', '2020-12-19 15:54:52'),
+(5, 10, 'Prodyct _meta', 'Product Name', 'Product Slug', 'Product Image', 'Product image', 'Product Description', 'active', 'Active', '2020-12-16', '2020-12-19 09:46:29'),
+(6, 10, 'Prodyct _meta', 'Product Name2', 'Product Slug', 'Product Image', 'Product image', 'Product Description', 'active', 'Active', '2020-12-16', '2020-12-19 09:46:29'),
+(7, 10, 'Prodyct _meta', 'Product Name3', 'Product Slug', 'Product Image', 'Product image', 'Product Description', 'active', 'Active', '2020-12-16', '2020-12-19 10:39:31');
+
 -- --------------------------------------------------------
 
 --
@@ -143,7 +201,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_token`, `user_name`, `user_email`, `user_password`, `user_phone`, `user_image`, `user_description`, `user_type`, `user_status`, `user_verified`, `user_login`, `user_logout`, `date_created`, `date_modified`) VALUES
-(1, '9337402c-7ee2-8403-9619-fee51ad34043', 'kabhishek18@gmailcom', 'kabhishek18@gmail.com', '202cb962ac59075b964b07152d234b70', 0, '', '', 'user', 'active', 'verified', NULL, NULL, '0000-00-00', '2020-12-17 07:32:13');
+(1, '9337402c-7ee2-8403-9619-fee51ad34043', 'CUstomer', 'customer@gmail.com', '202cb962ac59075b964b07152d234b70', 0, '', '', 'user', 'active', 'verified', NULL, NULL, '0000-00-00', '2020-12-19 05:35:30'),
+(2, '9337402c-7ee2-8403-9619-fee51ad34043', 'vendor', 'vendor@gmail.com', '202cb962ac59075b964b07152d234b70', 0, '', '', 'vendor', 'active', 'verified', NULL, NULL, '0000-00-00', '2020-12-19 05:35:30'),
+(3, '9337402c-7ee2-8403-9619-fee51ad34043', 'admin', 'admin@gmail.com', '202cb962ac59075b964b07152d234b70', 0, '', '', 'admin', 'active', 'verified', NULL, NULL, '0000-00-00', '2020-12-19 05:35:30');
 
 --
 -- Indexes for dumped tables
@@ -187,7 +247,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `coupon`
 --
@@ -202,12 +262,12 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -85,4 +85,9 @@ $route['vendor/logout'] ='vendor/Logout';
 
 $route['admin/login'] = 'admin/index';
 $route['admin/dashboard'] ='admin/Dashboard';
+$route['admin/category'] ='admin/Category';
+$route['admin/category/edit/(:num)'] ='admin/CategoryAdd';
+$route['admin/category/add'] ='admin/CategoryAdd';
+
+$route['admin/products'] ='admin/Products';
 $route['admin/logout'] ='admin/Logout';
