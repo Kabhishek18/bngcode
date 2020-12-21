@@ -14,9 +14,9 @@
                             <h2 class="content-header-title float-left mb-0">Product</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="<?=base_url('dashboard')?>">Home</a>
+                                    <li class="breadcrumb-item"><a href="<?=base_url('admin/dashboard')?>">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="<?=base_url('product')?>">Product</a>
+                                    <li class="breadcrumb-item"><a href="<?=base_url('admin/product')?>">Product</a>
                                     </li>
                                     <li class="breadcrumb-item active">Add
                                     </li>

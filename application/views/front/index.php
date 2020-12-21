@@ -60,75 +60,22 @@
       <div class="col-sm-12 text-center">
         <div class="row">
           <div class="col-md-12 categories-heading bt_heading_3">
-            <h1>Directory <span>Categorie</span></h1>
+            <h1>Directory <span>Categories</span></h1>
             <div class="blind line_1"></div>
             <div class="flipInX-1 blind icon"><span class="icon"><i class="fa fa-stop"></i>&nbsp;&nbsp;<i class="fa fa-stop"></i></span></div>
             <div class="blind line_2"></div>
           </div>
+          <?php $categories =$this->front_model->GetCategory(); 
+                foreach ($categories as $cat) {?>
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="categorie_item">
               <div class="cate_item_block hi-icon-effect-8">
                 <div class="cate_item_social hi-icon"><i class="fa fa-home"></i></div>
-                <h1><a href="#">Category 1</a></h1>
+                <h1><a href="#"><?=$cat['category_name']?></a></h1>
               </div>
             </div>
           </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="categorie_item">
-              <div class="cate_item_block hi-icon-effect-8">
-                <div class="cate_item_social hi-icon"><i class="fa fa-send"></i></div>
-                <h1><a href="#">Category 2</a></h1>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="categorie_item">
-              <div class="cate_item_block hi-icon-effect-8">
-                <div class="cate_item_social hi-icon"><i class="fa fa-suitcase"></i></div>
-                <h1><a href="#">Category 3</a></h1>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="categorie_item">
-              <div class="cate_item_block hi-icon-effect-8">
-                <div class="cate_item_social hi-icon"><i class="fa fa-eye"></i></div>
-                <h1><a href="#">Category 4</a></h1>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="categorie_item">
-              <div class="cate_item_block hi-icon-effect-8">
-                <div class="cate_item_social hi-icon"><i class="fa fa-heart"></i></div>
-                <h1><a href="#">Category 5</a></h1>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="categorie_item">
-              <div class="cate_item_block hi-icon-effect-8">
-                <div class="cate_item_social hi-icon"><i class="fa fa-female"></i></div>
-                <h1><a href="#">Category 6</a></h1>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="categorie_item">
-              <div class="cate_item_block hi-icon-effect-8">
-                <div class="cate_item_social hi-icon"><i class="fa fa-gears"></i></div>
-                <h1><a href="#">Category 7</a></h1>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="categorie_item">
-              <div class="cate_item_block hi-icon-effect-8">
-                <div class="cate_item_social hi-icon"><i class="fa fa-users"></i></div>
-                <h1><a href="#">Category 8</a></h1>
-              </div>
-            </div>
-          </div>
+          <?php }?>
         </div>
       </div>
     </div>

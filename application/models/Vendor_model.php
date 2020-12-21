@@ -6,6 +6,8 @@ class Vendor_model extends CI_Model
 {
 	 function __construct() {
         $this->users   = 'users';
+        $this->category   = 'categories';
+        $this->products   = 'products';
     }
 
  
@@ -26,35 +28,8 @@ class Vendor_model extends CI_Model
         }
     }
 
-    public function GetOrderSid($id)
-    {
-         
-        $this->db->select('*');
-        $this->db->from('orders');
-            $array = array('sid' => $id);
-            $this->db->where($array);
-            $query  = $this->db->get();
-            $result = $query->result_array();
-        
-        // return fetched data
-        return !empty($result)?$result:false;
-    }
 
     
-
-      public function GetInvoiceSid($sid,$id)
-    {
-         
-        $this->db->select('*');
-        $this->db->from('orders');
-            $array = array('sid' => $sid,'id' => $id);
-            $this->db->where($array);
-            $query  = $this->db->get();
-            $result = $query->row_array();
-        
-        // return fetched data
-        return !empty($result)?$result:false;
-    }
 
     public function CheckEmail($auth)
     {
@@ -88,35 +63,19 @@ class Vendor_model extends CI_Model
     }
 
 
-    function GetAttendanceId($id ='')
+    public function GetCategory($userid,$id ='')
     {
         $this->db->select('*');
-        $this->db->from($this->attendance);
+        $this->db->from($this->category);
        
         if($id){
-            $array = array('sid' => $id);
+            $array = array('id' => $id,'user_id'=>$userid);
             $this->db->where($array);
             $query  = $this->db->get();
-            $result = $query->result_array();
+            $result = $query->row_array();
         }else{
-            $query  = $this->db->get();
-            $result = $query->result_array();
-        }
-        
-        // return fetched data
-        return !empty($result)?$result:false;
-    }
-    function GetAttendanceCount($id,$title)
-    {
-        $this->db->select('*');
-        $this->db->from($this->attendance);
-       
-        if($id){
-            $array = array('sid' => $id,'title'=> $title);
+             $array = array('user_id'=>$userid);
             $this->db->where($array);
-            $query  = $this->db->get();
-            $result = $query->result_array();
-        }else{
             $query  = $this->db->get();
             $result = $query->result_array();
         }
@@ -125,43 +84,110 @@ class Vendor_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
-    function GetTrainerId($id ='')
+    public function GetMainCategory($id ='')
     {
         $this->db->select('*');
-        $this->db->from($this->users);
-        if($id){
-            $array = array('id' => $id,'user_type' =>'trainer');
-            $this->db->where($array);
-            $query  = $this->db->get();
-            $result = $query->result_array();
-        }else{
-            $array = array('user_type' =>'trainer');
-            $this->db->where($array);
-            $query  = $this->db->get();
-            $result = $query->result_array();
-        }    
-        // return fetched data
-        return !empty($result)?$result:false;
-    }
-
-    public function InsertFeedback($auth)
-    {
-        $insert = $this->db->insert($this->feedback,$auth);
-         return $insert?true:false;
-    }
-
-    function CheckFeedback($id,$tid)
-    {
-        $this->db->select('*');
-        $this->db->from($this->feedback);
+        $this->db->from($this->category);
        
-            $array = array('student_id' => $id,'tutor_id' =>$tid);
+        if($id){
+            $array = array('id' => $id,'parent_id' =>'0');
             $this->db->where($array);
             $query  = $this->db->get();
-            $result = $query->num_rows();
+            $result = $query->row_array();
+        }else{
+
+            $array = array('parent_id' =>'0');
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
         
         // return fetched data
         return !empty($result)?$result:false;
+    }
+      public function GetSubCategory($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->category);
+       
+        if($id){
+            $array = array('id' => $id,'parent_id !=' =>'0');
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+
+            $array = array('parent_id !=' =>'0');
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function ChangeCategory($reg)
+    {   
+        if ($reg['id']) {
+            $this->db->where('id',$reg['id']);
+            $update = $this->db->update($this->category,$reg);
+            return $update?true:false;
+        }
+        else{
+            $insert = $this->db->insert($this->category,$reg);
+            return $insert?true:false;
+        }
+    }
+
+
+
+    public function DeleteCategory($reg)
+    {
+        $this->db->where('id',$reg);
+        $update = $this->db->delete($this->category);
+       return $update?true:false;
+    }
+
+    public function GetProduct($userid,$id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->products);
+       
+        if($id){
+            $array = array('id' => $id,'user_id'=>$userid);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $array = array('user_id'=>$userid);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function ChangeProduct($reg)
+    {   
+        if ($reg['id']) {
+            $this->db->where('id',$reg['id']);
+            $update = $this->db->update($this->products,$reg);
+            return $update?true:false;
+        }
+        else{
+            $insert = $this->db->insert($this->products,$reg);
+            return $insert?true:false;
+        }
+    }
+
+    public function DeleteProduct($reg)
+    {
+        $this->db->where('id',$reg);
+        $update = $this->db->delete($this->products);
+       return $update?true:false;
     }
 
 }

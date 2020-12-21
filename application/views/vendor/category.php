@@ -1,5 +1,5 @@
  
-<body class="vertical-layout vertical-menu-modern dark-layout 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" data-layout="dark-layout">
+<body class="vertical-layout vertical-menu-modern 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" data-layout="dark-layout">
 <?php require('inc/nav.php')?>
 
     <!-- BEGIN: Content-->
@@ -14,7 +14,7 @@
                             <h2 class="content-header-title float-left mb-0">Categories</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="<?=base_url('admin/dashboard')?>">Home</a>
+                                    <li class="breadcrumb-item"><a href="<?=base_url('vendor/dashboard')?>">Home</a>
                                     </li>
                                     <li class="breadcrumb-item active"> Category List
                                     </li>
@@ -36,19 +36,23 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"><a href="<?=base_url()?>admin/CategoryAdd" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Category Add</a> </h4>
+                                    <h4 class="card-title"><a href="<?=base_url()?>vendor/CategoryAdd" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Category Add</a> </h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">
                                         <p class="card-text">
-                                           <!--  The print button will open a new window in the end user's browser and, by default, automatically trigger the print function allowing the end user to print the table. The window will be closed once the print is complete, or has been cancelled. -->
+                                            Note <span class="text-danger">*</span>
+                                                <ul>
+                                                    <li><strong>Step 1 : </strong> Create Category Parent (<span class="text-danger">  "Main"</span>)</li>
+                                                    <li><strong>Step 2 : </strong> Create SubCategory</li>
+                                                    <li><strong>Step 3 : </strong> Create Product</li>
+                                                </ul>
                                         </p>
                                         <div class="table-responsive">
                                             <table class="table dataex-html5-selectors">
                                                 <thead>
                                                     <tr>
                                                         <th>Category Id</th>
-                                                        <th>Email</th>
                                                         <th>Parent</th>
                                                         <th>Name</th>
                                                         <th>Description</th>
@@ -63,20 +67,10 @@
                                                     <tr>
                                                         <td><?=$items['id']?></td>
                                                         <td><?php
-                                                         $user = $this->admin_model->GetUser($items['user_id']);
-                                                         if($items['user_id'] !='0'){
-                                                             echo $user['user_email'];
-                                                         }
-                                                         else{
-
-                                                            echo "Admin";
-                                                           }
-                                                         ?></td>
-                                                        <td><?php
                                                         if($items['parent_id'] ==0){
                                                             echo '<span class="text-danger">Main</span>';
                                                         }else{
-                                                            $cat_name = $this->admin_model->GetCategory($items['parent_id']);
+                                                            $cat_name = $this->vendor_model->GetCategory($id,$items['parent_id']);
                                                             echo $cat_name['category_name'];
                                                         } 
                                                         ?></td>
@@ -87,12 +81,12 @@
                                                         <td><?=date('F,d Y:h:i:s',strtotime($items['date_modified']))?></td>
                                                         <td>
                                                             <span class="action-edit">
-                                                                <a href="<?=base_url()?>admin/category/edit/<?=$items['id']?>">
+                                                                <a href="<?=base_url()?>vendor/category/edit/<?=$items['id']?>">
                                                                 <i class="feather icon-edit"></i>
                                                                 </a>
                                                             </span>
                                                             <span class="action-delete">
-                                                                <a href="<?=base_url()?>admin/CategoryDelete/<?=$items['id']?>" onclick="return confirm('Are you sure, you want to delete it?')">
+                                                                <a href="<?=base_url()?>vendor/CategoryDelete/<?=$items['id']?>" onclick="return confirm('Are you sure, you want to delete it?')">
                                                                      <span class="text-danger">
                                                                     <i class="feather icon-trash"></i></span>
                                                                 </a>
@@ -104,8 +98,6 @@
                                                 <tfoot>
                                                     <tr>
                                                         <th>Category Id</th>
-                                                        <th>Email</th>
-
                                                         <th>Parent</th>
                                                         <th>Name</th>
                                                         <th>Description</th>

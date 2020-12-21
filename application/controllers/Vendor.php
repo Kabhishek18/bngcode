@@ -77,7 +77,7 @@ class Vendor extends CI_Controller {
 		$emailcheck =$this->vendor_model->CheckEmail($auth);
 		if ($emailcheck==true ) {
 			$this->session->set_flashdata('warning', 'EmailID Already Exist!');
-			redirect('register');
+			redirect('vendor/register');
 		}
 
 
@@ -233,6 +233,288 @@ class Vendor extends CI_Controller {
 		else{
 			$this->session->set_flashdata('warning', 'Access Denied');
 			redirect('vendor');	
+		}
+	}
+
+	public function Category()
+	{
+		$data= $this->session->vendor_account;
+		if($data['user_verified'] =='verified'){
+			$value['datalist']=$this->vendor_model->GetCategory($data['id']);
+			$this->load->view('vendor/inc/header');
+			$this->load->view('vendor/inc/nav',$data);
+			$this->load->view('vendor/category',$value);
+			$this->load->view('vendor/inc/footer');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('vendor');	
+		}
+	}
+
+	//Course Add View
+	public function CategoryAdd()
+	{
+		$data = $this->session->vendor_account;
+		if($data){	
+
+				if ($data['user_type'] =='vendor') {
+					$this->load->view('vendor/inc/header',$data);
+					$urlid = $this->uri->segment(4,0);
+
+					if($urlid){
+						//Update
+						$var['datalist'] = $this->vendor_model->GetCategory($data['id'],$urlid);
+						$this->load->view('vendor/categoryadd',$var);
+					}else{
+						//Add
+						$var['datalist'] = NULL;
+						$this->load->view('vendor/categoryadd',$var);
+					}
+
+					$this->load->view('vendor/inc/footer');
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Sorry, vendor Access Only. Please Contact Your WebAdministrator');
+					if(session_destroy())
+					{
+					$this->session->unset_userdata('vendor_account');	   
+					$this->session->sess_destroy();
+					redirect('vendor/dashboard');
+					}	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Course Insert And Update
+	public function Categoryinsert()
+	{
+		
+		$data = $this->session->vendor_account;
+		if($data){	
+
+				if ($data['user_type'] =='vendor') {
+					
+					$reg['id']=$this->input->post("id");
+					$reg['user_id'] =$data['id'];
+					$reg['category_name']=$this->input->post("category_name");
+					$reg['parent_id']=$this->input->post("parent_id");
+					$reg['category_description']=$this->input->post("category_description");
+					$reg['category_meta']=$this->input->post("category_meta");
+					$reg['category_slug']=$this->input->post("category_slug");
+					$reg['category_status']=$this->input->post("category_status");
+					$reg['status']='Active';
+						$dir ='uploads/cat/';
+						if (!is_dir($dir)) {
+							mkdir($dir, 0777, TRUE);
+						}
+					$config['upload_path'] =  $dir;
+			        $config['allowed_types'] = 'jpg|png|jpeg|mp4|docx|pdf';
+			        $config['max_size'] = 3000;
+			        $this->load->library('upload', $config);
+					$this->upload->initialize($config);
+
+						if($this->upload->do_upload('catimg')){
+				 		$file= $this->upload->data();
+						$reg['category_image'] =$file['file_name'];}
+						else{						
+						}
+
+					if ($reg['id'] == "") {
+						$reg['date_created']=date('Y-m-d');
+					}
+						$reg['date_modified']= date('Y-m-d H:i:s');
+
+					
+					
+						
+							$insert = $this->vendor_model->ChangeCategory($reg);
+							if ($insert) {
+								$this->session->set_flashdata('success', 'Successfully Done');
+								redirect($_SERVER['HTTP_REFERER']);
+							}
+							else{
+								$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+								redirect($_SERVER['HTTP_REFERER']);	
+							}
+			
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Sorry, vendor Access Only. Please Contact Your WebAdministrator');
+					if(session_destroy())
+					{
+					$this->session->unset_userdata('vendor_account');	   
+					$this->session->sess_destroy();
+					redirect('');
+					}	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Course Delete
+	public function CategoryDelete()
+	{
+		$url= $this->uri->segment(3,0); 
+		$insert =$this->vendor_model->DeleteCategory($url);
+		if($insert){
+			$this->session->set_flashdata('warning', 'Deleted Successfully');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect($_SERVER['HTTP_REFERER']);
+		
+		}
+	}
+
+
+
+	public function Product()
+	{
+		$data= $this->session->vendor_account;
+		if($data['user_verified'] =='verified'){
+			$value['datalist']=$this->vendor_model->GetProduct($data['id']);
+			$this->load->view('vendor/inc/header');
+			$this->load->view('vendor/inc/nav',$data);
+			$this->load->view('vendor/product',$value);
+			$this->load->view('vendor/inc/footer');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('vendor');	
+		}
+	}
+
+	//Course Add View
+	public function ProductAdd()
+	{
+		$data = $this->session->vendor_account;
+		if($data){	
+
+				if ($data['user_type'] =='vendor') {
+					$this->load->view('vendor/inc/header',$data);
+					$urlid = $this->uri->segment(4,0);
+
+					if($urlid){
+						//Update
+						$var['datalist'] = $this->vendor_model->GetProduct($urlid);
+						$this->load->view('vendor/productadd',$var);
+					}else{
+						//Add
+						$var['datalist'] = NULL;
+						$this->load->view('vendor/productadd',$var);
+					}
+
+					$this->load->view('vendor/inc/footer');
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Sorry, vendor Access Only. Please Contact Your Webvendoristrator');
+					if(session_destroy())
+					{
+					$this->session->unset_userdata('vendor_account');	   
+					$this->session->sess_destroy();
+					redirect('vendor/dashboard');
+					}	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Course Insert And Update
+	public function Productinsert()
+	{
+		
+		$data = $this->session->vendor_account;
+		if($data){	
+
+				if ($data['user_type'] =='vendor') {
+					
+					$reg['id']=$this->input->post("id");
+					$reg['user_id'] =$data['id'];
+					$reg['product_name']=$this->input->post("product_name");
+					$reg['category_id']=$this->input->post("category_id");
+					$reg['product_information']=$this->input->post("product_information");
+					$reg['product_description']=$this->input->post("product_description");
+					$reg['product_meta']=$this->input->post("product_meta");
+					$reg['product_slug']=$this->input->post("product_slug");
+					$reg['product_status']=$this->input->post("product_status");
+					$reg['status']='Active';
+						$dir ='uploads/pro/';
+						if (!is_dir($dir)) {
+							mkdir($dir, 0777, TRUE);
+						}
+					$config['upload_path'] =  $dir;
+			        $config['allowed_types'] = 'jpg|png|jpeg|mp4|docx|pdf';
+			        $config['max_size'] = 3000;
+			        $this->load->library('upload', $config);
+					$this->upload->initialize($config);
+
+						if($this->upload->do_upload('proimg')){
+				 		$file= $this->upload->data();
+						$reg['product_image'] =$file['file_name'];}
+						else{						
+						}
+						
+					if ($reg['id'] == "") {
+						$reg['date_created']=date('Y-m-d');
+					}
+						$reg['date_modified']= date('Y-m-d H:i:s');
+
+							$insert = $this->vendor_model->ChangeProduct($reg);
+							if ($insert) {
+								$this->session->set_flashdata('success', 'Successfully Done');
+								redirect($_SERVER['HTTP_REFERER']);
+							}
+							else{
+								$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+								redirect($_SERVER['HTTP_REFERER']);	
+							}
+			
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Sorry, vendor Access Only. Please Contact Your WebAdministrator');
+					if(session_destroy())
+					{
+					$this->session->unset_userdata('vendor_account');	   
+					$this->session->sess_destroy();
+					redirect('');
+					}	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Course Delete
+	public function ProductDelete()
+	{
+		$url= $this->uri->segment(3,0); 
+		$insert =$this->vendor_model->DeleteProduct($url);
+		if($insert){
+			$this->session->set_flashdata('warning', 'Deleted Successfully');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect($_SERVER['HTTP_REFERER']);
+		
 		}
 	}
 }

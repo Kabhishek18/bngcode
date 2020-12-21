@@ -28,6 +28,24 @@ class Admin_model extends CI_Model
         }
     }
 
+      public function GetUser($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->users);
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
 
 
     public function GetCategory($id ='')

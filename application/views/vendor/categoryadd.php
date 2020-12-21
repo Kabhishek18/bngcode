@@ -1,4 +1,4 @@
-<body class="vertical-layout vertical-menu-modern dark-layout 2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" data-layout="dark-layout">
+<body class="vertical-layout vertical-menu-modern  2-columns  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="2-columns" data-layout="dark-layout">
 <?php require('inc/nav.php')?>
 
     <script src="//cdn.ckeditor.com/4.14.0/full/ckeditor.js"></script>
@@ -14,9 +14,9 @@
                             <h2 class="content-header-title float-left mb-0">Category</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="<?=base_url('admin/dashboard')?>">Home</a>
+                                    <li class="breadcrumb-item"><a href="<?=base_url('dashboard')?>">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item"><a href="<?=base_url('admin/category')?>">Category</a>
+                                    <li class="breadcrumb-item"><a href="<?=base_url('vendor/category')?>">Category</a>
                                     </li>
                                     <li class="breadcrumb-item active">Add
                                     </li>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="card-content collapse show">
                                     <div class="card-body">
-                                    	<?php echo form_open_multipart('admin/Categoryinsert','class="form-horizontal"') ?> 
+                                    	<?php echo form_open_multipart('vendor/Categoryinsert','class="form-horizontal"') ?> 
                                             <?php if($datalist){?>
                                             <input type="hidden" name="id" value="<?=$datalist['id']?>">
                                         <?php }?>
@@ -72,7 +72,7 @@
 
                                                         }
                                                         else{
-                                                            $cat_name = $this->admin_model->GetCategory($datalist['parent_id']);
+                                                            $cat_name = $this->vendor_model->GetCategory($datalist['parent_id']);
                                                             echo '<span class="text-danger">'.$cat_name['category_name'].'</span>';
                                                         } 
                                                         ?></label>
@@ -87,7 +87,7 @@
                                                         elseif(empty($datalist['parent_id'])){
 
                                                         }else{
-                                                            $cat_name = $this->admin_model->GetCategory($datalist['parent_id']);
+                                                            $cat_name = $this->vendor_model->GetCategory($datalist['parent_id']);
                                                             echo "<optgroup>Selected</optgroup>";
                                                             echo '<option value="'.$cat_name['id'].'">'.$cat_name['category_name'].'</option>';
                                                             echo "<optgroup>Non Selected</optgroup>";
@@ -95,7 +95,7 @@
                                                         } 
                                                         ?>
                                                                 <option value="0"> Main</option>
-                                                                <?php $cat =$this->admin_model->GetMainCategory();
+                                                                <?php $cat =$this->vendor_model->GetMainCategory();
                                                                     foreach($cat as $cate) {?>
                                                                     <option value="<?=$cate['id']?>"><?=$cate['category_name']?></option>    
                                                                 <?php }?>        
@@ -171,18 +171,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-sm-6">
-                                                    <div class="form-group">
-                                                        <div class="controls">
-                                                            <label> Status Active/Inactive <span class="text-danger"><?=(!empty($datalist['status'])?$datalist['status']:'')?></span>  </label>
-                                                            <select class="form-control" name="status">
-                                                                <option value="Active">Active</option>
-                                                                <option value="Inactive">Inactive</option>
-                                                               
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                       
                                             </div>
                                             <button type="submit" class="btn btn-primary" >Submit</button>
                                            

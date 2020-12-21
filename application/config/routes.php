@@ -74,6 +74,17 @@ $route['logout'] ='front/Logout';
 
 $route['vendor/login'] = 'vendor/index';
 $route['vendor/dashboard'] ='vendor/Dashboard';
+
+$route['vendor/category'] ='vendor/Category';
+$route['vendor/category/edit/(:num)'] ='vendor/CategoryAdd';
+$route['vendor/category/add'] ='vendor/CategoryAdd';
+
+$route['vendor/product'] ='vendor/Product';
+$route['vendor/product/edit/(:num)'] ='vendor/ProductAdd';
+$route['vendor/product/add'] ='vendor/ProductAdd';
+
+
+
 $route['vendor/logout'] ='vendor/Logout';
 
 

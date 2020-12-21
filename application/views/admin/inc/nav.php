@@ -61,7 +61,7 @@
                                 </span></div><span><img class="round" src="<?=base_url()?>resource-admin/upload/<?=$user_image?>" alt="avatar" height="40" width="40"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?=base_url()?>user/useredit/<?=$id?>"><i class="feather icon-user"></i> Edit Profile</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="<?=base_url()?>Vendor/Logout"><i class="feather icon-power"></i> Logout</a>
+                                <div class="dropdown-divider"></div><a class="dropdown-item" href="<?=base_url()?>admin/Logout"><i class="feather icon-power"></i> Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -78,7 +78,7 @@
     <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mr-auto"><a class="navbar-brand" href="<?=base_url('vendor/dashboard')?>">
+                <li class="nav-item mr-auto"><a class="navbar-brand" href="<?=base_url('admin/dashboard')?>">
                         
                         <h2 class="brand-text mb-0">BNG</h2>
                     </a></li>
