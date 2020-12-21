@@ -89,5 +89,8 @@ $route['admin/category'] ='admin/Category';
 $route['admin/category/edit/(:num)'] ='admin/CategoryAdd';
 $route['admin/category/add'] ='admin/CategoryAdd';
 
-$route['admin/products'] ='admin/Products';
+$route['admin/product'] ='admin/Product';
+$route['admin/product/edit/(:num)'] ='admin/ProductAdd';
+$route['admin/product/add'] ='admin/ProductAdd';
+
 $route['admin/logout'] ='admin/Logout';

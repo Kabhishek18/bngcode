@@ -99,7 +99,7 @@
                     <ul class="menu-content">
                         <li><a href="<?=base_url()?>admin/category"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Category</span></a>
                         </li>
-                        <li><a href="<?=base_url()?>admin/products"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Product</span></a>
+                        <li><a href="<?=base_url()?>admin/product"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Product</span></a>
                         </li>
                     </ul>
                 </li>

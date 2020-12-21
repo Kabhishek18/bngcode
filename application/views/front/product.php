@@ -29,9 +29,9 @@
       <div class="col-md-12 col-sm-8 col-xs-12">
         <div class="slider">
           <div class="detail-gallery">
-            <div class="detail-gallery-preview"> <a href="<?=base_url()?>resource/images/product_item/gallery-1.jpg"> <img src="<?=base_url()?>resource/images/product_item/gallery-1.jpg" alt="" / width="100%"> </a> </div>
+            <div class="detail-gallery-preview"> <a href="<?=base_url()?>uploads/pro/<?=$product_image?>"> <img src="<?=base_url()?>uploads/pro/<?=$product_image?>" alt=""  width="100%"> </a> </div>
             <ul class="detail-gallery-index">
-              <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>resource/images/product_item/gallery-1.jpg"><img src="<?=base_url()?>resource/images/product_item/gallery-1.jpg" alt=""> </a> </li>
+              <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>uploads/pro/<?=$product_image?>"><img src="<?=base_url()?>uploads/pro/<?=$product_image?>" alt=""> </a> </li>
               <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>resource/images/product_item/gallery-2.jpg"><img src="<?=base_url()?>resource/images/product_item/gallery-2.jpg" alt=""> </a> </li>
               <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>resource/images/product_item/gallery-3.jpg"><img src="<?=base_url()?>resource/images/product_item/gallery-3.jpg" alt=""> </a> </li>
               <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>resource/images/product_item/gallery-4.jpg"><img src="<?=base_url()?>resource/images/product_item/gallery-4.jpg" alt=""> </a> </li>
