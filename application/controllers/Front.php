@@ -286,4 +286,33 @@ class Front extends CI_Controller {
 			redirect('');
 		}
 	}
+
+
+	public function Requirements()
+	{
+		$data= $this->session->user_account;
+		if($data['user_verified'] =='verified'){
+			$reg['uid'] =$data['id'];
+			$reg['pid'] =$this->input->post('pid');
+				$vat['user_name'] =$this->input->post('user_name');
+				$vat['user_email'] =$this->input->post('user_email');
+				$vat['requirement'] =$this->input->post('requirement');
+			$reg['description'] =json_encode($vat);	
+			$reg['date_created'] =date('y-m-d');
+			$insert =$this->front_model->InsertQuery($reg);
+			if($insert)
+			{
+				$this->session->set_flashdata('success', 'Thank you, Your Query Is Submited');
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+			else{
+				$this->session->set_flashdata('warning', 'Something Misfortune Happened');
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+	}
 }

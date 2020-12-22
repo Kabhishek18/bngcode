@@ -26,7 +26,7 @@
 <div id="vfx-product-inner-item">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 col-sm-8 col-xs-12">
+      <div class="col-md-9 col-sm-8 col-xs-12">
         <div class="slider">
           <div class="detail-gallery">
             <div class="detail-gallery-preview"> <a href="<?=base_url()?>uploads/pro/<?=$product_image?>"> <img src="<?=base_url()?>uploads/pro/<?=$product_image?>" alt=""  width="100%"> </a> </div>
@@ -128,7 +128,36 @@
           </div>
         </div>
       </div>
-     
+      <div class="col-md-3 col-sm-4 col-xs-12">
+        <div class="card">
+          <form class="form-group" method="post" action="<?=base_url()?>front/Requirements">
+          <div class="form-group">
+            <input type="hidden" value="<?=$id?>"  name="pid">
+            <div class="controls">
+                <label>User Name</label>
+                <input type="text" name="user_name" class="form-control" placeholder="User Name">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="controls">
+                <label>User Email</label>
+                <input type="email" name="user_email" class="form-control" placeholder="User Email">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="controls">
+                <label>Query</label>
+                <textarea class="form-control" name="requirement" placeholder="Requirement"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="controls">
+              <input type="submit" class="btn btn-success" name="submit">
+            </div>
+        </div>
+      </form>
+        </div>
+      </div>  
     </div>
   </div>
 </div>

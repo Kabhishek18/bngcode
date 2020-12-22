@@ -26,12 +26,21 @@
                 
                 <li class="btn_item">
 				    <ul>
+             <?php if(!$this->session->user_account){?> 
 						<li>
 						  <button class="btn_login" data-toggle="modal" data-target="#login">Login</button>
 						</li>
 						<li>
 						  <button class="btn_register" data-toggle="modal" data-target="#register">Register</button>
 						</li>
+              <?php }else{ $value = $this->session->user_account;?>
+                <li>
+              <button class="btn_login" onclick="window.location.href='<?=base_url()?>dashboard'">Dashboard</button>
+            </li>
+            <li>
+              <button class="btn_register"  onclick="window.location.href='<?=base_url()?>logout'">Logout</button>
+            </li>
+              <?php  } ?>
 				    </ul>	
                 </li>
               </ul>

@@ -8,6 +8,7 @@ class Front_model extends CI_Model
         $this->users   = 'users';
         $this->category   = 'categories';
         $this->product   = 'products';
+        $this->requirement   = 'requirement';
     }
 
  
@@ -151,5 +152,30 @@ class Front_model extends CI_Model
         $result = $query->result_array();
         return !empty($result)?$result:false;
     
+    }
+
+     public function InsertQuery($auth)
+    {
+        $insert = $this->db->insert($this->requirement,$auth);
+         return $insert?true:false;
+    }
+
+    public function GetQueryList($id='')
+    {
+         $this->db->select('*');
+        $this->db->from($this->requirement);
+       
+        if($id){
+            $array = array('id' => $id,);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
     }
 }
