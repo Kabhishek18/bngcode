@@ -228,6 +228,17 @@ class Front extends CI_Controller {
 		}
 	}
 
+	public function categorysingle()
+	{	
+		$id =$this->uri->segment(2,0);
+
+		$data['categories'] = $this->front_model->GetCatSub($id);
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/categorysingle',$data);
+		$this->load->view('front/inc/footer');
+	}
+
 
 	public function Category()
 	{

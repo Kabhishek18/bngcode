@@ -62,6 +62,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['default_controller'] = 'front/index';
 $route['dashboard'] ='front/dashboard';
 $route['categories'] ='front/category';
+$route['category/(:num)'] ='front/categorysingle';
 $route['subcategories/(:num)'] ='front/SubCategory';
 $route['products/(:num)'] ='front/Products';
 $route['logout'] ='front/Logout';
@@ -75,10 +76,12 @@ $route['logout'] ='front/Logout';
 $route['vendor/login'] = 'vendor/index';
 $route['vendor/dashboard'] ='vendor/Dashboard';
 
+//Category
+
 $route['vendor/category'] ='vendor/Category';
 $route['vendor/category/edit/(:num)'] ='vendor/CategoryAdd';
 $route['vendor/category/add'] ='vendor/CategoryAdd';
-
+//Product
 $route['vendor/product'] ='vendor/Product';
 $route['vendor/product/edit/(:num)'] ='vendor/ProductAdd';
 $route['vendor/product/add'] ='vendor/ProductAdd';
