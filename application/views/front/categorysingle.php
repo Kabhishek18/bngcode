@@ -19,25 +19,13 @@
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="feature-item-container-box listing-item">
               <div class="feature-title-item">
-                <h1>Food</h1>
+                <h1><?=$subcat['category_slug']?></h1>
                 <img src="<?=base_url()?>uploads/cat/<?=$subcat['category_image']?>" alt="img1"> </div>
-              <div class="hover-overlay">
-                <div class="hover-overlay-inner">                  
-                  <ul class="listing-links">
-                    <li><a href="#"><i class="fa fa-heart green-1 "></i></a></li>
-                    <li><a href="#"><i class="fa fa-map-marker blue-1"></i></a></li>
-                    <li><a href="#"><i class="fa fa-share yallow-1"></i></a></li>
-                  </ul>
-                </div>
-              </div>
+         
               <div class="feature-box-text">
-                <h3><a href="listing_detail.html">Hello Directory Listing</a></h3>
-                <a href="#"><i class="fa fa-phone"></i> +91 087 654 3210</a>
-                <p>Eiusmod tempor incidiunt labore velit dolore magna aliqu sed veniam quis nostrud lorem ipsum dolor sit amet consectetur...</p>
+                <h3><a href="<?=base_url()?>subcategories/<?=$subcat['id']?>"><?=$subcat['category_name']?></a></h3>
+                <p><?=$subcat['category_description']?></p>
               </div>
-              <div class="feature-item-location">
-                <h2><i class="fa fa-map-marker"></i> Your City Here</h2>
-                <span> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </span> </div>
             </div>
           </div>
           <?php }?>

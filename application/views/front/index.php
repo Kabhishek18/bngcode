@@ -71,7 +71,7 @@
             <div class="categorie_item">
               <div class="cate_item_block hi-icon-effect-8">
                 <div class="cate_item_social hi-icon"><i class="fa fa-home"></i></div>
-                <h1><a href="#"><?=$cat['category_name']?></a></h1>
+                <h1><a href="<?=base_url()?>category/<?=$cat['id']?>"><?=$cat['category_name']?></a></h1>
               </div>
             </div>
           </div>

@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm-12 text-center">
         <div class="breadcrum-inner-header">
-          <h1>Subcategory Listing </h1>
+          <h1>Product Listing </h1>
           <a href="<?=base_url()?>">Home</a> <i class="fa fa-circle"></i> <a href="javascript:void(0)"><span>Subcategories</span></a> </div>
       </div>
     </div>
