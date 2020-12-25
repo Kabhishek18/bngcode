@@ -326,4 +326,16 @@ class Front extends CI_Controller {
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}
+
+	//Dealer Ship Form
+
+	public function Dealership($value='')
+	{
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/dealership');
+		$this->load->view('front/inc/footer');
+	}
+
+
 }

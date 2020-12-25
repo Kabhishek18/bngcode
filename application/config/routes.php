@@ -61,6 +61,8 @@ $route['translate_uri_dashes'] = FALSE;
                                              
 $route['default_controller'] = 'front/index';
 $route['dashboard'] ='front/dashboard';
+//DealerShip
+$route['logistics'] ='front/Dealership';
 //Category
 $route['categories'] ='front/category';
 //Category Single

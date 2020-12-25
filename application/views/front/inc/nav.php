@@ -20,7 +20,7 @@
               <ul>
                 <li class="active"><a href="<?=base_url()?>">Home</a></li>
                 <li><a href="#">Exporter</a></li>
-                <li><a href="#">Logistics Lead</a></li>
+                <li><a href="<?=base_url()?>logistics">Logistics Lead</a></li>
                 <li><a href="#">Products</a></li>
                 <li><a href="<?=base_url()?>categories">Categories</a></li>
                 
