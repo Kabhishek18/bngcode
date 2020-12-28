@@ -329,7 +329,7 @@ class Front extends CI_Controller {
 
 	//Dealer Ship Form
 
-	public function Dealership($value='')
+	public function Dealership()
 	{
 		$this->load->view('front/inc/header');
 		$this->load->view('front/inc/nav');
@@ -337,5 +337,10 @@ class Front extends CI_Controller {
 		$this->load->view('front/inc/footer');
 	}
 
+	public function LogisticsLead()
+	{
+		echo "<pre>";
+		print_r($_POST);
+	}
 
 }
