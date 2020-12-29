@@ -339,8 +339,23 @@ class Front extends CI_Controller {
 
 	public function LogisticsLead()
 	{
-		echo "<pre>";
-		print_r($_POST);
+			$dir ='uploads/lead/';
+						if (!is_dir($dir)) {
+							mkdir($dir, 0777, TRUE);
+						}
+					$config['upload_path'] =  $dir;
+			        $config['allowed_types'] = 'jpg|png|jpeg|mp4|docx|pdf';
+			        $config['max_size'] = 3000;
+			        $this->load->library('upload', $config);
+					$this->upload->initialize($config);
+
+						if($this->upload->do_upload('uploadfile')){
+				 		$file= $this->upload->data();
+						$_POST ['uploadfile'] =$file['file_name'];}
+						else{						
+						}
+		$data =json_encode($_POST);
+		echo $data;
 	}
 
 }

@@ -24,7 +24,8 @@ hr.someClass {
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="row">
-         <form class="form-float form-alt" method="post" action="<?=base_url()?>logisticslead">
+          <?=form_open_multipart('logisticslead')?>
+         
             <div class="row">
               <div class="form-group col-xs-12 col-sm-12">
                 <label>Freight Lead Title</label>
