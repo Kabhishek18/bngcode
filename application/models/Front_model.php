@@ -9,6 +9,7 @@ class Front_model extends CI_Model
         $this->category   = 'categories';
         $this->product   = 'products';
         $this->requirement   = 'requirement';
+        $this->order  ='orders';
     }
 
  
@@ -177,5 +178,12 @@ class Front_model extends CI_Model
         
         // return fetched data
         return !empty($result)?$result:false;
+    }
+
+
+    public function InsertOrder($value)
+    {
+         $insert = $this->db->insert($this->order,$value);
+         return $insert?true:false;
     }
 }

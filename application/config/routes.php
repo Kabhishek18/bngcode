@@ -12,6 +12,7 @@ $route['translate_uri_dashes'] = FALSE;
                                              
 $route['default_controller'] = 'front/index';
 $route['dashboard'] ='front/dashboard';
+
 $route['logisticslead'] ='front/LogisticsLead';
 
 //DealerShip
@@ -34,6 +35,10 @@ $route['logout'] ='front/Logout';
 
 $route['vendor/login'] = 'vendor/index';
 $route['vendor/dashboard'] ='vendor/Dashboard';
+$route['AjaxRequest'] ='vendor/AjaxRequest';
+$route['payment'] ='vendor/Payment';
+$route['thankyou'] = 'vendor/RazorThankYou';
+$route['checkout'] ='vendor/Checkout';
 
 //Category
 

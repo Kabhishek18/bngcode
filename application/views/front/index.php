@@ -380,7 +380,7 @@
             <div class="price-table-feature-block">
               <h1>Basic</h1>
               <hr>
-              <p>Free <span>$24</span> Per Month</p>
+              <p>Free <span>$50</span> Per Month</p>
               <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
               <div class="vfx-price-list-item">
                 <h2>Limited Number</h2>
@@ -395,7 +395,7 @@
                 <p>Our company offers best pricing options for field agents and companies.</p>
               </div>
               <div class="vfx-price-btn">
-                <button class="purchase-btn"><i class="fa fa-unlock-alt"></i> Purchase Now</button>
+                <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'"><i class="fa fa-unlock-alt"></i> Purchase Now</button>
               </div>
             </div>
           </div>
@@ -403,7 +403,7 @@
             <div class="price-table-feature-block active">
               <h1>Premium</h1>
               <hr>
-              <p>Free <span>$49</span> Per Month</p>
+              <p>Free <span>$100</span> Per Month</p>
               <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
               <div class="vfx-price-list-item">
                 <h2>Unlimited Number</h2>
@@ -418,7 +418,7 @@
                 <p>Our company offers best pricing options for field agents and companies.</p>
               </div>
               <div class="vfx-price-btn">
-                <button class="purchase-btn"><i class="fa fa-unlock-alt"></i> Purchase Now</button>
+                <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'"><i class="fa fa-unlock-alt"></i> Purchase Now</button>
               </div>
             </div>
           </div>
@@ -426,7 +426,7 @@
             <div class="price-table-feature-block">
               <h1>Plus</h1>
               <hr>
-              <p>Free <span>$99</span> Per Month</p>
+              <p>Free <span>$200</span> Per Month</p>
               <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
               <div class="vfx-price-list-item">
                 <h2>Unlimited Number</h2>
@@ -441,7 +441,7 @@
                 <p>Our company offers best pricing options for field agents and companies.</p>
               </div>
               <div class="vfx-price-btn">
-                <button class="purchase-btn"><i class="fa fa-unlock-alt"></i> Purchase Now</button>
+                <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'" ><i class="fa fa-unlock-alt"></i> Purchase Now</button>
               </div>
             </div>
           </div>

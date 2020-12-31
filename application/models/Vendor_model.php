@@ -8,6 +8,7 @@ class Vendor_model extends CI_Model
         $this->users   = 'users';
         $this->category   = 'categories';
         $this->products   = 'products';
+        $this->order  ='orders';
     }
 
  
@@ -190,4 +191,30 @@ class Vendor_model extends CI_Model
        return $update?true:false;
     }
 
+    public function InsertOrder($value)
+    {
+         $insert = $this->db->insert($this->order,$value);
+         return $insert?true:false;
+    }
+
+     public function GetCategory($userid,$id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->order);
+       
+        if($id){
+            $array = array('order_id' => $id,'uid'=>$userid);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+             $array = array('uid'=>$userid);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
 }

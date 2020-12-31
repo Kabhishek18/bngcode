@@ -517,4 +517,163 @@ class Vendor extends CI_Controller {
 		
 		}
 	}
+
+
+public function Checkout($value='')
+	{
+		$data= $this->session->vendor_account;
+		if($data['user_verified'] =='verified'){
+			$this->load->view('front/inc/header');
+			$this->load->view('front/inc/nav');
+			$this->load->view('front/checkout',$data);
+			$this->load->view('front/inc/footer');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Please Login Vendor ID To Have Access');
+			redirect('');	
+		}
+	}
+
+	public function AjaxRequest()
+	{
+		$value =$this->input->post('title');
+		if($value =='1'){
+			$data = array('name' =>'Basic Plan' ,'price' =>'50' );
+			echo json_encode($data);
+		}
+		elseif($value =='2'){
+			$data = array('name' =>'Premium Plan' ,'price' =>'100' );
+			echo json_encode($data);
+
+		}
+
+		elseif($value =='3'){
+			$data = array('name' =>'Plus Plan' ,'price' =>'200' );
+			echo json_encode($data);
+
+		}
+		else{
+			echo "error";
+		}
+	}
+
+
+	public function Payment()
+	{
+		$data= $this->session->vendor_account;
+		if($data['user_verified'] =='verified'){
+			$reg['fname'] =$this->input->post('fname');
+			$reg['lname'] =$this->input->post('lname');
+			$reg['email'] =$this->input->post('email');
+			$reg['address'] =$this->input->post('address');
+			$reg['address2'] =$this->input->post('address2');
+			$reg['country'] =$this->input->post('country');
+			$reg['city'] =$this->input->post('city');
+			$reg['postcode'] =$this->input->post('postcode');
+			$reg['product'] =$this->input->post('product');
+			$reg['paymentmethod'] =$this->input->post('paymentmethod');
+			$reg['planname'] =$this->input->post('planname');
+			$reg['planprice'] =$this->input->post('planprice');
+
+			$this->session->set_userdata('order',$reg);
+
+			 if($reg['paymentmethod'] =='razorpay')
+			 {
+			 	$this->load->view('front/inc/header');
+			 	$this->load->view('front/inc/nav');
+			 	$this->load->view('front/razorpay',$_SESSION['order']);
+			 	$this->load->view('front/inc/footer');
+			 }
+			 elseif($reg['paymentmethod'] =='paypal')
+			 {
+			 	$this->load->view('front/inc/header');
+			 	$this->load->view('front/inc/nav');
+			 	$this->load->view('front/paypal',$reg);
+			 	$this->load->view('front/inc/footer');
+			 }
+		
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Please Login To Have Access');
+			redirect('');	
+		}
+	}
+
+	//Apply Coupon
+	public function ApplyCoupon(){
+		$coupon =$this->input->post('coupon');
+		if (!empty($coupon)) {
+			$ticket =$this->front_model->Getcoupon($coupon);
+			if($ticket){
+			 	$todaydate =date('Y-m-d');
+              	$expdate =$ticket['coupon_expire'];
+              
+                if($todaydate <=$expdate){
+					$this->session->set_userdata('ticket',$ticket);
+			
+					$this->session->set_flashdata('success', '<span style="color:green">Coupon Added successfully </span>');
+					redirect('checkout');
+				}
+				else{
+					$this->session->set_flashdata('wrong', '<span style="color:orange">Sorry, Coupon Expired!! </span>');
+					redirect('checkout');
+				}
+			}
+
+			else{
+			$this->session->set_flashdata('wrong', '<span style="color:red">Coupon not available</span>');
+			redirect('checkout');
+			}	
+		}
+		else{
+			$this->session->set_flashdata('success', '<span style="color:green">Somthing Misfortne Happens </span>');
+					redirect('checkout');
+		}
+	}
+
+	function coupondestroy(){
+		$this->session->unset_userdata('ticket');	
+		redirect('checkout');
+	
+	}
+
+ 	public function razorPaySuccess()
+    { 
+    		$data= $this->session->vendor_account;
+	    	if ($_SESSION['order']) {
+				$order['uid'] = $data['id'];
+	    		$order['order_amount'] =$_SESSION['order']['planprice'];
+	    		$order['order_detail'] =json_encode($_SESSION['order']);
+	    		$order['date_created'] =date('F,d Y');
+	    		$order['order_id'] = $this->input->post('razorpay_payment_id');
+				$insert= $this->vendor_model->insertorder($order);	
+	    		if($insert){
+		    	 $arr = array('msg' => 'Payment successfully credited', 'status' => true);  
+		    	 echo json_encode($arr);
+		 		}
+		 		else {
+		 		 $arr = array('msg' => 'Something Misfortune Happened!!', 'status' => true);  
+		    	 echo json_encode($arr);
+		 				
+		 		}
+		 	}
+		
+    }
+    
+    public function RazorThankYou()
+    {
+	$this->session->set_flashdata('success', 'Order Successfully');
+     $this->load->view('front/inc/header');
+     $this->load->view('front/inc/nav');
+     $this->load->view('front/inc/footer'); 	
+     $this->session->unset_userdata('order');
+     $this->session->unset_userdata('checkout');
+     sleep(4);
+     redirect('vendor/dashboard');
+
+    }
+
+
+
+    	
 }

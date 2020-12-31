@@ -78,7 +78,7 @@
     <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
-                <li class="nav-item mr-auto"><a class="navbar-brand" href="<?=base_url('vendor/dashboard')?>">
+                <li class="nav-item mr-auto"><a class="navbar-brand" href="<?=base_url('')?>">
                         
                         <h2 class="brand-text mb-0">BNG</h2>
                     </a></li>
@@ -89,8 +89,9 @@
         <div class="main-menu-content">
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
+                <li class="nav-item"><a href="<?=base_url()?>"><i class="feather icon-home"></i><span class="menu-title" data-i8n="">Homepage</span></a></li>
                 <li class=" nav-item "><a href="javascript:void(0)"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
-                       
+                          
                 </li>
                    <li class=" navigation-header"><span>Categories, Products</span>
                 </li>
@@ -102,8 +103,11 @@
                         </li>
                     </ul>
                 </li>
-             
-
+                <li><a href="<?=base_url()?>vendor/checkout"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Buy Subscription</span></a>
+                        </li>
+                <li><a href="<?=base_url()?>vendor/order"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Orders</span></a>
+                        </li>
+                        
 
             </ul>
         </div>

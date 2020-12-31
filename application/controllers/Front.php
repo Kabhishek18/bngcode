@@ -368,4 +368,6 @@ class Front extends CI_Controller {
 		echo $data;
 	}
 
+	
+
 }
