@@ -518,8 +518,7 @@ class Vendor extends CI_Controller {
 		}
 	}
 
-
-public function Checkout($value='')
+	public function Checkout()
 	{
 		$data= $this->session->vendor_account;
 		if($data['user_verified'] =='verified'){
@@ -662,7 +661,7 @@ public function Checkout($value='')
     
     public function RazorThankYou()
     {
-	$this->session->set_flashdata('success', 'Order Successfully');
+		$this->session->set_flashdata('success', 'Order Successfully');
      $this->load->view('front/inc/header');
      $this->load->view('front/inc/nav');
      $this->load->view('front/inc/footer'); 	
@@ -673,7 +672,53 @@ public function Checkout($value='')
 
     }
 
+    public function Requirement()
+    {
+    	$data= $this->session->vendor_account;
+		if($data['user_verified'] =='verified'){
+			$order = $this->vendor_model->GetOrder($data['id']);
+			if(!empty($order)){
+				$orderplan  =json_decode($order['order_detail'],true);
+				if($orderplan['product'] ==1){
+					$limit =10;
+					$start = 5 ;
+				}elseif ($orderplan['product'] ==2) {
+					$limit =25;
+					$start =0;	
+				}else{
+					$limit=null;
+					$start = null;
+				}	
 
+				$value['datalist']=$this->vendor_model->GetQueryListLimit($limit,$start,$data['id']);
+				$this->load->view('vendor/inc/header');
+				$this->load->view('vendor/inc/nav',$data);
+				$this->load->view('vendor/requirement',$value);
+				$this->load->view('vendor/inc/footer');
+			}
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('vendor');	
+		}
+    	
+    }
 
+    public function Subscription()
+    {
+    	$data= $this->session->vendor_account;
+		if($data['user_verified'] =='verified'){
+				$order['sub'] = $this->vendor_model->GetOrder($data['id']);
+				$this->load->view('vendor/inc/header');
+				$this->load->view('vendor/inc/nav',$data);
+				$this->load->view('vendor/subscription',$order);
+				$this->load->view('vendor/inc/footer');
+			}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('vendor');	
+		}
+    	
+    }
     	
 }

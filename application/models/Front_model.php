@@ -167,10 +167,10 @@ class Front_model extends CI_Model
         $this->db->from($this->requirement);
        
         if($id){
-            $array = array('id' => $id,);
+            $array = array('uid' => $id,);
             $this->db->where($array);
             $query  = $this->db->get();
-            $result = $query->row_array();
+            $result = $query->result_array();
         }else{
             $query  = $this->db->get();
             $result = $query->result_array();
@@ -185,5 +185,13 @@ class Front_model extends CI_Model
     {
          $insert = $this->db->insert($this->order,$value);
          return $insert?true:false;
+    }
+
+
+    public function DeleteRequirement($reg)
+    {
+        $this->db->where('id',$reg);
+        $update = $this->db->delete($this->requirement);
+       return $update?true:false;
     }
 }

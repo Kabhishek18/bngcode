@@ -355,4 +355,57 @@ class Admin extends CI_Controller {
 		
 		}
 	}
+
+	public function Requirement()
+    {
+    	$data= $this->session->admin_account;
+		if($data['user_verified'] =='verified'){
+			$req['datalist']= $this->admin_model->GetQueryListLimit();
+				$this->load->view('admin/inc/header');
+				$this->load->view('admin/inc/nav',$data);
+				$this->load->view('admin/requirement',$req);
+				$this->load->view('admin/inc/footer');
+			
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('admin');	
+		}
+    	
+    }
+
+    public function Subscription()
+    {
+    	$data= $this->session->admin_account;
+		if($data['user_verified'] =='verified'){
+				$order['datalist'] = $this->admin_model->GetOrder();
+				$this->load->view('admin/inc/header');
+				$this->load->view('admin/inc/nav',$data);
+				$this->load->view('admin/subscription',$order);
+				$this->load->view('admin/inc/footer');
+			}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('admin');	
+		}
+    	
+    }
+
+
+
+    public function RequirementDelete()
+	{
+		$url= $this->uri->segment(3,0); 
+		$insert =$this->admin_model->DeleteRequirement($url);
+		if($insert){
+			$this->session->set_flashdata('warning', 'Deleted Successfully');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect($_SERVER['HTTP_REFERER']);
+		
+		}
+	}
+
 }

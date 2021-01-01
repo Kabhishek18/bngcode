@@ -103,11 +103,17 @@
                         </li>
                     </ul>
                 </li>
+                <?php $order = $this->vendor_model->GetOrder($id);?>
+                <?php if(empty($order)){?>
                 <li><a href="<?=base_url()?>vendor/checkout"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Buy Subscription</span></a>
                         </li>
-                <li><a href="<?=base_url()?>vendor/order"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Orders</span></a>
+                <?php }else {?>
+                 <li><a href="<?=base_url()?>vendor/requirement"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Requirement</span></a>
                         </li>
-                        
+                 
+                <li><a href="<?=base_url()?>vendor/Subscription"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Subscription</span></a>
+                        </li>          
+                <?php }?>    
 
             </ul>
         </div>

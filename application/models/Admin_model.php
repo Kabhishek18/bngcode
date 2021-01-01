@@ -8,6 +8,9 @@ class Admin_model extends CI_Model
         $this->users   = 'users';
         $this->category   = 'categories';
         $this->products   = 'products';
+          $this->order  ='orders';
+
+        $this->requirement   = 'requirement';
     }
 
  
@@ -28,7 +31,28 @@ class Admin_model extends CI_Model
         }
     }
 
-      public function GetUser($id ='')
+    public function GetOrder($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->order);
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+             $this->db->order_by("date_modified", "desc");
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+
+    public function GetUser($id ='')
     {
         $this->db->select('*');
         $this->db->from($this->users);
@@ -47,6 +71,43 @@ class Admin_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
+    public function GetCategoryId($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->category);
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+     public function GetProductId($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->products);
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
 
     public function GetCategory($id ='')
     {
@@ -168,6 +229,25 @@ class Admin_model extends CI_Model
     {
         $this->db->where('id',$reg);
         $update = $this->db->delete($this->products);
+       return $update?true:false;
+    }
+
+    public function GetQueryListLimit()
+    {
+         $this->db->select('*');
+        $this->db->from($this->requirement);
+        
+        $this->db->order_by("date_modified", "desc");  
+         $query  = $this->db->get();
+        $result = $query->result_array();  
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function DeleteRequirement($reg='')
+    {
+       $this->db->where('id',$reg);
+        $update = $this->db->delete($this->requirement);
        return $update?true:false;
     }
 }

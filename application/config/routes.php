@@ -12,6 +12,7 @@ $route['translate_uri_dashes'] = FALSE;
                                              
 $route['default_controller'] = 'front/index';
 $route['dashboard'] ='front/dashboard';
+$route['requirement'] ='front/Requirement';
 
 $route['logisticslead'] ='front/LogisticsLead';
 
@@ -35,6 +36,7 @@ $route['logout'] ='front/Logout';
 
 $route['vendor/login'] = 'vendor/index';
 $route['vendor/dashboard'] ='vendor/Dashboard';
+$route['vendor/requirement'] ='vendor/Requirement';
 $route['AjaxRequest'] ='vendor/AjaxRequest';
 $route['payment'] ='vendor/Payment';
 $route['thankyou'] = 'vendor/RazorThankYou';
@@ -66,7 +68,7 @@ $route['admin/dashboard'] ='admin/Dashboard';
 $route['admin/category'] ='admin/Category';
 $route['admin/category/edit/(:num)'] ='admin/CategoryAdd';
 $route['admin/category/add'] ='admin/CategoryAdd';
-
+$route['admin/requirement'] ='admin/Requirement';
 $route['admin/product'] ='admin/Product';
 $route['admin/product/edit/(:num)'] ='admin/ProductAdd';
 $route['admin/product/add'] ='admin/ProductAdd';

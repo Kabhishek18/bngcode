@@ -11,12 +11,12 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Products</h2>
+                            <h2 class="content-header-title float-left mb-0">Requirement</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="<?=base_url('vendor/dashboard')?>">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Product List
+                                    <li class="breadcrumb-item active">Requirement List
                                     </li>
                                 </ol>
                             </div>
@@ -36,7 +36,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title"><a href="<?=base_url()?>vendor/ProductAdd" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Product Add</a> </h4>
+                                 
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">
@@ -44,59 +44,44 @@
                                            <!--  The print button will open a new window in the end user's browser and, by default, automatically trigger the print function allowing the end user to print the table. The window will be closed once the print is complete, or has been cancelled. -->
                                         </p>
                                         <div class="table-responsive">
+
                                             <table class="table dataex-html5-selectors">
                                                 <thead>
                                                     <tr>
-                                                        <th>Product Id</th>
+                                                        <th>Product</th>
                                                         <th>Parent</th>
-                                                        <th>Name</th>
-                                                        <th>Status</th>
-                                                        <th>vendor Status</th>
+                                                        <th>Description</th>
                                                         <th>Last Modified</th>
-                                                        <th>Actions</th>
+                                                     
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                    <?php foreach($datalist as $items):?>
                                                     <tr>
-                                                        <td><?=$items['id']?></td>
+                                                        <?php $product =$this->vendor_model->GetProductId($id);?>
+                                                        <td><?=$product['product_name']?></td>
                                                         <td><?php
-                                                        if($items['category_id'] ==0){
+                                                        if($product['category_id'] ==0){
                                                             echo '<span class="text-danger">Main</span>';
                                                         }else{
-                                                            $cat_name = $this->vendor_model->GetCategoryId($items['category_id']);
+                                                            $cat_name = $this->vendor_model->GetCategoryId($product['category_id']);
                                                             echo $cat_name['category_name'];
                                                         } 
                                                         ?></td>
-                                                        <td><?=$items['product_name']?></td>
-                                                        <td><?=($items['product_status']=='active'?'Active':'<span class="text-danger">Inactive</span>')?></td>
-                                                        <td><?=($items['status']=='Active'?'Active':' <span class="text-danger">Inactive</span>')?></td>
+                                                        <td><?php $desc = json_decode($items['description'],true);?><pre><?=$desc['user_name']?></pre>
+                                                            <pre><?=$desc['user_email']?></pre><?=$desc['requirement']?></td>
+                                                      
                                                         <td><?=date('F,d Y:h:i:s',strtotime($items['date_modified']))?></td>
-                                                        <td>
-                                                            <span class="action-edit">
-                                                                <a href="<?=base_url()?>vendor/product/edit/<?=$items['id']?>">
-                                                                <i class="feather icon-edit"></i>
-                                                                </a>
-                                                            </span>
-                                                            <span class="action-delete">
-                                                                <a href="<?=base_url()?>vendor/ProductDelete/<?=$items['id']?>" onclick="return confirm('Are you sure, you want to delete it?')">
-                                                                     <span class="text-danger">
-                                                                    <i class="feather icon-trash"></i></span>
-                                                                </a>
-                                                            </span>
-                                                        </td>
                                                     </tr>                                                        
                                                    <?php endforeach;?>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>Category Id</th>
+                                                        <th>Product Id</th>
                                                         <th>Parent</th>
-                                                        <th>Name</th>
-                                                        <th>Status</th>
-                                                        <th>Created</th>
+                                                        <th>Description</th>
                                                         <th>Last Modified</th>
-                                                        <th>Actions</th>
+                                                        
                                                     </tr>
                                                 </tfoot>
                                             </table>

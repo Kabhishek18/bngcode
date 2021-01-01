@@ -9,6 +9,7 @@ class Vendor_model extends CI_Model
         $this->category   = 'categories';
         $this->products   = 'products';
         $this->order  ='orders';
+        $this->requirement   = 'requirement';
     }
 
  
@@ -77,6 +78,27 @@ class Vendor_model extends CI_Model
         }else{
              $array = array('user_id'=>$userid);
             $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    
+
+    public function GetCategoryId($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->category);
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
             $query  = $this->db->get();
             $result = $query->result_array();
         }
@@ -171,6 +193,25 @@ class Vendor_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
+     public function GetProductId($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->products);
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
     public function ChangeProduct($reg)
     {   
         if ($reg['id']) {
@@ -197,7 +238,7 @@ class Vendor_model extends CI_Model
          return $insert?true:false;
     }
 
-     public function GetCategory($userid,$id ='')
+    public function GetOrder($userid,$id ='')
     {
         $this->db->select('*');
         $this->db->from($this->order);
@@ -211,10 +252,46 @@ class Vendor_model extends CI_Model
              $array = array('uid'=>$userid);
             $this->db->where($array);
             $query  = $this->db->get();
+            $result = $query->row_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function GetQueryList($id='')
+    {
+         $this->db->select('*');
+        $this->db->from($this->requirement);
+       
+        if($id){
+            $array = array('id' => $id,);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
             $result = $query->result_array();
         }
         
         // return fetched data
         return !empty($result)?$result:false;
     }
+
+
+    public function GetQueryListLimit($limit='', $start='',$id='')
+    {
+         $this->db->select('*');
+        $this->db->from($this->requirement);
+         $array = array('vid' => $id,);
+            $this->db->where($array);
+        $this->db->order_by("date_modified", "desc");
+        $this->db->limit($limit, $start);  
+         $query  = $this->db->get();
+        $result = $query->result_array();  
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+
 }

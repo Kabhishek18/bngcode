@@ -52,7 +52,7 @@
         </div>
       
      
-        <div class="dlt-com-lt-comment-user">
+      <!--   <div class="dlt-com-lt-comment-user">
           <h2>Post A Comment</h2>
           <div class="dlt-com-lt-block">
             <div class="dlt-com-lt-img"> <img alt="new-thum-1" src="<?=base_url()?>resource/images/come-user-img.png">
@@ -126,13 +126,14 @@
               <button class="btn pull-right" type="submit">Submit</button>
             </form>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="col-md-3 col-sm-4 col-xs-12">
         <div class="card">
           <form class="form-group" method="post" action="<?=base_url()?>front/Requirements">
           <div class="form-group">
             <input type="hidden" value="<?=$id?>"  name="pid">
+            <input type="hidden" value="<?=$user_id?>"  name="vid">
             <div class="controls">
                 <label>User Name</label>
                 <input type="text" name="user_name" class="form-control" placeholder="User Name">

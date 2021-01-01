@@ -228,6 +228,20 @@ class Front extends CI_Controller {
 		}
 	}
 
+		public function Requirement()
+	{
+		$data= $this->session->user_account;
+		if($data['user_verified'] =='verified'){
+			$this->load->view('front/inc/header');
+			$this->load->view('front/inc/nav');
+			$this->load->view('front/requirement',$data);
+			$this->load->view('front/inc/footer');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('');	
+		}
+	}
 	public function categorysingle()
 	{	
 		$id =$this->uri->segment(2,0);
@@ -305,6 +319,7 @@ class Front extends CI_Controller {
 		if($data['user_verified'] =='verified'){
 			$reg['uid'] =$data['id'];
 			$reg['pid'] =$this->input->post('pid');
+			$reg['vid'] =$this->input->post('vid');
 				$vat['user_name'] =$this->input->post('user_name');
 				$vat['user_email'] =$this->input->post('user_email');
 				$vat['requirement'] =$this->input->post('requirement');
@@ -324,6 +339,21 @@ class Front extends CI_Controller {
 		else{
 			$this->session->set_flashdata('warning', 'Access Denied');
 			redirect($_SERVER['HTTP_REFERER']);
+		}
+	}
+
+	public function RequirementDelete()
+	{
+		$url= $this->uri->segment(3,0); 
+		$insert =$this->front_model->DeleteRequirement($url);
+		if($insert){
+			$this->session->set_flashdata('warning', 'Deleted Successfully');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect($_SERVER['HTTP_REFERER']);
+		
 		}
 	}
 

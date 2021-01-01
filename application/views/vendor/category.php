@@ -70,7 +70,7 @@
                                                         if($items['parent_id'] ==0){
                                                             echo '<span class="text-danger">Main</span>';
                                                         }else{
-                                                            $cat_name = $this->vendor_model->GetCategory($id,$items['parent_id']);
+                                                            $cat_name = $this->vendor_model->GetCategoryId($items['parent_id']);
                                                             echo $cat_name['category_name'];
                                                         } 
                                                         ?></td>
