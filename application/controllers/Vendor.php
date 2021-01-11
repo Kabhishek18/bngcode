@@ -99,15 +99,15 @@ class Vendor extends CI_Controller {
 
 						// SMTP configuration
 						$mail->isSMTP();
-						$mail->Host     = 'mail.kabhishek18.com';
+						$mail->Host     = 'in-v3.mailjet.com';
 						$mail->SMTPAuth = true;
-						$mail->Username = 'developer@kabhishek18.com';
-						$mail->Password = 'developer@987';
+						$mail->Username = '18a7637be8ceda3c13ad2ff79caedcfe';
+						$mail->Password = '17ecd9c177f4d9d4af003825bf71c877';
 						$mail->SMTPSecure = 'tls';
 						$mail->Port     = 587;
 
-						$mail->setFrom('developer@kabhishek18.com', 'developer@kabhishek18.com');
-						$mail->addReplyTo('developer@kabhishek18.com', 'developer@kabhishek18.com');
+						$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
+						$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
 
 						// Add a recipient
 						$mail->addAddress($auth['user_email']);
@@ -154,13 +154,13 @@ class Vendor extends CI_Controller {
 	//Email Verification
 	public function EmailVerification()
 	{
-		$user_token =$this->uri->segment(2,0);
-		$user_name =$this->uri->segment(3,0);
+		$user_token =$this->uri->segment(3,0);
+		$user_name =$this->uri->segment(4,0);
 		$user_verified ='verfied';
 		 $update =$this->vendor_model->EmailVerify($user_token,$user_verified);
 		if ($update) {
 
-			$this->session->set_flashdata('success', '<span style="color:green">Congratulation, Email Verified Successfully, <p>Please Click to Login <a href="'.base_url().'login">Login</a></p></span>');
+			$this->session->set_flashdata('success', '<span style="color:green">Congratulation, Email Verified Successfully, <p>Please Click to Login <a href="'.base_url().'vendor">Login</a></p></span>');
 			redirect('vendor');	
 
 			}
@@ -183,15 +183,15 @@ class Vendor extends CI_Controller {
 
 				// SMTP configuration
 				$mail->isSMTP();
-				$mail->Host     = 'mail.kabhishek18.com';
+				$mail->Host     = 'in-v3.mailjet.com';
 				$mail->SMTPAuth = true;
-				$mail->Username = 'developer@kabhishek18.com';
-				$mail->Password = 'developer@987';
+				$mail->Username = '18a7637be8ceda3c13ad2ff79caedcfe';
+				$mail->Password = '17ecd9c177f4d9d4af003825bf71c877';
 				$mail->SMTPSecure = 'tls';
 				$mail->Port     = 587;
 
-				$mail->setFrom('developer@kabhishek18.com', 'developer@kabhishek18.com');
-				$mail->addReplyTo('developer@kabhishek18.com', 'developer@kabhishek18.com');
+				$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
+				$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
 
 				// Add a recipient
 				$mail->addAddress($auth['user_email']);

@@ -91,15 +91,15 @@ class Front extends CI_Controller {
 
 						// SMTP configuration
 						$mail->isSMTP();
-						$mail->Host     = 'mail.kabhishek18.com';
+						$mail->Host     = 'in-v3.mailjet.com';
 						$mail->SMTPAuth = true;
-						$mail->Username = 'developer@kabhishek18.com';
-						$mail->Password = 'developer@987';
+						$mail->Username = '18a7637be8ceda3c13ad2ff79caedcfe';
+						$mail->Password = '17ecd9c177f4d9d4af003825bf71c877';
 						$mail->SMTPSecure = 'tls';
 						$mail->Port     = 587;
 
-						$mail->setFrom('developer@kabhishek18.com', 'developer@kabhishek18.com');
-						$mail->addReplyTo('developer@kabhishek18.com', 'developer@kabhishek18.com');
+						$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
+						$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
 
 						// Add a recipient
 						$mail->addAddress($auth['user_email']);
@@ -172,18 +172,17 @@ class Front extends CI_Controller {
 
 				// PHPMailer object
 				$mail = $this->phpmailer_lib->load();
-
 				// SMTP configuration
 				$mail->isSMTP();
-				$mail->Host     = 'mail.kabhishek18.com';
+				$mail->Host     = 'in-v3.mailjet.com';
 				$mail->SMTPAuth = true;
-				$mail->Username = 'developer@kabhishek18.com';
-				$mail->Password = 'developer@987';
+				$mail->Username = '18a7637be8ceda3c13ad2ff79caedcfe';
+				$mail->Password = '17ecd9c177f4d9d4af003825bf71c877';
 				$mail->SMTPSecure = 'tls';
 				$mail->Port     = 587;
 
-				$mail->setFrom('developer@kabhishek18.com', 'developer@kabhishek18.com');
-				$mail->addReplyTo('developer@kabhishek18.com', 'developer@kabhishek18.com');
+				$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
+				$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
 
 				// Add a recipient
 				$mail->addAddress($auth['user_email']);
