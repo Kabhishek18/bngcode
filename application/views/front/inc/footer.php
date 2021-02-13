@@ -10,11 +10,9 @@
           <h2>Follow Us</h2>
           <hr>
           <ul class="social-icons">
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
-            <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+            <li><a href="https://www.facebook.com/go2bngnetworks/"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/gateway_network"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/business-network-gateway-ab6025205?_l=en_US"><i class="fa fa-linkedin"></i></a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -43,6 +41,7 @@
           <h2>Useful links</h2>
           <hr>
           <ul class="use-slt-link">
+            <li><a href="<?=base_url()?>vendor"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Vendor Login</a></li>
             <li><a href="#"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Privacy & Policy</a></li>
             <li><a href="#"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Payment Method</a></li>
             <li><a href="#"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Sitemap</a></li>

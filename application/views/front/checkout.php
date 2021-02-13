@@ -94,29 +94,58 @@
 
 						<div class="row">
 						    	<h4 class="text-center">Choose Your Plan</h4>
-						      <div class="col-md-4 col-lg-4 col-sm-4">
+						      <div class="col-md-3 col-lg-3 col-sm-1">
 						        
 						        <label>
 						          <input type="radio" name="product" id="plan-1" value="1" class="card-input-element" />
 
 						            <div class=" text-center card-input">
-						              <div class="price-table-feature-block">
+						               <div class="price-table-feature-block">
 							              <h1>Basic</h1>
 							              <hr>
-							              <p>Free <span>$50</span> Per Month</p>
+							              <p><span>$50</span> Per Year</p>
 							              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
 							              <div class="vfx-price-list-item">
-							                <h2>Limited Number</h2>
-							                <p>Our company offers best pricing options for field agents and companies.</p>
+							                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
+							                <p> Upto 5 PRODUCTS </p>
 							              </div>
 							              <div class="vfx-price-list-item">
-							                <h2>One Agent for All</h2>
-							                <p>Our company offers best pricing options for field agents and companies.</p>
+							                <h2>TOP SEARCH RANKING </h2>
+							                <p>N/A </p>
 							              </div>
 							              <div class="vfx-price-list-item">
-							                <h2>Mail Communication</h2>
-							                <p>Our company offers best pricing options for field agents and companies.</p>
+							                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
+							                 <p>N/A </p>
 							              </div>
+							              <div class="vfx-price-list-item">
+							                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
+							                 <p>N/A </p>
+							              </div>
+							              <div class="vfx-price-list-item">
+							                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
+							                 <p>N/A </p>
+							              </div>
+							              <div class="vfx-price-list-item">
+							                <h2>BUYER CONTACTS VIA BNG PLATEFORM </h2>
+							                 <p>10 NOS. MAX PER MONTH</p>
+							              </div>
+							              <div class="vfx-price-list-item"> 
+							                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
+							                 <p>N/A </p>
+							              </div>
+							              <div class="vfx-price-list-item"> 
+							                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
+							                 <p>N/A </p>
+							              </div>
+							               <div class="vfx-price-list-item"> 
+							                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
+							                 <p>N/A </p>
+							              </div>
+							               <div class="vfx-price-list-item"> 
+							                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
+							                 <p>N/A </p>
+							              </div>
+							           
 							            </div>
 							          
 						            </div>
@@ -124,57 +153,173 @@
 						        </label>
 						        
 						      </div>
-						      <div class="col-md-4 col-lg-4 col-sm-4">
+						      <div class="col-md-3 col-lg-3 col-sm-1">
 						        
 						        <label>
 						          <input type="radio" name="product" id="plan-2" value="2" class="card-input-element" />
 
 						            <div class="text-center card-input">
-						              <div class="price-table-feature-block ">
-							              <h1>Premium</h1>
+						              <div class="price-table-feature-block">
+							              <h1>SUPER</h1>
 							              <hr>
-							              <p>Free <span>$100</span> Per Month</p>
+							              <p><span>$100</span> Per Year</p>
 							              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
 							              <div class="vfx-price-list-item">
-							                <h2>Unlimited Number</h2>
-							                <p>Our company offers best pricing options for field agents and companies.</p>
+							                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
+							                <p> Max 25 PRODUCTS </p>
 							              </div>
 							              <div class="vfx-price-list-item">
-							                <h2>One Agent for All</h2>
-							                <p>Our company offers best pricing options for field agents and companies.</p>
+							                <h2>TOP SEARCH RANKING </h2>
+							                <p>N/A </p>
 							              </div>
 							              <div class="vfx-price-list-item">
-							                <h2>Mail Communication</h2>
-							                <p>Our company offers best pricing options for field agents and companies.</p>
+							                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
+							                 <p>N/A </p>
 							              </div>
+							              <div class="vfx-price-list-item">
+							                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
+							                 <p>N/A </p>
+							              </div>
+							              <div class="vfx-price-list-item">
+							                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
+							                 <p>N/A </p>
+							              </div>
+							              <div class="vfx-price-list-item">
+							                <h2>BUYER CONTACTS VIA BNG PLATEFORM </h2>
+							                 <p>50 NOS. MAX PER MONTH</p>
+							              </div>
+							              <div class="vfx-price-list-item"> 
+							                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
+							                 <p>N/A </p>
+							              </div>
+							              <div class="vfx-price-list-item"> 
+							                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
+							                 <p>N/A </p>
+							              </div>
+							               <div class="vfx-price-list-item"> 
+							                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
+							                 <p>AVAILABLE </p>
+							              </div>
+							               <div class="vfx-price-list-item"> 
+							                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
+							                 <p>N/A </p>
+							              </div>
+							            
 							            </div>
 						            </div>
 						        </label>
 						        
 						      </div>
-						      <div class="col-md-4 col-lg-4 col-sm-4">
+						      <div class="col-md-3 col-lg-3 col-sm-1">
 						        
 						        <label>
 						          <input type="radio" name="product" id="plan-3" value="3" class="card-input-element" />
 
 						            <div class="text-center card-input">
-						                <div class="price-table-feature-block">
-							              <h1>Plus</h1>
+						                  <div class="price-table-feature-block">
+								              <h1>PREMIUM</h1>
+								              <hr>
+								              <p><span>$499</span> Per Year</p>
+								              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
+								              <div class="vfx-price-list-item">
+								                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE</h2>
+								                <p>UNLIMITED</p>
+								              </div>
+								              <div class="vfx-price-list-item">
+								                <h2>TOP SEARCH RANKING </h2>
+								                <p>AVAILABLE </p>
+								              </div>
+								              
+								             <div class="vfx-price-list-item">
+								                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
+								                 <p>5 BANNERS EARLY </p>
+								              </div>
+								              <div class="vfx-price-list-item">
+								                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
+								                 <p>AVAILABLE </p>
+								              </div>
+								              <div class="vfx-price-list-item">
+								                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
+								                 <p>UPTO 600 EMAIL TO TARGET CUSTOMERS YEARLY</p>
+								              </div>
+								              <div class="vfx-price-list-item">
+								                <h2>BUYER CONTACTS VIA BNG PLATEFORM </h2>
+								                 <p>100 NOS. MAX PER MONTH</p>
+								              </div>
+								              <div class="vfx-price-list-item"> 
+								                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
+								                 <p>N/A </p>
+								              </div>
+								              <div class="vfx-price-list-item"> 
+								                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
+								                 <p>N/A </p>
+								              </div>
+								               <div class="vfx-price-list-item"> 
+								                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
+								                 <p>AVAILABLE </p>
+								              </div>
+								               <div class="vfx-price-list-item"> 
+								                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
+								                 <p>AVAILABLE </p>
+								              </div>
+								           
+								            </div>
+						            </div>
+						        </label>
+						        
+						      </div>
+						      <div class="col-md-3 col-lg-3 col-sm-1">
+						        
+						        <label>
+						          <input type="radio" name="product" id="plan-4" value="4" class="card-input-element" />
+
+						            <div class="text-center card-input">
+						               <div class="price-table-feature-block">
+							              <h1>ELITE </h1>
 							              <hr>
-							              <p>Free <span>$200</span> Per Month</p>
+							              <p><span>$1199</span> Per Year</p>
 							              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
 							              <div class="vfx-price-list-item">
-							                <h2>Unlimited Number</h2>
-							                <p>Our company offers best pricing options for field agents and companies.</p>
+							                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
+							                <p>UNLIMITED</p>
 							              </div>
 							              <div class="vfx-price-list-item">
-							                <h2>Unlimited Number</h2>
-							                <p>Our company offers best pricing options for field agents and companies.</p>
+							                <h2>TOP SEARCH RANKING </h2>
+							                <p>AVAILABLE </p>
 							              </div>
 							              <div class="vfx-price-list-item">
-							                <h2>Personal Training</h2>
-							                <p>Our company offers best pricing options for field agents and companies.</p>
+							                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
+							                 <p>5 BANNERS EARLY </p>
 							              </div>
+							               <div class="vfx-price-list-item">
+							                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
+							                 <p>N/A </p>
+							              </div>
+							              <div class="vfx-price-list-item">
+							                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
+							                 <p>N/A </p>
+							              </div>
+							              <div class="vfx-price-list-item">
+							                <h2>BUYER CONTACTS VIA BNG PLATEFORM </h2>
+							                 <p>UPTO 600 EMAIL TO TARGET CUSTOMERS YEARLY</p>
+							              </div>
+							              <div class="vfx-price-list-item"> 
+							                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
+							                 <p>N/A </p>
+							              </div>
+							              <div class="vfx-price-list-item"> 
+							                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
+							                 <p>N/A </p>
+							              </div>
+							               <div class="vfx-price-list-item"> 
+							                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
+							                 <p>Available </p>
+							              </div>
+							               <div class="vfx-price-list-item"> 
+							                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
+							                 <p>N/A </p>
+							              </div>
+							            
 							            </div>
 						            </div>
 						        </label>
@@ -229,6 +374,7 @@
 
 
        var title = $(this).val();	
+      	console.log(title);
       	var base_url ="<?=base_url()?>";
         $.ajax({
            url: base_url + 'AjaxRequest',

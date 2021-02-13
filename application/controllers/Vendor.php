@@ -541,15 +541,18 @@ class Vendor extends CI_Controller {
 			echo json_encode($data);
 		}
 		elseif($value =='2'){
-			$data = array('name' =>'Premium Plan' ,'price' =>'100' );
+			$data = array('name' =>'Super Plan' ,'price' =>'100' );
 			echo json_encode($data);
 
 		}
 
 		elseif($value =='3'){
-			$data = array('name' =>'Plus Plan' ,'price' =>'200' );
+			$data = array('name' =>'Premium Plan' ,'price' =>'499' );
 			echo json_encode($data);
-
+		}
+		elseif($value =='4'){
+			$data = array('name' =>'Elite Plan' ,'price' =>'1199' );
+			echo json_encode($data);	
 		}
 		else{
 			echo "error";

@@ -428,7 +428,7 @@
             </div>
           </div>
           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="price-table-feature-block active">
+            <div class="price-table-feature-block">
               <h1>SUPER</h1>
               <hr>
               <p><span>$100</span> Per Year</p>
@@ -496,6 +496,34 @@
              <div class="vfx-price-list-item">
                 <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
                  <p>5 BANNERS EARLY </p>
+              </div>
+              <div class="vfx-price-list-item">
+                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
+                 <p>AVAILABLE </p>
+              </div>
+              <div class="vfx-price-list-item">
+                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
+                 <p>UPTO 600 EMAIL TO TARGET CUSTOMERS YEARLY</p>
+              </div>
+              <div class="vfx-price-list-item">
+                <h2>BUYER CONTACTS VIA BNG PLATEFORM </h2>
+                 <p>100 NOS. MAX PER MONTH</p>
+              </div>
+              <div class="vfx-price-list-item"> 
+                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item"> 
+                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
+                 <p>N/A </p>
+              </div>
+               <div class="vfx-price-list-item"> 
+                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
+                 <p>AVAILABLE </p>
+              </div>
+               <div class="vfx-price-list-item"> 
+                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
+                 <p>AVAILABLE </p>
               </div>
               <div class="vfx-price-btn">
                 <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'" ><i class="fa fa-unlock-alt"></i> Purchase Now</button>
