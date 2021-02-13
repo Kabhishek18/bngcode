@@ -376,70 +376,179 @@
           <div class="blind line_2"></div>
         </div>
         <div class="row">
-          <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="col-md-3 col-sm-3 col-xs-12">
             <div class="price-table-feature-block">
               <h1>Basic</h1>
               <hr>
-              <p>Free <span>$50</span> Per Month</p>
+              <p><span>$50</span> Per Year</p>
               <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
               <div class="vfx-price-list-item">
-                <h2>Limited Number</h2>
-                <p>Our company offers best pricing options for field agents and companies.</p>
+                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
+                <p> Upto 5 PRODUCTS </p>
               </div>
               <div class="vfx-price-list-item">
-                <h2>One Agent for All</h2>
-                <p>Our company offers best pricing options for field agents and companies.</p>
+                <h2>TOP SEARCH RANKING </h2>
+                <p>N/A </p>
               </div>
               <div class="vfx-price-list-item">
-                <h2>Mail Communication</h2>
-                <p>Our company offers best pricing options for field agents and companies.</p>
+                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item">
+                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item">
+                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item">
+                <h2>BUYER CONTACTS VIA BNG PLATEFORM </h2>
+                 <p>10 NOS. MAX PER MONTH</p>
+              </div>
+              <div class="vfx-price-list-item"> 
+                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item"> 
+                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
+                 <p>N/A </p>
+              </div>
+               <div class="vfx-price-list-item"> 
+                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
+                 <p>N/A </p>
+              </div>
+               <div class="vfx-price-list-item"> 
+                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
+                 <p>N/A </p>
               </div>
               <div class="vfx-price-btn">
                 <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'"><i class="fa fa-unlock-alt"></i> Purchase Now</button>
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="col-md-3 col-sm-3 col-xs-12">
             <div class="price-table-feature-block active">
-              <h1>Premium</h1>
+              <h1>SUPER</h1>
               <hr>
-              <p>Free <span>$100</span> Per Month</p>
+              <p><span>$100</span> Per Year</p>
               <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
               <div class="vfx-price-list-item">
-                <h2>Unlimited Number</h2>
-                <p>Our company offers best pricing options for field agents and companies.</p>
+                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
+                <p> Max 25 PRODUCTS </p>
               </div>
               <div class="vfx-price-list-item">
-                <h2>One Agent for All</h2>
-                <p>Our company offers best pricing options for field agents and companies.</p>
+                <h2>TOP SEARCH RANKING </h2>
+                <p>N/A </p>
               </div>
               <div class="vfx-price-list-item">
-                <h2>Mail Communication</h2>
-                <p>Our company offers best pricing options for field agents and companies.</p>
+                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item">
+                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item">
+                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item">
+                <h2>BUYER CONTACTS VIA BNG PLATEFORM </h2>
+                 <p>50 NOS. MAX PER MONTH</p>
+              </div>
+              <div class="vfx-price-list-item"> 
+                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item"> 
+                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
+                 <p>N/A </p>
+              </div>
+               <div class="vfx-price-list-item"> 
+                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
+                 <p>AVAILABLE </p>
+              </div>
+               <div class="vfx-price-list-item"> 
+                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
+                 <p>N/A </p>
               </div>
               <div class="vfx-price-btn">
                 <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'"><i class="fa fa-unlock-alt"></i> Purchase Now</button>
               </div>
             </div>
           </div>
-          <div class="col-md-4 col-sm-4 col-xs-12">
+          <div class="col-md-3 col-sm-3 col-xs-12">
             <div class="price-table-feature-block">
-              <h1>Plus</h1>
+              <h1>PREMIUM</h1>
               <hr>
-              <p>Free <span>$200</span> Per Month</p>
+              <p><span>$499</span> Per Year</p>
               <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
               <div class="vfx-price-list-item">
-                <h2>Unlimited Number</h2>
-                <p>Our company offers best pricing options for field agents and companies.</p>
+                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE</h2>
+                <p>UNLIMITED</p>
               </div>
               <div class="vfx-price-list-item">
-                <h2>Unlimited Number</h2>
-                <p>Our company offers best pricing options for field agents and companies.</p>
+                <h2>TOP SEARCH RANKING </h2>
+                <p>AVAILABLE </p>
+              </div>
+              
+             <div class="vfx-price-list-item">
+                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
+                 <p>5 BANNERS EARLY </p>
+              </div>
+              <div class="vfx-price-btn">
+                <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'" ><i class="fa fa-unlock-alt"></i> Purchase Now</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div class="price-table-feature-block">
+              <h1>ELITE </h1>
+              <hr>
+              <p><span>$1199</span> Per Year</p>
+              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
+              <div class="vfx-price-list-item">
+                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
+                <p>UNLIMITED</p>
               </div>
               <div class="vfx-price-list-item">
-                <h2>Personal Training</h2>
-                <p>Our company offers best pricing options for field agents and companies.</p>
+                <h2>TOP SEARCH RANKING </h2>
+                <p>AVAILABLE </p>
               </div>
+              <div class="vfx-price-list-item">
+                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
+                 <p>5 BANNERS EARLY </p>
+              </div>
+               <div class="vfx-price-list-item">
+                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item">
+                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item">
+                <h2>BUYER CONTACTS VIA BNG PLATEFORM </h2>
+                 <p>UPTO 600 EMAIL TO TARGET CUSTOMERS YEARLY</p>
+              </div>
+              <div class="vfx-price-list-item"> 
+                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
+                 <p>N/A </p>
+              </div>
+              <div class="vfx-price-list-item"> 
+                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
+                 <p>N/A </p>
+              </div>
+               <div class="vfx-price-list-item"> 
+                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
+                 <p>Available </p>
+              </div>
+               <div class="vfx-price-list-item"> 
+                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
+                 <p>N/A </p>
+              </div>
+            
               <div class="vfx-price-btn">
                 <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'" ><i class="fa fa-unlock-alt"></i> Purchase Now</button>
               </div>
