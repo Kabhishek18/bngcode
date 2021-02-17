@@ -22,6 +22,14 @@ class Front extends CI_Controller {
 		$this->load->view('front/inc/footer');
 	}
 
+	public function Privacy()
+	{
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/privacy');
+		$this->load->view('front/inc/footer');
+	}
+
 	public function Authenticate()
 	{
 		$auth['user_email']=$this->input->post("email");

@@ -69,8 +69,9 @@
                 foreach ($categories as $cat) {?>
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="categorie_item">
-              <div class="cate_item_block hi-icon-effect-8">
-                <div class="cate_item_social hi-icon"><i class="fa fa-home"></i></div>
+              <div class="cate_item_block hi-icon-effect-8" style="height:300px">
+                <!--<div class="cate_item_social hi-icon"><i class="fa fa-home"></i></div>-->
+                <img src="<?=base_url()?>uploads/cat/<?=$cat['category_image']?>" height="200px"> 
                 <h1><a href="<?=base_url()?>category/<?=$cat['id']?>"><?=$cat['category_name']?></a></h1>
               </div>
             </div>
@@ -366,7 +367,7 @@
   </div>
 </div>
 <div id="pricing-item-block">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12 text-center">
         <div class="col-md-12 pricing-heading-title bt_heading_3">
