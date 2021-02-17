@@ -19,29 +19,26 @@
             <div id="nav_menu_list">
               <ul>
                 <li class="active"><a href="<?=base_url()?>">Home</a></li>
-                <li><a href="#">Exporter</a></li>
                 <li><a href="<?=base_url()?>logistics">Logistics Lead</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="<?=base_url()?>categories">Categories</a></li>
                 
-                <li class="btn_item">
-				    <ul>
-             <?php if(!$this->session->user_account){?> 
-						<li>
-						  <button class="btn_login" data-toggle="modal" data-target="#login">Login</button>
-						</li>
-						<li>
-						  <button class="btn_register" data-toggle="modal" data-target="#register">Register</button>
-						</li>
-              <?php }else{ $value = $this->session->user_account;?>
+                <li><a href="<?=base_url()?>categories">Categories</a></li>
+                 <?php if(!$this->session->user_account){?> 
+                 <li><a href="#">Buyers <i class="fa fa-caret-down"></i></a>
+                  <ul class="dropdown">
+                    <li><a data-toggle="modal" data-target="#login"><i class="fa fa-angle-double-right"></i>Login </a></li>
+                     <li><a  data-toggle="modal" data-target="#register"><i class="fa fa-angle-double-right"></i>Register </a></li>
+                    
+                  </ul>
+                   <?php }else{ $value = $this->session->user_account;?>
                 <li>
-              <button class="btn_login" onclick="window.location.href='<?=base_url()?>dashboard'">Dashboard</button>
+              <a class="btn-lg" href='<?=base_url()?>dashboard'>Dashboard</a>
             </li>
             <li>
-              <button class="btn_register"  onclick="window.location.href='<?=base_url()?>logout'">Logout</button>
+              <a class="btn-lg" href='<?=base_url()?>logout'>Logout</a>
             </li>
               <?php  } ?>
-				    </ul>	
+                </li>
+                
                 </li>
               </ul>
             </div>
