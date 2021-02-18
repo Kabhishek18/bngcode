@@ -11,6 +11,8 @@ $route['translate_uri_dashes'] = FALSE;
 //  \____\__,_|___/\__\___/|_| |_| |_|\___|_|   
                                              
 $route['default_controller'] = 'front/index';
+
+$route['privacy'] = 'front/Privacy';
 $route['dashboard'] ='front/dashboard';
 $route['requirement'] ='front/Requirement';
 $route['verify/(:any)/(:any)/(:any)'] ='front/EmailVerification';
@@ -18,6 +20,7 @@ $route['logisticslead'] ='front/LogisticsLead';
 
 //DealerShip
 $route['logistics'] ='front/Dealership';
+$route['viewlead'] ='front/ViewLead';
 //Category
 $route['categories'] ='front/category';
 //Category Single
@@ -33,8 +36,8 @@ $route['logout'] ='front/Logout';
 //  \ \ / / _ \ '_ \ / _` |/ _ \| '__|
 //   \ V /  __/ | | | (_| | (_) | |   
 //    \_/ \___|_| |_|\__,_|\___/|_|  
-
-$route['vendor/login'] = 'vendor/index';
+$route['vendor'] = 'vendor/Index';
+$route['vendor/login'] = 'vendor/Index';
 $route['venodor/verify/(:any)/(:any)/(:any)'] ='vendor/EmailVerification';
 $route['vendor/dashboard'] ='vendor/Dashboard';
 $route['vendor/requirement'] ='vendor/Requirement';

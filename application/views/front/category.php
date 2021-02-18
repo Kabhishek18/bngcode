@@ -19,16 +19,14 @@
         <div class="blind line_2"></div>
       </div>
       <div class="col-md-12">
-        <form id="search-form">
+        <form id="search-form"  method="post" action="<?=base_url()?>front/SearchMain">
           <div class="col-sm-9 col-md-10 nopadding">
             <div id="vfx-search-box">
               <div class="col-sm-3 nopadding">
-                <select id="search-location" class="form-control">
-                  <option>All Categories</option>
-                  <option>Business</option>
-                  <option>Free Lancing</option>
-                  <option>Web Development</option>
-                  <option>Web Designing</option>
+                <select id="search-location" class="form-control" name="typesearch">
+                  <option value="category">All Categories</option>
+                    <option value="buyers">Buyers</option>
+                    <option value="sellers">Sellers</option>
                 </select>
               </div>
               <div class="col-sm-9 nopadding">
@@ -64,16 +62,16 @@
           <!-- Begin Categories -->
           <?php foreach($categories as $category){?>
           <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="categorie-list-box">
+            <div class="categorie-list-box" style="    height: 550px;">
               <div class="search-categories-boxes">
                 <h2><i class="fa fa-suitcase"></i> <?=$category['category_name']?></h2>
               </div>
               <div class="categories-list">
                 <ul>
-                  <?php $subcat =$this->front_model->GetCatSub($category['id']); 
+                  <?php $subcat =$this->front_model->GetCatSub($category['id']); $i=1;
                   foreach($subcat as $sub){?>
-                  <li><a href="<?=base_url()?>subcategories/<?=$sub['id']?>"><i class="fa fa-hand-o-right"></i> <?=$sub['category_name']?></a><span>10</span></li>
-                  <?php }?>
+                  <li><a href="<?=base_url()?>subcategories/<?=$sub['id']?>"><i class="fa fa-hand-o-right"></i> <?=$sub['category_name']?></a></li>
+                  <?php $i++; if($i==7){break;}}?>
                 </ul>
               </div>
             </div>

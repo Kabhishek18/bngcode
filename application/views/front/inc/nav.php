@@ -19,27 +19,44 @@
             <div id="nav_menu_list">
               <ul>
                 <li class="active"><a href="<?=base_url()?>">Home</a></li>
-                <li><a href="<?=base_url()?>logistics">Logistics Lead</a></li>
+                <li><a href="#">Logistics Lead  <i class="fa fa-caret-down"></i></a>
+                  <ul class="dropdown">
+                    <li><a href="<?=base_url()?>logistics">  <i class="fa fa-angle-double-right"></i>Post Lead</a></li>
+                    <li><a href="<?=base_url()?>viewlead">  <i class="fa fa-angle-double-right"></i>View Lead</a></li>
+                  </ul>
+                </li>
                 
                 <li><a href="<?=base_url()?>categories">Categories</a></li>
                  <?php if(!$this->session->user_account){?> 
-                 <li><a href="#">Buyers <i class="fa fa-caret-down"></i></a>
+                <li><a href="#">Buyers <i class="fa fa-caret-down"></i></a>
                   <ul class="dropdown">
                     <li><a data-toggle="modal" data-target="#login"><i class="fa fa-angle-double-right"></i>Login </a></li>
                      <li><a  data-toggle="modal" data-target="#register"><i class="fa fa-angle-double-right"></i>Register </a></li>
-                    
                   </ul>
-                   <?php }else{ $value = $this->session->user_account;?>
-                <li>
-              <a class="btn-lg" href='<?=base_url()?>dashboard'>Dashboard</a>
-            </li>
-            <li>
-              <a class="btn-lg" href='<?=base_url()?>logout'>Logout</a>
-            </li>
-              <?php  } ?>
                 </li>
-                
+                <?php } if(!$this->session->vendor_account){ ?>  
+                <li><a href="#">Suppliers <i class="fa fa-caret-down"></i></a>
+                 <ul class="dropdown">
+                    <li><a href="<?=base_url()?>vendor"><i class="fa fa-angle-double-right"></i>Login </a></li>
+                     <li><a  href="<?=base_url()?>vendor"><i class="fa fa-angle-double-right"></i>Register </a></li>
+                  </ul>   
                 </li>
+                    <?php }elseif($this->session->user_account){ $value = $this->session->user_account;?>
+                      <li>
+                        <a class="btn-lg" href='<?=base_url()?>dashboard'>Dashboard</a>
+                      </li>
+                      <li>
+                        <a class="btn-lg" href='<?=base_url()?>logout'>Logout</a>
+                      </li>
+                    <?php  }elseif($this->session->vendor_account){ 
+                      $value = $this->session->vendor_account;?>
+                      <li>
+                        <a class="btn-lg" href='<?=base_url()?>vendor/dashboard'>Dashboard</a>
+                      </li>
+                      <li>
+                        <a class="btn-lg" href='<?=base_url()?>vendor/logout'>Logout</a>
+                      </li>
+                    <?php } ?>
               </ul>
             </div>
           </div>

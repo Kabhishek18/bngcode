@@ -1,9 +1,10 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /*
 ##Function names##
-force_ssl
-generateUUID
-MessageAlertStatus
+#force_ssl
+#generateUUID
+#MessageAlertStatus
+#DD(Direct Dump)
 */
 if ( ! function_exists('force_ssl'))
 {
@@ -45,5 +46,15 @@ if ( !function_exists('MessageAlertStatus')) {
 				        'message' => $message
 				    ],$extra);
 		}
-	}	  
+	}
+
+if (!function_exists('dd')) {
+ function dd()
+  {
+      echo '<pre>';
+      array_map(function($x) {var_dump($x);}, func_get_args());
+      die;
+   }
+ }
+
 ?>

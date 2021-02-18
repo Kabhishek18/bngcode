@@ -16,8 +16,10 @@ class Vendor extends CI_Controller {
 
 	public function Index()
 	{	$data= $this->session->vendor_account;
-		if($data['user_verified'] =='verified'){
+		if($data){
+			if($data['user_verified'] =='verified'){
 			redirect('vendor/dashboard');
+			}
 		}	
 		$this->load->view('vendor/inc/header');
 		$this->load->view('vendor/index');

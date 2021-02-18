@@ -194,4 +194,63 @@ class Front_model extends CI_Model
         $update = $this->db->delete($this->requirement);
        return $update?true:false;
     }
+
+    // Search
+    public function GetCategorySearch($id)
+    {
+        $this->db->select('*');
+        $this->db->from($this->category);
+        $array = array('parent_id' =>'0','category_status'=>'active','status'=>'Active');
+        $this->db->where($array);
+        $this->db->like('category_name', $id,'after');
+        $query  = $this->db->get();
+        $result = $query->result_array();
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function GetUserSearch($id,$user_type)
+    {
+        $this->db->select('*');
+        $this->db->from($this->users);
+        $array = array('user_type'=>$user_type,'user_status'=>'active');
+        $this->db->where($array);
+        $this->db->like('user_name', $id,'after');
+        $query  = $this->db->get();
+        $result = $query->result_array();
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    // Featured Home page
+    public function GetUserType($user_type)
+    {
+        $this->db->select('*');
+        $this->db->from($this->users);
+        $array = array('user_type'=>$user_type,'user_status'=>'active');
+        $this->db->where($array);
+        $query  = $this->db->get();
+        $result = $query->result_array();
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    //Leads
+    public function InsertLeads($auth)
+    {
+        $insert = $this->db->insert('leads',$auth);
+         return $insert?true:false;
+    }
+
+    //Leads 
+    // Featured Home page
+    public function GetLeads()
+    {
+        $this->db->select('*');
+        $this->db->from('leads');
+        $query  = $this->db->get();
+        $result = $query->result_array();
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
 }

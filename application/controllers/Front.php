@@ -30,6 +30,50 @@ class Front extends CI_Controller {
 		$this->load->view('front/inc/footer');
 	}
 
+	public function SearchMain()
+	{	
+		$typesearch = $this->input->post('typesearch');
+		$search = $this->input->post('search');
+		if($typesearch == 'category'){
+			$value = $this->front_model->GetCategorySearch($search);	
+			if($value){
+				$data['categories'] =$value;
+			}
+			else{
+				$this->session->set_flashdata('warning', $search.' No Similar Category Found');
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+		}
+		elseif($typesearch == 'buyers'){
+			$value = $this->front_model->GetUserSearch($search,'user');	
+			if($value){
+				$data['buyers'] =$value;
+			}
+			else{
+				$this->session->set_flashdata('warning', $search.' No Similar buyer Found');
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+		}
+		elseif($typesearch == 'sellers'){
+			$value = $this->front_model->GetUserSearch($search,'vendor');	
+			if($value){
+				$data['sellers'] =$value;
+			}
+			else{
+				$this->session->set_flashdata('warning', $search.' No Seller Seller Found');
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+		}
+		else{
+			$data ='';
+		}
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/search',$data);
+		$this->load->view('front/inc/footer');
+	}
+
+
 	public function Authenticate()
 	{
 		$auth['user_email']=$this->input->post("email");
@@ -235,7 +279,7 @@ class Front extends CI_Controller {
 		}
 	}
 
-		public function Requirement()
+	public function Requirement()
 	{
 		$data= $this->session->user_account;
 		if($data['user_verified'] =='verified'){
@@ -249,6 +293,7 @@ class Front extends CI_Controller {
 			redirect('');	
 		}
 	}
+
 	public function categorysingle()
 	{	
 		$id =$this->uri->segment(2,0);
@@ -259,7 +304,6 @@ class Front extends CI_Controller {
 		$this->load->view('front/categorysingle',$data);
 		$this->load->view('front/inc/footer');
 	}
-
 
 	public function Category()
 	{
@@ -319,7 +363,6 @@ class Front extends CI_Controller {
 		}
 	}
 
-
 	public function Requirements()
 	{
 		$data= $this->session->user_account;
@@ -373,7 +416,6 @@ class Front extends CI_Controller {
 	}
 
 	//Dealer Ship Form
-
 	public function Dealership()
 	{
 		$this->load->view('front/inc/header');
@@ -381,7 +423,6 @@ class Front extends CI_Controller {
 		$this->load->view('front/dealership');
 		$this->load->view('front/inc/footer');
 	}
-
 
 	public function LogisticsLead()
 	{
@@ -402,9 +443,27 @@ class Front extends CI_Controller {
 			else{						
 			}
 		$data =json_encode($_POST);
-		echo $data;
+		$auth['lead']=$data;
+		$auth['created_at']=date('Y-m-d h:i:s');
+		$insert = $this->front_model->InsertLeads($auth);
+		if($insert)
+		{
+			$this->session->set_flashdata('success','Thanks for Sharing Detail');
+				redirect($_SERVER['HTTP_REFERER']);
+		}else{
+			$this->session->set_flashdata('warning','Something Misfortune Happen! ');
+				redirect($_SERVER['HTTP_REFERER']);
+		}
 	}
 
+	public function ViewLead()
+	{
+		$leads['leads'] = $this->front_model->GetLeads();
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/leads',$leads);
+		$this->load->view('front/inc/footer');
+	}
 	
 
 }
