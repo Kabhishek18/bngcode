@@ -120,6 +120,27 @@ class Front_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
+     public function GetCategoryAll($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->category);
+       
+        if($id){
+            $array = array('id' => $id,'category_status'=>'active','status'=>'Active');
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $array = array('category_status'=>'active','status'=>'Active');
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
     public function GetProduct($id='')
     {
         $this->db->select('*');
@@ -209,6 +230,19 @@ class Front_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
+    public function GetSubCategorySearch($id)
+    {
+        $this->db->select('*');
+        $this->db->from($this->category);
+        $array = array('category_status'=>'active','status'=>'Active');
+        $this->db->where($array);
+        $this->db->like('category_name', $id,'after');
+        $query  = $this->db->get();
+        $result = $query->result_array();
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
     public function GetUserSearch($id,$user_type)
     {
         $this->db->select('*');
@@ -250,6 +284,25 @@ class Front_model extends CI_Model
         $this->db->from('leads');
         $query  = $this->db->get();
         $result = $query->result_array();
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+      public function GetSList($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from('speciallist');
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
         // return fetched data
         return !empty($result)?$result:false;
     }

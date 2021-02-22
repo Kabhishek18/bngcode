@@ -25,6 +25,7 @@
               <div class="col-sm-3 nopadding">
                 <select id="search-location" class="form-control" name="typesearch">
                   <option value="category">All Categories</option>
+                    <option value="subcategory">All Subcategories</option>
                     <option value="buyers">Buyers</option>
                     <option value="sellers">Sellers</option>
                 </select>

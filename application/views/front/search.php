@@ -14,6 +14,7 @@
               <div class="col-sm-3 nopadding">
                 <select id="search-location" class="form-control" name="typesearch">
                   <option value="category">All Categories</option>
+                    <option value="subcategory">All Subcategories</option>
                     <option value="buyers">Buyers</option>
                     <option value="sellers">Sellers</option>
                 </select>
@@ -65,6 +66,19 @@
 		        </div>
 		      </div>
 		    <?php }}?>
+
+        <!-- Begin Categories -->
+          <?php if(!empty($subcategories)){?>
+          <?php foreach($subcategories as $subcategory){?>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="categorie-list-box">
+              <div class="search-categories-boxes">
+                <h2 class="text-center">
+                  <a href="<?=base_url()?>subcategories/<?=$subcategory['id']?>"><?=$subcategory['category_name']?></a></h2>
+              </div>
+            </div>
+          </div>
+        <?php }}?>
           	<!-- End Categories -->
           	<!-- Begin Buyers -->
         	<?php if(!empty($buyers)){?>

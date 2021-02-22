@@ -16,8 +16,10 @@ class Admin extends CI_Controller {
 
 	public function Index()
 	{	$data= $this->session->admin_account;
-		if($data['user_verified'] =='verified'){
-			redirect('admin/dashboard');
+		if($data){
+			if($data['user_verified'] =='verified'){
+				redirect('admin/dashboard');
+			}
 		}	
 		$this->load->view('admin/inc/header');
 		$this->load->view('admin/index');
@@ -69,6 +71,46 @@ class Admin extends CI_Controller {
 			$this->load->view('admin/inc/nav',$data);
 			$this->load->view('admin/dashboard');
 			$this->load->view('admin/inc/footer');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('admin');	
+		}
+	}
+
+	public function SpecialList()
+	{
+		$data= $this->session->admin_account;
+		if($data['user_verified'] =='verified'){
+			$var['lists'] =$this->admin_model->GetSList();
+			$this->load->view('admin/inc/header');
+			$this->load->view('admin/inc/nav',$data);
+			$this->load->view('admin/speciallist',$var);
+			$this->load->view('admin/inc/footer');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('admin');	
+		}
+	}
+
+	public function SpecialInsert()
+	{
+		$data= $this->session->admin_account;
+		if($data['user_verified'] =='verified'){
+			if ($data['user_type'] =='admin') {
+				$reg['list']=json_encode($this->input->post("listed"));
+				$reg['id']=$this->input->post("id");
+				$update = $this->admin_model->UpdateSList($reg);
+				if($update){
+					$this->session->set_flashdata('success', 'Updated Successfully');
+					redirect('admin/speciallist');	
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Something Misfortune Happened');
+					redirect('admin/speciallist');	
+				}
+			}	
 		}
 		else{
 			$this->session->set_flashdata('warning', 'Access Denied');

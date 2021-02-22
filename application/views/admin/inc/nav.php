@@ -92,7 +92,7 @@
                 <li class=" nav-item "><a href="<?=base_url()?>admin/dashboard"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
                 </li>
             
-
+                <li class="nav-item"><a href="<?=base_url()?>admin/speciallist"><i class="feather icon-square"></i><span class="menu-title">SpecialList</span></a></li>
                 <li class=" navigation-header"><span>Categories & Products</span>
                 </li>
                 <li class=" nav-item"><a href="javascript:void(0)"><i class="feather icon-list"></i><span class="menu-title" data-i18n="User">Category,Products</span></a>

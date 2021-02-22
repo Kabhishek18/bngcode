@@ -13,6 +13,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['default_controller'] = 'front/index';
 
 $route['privacy'] = 'front/Privacy';
+$route['about'] = 'front/About';
+$route['terms'] = 'front/Terms';
 $route['dashboard'] ='front/dashboard';
 $route['requirement'] ='front/Requirement';
 $route['verify/(:any)/(:any)/(:any)'] ='front/EmailVerification';
@@ -69,6 +71,7 @@ $route['vendor/logout'] ='vendor/Logout';
 
 $route['admin/login'] = 'admin/index';
 $route['admin/dashboard'] ='admin/Dashboard';
+$route['admin/speciallist'] ='admin/SpecialList';
 $route['admin/category'] ='admin/Category';
 $route['admin/category/edit/(:num)'] ='admin/CategoryAdd';
 $route['admin/category/add'] ='admin/CategoryAdd';

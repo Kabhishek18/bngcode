@@ -27,6 +27,7 @@
                 <div class="col-sm-3 nopadding">
                   <select id="location-search-list" class="form-control" name="typesearch">
                     <option value="category">All Categories</option>
+                    <option value="subcategory">All Subcategories</option>
                     <option value="buyers">Buyers</option>
                     <option value="sellers">Sellers</option>
                   </select>
@@ -63,20 +64,22 @@
             <div class="flipInX-1 blind icon"><span class="icon"><i class="fa fa-stop"></i>&nbsp;&nbsp;<i class="fa fa-stop"></i></span></div>
             <div class="blind line_2"></div>
           </div>
-          <?php $categories =$this->front_model->GetCategory(); 
-                $i= 1; foreach ($categories as $cat) {?>
+          <?php $list =$this->front_model->GetSList(1);
+               foreach (json_decode($list['list'],true) as $cat) {?>
+               <?php $category = $this->front_model->GetCategoryAll($cat);?>
+               <?php if($category){?>
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="categorie_item">
 
               <div class="cate_item_block hi-icon-effect-8" style="height:320px">
-              <a href="<?=base_url()?>category/<?=$cat['id']?>">
+              <a href="<?=base_url()?>category/<?=$category['id']?>">
                 <!--<div class="cate_item_social hi-icon"><i class="fa fa-home"></i></div>-->
-                <img src="<?=base_url()?>uploads/cat/<?=$cat['category_image']?>" height="200px"> 
-                <h1><?=$cat['category_name']?></h1>
+                <img src="<?=base_url()?>uploads/cat/<?=$category['category_image']?>" height="200px"> 
+                <h1><?=$category['category_name']?></h1>
               </div>
             </div>
           </div>
-          <?php $i++; if($i==9){break;}}?>
+          <?php }}?>
         </div>
       </div>
     </div>
@@ -95,7 +98,7 @@
         <div class="row">
           <!-- Feature Seller-->
           <?php $sellers = $this->front_model->GetUserType('vendor');?>
-          <?php foreach($sellers as  $seller){ ?>
+          <?php $i=1;foreach($sellers as  $seller){ ?>
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="feature-item-container-box listing-item">
               <div class="feature-title-item">
@@ -197,27 +200,27 @@
         <div class="row">
 
         <?php $listing =$this->front_model->GetQueryList(); 
-        foreach($listing as $list){?>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="recent-listing-box-container-item">
-                  <?php $list['description'] = json_decode($list['description'], True); ?>
-                <div class="recent-listing-box-item">
-                  <div class="listing-boxes-text"> <a href="listing_detail.html">
-                    <h3></h3>
-                    </a> <a href="#"> <?=$list['description']['user_name']?></a>
-                    <p><?php $pro = $this->front_model->GetProduct($list['pid']);?>
-                     <strong>Product Name :</strong> <?=$pro['product_name']?>
-                    </p>
-                    <p><?=$list['description']['requirement']?></p>
+          if($listing){
+          foreach($listing as $list){?>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="recent-listing-box-container-item">
+                    <?php $list['description'] = json_decode($list['description'], True); ?>
+                  <div class="recent-listing-box-item">
+                    <div class="listing-boxes-text"> <a href="#">
+                      <h3></h3>
+                      </a> <a href="#"> <?=$list['description']['user_name']?></a>
+                      <p><?php $pro = $this->front_model->GetProduct($list['pid']);?>
+                       <strong>Product Name :</strong> <?=$pro['product_name']?>
+                      </p>
+                      <p><?=$list['description']['requirement']?></p>
+                    </div>
+                    <div class="recent-feature-item-rating">
+                      <h2><i class="fa fa-map-marker"></i> <?=$list['description']['user_email']?></h2>
+                      <span> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </span> </div>
                   </div>
-                  <div class="recent-feature-item-rating">
-                    <h2><i class="fa fa-map-marker"></i> <?=$list['description']['user_email']?></h2>
-                    <span> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </span> </div>
-                </div>
-            
+              </div>
             </div>
-          </div>
-          <?php }?>
+          <?php }}?>
         </div>
       </div>
     </div>

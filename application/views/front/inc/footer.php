@@ -5,8 +5,9 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
           <h2>About Us</h2>
           <hr>
-          <p class="about-lt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer justo lectus, consectetur quis nisi vitae, Nunc eget ultrices ligula.</p>
-          <a href="about.html" class="btn-primary-link more-detail"><i class="fa fa-hand-o-right"></i> Read More</a>
+          <p class="about-lt">BNG “Business Network Gateway” is a trustworthy platform developed by the BNG INFO MEDIA & TECHNOLOGIES LLP.   BNG is an online B2B Portal for all kind of manufacturers, exporters and importers. 
+      of customers world-wide. </p>
+          <a href="<?=base_url()?>about" class="btn-primary-link more-detail"><i class="fa fa-hand-o-right"></i> Read More</a>
           <h2>Follow Us</h2>
           <hr>
           <ul class="social-icons">
@@ -41,12 +42,10 @@
           <h2>Useful links</h2>
           <hr>
           <ul class="use-slt-link">
-            <li><a href="<?=base_url()?>vendor"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Vendor Login</a></li>
+            <li><a href="<?=base_url()?>about"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;About</a></li>
             <li><a href="<?=base_url()?>privacy"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Privacy & Policy</a></li>
-            <li><a href="#"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Payment Method</a></li>
             <li><a href="#"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Sitemap</a></li>
-            <li><a href="#"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Support</a></li>
-            <li><a href="#"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Terms & Condition</a></li>
+            <li><a href="<?=base_url()?>terms"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Terms & Condition</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">

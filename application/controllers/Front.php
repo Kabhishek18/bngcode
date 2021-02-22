@@ -30,6 +30,22 @@ class Front extends CI_Controller {
 		$this->load->view('front/inc/footer');
 	}
 
+	public function About()
+	{
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/about');
+		$this->load->view('front/inc/footer');
+	}
+
+	public function Terms()
+	{
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/termsandcondition');
+		$this->load->view('front/inc/footer');
+	}
+
 	public function SearchMain()
 	{	
 		$typesearch = $this->input->post('typesearch');
@@ -38,6 +54,16 @@ class Front extends CI_Controller {
 			$value = $this->front_model->GetCategorySearch($search);	
 			if($value){
 				$data['categories'] =$value;
+			}
+			else{
+				$this->session->set_flashdata('warning', $search.' No Similar Category Found');
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+		}
+		elseif($typesearch == 'subcategory'){
+			$value = $this->front_model->GetSubCategorySearch($search);	
+			if($value){
+				$data['subcategories'] =$value;
 			}
 			else{
 				$this->session->set_flashdata('warning', $search.' No Similar Category Found');

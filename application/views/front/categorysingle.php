@@ -17,7 +17,7 @@
 
           <?php foreach($categories as $subcat){?>
           <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="feature-item-container-box listing-item">
+            <div class="feature-item-container-box listing-item" style="height: 350px;">
               <div class="feature-title-item">
                 <h1><?=$subcat['category_slug']?></h1>
                 <img src="<?=base_url()?>uploads/cat/<?=$subcat['category_image']?>" alt="img1"> </div>

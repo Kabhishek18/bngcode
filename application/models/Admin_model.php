@@ -250,4 +250,32 @@ class Admin_model extends CI_Model
         $update = $this->db->delete($this->requirement);
        return $update?true:false;
     }
+
+     public function GetSList($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from('speciallist');
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function UpdateSList($reg)
+    {   
+        $this->db->where('id',$reg['id']);
+        $update = $this->db->update('speciallist',$reg);
+        return $update?true:false;
+        
+    }
+
 }
