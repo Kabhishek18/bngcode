@@ -9,6 +9,7 @@
     </div>
   </div>
 </div>
+ <?php if($this->session->vendor_account){ ?>
 <div id="dashboard_inner_block">
   <div class="container">
     <div class="row">
@@ -19,7 +20,7 @@
       </div>  
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="row">
-          <?php if($this->session->vendor_account){ ?>
+         
           <?php if($leads){ ?>
           <?php foreach($leads as $lead){?>
             <?php $value = json_decode($lead['lead']);?>
@@ -95,9 +96,20 @@
               </div>
             </div>
             <?php }?>
-          <?php }}?>
-          
+          <?php }?>
+
       </div>
     </div>
   </div>
 </div>
+<?php }else{?>
+<div id="dashboard_inner_block">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        Please Login By Supplier Id
+    </div>
+  </div>
+</div>
+</div>
+<?php }?>
