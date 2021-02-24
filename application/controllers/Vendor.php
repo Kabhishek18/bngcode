@@ -543,7 +543,7 @@ class Vendor extends CI_Controller {
 			echo json_encode($data);
 		}
 		elseif($value =='2'){
-			$data = array('name' =>'Super Plan' ,'price' =>'100' );
+			$data = array('name' =>'Super Plan' ,'price' =>'99' );
 			echo json_encode($data);
 
 		}

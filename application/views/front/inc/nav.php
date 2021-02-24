@@ -8,7 +8,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-3 col-xs-9">
-        <div id="logo"> <a href="<?=base_url()?>"><img src="<?=base_url()?>resource/images/logo.png" alt="logo"></a> </div>
+        <div id="logo"> <a href="<?=base_url()?>"><img src="<?=base_url()?>resource/images/logo.png" alt="logo" style="    width: 150px;"></a> </div>
       </div>
       <div class="col-sm-9 text-right">
         <nav class="navbar navbar-default">

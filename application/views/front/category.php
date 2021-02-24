@@ -63,7 +63,7 @@
           <!-- Begin Categories -->
           <?php foreach($categories as $category){?>
           <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="categorie-list-box" style="    height: 550px;">
+            <div class="categorie-list-box" style=" overflow: hidden; height: 350px;">
               <div class="search-categories-boxes">
                 <h2><i class="fa fa-suitcase"></i> <?=$category['category_name']?></h2>
               </div>
@@ -72,10 +72,14 @@
                   <?php $subcat =$this->front_model->GetCatSub($category['id']); $i=1;
                   foreach($subcat as $sub){?>
                   <li><a href="<?=base_url()?>subcategories/<?=$sub['id']?>"><i class="fa fa-hand-o-right"></i> <?=$sub['category_name']?></a></li>
-                  <?php $i++; if($i==7){break;}}?>
+                  <?php $i++; if($i==5){break;}}?>
                 </ul>
               </div>
+                 <div class="">
+                <a href="<?=base_url()?>subcategories/<?=$sub['id']?>">Read More </a>
             </div>
+            </div>
+         
           </div>
           <?php }?>
           <!-- End Categories -->

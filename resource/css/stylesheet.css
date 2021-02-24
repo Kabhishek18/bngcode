@@ -498,9 +498,7 @@ input.form-control {
 }
 /******************* main banner *****************************/
 #slider-banner-section {
-	background: url(../images/banner.jpg) top center no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
+	
 	border-bottom: 7px solid #ffce10;
 }
 #location_slider_item_block {
@@ -614,7 +612,7 @@ input.form-control {
 }
 /***************************** search categories *********************/
 #search-categorie-item {
-	background: #FAFAFA url(../images/category_bg.png) no-repeat center top;
+	background: #9a948ccf;
 	background-position: cover;
 	background-attachment: fixed;
 	background-size: 100% 100%;

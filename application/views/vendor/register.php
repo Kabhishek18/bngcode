@@ -1,4 +1,5 @@
 <body class="vertical-layout vertical-menu-modern 1-column  navbar-floating footer-static bg-full-screen-image  blank-page blank-page" data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
+   
     <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -24,7 +25,7 @@
                                         <p class="px-2">Fill the below form to create a new account.</p>
                                         <div class="card-content">
                                             <div class="card-body pt-0">
-                                                <form action="<?=base_url()?>vendor/Registeration" method="post">
+                                                <form action="<?=base_url()?>vendor/Registeration" method="post" onsubmit="this.form.submit()">
                                                     <div class="form-label-group">
                                                         <input type="text" name="user_name" id="inputName" class="form-control" placeholder="Name" required>
                                                         <label for="inputName">Name</label>
@@ -57,7 +58,7 @@
                                                         </div>
                                                     </div>
                                                     <a href="<?=base_url()?>vendor" class="btn btn-outline-primary float-left btn-inline mb-50">Login</a>
-                                                    <button type="submit" class="btn btn-primary float-right btn-inline mb-50">Register</a>
+                                                    <input type="submit" class="btn btn-primary float-right btn-inline mb-50" value="Register">
                                                 </form>
                                             </div>
                                         </div>
