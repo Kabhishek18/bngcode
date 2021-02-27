@@ -15,6 +15,7 @@ $route['default_controller'] = 'front/index';
 $route['privacy'] = 'front/Privacy';
 $route['about'] = 'front/About';
 $route['terms'] = 'front/Terms';
+$route['product-listing'] = 'front/ProductListing';
 $route['dashboard'] ='front/dashboard';
 $route['requirement'] ='front/Requirement';
 $route['verify/(:any)/(:any)/(:any)'] ='front/EmailVerification';

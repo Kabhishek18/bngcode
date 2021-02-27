@@ -9,6 +9,44 @@
     </div>
   </div>
 </div>
+<div id="vfx-search-item-inner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 vfx-search-categorie-title text-center bt_heading_3">
+        <h1>Search & Business <span>Listing</span></h1>
+        <div class="blind line_1"></div>
+        <div class="flipInX-1 blind icon"><span class="icon"><i class="fa fa-stop"></i>&nbsp;&nbsp;<i class="fa fa-stop"></i></span></div>
+        <div class="blind line_2"></div>
+      </div>
+      <div class="col-md-12">
+        <form id="search-form"  method="post" action="<?=base_url()?>front/SearchMain">
+          <div class="col-sm-9 col-md-10 nopadding">
+            <div id="vfx-search-box">
+              <div class="col-sm-3 nopadding">
+                <select id="search-location" class="form-control" name="typesearch">
+                  <option value="category">All Categories</option>
+                    <option value="subcategory">All Subcategories</option>
+                    <option value="buyers">Buyers</option>
+                    <option value="sellers">Sellers</option>
+                </select>
+              </div>
+              <div class="col-sm-9 nopadding">
+                <div class="form-group">
+                  <input id="search-data" class="form-control" name="search" placeholder="Enter Keyword" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 col-md-2 text-right nopadding-right">
+            <div id="vfx-search-btn">
+              <button type="submit" id="search"><i class="fa fa-search"></i>Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <div id="vfx-product-inner-item">
   <div class="container">
     <div class="row">

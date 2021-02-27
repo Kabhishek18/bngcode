@@ -85,9 +85,16 @@
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
                 <li class="nav-item"><a href="<?=base_url()?>"><i class="feather icon-home"></i><span class="menu-title" data-i8n="">Homepage</span></a></li>
-                <li class=" nav-item "><a href="javascript:void(0)"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
-                          
-                </li>
+                
+                
+                <?php $order = $this->vendor_model->GetOrder($id);?>
+                <?php if(empty($order)){?>
+                <li><a href="<?=base_url()?>vendor/checkout"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Buy Subscription</span></a>
+                        </li>
+                <?php }else {?>
+                   <li class=" nav-item "><a href="javascript:void(0)"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
+                           
+                 </li>
                    <li class=" navigation-header"><span>Categories, Products</span>
                 </li>
                 <li class=" nav-item"><a href="<?=base_url()?>tutor"><i class="feather icon-list"></i><span class="menu-title" data-i18n="User">Product,Category</span></a>
@@ -97,12 +104,7 @@
                         <li><a href="<?=base_url()?>vendor/product"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Product</span></a>
                         </li>
                     </ul>
-                </li>
-                <?php $order = $this->vendor_model->GetOrder($id);?>
-                <?php if(empty($order)){?>
-                <li><a href="<?=base_url()?>vendor/checkout"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Buy Subscription</span></a>
-                        </li>
-                <?php }else {?>
+                </li>   
                  <li><a href="<?=base_url()?>vendor/requirement"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Requirement</span></a>
                         </li>
                  

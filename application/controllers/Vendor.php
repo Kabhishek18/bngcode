@@ -530,8 +530,8 @@ class Vendor extends CI_Controller {
 			$this->load->view('front/inc/footer');
 		}
 		else{
-			$this->session->set_flashdata('warning', 'Please Login Vendor ID To Have Access');
-			redirect('');	
+			$this->session->set_flashdata('warning', 'Supplier Login Required');
+			redirect('vendor/login');	
 		}
 	}
 

@@ -46,6 +46,15 @@ class Front extends CI_Controller {
 		$this->load->view('front/inc/footer');
 	}
 
+	public function ProductListing()
+	{
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/productlisting');
+		$this->load->view('front/inc/footer');
+	}
+
+
 	public function SearchMain()
 	{	
 		$typesearch = $this->input->post('typesearch');
