@@ -102,14 +102,6 @@
     </div>
   </div>
 </div>
-<?php }else{?>
-<div id="dashboard_inner_block">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        Please Login By Supplier Id
-    </div>
-  </div>
-</div>
-</div>
-<?php }?>
+<?php }else{  
+  $this->session->set_flashdata('warning', 'Supplier Login Required');
+  redirect('vendor/login');  }?>

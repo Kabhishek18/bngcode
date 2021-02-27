@@ -612,7 +612,7 @@ input.form-control {
 }
 /***************************** search categories *********************/
 #search-categorie-item {
-	background: #9a948ccf;
+	background: #fff;
 	background-position: cover;
 	background-attachment: fixed;
 	background-size: 100% 100%;
@@ -641,9 +641,8 @@ input.form-control {
 	color: #ffce10;
 }
 .categorie_item {
-	background: #ffffff;
+	background: #dcdcdc61;
 	border-radius: 6px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 	padding: 20px;
 	margin-bottom: 30px;
 }

@@ -5,7 +5,7 @@
                 <div class="navbar-collapse" id="navbar-mobile">
                     <div class="mr-auto float-left bookmark-wrapper d-flex align-items-center">
                         <!-- Left Item Top Nav -->
-                        
+                        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
                         <!-- END: Head-->
                             <?php if($this->session->flashdata('success')){ ?>
                                 <script type="text/javascript">
@@ -88,7 +88,12 @@
                 
                 
                 <?php $order = $this->vendor_model->GetOrder($id);?>
-                <?php if(empty($order)){?>
+                <?php if(empty($order)){
+
+                    ?>
+                     <script type="text/javascript">
+                        swal("", "Please buy subscription to have full access to panel", "info");
+                    </script>
                 <li><a href="<?=base_url()?>vendor/checkout"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Buy Subscription</span></a>
                         </li>
                 <?php }else {?>
@@ -107,7 +112,7 @@
                 </li>   
                  <li><a href="<?=base_url()?>vendor/requirement"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Requirement</span></a>
                         </li>
-                 
+                    
                 <li><a href="<?=base_url()?>vendor/Subscription"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Subscription</span></a>
                         </li>          
                 <?php }?>    
