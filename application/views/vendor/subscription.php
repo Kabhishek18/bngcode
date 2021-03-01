@@ -11,12 +11,12 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Invoice</h2>
+                            <h2 class="content-header-title float-left mb-0">Subscription</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="<?=base_url()?>vendor">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Invoice
+                                    <li class="breadcrumb-item active">Subscription
                                     </li>
                                 </ol>
                             </div>
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 col-12 text-right">
-                                <h1>Invoice</h1>
+                                <h1>Subscription Bill</h1>
                                 <div class="invoice-details mt-2">
                                     <h6>Transaction Id</h6>
                                     <p><?=$sub['order_id']?></p>

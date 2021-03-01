@@ -9,7 +9,17 @@
             <div class="content-header row">
             </div>
             <div class="content-body">
+                <div class="text-center">
+                    <h1>Welcome <?=($user_name)?></h1>
+                    <?php $order = $this->vendor_model->GetOrder($id);?>
+                <?php if(empty($order)){
 
+                    ?>
+                    <script type="text/javascript">
+                        swal("", "Please buy subscription to have full access to panel", "info");
+                    </script>
+                 <?php }?>   
+                </div>
             </div>
         </div>
     </div>

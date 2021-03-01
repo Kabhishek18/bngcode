@@ -74,6 +74,7 @@ class Vendor extends CI_Controller {
 		
 		$auth['user_name']=$this->input->post("user_name");	
 		$auth['user_email']=$this->input->post("user_email");
+		$auth['user_phone']=$this->input->post("user_phone");
 		$auth['user_password']=md5($this->input->post("user_password"));	
 		$auths['user_cpassword']=md5($this->input->post("user_cpassword"));
 		$emailcheck =$this->vendor_model->CheckEmail($auth);
@@ -88,7 +89,7 @@ class Vendor extends CI_Controller {
 		$auth['user_status']='active';
 		$auth['user_verified']='unverified';
 
-		$messagebomb = 'Click to verify <a href="'.base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID().'" >Link</a>';
+		$messagebomb = 'Click to verify <a href="'.base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID().'/vendor'.'" >Link</a>';
 
 		if ($auths['user_cpassword'] == $auth['user_password']) {
 				$insert =$this->vendor_model->InsertUsers($auth);	
@@ -101,15 +102,15 @@ class Vendor extends CI_Controller {
 
 						// SMTP configuration
 						$mail->isSMTP();
-						$mail->Host     = 'in-v3.mailjet.com';
+						$mail->Host     = 'mail.go2bng.com';
 						$mail->SMTPAuth = true;
-						$mail->Username = '18a7637be8ceda3c13ad2ff79caedcfe';
-						$mail->Password = '17ecd9c177f4d9d4af003825bf71c877';
+						$mail->Username = 'noreply@go2bng.com';
+						$mail->Password = 'noreply@987';
 						$mail->SMTPSecure = 'tls';
 						$mail->Port     = 587;
 
-						$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
-						$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
+						$mail->setFrom('noreply@go2bng.com', 'noreply@go2bng.com');
+						$mail->addReplyTo('noreply@go2bng.com', 'noreply@go2bng.com');
 
 						// Add a recipient
 						$mail->addAddress($auth['user_email']);
@@ -153,31 +154,115 @@ class Vendor extends CI_Controller {
 		}
 	}
 
-	//Email Verification
-	public function EmailVerification()
+	public function forgotPassword($value='')
 	{
-		$user_token =$this->uri->segment(3,0);
-		$user_name =$this->uri->segment(4,0);
-		$user_verified ='verfied';
-		 $update =$this->vendor_model->EmailVerify($user_token,$user_verified);
-		if ($update) {
-
-			$this->session->set_flashdata('success', '<span style="color:green">Congratulation, Email Verified Successfully, <p>Please Click to Login <a href="'.base_url().'vendor">Login</a></p></span>');
-			redirect('vendor');	
-
-			}
-		else{
-			$this->session->set_flashdata('warning', '<span>Sorry, Verification Failed</span>');
-			redirect('vendor');	
-		}			
+		$this->load->view('vendor/inc/header');
+		$this->load->view('vendor/forgot');
+		$this->load->view('vendor/inc/footer');
 	}
 
+	public function forgotPasswordEmail()
+	{
+		
+		$auth['user_email']=$this->input->post("user_email");
+		$emailcheck =$this->vendor_model->CheckEmail($auth);
+		if ($emailcheck==true ) {
+			$data = $this->vendor_model->EmailForgot($auth['user_email']);
+			$messagebomb = 'Click to change Password <a href="'.base_url().'change/'.$data['user_token'].'/'.$data['user_name'].'/'.generateUUID().'/vendor'.'" >Link</a>';
+
+			
+						$this->load->library('phpmailer_lib');
+
+						// PHPMailer object
+						$mail = $this->phpmailer_lib->load();
+
+						// SMTP configuration
+						$mail->isSMTP();
+						$mail->Host     = 'mail.go2bng.com';
+						$mail->SMTPAuth = true;
+						$mail->Username = 'noreply@go2bng.com';
+						$mail->Password = 'noreply@987';
+						$mail->SMTPSecure = 'tls';
+						$mail->Port     = 587;
+
+						$mail->setFrom('noreply@go2bng.com', 'noreply@go2bng.com');
+						$mail->addReplyTo('noreply@go2bng.com', 'noreply@go2bng.com');
+
+						// Add a recipient
+						$mail->addAddress($data['user_email']);
+
+						// Add cc or bcc 
+						//$mail->addCC('');
+						//$mail->addBCC('pushapnaraingupta@gmail.com');
+
+						// Email subject
+						$mail->Subject =  'Mail Verfication';
+
+						// Set email format to HTML
+						$mail->isHTML(true);
+
+						// Email body content
+						$mailContent = $messagebomb;
+						$mail->Body = $mailContent;
+
+						// Send email
+						if(!$mail->send()){
+							$mail->ErrorInfo;
+
+						}
+						
+				$this->session->set_flashdata('success', 'Reset Link Has Been Sent To Respective Mail');
+				redirect('vendor');		
+			
+		}
+		else{
+			$this->session->set_flashdata('warning', 'EmailID Not Exist! Please Register');
+			redirect('vendor/register');
+		}
+
+	}
+
+	public function ResetPassword()
+	{
+		$data['user_token'] =$this->uri->segment(2,0);
+		$data['user_name'] =$this->uri->segment(3,0);
+		$vendor =$this->uri->segment(5,0);
+		
+		$this->load->view('vendor/inc/header');
+		$this->load->view('vendor/resetpass',$data);
+		$this->load->view('vendor/inc/footer');
+
+			
+	}
+
+
+	public function ResetprofilePassword()
+	{
+		$data['user_token'] =$this->input->post('user_token');
+		$data['user_name']=$this->input->post('user_name');
+		$user['user_password'] =md5( $this->input->post('user_password')); 
+		$var['user_cpassword'] = md5($this->input->post('user_cpassword')); 
+		if($user['user_password'] !=$var['user_cpassword']){
+			$this->session->set_flashdata('warning', 'Password Mismatch');
+			redirect('change/'.$data['user_token'].'/'.$data['user_name'].'/'.generateUUID().'/vendor');	
+		}
+		$update=$this->vendor_model->UpdateUserData($user,$data['user_token'],$data['user_name']);
+		if($update){
+			$this->session->set_flashdata('success', 'Successfully Password Updated');
+			redirect('vendor/login');
+		}else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+			redirect($_SERVER['HTTP_REFERER']);	
+		}
+					
+		
+	}
 	//Email Reverfication
 	public function ResendEmailVerification()
 	{
 		$auth= $this->session->vendor_account;
 		
-		$messagebomb = 'Click to verify <a href="'.base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID().'" >Link</a>';
+		$messagebomb = 'Click to verify <a href="'.base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID().'/vendor" >Link</a>';
 		$this->load->library('phpmailer_lib');
 
 				// PHPMailer object
@@ -185,15 +270,15 @@ class Vendor extends CI_Controller {
 
 				// SMTP configuration
 				$mail->isSMTP();
-				$mail->Host     = 'in-v3.mailjet.com';
+				$mail->Host     = 'mail.go2bng.com';
 				$mail->SMTPAuth = true;
-				$mail->Username = '18a7637be8ceda3c13ad2ff79caedcfe';
-				$mail->Password = '17ecd9c177f4d9d4af003825bf71c877';
+				$mail->Username = 'noreply@go2bng.com';
+				$mail->Password = 'noreply@987';
 				$mail->SMTPSecure = 'tls';
 				$mail->Port     = 587;
 
-				$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
-				$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
+				$mail->setFrom('noreply@go2bng.com', 'noreply@go2bng.com');
+				$mail->addReplyTo('noreply@go2bng.com', 'noreply@go2bng.com');
 
 				// Add a recipient
 				$mail->addAddress($auth['user_email']);
@@ -238,6 +323,104 @@ class Vendor extends CI_Controller {
 		}
 	}
 
+	public function Profile($value='')
+	{
+		$data =$this->session->vendor_account;
+		if($data['user_verified'] =='verified'){
+			$this->load->view('vendor/inc/header');
+			$this->load->view('vendor/inc/nav',$data);
+			$this->load->view('vendor/profile');
+			$this->load->view('vendor/inc/footer');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('vendor');	
+		}	
+	}
+
+	public function profileUpdate()
+	{
+		$data =$this->session->vendor_account;
+		if($data['user_verified'] =='verified'){
+			
+			$user['user_name'] = $this->input->post('user_name'); 
+			$user['user_phone'] = $this->input->post('user_phone'); 
+			$value['company_name'] = $this->input->post('company_name');
+			$value['business_type'] = $this->input->post('business_type');
+			$value['estab_year'] = $this->input->post('estab_year');
+			$value['annual_sale'] = $this->input->post('annual_sale');
+			$value['iso_cert'] = $this->input->post('iso_cert');
+			$user['user_description'] =json_encode($value);
+			$dir ='uploads/profile/';
+				if (!is_dir($dir)) {
+					mkdir($dir, 0755, TRUE);
+				}
+				$config['upload_path'] =  $dir;
+		        $config['allowed_types'] = 'jpg|jpeg|png|jpeg|mp4|docx|pdf';
+		        $config['max_size'] = 3000;
+		        $this->load->library('upload', $config);
+				$this->upload->initialize($config);
+
+				if($this->upload->do_upload('catimg')){
+		 		$file= $this->upload->data();
+				$user['user_image'] =$file['file_name'];}
+				else{						
+					}	
+			$update=$this->vendor_model->UpdateUserData($user,$data['user_email']);
+			if($update){
+				$data['user_name'] =$user['user_name'];
+				$data['user_phone'] =$user['user_phone'];
+				$data['user_description'] =$user['user_description'];
+				if($user['user_image']){
+				$data['user_image'] =$user['user_image'];
+				}
+				$this->session->set_flashdata('success', 'Successfully Done');
+				$this->session->set_userdata('vendor_account',$data);
+				redirect($_SERVER['HTTP_REFERER']);
+			}else{
+				$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+				redirect($_SERVER['HTTP_REFERER']);	
+			}
+					
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('vendor');	
+		}	
+	}
+
+
+
+	public function profilePassword()
+	{
+		$data =$this->session->vendor_account;
+		if($data['user_verified'] =='verified'){
+			
+			$user['user_password'] =md5( $this->input->post('user_password')); 
+			$var['user_cpassword'] = md5($this->input->post('user_cpassword')); 
+			if($user['user_password'] !=$var['user_cpassword']){
+				$this->session->set_flashdata('warning', 'Password Mismatch');
+				redirect($_SERVER['HTTP_REFERER']);	
+			}
+			$update=$this->vendor_model->UpdateUserData($user,$data['user_email']);
+			if($update){
+				$this->session->set_flashdata('success', 'Successfully Done');
+				redirect($_SERVER['HTTP_REFERER']);
+			}else{
+				$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+				redirect($_SERVER['HTTP_REFERER']);	
+			}
+					
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('vendor');	
+		}	
+	}
+
+
+
+	
 	public function Category()
 	{
 		$data= $this->session->vendor_account;
@@ -253,6 +436,8 @@ class Vendor extends CI_Controller {
 			redirect('vendor');	
 		}
 	}
+
+
 
 	//Course Add View
 	public function CategoryAdd()

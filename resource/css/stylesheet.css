@@ -2382,7 +2382,8 @@ ul.use-slt-link li {
 /******************* breadcrum ***********************/
 #breadcrum-inner-block {
 	padding: 85px 0px;
-	background: url(../images/listing-detail.jpg) center top no-repeat;
+	background: #0d273a;
+	/*background: url(../images/listing-detail.jpg) center top no-repeat;*/
 	background-size: cover;
 	/*background-attachment: fixed;*/
 	background-size: 100% auto;

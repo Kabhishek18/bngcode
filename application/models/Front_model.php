@@ -29,7 +29,26 @@ class Front_model extends CI_Model
             return false;
         }
     }
-
+    public function GetOrder($userid,$id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->order);
+       
+        if($id){
+            $array = array('order_id' => $id,'uid'=>$userid);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+             $array = array('uid'=>$userid);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
 
     public function CheckEmail($auth)
     {

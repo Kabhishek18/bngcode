@@ -18,7 +18,7 @@ $route['terms'] = 'front/Terms';
 $route['product-listing'] = 'front/ProductListing';
 $route['dashboard'] ='front/dashboard';
 $route['requirement'] ='front/Requirement';
-$route['verify/(:any)/(:any)/(:any)'] ='front/EmailVerification';
+$route['verify/(:any)/(:any)/(:any)/(:any)'] ='front/EmailVerification';
 $route['logisticslead'] ='front/LogisticsLead';
 
 //DealerShip
@@ -41,8 +41,10 @@ $route['logout'] ='front/Logout';
 //    \_/ \___|_| |_|\__,_|\___/|_|  
 $route['vendor'] = 'vendor/Index';
 $route['vendor/login'] = 'vendor/Index';
-$route['venodor/verify/(:any)/(:any)/(:any)'] ='vendor/EmailVerification';
+// eMail Verfication @ front 
 $route['vendor/dashboard'] ='vendor/Dashboard';
+$route['change/(:any)/(:any)/(:any)/(:any)'] ='vendor/ResetPassword';
+$route['vendor/profile'] ='vendor/Profile';
 $route['vendor/requirement'] ='vendor/Requirement';
 $route['AjaxRequest'] ='vendor/AjaxRequest';
 $route['payment'] ='vendor/Payment';

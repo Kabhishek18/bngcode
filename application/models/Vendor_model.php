@@ -31,7 +31,29 @@ class Vendor_model extends CI_Model
     }
 
 
-    
+    public function UpdateUserData($data,$email)
+    {   
+        if ($email) {
+            $this->db->where('user_email',$email);
+            $update = $this->db->update($this->users,$data);
+            return $update?true:false;
+        }
+        else{
+           return false;
+        }
+    }
+    public function ResetUserData($data,$user,$name)
+    {   
+        if ($user) {
+            $array = array('user_token' => $user,'user_name' => $name);
+             $this->db->where($array);
+            $update = $this->db->update($this->users,$data);
+            return $update?true:false;
+        }
+        else{
+           return false;
+        }
+    }
 
     public function CheckEmail($auth)
     {
@@ -56,6 +78,23 @@ class Vendor_model extends CI_Model
          return $insert?true:false;
     }
 
+
+    public function EmailForgot($user_email){
+         $this->db->select('*');
+        $this->db->from($this->users);
+       
+        if($user_email){
+            $array = array('user_email'=>$user_email);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+             return false;
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
 
      //Email Verify
      public function EmailVerify($user_token,$user_verified){

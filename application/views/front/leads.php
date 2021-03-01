@@ -3,32 +3,31 @@
     <div class="row">
       <div class="col-sm-12 text-center">
         <div class="breadcrum-inner-header">
-          <h1>Quote List</h1>
+          <h1>New Freight Quote Requests</h1>
           <a href="<?=base_url()?>">Home</a> <i class="fa fa-circle"></i> <a href="javascript:void(0)"><span>Listing</span></a> </div>
       </div>
     </div>
   </div>
 </div>
  <?php if($this->session->vendor_account){ ?>
+
+   <?php $data =$this->session->vendor_account;
+   $order = $this->front_model->GetOrder($data['id']);?>
+                <?php if(empty($order)){}else{?>
 <div id="dashboard_inner_block">
   <div class="container">
-    <div class="row">
+    <div class="row"> 
       <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="head-title text-center" style="background: #337ab7;color:white;padding: 10px;margin-bottom:10px">
-           <h2>New Freight Quote Requests</h2>
-        </div>
-      </div>  
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="row">
+        <div class="row" style="padding-bottom: 100px">
          
           <?php if($leads){ ?>
           <?php foreach($leads as $lead){?>
             <?php $value = json_decode($lead['lead']);?>
             <div class="col-md-12 col-sm-12 col-xs-12" style="padding:10px">
-              <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> 
-                 <h4>>> <?=$value->freightleadtitle?></h4>
+              <a data-toggle="collapse" href="#collapseExample<?=($lead['id'])?>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
+                 <h4> Freight Title : <?=$value->freightleadtitle?> Loading Port :  ( <?=$value->loadingport?>)  Destination Port : ( <?=$value->destinationport?> )</h4>
                </a>
-               <div class="collapse" id="collapseExample">
+               <div class="collapse" id="collapseExample<?=($lead['id'])?>">
                 <div class="card card-body">
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="feature-item-container-box listing-item">
@@ -102,6 +101,7 @@
     </div>
   </div>
 </div>
-<?php }else{  
+<?php }?>
+<?php  }else{  
   $this->session->set_flashdata('warning', 'Supplier Login Required');
   redirect('vendor/login');  }?>

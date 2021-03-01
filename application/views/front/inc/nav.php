@@ -38,20 +38,20 @@
                 <li><a href="#">Suppliers <i class="fa fa-caret-down"></i></a>
                  <ul class="dropdown">
                     <li><a href="<?=base_url()?>vendor"><i class="fa fa-angle-double-right"></i>Login </a></li>
-                     <li><a  href="<?=base_url()?>vendor"><i class="fa fa-angle-double-right"></i>Register </a></li>
+                     <li><a  href="<?=base_url()?>vendor/register"><i class="fa fa-angle-double-right"></i>Register </a></li>
                   </ul>   
                 </li>
                     <?php }elseif($this->session->user_account){ $value = $this->session->user_account;?>
                       <li>
-                        <a class="btn-lg" href='<?=base_url()?>dashboard'>Dashboard</a>
+                        <a class="btn-lg" href='<?=base_url()?>dashboard'>Hi, <?=$value['user_name']?></a>
                       </li>
                       <li>
                         <a class="btn-lg" href='<?=base_url()?>logout'>Logout</a>
                       </li>
                     <?php  }elseif($this->session->vendor_account){ 
-                      $value = $this->session->vendor_account;?>
+                      $vvalue = $this->session->vendor_account;?>
                       <li>
-                        <a class="btn-lg" href='<?=base_url()?>vendor/dashboard'>Dashboard</a>
+                        <a class="btn-lg" href='<?=base_url()?>vendor/dashboard'>Hi, <?=$vvalue['user_name']?></a>
                       </li>
                       <li>
                         <a class="btn-lg" href='<?=base_url()?>vendor/logout'>Logout</a>

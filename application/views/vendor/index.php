@@ -1,4 +1,35 @@
 <body class="vertical-layout vertical-menu-modern 1-column  navbar-floating footer-static bg-full-screen-image  blank-page blank-page" data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<?php if($this->session->flashdata('success')){ ?>
+    <script type="text/javascript">
+        swal("", "<?=($this->session->flashdata('success'))?>", "success");
+    </script>
+<?php }?>
+  
+<?php if($this->session->flashdata('danger')){ ?>
+     <script type="text/javascript">
+        swal("", "<?=($this->session->flashdata('danger'))?>", "danger");
+    </script>
+<?php }?>
+   
+<?php if($this->session->flashdata('warning')){ ?>
+     <script type="text/javascript">
+        swal("", "<?=($this->session->flashdata('warning'))?>", "warning");
+    </script>
+<?php }?>
+   
+<?php if($this->session->flashdata('info')){ ?>
+    <script type="text/javascript">
+        swal("", "<?=($this->session->flashdata('info'))?>", "info");
+    </script>
+<?php }?>
+  
+<?php if($this->session->flashdata('any')){ ?>
+ <script type="text/javascript">
+        swal("", "<?=($this->session->flashdata('any'))?>", "any");
+    </script>
+<?php }?>
     <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -12,13 +43,13 @@
                         <div class="card bg-authentication rounded-0 mb-0">
                             <div class="row m-0">
                                 <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
-                                    <img src="<?=base_url()?>resource-admin/app-assets/images/pages/login.png" alt="branding logo">
+                                    <img src="<?=base_url()?>resource/images/logo.png" alt="branding logo">
                                 </div>
                                 <div class="col-lg-6 col-12 p-0">
                                     <div class="card rounded-0 mb-0 px-2">
                                         <div class="card-header pb-1">
                                             <div class="card-title">
-                                                <h4 class="mb-0">Login</h4>
+                                                <h4 class="mb-0">Supplier Login</h4>
                                             </div>
                                         </div>
                                         <p class="px-2">Welcome back, please login to your account.</p>
@@ -44,7 +75,7 @@
                                                         <div class="text-left">
                                                             
                                                         </div>
-                                                        <div class="text-right"><a href="auth-forgot-password.html" class="card-link">Forgot Password?</a></div>
+                                                        <div class="text-right"><a href="<?=base_url()?>vendor/forgotPassword" class="card-link">Forgot Password?</a></div>
                                                     </div>
                                                     <a href="<?=base_url()?>vendor/Register" class="btn btn-outline-primary float-left btn-inline">Register</a>
                                                     <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>

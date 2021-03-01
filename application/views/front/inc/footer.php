@@ -52,15 +52,18 @@
         <div class="col-md-3 col-sm-6 col-xs-12">
           <h2>Have you any Query?</h2>
           <hr>
-          <form class="form-alt">
+          <form class="form-alt"  method="post" action="<?=base_url()?>front/QuerySubmit">
             <div class="form-group">
-              <input type="text" placeholder="Name :-" required class="form-control">
+              <input type="text" name="name" placeholder="Name :-" required class="form-control">
             </div>
             <div class="form-group">
-              <input type="text" placeholder="Email :-" required class="form-control">
+              <input type="text" name ="email" placeholder="Email :-" required class="form-control">
             </div>
             <div class="form-group">
-              <textarea placeholder="Message :-" required class="form-control"></textarea>
+              <input type="text" name="phone" placeholder="Phone :-" required class="form-control">
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Message :-" required class="form-control"></textarea>
             </div>
             <div class="form-group">
               <button type="submit" class="btn-quote">Send Now</button>

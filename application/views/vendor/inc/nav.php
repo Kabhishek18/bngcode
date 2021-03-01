@@ -5,37 +5,37 @@
                 <div class="navbar-collapse" id="navbar-mobile">
                     <div class="mr-auto float-left bookmark-wrapper d-flex align-items-center">
                         <!-- Left Item Top Nav -->
-                        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-                        <!-- END: Head-->
-                            <?php if($this->session->flashdata('success')){ ?>
-                                <script type="text/javascript">
-                                    swal("", "<?=($this->session->flashdata('success'))?>", "success");
-                                </script>
-                            <?php }?>
-                              
-                            <?php if($this->session->flashdata('danger')){ ?>
+                  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+                                <?php if($this->session->flashdata('success')){ ?>
+                                    <script type="text/javascript">
+                                        swal("", "<?=($this->session->flashdata('success'))?>", "success");
+                                    </script>
+                                <?php }?>
+                                  
+                                <?php if($this->session->flashdata('danger')){ ?>
+                                     <script type="text/javascript">
+                                        swal("", "<?=($this->session->flashdata('danger'))?>", "danger");
+                                    </script>
+                                <?php }?>
+                                   
+                                <?php if($this->session->flashdata('warning')){ ?>
+                                     <script type="text/javascript">
+                                        swal("", "<?=($this->session->flashdata('warning'))?>", "warning");
+                                    </script>
+                                <?php }?>
+                                   
+                                <?php if($this->session->flashdata('info')){ ?>
+                                    <script type="text/javascript">
+                                        swal("", "<?=($this->session->flashdata('info'))?>", "info");
+                                    </script>
+                                <?php }?>
+                                  
+                                <?php if($this->session->flashdata('any')){ ?>
                                  <script type="text/javascript">
-                                    swal("", "<?=($this->session->flashdata('danger'))?>", "danger");
-                                </script>
-                            <?php }?>
-                               
-                            <?php if($this->session->flashdata('warning')){ ?>
-                                 <script type="text/javascript">
-                                    swal("", "<?=($this->session->flashdata('warning'))?>", "warning");
-                                </script>
-                            <?php }?>
-                               
-                            <?php if($this->session->flashdata('info')){ ?>
-                                <script type="text/javascript">
-                                    swal("", "<?=($this->session->flashdata('info'))?>", "info");
-                                </script>
-                            <?php }?>
-                              
-                            <?php if($this->session->flashdata('any')){ ?>
-                             <script type="text/javascript">
-                                    swal("", "<?=($this->session->flashdata('any'))?>", "any");
-                                </script>
-                            <?php }?>
+                                        swal("", "<?=($this->session->flashdata('any'))?>", "any");
+                                    </script>
+                                <?php }?>
                           
                     </div>
                     <ul class="nav navbar-nav float-right">
@@ -53,7 +53,7 @@
                         <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="javascript:void0" data-toggle="dropdown">
                                 <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600" style="text-transform: capitalize;"><?=$user_name?></span><span class="user-status">
                                   Admin
-                                </span></div><span><img class="round" src="<?=base_url()?>resource-admin/upload/<?=$user_image?>" alt="avatar" height="40" width="40"></span>
+                                </span></div><span><img class="round" src="<?=base_url()?>uploads/profile/<?=$user_image?>" alt="avatar" height="40" width="40"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?=base_url()?>user/useredit/<?=$id?>"><i class="feather icon-user"></i> Edit Profile</a>
                                 <div class="dropdown-divider"></div><a class="dropdown-item" href="<?=base_url()?>Vendor/Logout"><i class="feather icon-power"></i> Logout</a>
@@ -85,21 +85,20 @@
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
 
                 <li class="nav-item"><a href="<?=base_url()?>"><i class="feather icon-home"></i><span class="menu-title" data-i8n="">Homepage</span></a></li>
-                
-                
+                <li class=" nav-item "><a href="<?=base_url()?>vendor/dashboard"><i class="feather icon-square"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>      
+                 </li>
+                <li class="nav-item"><a href="<?=base_url()?>vendor/profile"><i class="feather icon-triangle"></i><span class="menu-title" data-i18n="profile">Profile</span></a>
+                    
+                </li>
                 <?php $order = $this->vendor_model->GetOrder($id);?>
                 <?php if(empty($order)){
 
                     ?>
-                     <script type="text/javascript">
-                        swal("", "Please buy subscription to have full access to panel", "info");
-                    </script>
+                     
                 <li><a href="<?=base_url()?>vendor/checkout"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="View">Buy Subscription</span></a>
                         </li>
                 <?php }else {?>
-                   <li class=" nav-item "><a href="javascript:void(0)"><i class="feather icon-home"></i><span class="menu-title" data-i18n="Dashboard">Dashboard</span></a>
-                           
-                 </li>
+               
                    <li class=" navigation-header"><span>Categories, Products</span>
                 </li>
                 <li class=" nav-item"><a href="<?=base_url()?>tutor"><i class="feather icon-list"></i><span class="menu-title" data-i18n="User">Product,Category</span></a>

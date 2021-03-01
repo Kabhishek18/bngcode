@@ -111,12 +111,11 @@
      
             <div>
                 <img data-u="image" src="<?=base_url()?>resource/images/banner1.jpeg" />
-                <div data-ts="flat" data-p="2720" data-po="50% 48%" style="left:0px;top:0px;width:980px;height:380px;position:absolute;">
+                <div data-ts="flat" data-p="2720" data-po="50% 48%" style="top:20%;width:100%;position:absolute;">
                   <!-- Form -->
                     <div  data-to="50% 50%" class="text-center  hidden-xs" style="margin-top:180px">
                         <form id="categorie-search-form" method="post" action="<?=base_url()?>front/SearchMain">
-                          <h1>Find Worldwide Buyers, Suppliers & Products</h1>
-                          <div class="col-sm-6 col-md-10 nopadding">
+                           <div class="col-sm-6 col-md-10 nopadding">
                             <div id="search-input">
                               <div class="col-sm-3 nopadding">
                                 <select id="location-search-list" class="form-control" name="typesearch">
@@ -146,11 +145,10 @@
 
              <div>
                 <img data-u="image" src="<?=base_url()?>resource/images/banner2.jpeg" />
-                <div data-ts="flat" data-p="2720" data-po="50% 48%" style="left:0px;top:0px;width:980px;height:380px;position:absolute;">
+                <div data-ts="flat" data-p="2720" data-po="50% 48%" style="top:20%;width:100%;position:absolute;">
                   <!-- Form -->
                     <div  data-to="50% 50%" class="text-center  hidden-xs" style="margin-top:180px">
                         <form id="categorie-search-form" method="post" action="<?=base_url()?>front/SearchMain">
-                          <h1>Find Worldwide Buyers, Suppliers & Products</h1>
                           <div class="col-sm-6 col-md-10 nopadding">
                             <div id="search-input">
                               <div class="col-sm-3 nopadding">
@@ -180,12 +178,11 @@
             </div>
                  <div>
                 <img data-u="image" src="<?=base_url()?>resource/images/banner3.jpeg" />
-                <div data-ts="flat" data-p="2720" data-po="50% 48%" style="left:0px;top:0px;width:980px;height:380px;position:absolute;">
+                <div data-ts="flat" data-p="2720" data-po="50% 48%" style="top:20%;width:100%;position:absolute;">
                   <!-- Form -->
                     <div  data-to="50% 50%" class="text-center  hidden-xs" style="margin-top:180px">
                         <form id="categorie-search-form" method="post" action="<?=base_url()?>front/SearchMain">
-                          <h1>Find Worldwide Buyers, Suppliers & Products</h1>
-                          <div class="col-sm-6 col-md-10 nopadding">
+                         <div class="col-sm-6 col-md-10 nopadding">
                             <div id="search-input">
                               <div class="col-sm-3 nopadding">
                                 <select id="location-search-list" class="form-control" name="typesearch">
@@ -214,11 +211,10 @@
             </div>
                  <div>
                 <img data-u="image" src="<?=base_url()?>resource/images/banner4.jpeg" />
-                <div data-ts="flat" data-p="2720" data-po="50% 48%" style="left:0px;top:0px;width:980px;height:380px;position:absolute;">
+                <div data-ts="flat" data-p="2720" data-po="50% 48%" style="top:20%;width:100%;position:absolute;">
                   <!-- Form -->
                     <div  data-to="50% 50%" class="text-center  hidden-xs" style="margin-top:180px">
                         <form id="categorie-search-form" method="post" action="<?=base_url()?>front/SearchMain">
-                          <h1>Find Worldwide Buyers, Suppliers & Products</h1>
                           <div class="col-sm-6 col-md-10 nopadding">
                             <div id="search-input">
                               <div class="col-sm-3 nopadding">
@@ -305,66 +301,40 @@
     </div>
   </div>
 </div>
-<div id="feature-item_listing_block">
+<div id="recent-product-item-listing">
   <div class="container">
     <div class="row">
       <div class="col-sm-12 text-center">
-        <div class="col-md-12 feature-item-listing-heading bt_heading_3">
-          <h1>Featured <span>Seller</span></h1>
+        <div class="col-md-12 recent-item-listing-heading bt_heading_3">
+          <h1>Recent <span>Query</span></h1>
           <div class="blind line_1"></div>
           <div class="flipInX-1 blind icon"><span class="icon"><i class="fa fa-stop"></i>&nbsp;&nbsp;<i class="fa fa-stop"></i></span></div>
           <div class="blind line_2"></div>
         </div>
         <div class="row">
-          <!-- Feature Seller-->
-          <?php $sellers = $this->front_model->GetUserType('vendor');?>
-          <?php $i=1;foreach($sellers as  $seller){ ?>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="feature-item-container-box listing-item">
-              <div class="feature-title-item">
-                <img src="<?=base_url()?>resource/images/product/img1.png" alt="img1"> </div>
-          
-              <div class="feature-box-text" style=" text-align: center;">                
-				        <h3><?=$seller['user_name']?></h3>
-              </div>
-      
-            </div>
-          </div>
-         <?php $i++; if($i==9){break;}}?>
-          <!-- Feature Seller -->
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div id="feature-item_listing_block">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 text-center">
-        <div class="col-md-12 feature-item-listing-heading bt_heading_3">
-          <h1>Featured <span>Buyer</span></h1>
-          <div class="blind line_1"></div>
-          <div class="flipInX-1 blind icon"><span class="icon"><i class="fa fa-stop"></i>&nbsp;&nbsp;<i class="fa fa-stop"></i></span></div>
-          <div class="blind line_2"></div>
-        </div>
-        <div class="row">
-          <!-- Feature Seller-->
-          <?php $buyers = $this->front_model->GetUserType('user');?>
-          <?php foreach($buyers as  $buyer){ ?>
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="feature-item-container-box listing-item">
-              <div class="feature-title-item">
-                <img src="<?=base_url()?>resource/images/product/img1.png" alt="img1"> </div>
-          
-              <div class="feature-box-text" style=" text-align: center;">                
-                <h3><?=$buyer['user_name']?></h3>
+        <?php $listing =$this->front_model->GetQueryList(); 
+          if($listing){
+          foreach($listing as $list){?>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="recent-listing-box-container-item">
+                    <?php $list['description'] = json_decode($list['description'], True); ?>
+                  <div class="recent-listing-box-item">
+                    <div class="listing-boxes-text"> <a href="#">
+                      <h3></h3>
+                      </a> <a href="#"> <?=$list['description']['user_name']?></a>
+                      <p><?php $pro = $this->front_model->GetProduct($list['pid']);?>
+                       <strong>Product Name :</strong> <?=$pro['product_name']?>
+                      </p>
+                      <p><?=$list['description']['requirement']?></p>
+                    </div>
+                    <div class="recent-feature-item-rating">
+                      <h2><i class="fa fa-map-marker"></i> <?=$list['description']['user_email']?></h2>
+                      <span> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </span> </div>
+                  </div>
               </div>
-      
             </div>
-          </div>
-         <?php $i++; if($i==9){break;}}?>
-          <!-- Feature Seller -->
+          <?php }}?>
         </div>
       </div>
     </div>
@@ -407,45 +377,7 @@
     </div>
   </div>
 </div>
-<div id="recent-product-item-listing">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 text-center">
-        <div class="col-md-12 recent-item-listing-heading bt_heading_3">
-          <h1>Recent <span>Query</span></h1>
-          <div class="blind line_1"></div>
-          <div class="flipInX-1 blind icon"><span class="icon"><i class="fa fa-stop"></i>&nbsp;&nbsp;<i class="fa fa-stop"></i></span></div>
-          <div class="blind line_2"></div>
-        </div>
-        <div class="row">
 
-        <?php $listing =$this->front_model->GetQueryList(); 
-          if($listing){
-          foreach($listing as $list){?>
-            <div class="col-md-6 col-sm-6 col-xs-12">
-              <div class="recent-listing-box-container-item">
-                    <?php $list['description'] = json_decode($list['description'], True); ?>
-                  <div class="recent-listing-box-item">
-                    <div class="listing-boxes-text"> <a href="#">
-                      <h3></h3>
-                      </a> <a href="#"> <?=$list['description']['user_name']?></a>
-                      <p><?php $pro = $this->front_model->GetProduct($list['pid']);?>
-                       <strong>Product Name :</strong> <?=$pro['product_name']?>
-                      </p>
-                      <p><?=$list['description']['requirement']?></p>
-                    </div>
-                    <div class="recent-feature-item-rating">
-                      <h2><i class="fa fa-map-marker"></i> <?=$list['description']['user_email']?></h2>
-                      <span> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </span> </div>
-                  </div>
-              </div>
-            </div>
-          <?php }}?>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <div id="pricing-item-block">
   <div class="container-fluid">
     <div class="row">
