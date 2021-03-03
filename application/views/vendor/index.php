@@ -43,7 +43,16 @@
                         <div class="card bg-authentication rounded-0 mb-0">
                             <div class="row m-0">
                                 <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
+                                    <div class="card rounded-0 mb-0 px-2">
                                     <img src="<?=base_url()?>resource/images/logo.png" alt="branding logo">
+                                       <div class="form-group d-flex justify-content-between align-items-center" style="margin-top:15px;padding:30px;display:grid;width: 100%">
+                                            
+                                                <a href="<?=base_url()?>" class="btn btn-outline-primary float-left btn-inline">
+                                                    <i class="fa fa-home"></i> Back To Home
+                                                </a>
+                                            
+                                        </div>
+                                    </div>    
                                 </div>
                                 <div class="col-lg-6 col-12 p-0">
                                     <div class="card rounded-0 mb-0 px-2">

@@ -15,7 +15,8 @@ class Vendor extends CI_Controller {
 	}
 
 	public function Index()
-	{	$data= $this->session->vendor_account;
+	{	
+		$data= $this->session->vendor_account;
 		if($data){
 			if($data['user_verified'] =='verified'){
 			redirect('vendor/dashboard');
@@ -68,6 +69,7 @@ class Vendor extends CI_Controller {
 		$this->load->view('vendor/register');
 		$this->load->view('vendor/inc/footer');
 	}
+
 	//Register
 	public function Registeration()
 	{
@@ -104,13 +106,13 @@ class Vendor extends CI_Controller {
 						$mail->isSMTP();
 						$mail->Host     = 'mail.go2bng.com';
 						$mail->SMTPAuth = true;
-						$mail->Username = 'noreply@go2bng.com';
-						$mail->Password = 'noreply@987';
+						$mail->Username = 'no-reply@go2bng.com';
+						$mail->Password = 'no-reply@987';
 						$mail->SMTPSecure = 'tls';
 						$mail->Port     = 587;
 
-						$mail->setFrom('noreply@go2bng.com', 'noreply@go2bng.com');
-						$mail->addReplyTo('noreply@go2bng.com', 'noreply@go2bng.com');
+						$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
+						$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
 
 						// Add a recipient
 						$mail->addAddress($auth['user_email']);
@@ -180,13 +182,13 @@ class Vendor extends CI_Controller {
 						$mail->isSMTP();
 						$mail->Host     = 'mail.go2bng.com';
 						$mail->SMTPAuth = true;
-						$mail->Username = 'noreply@go2bng.com';
-						$mail->Password = 'noreply@987';
+						$mail->Username = 'no-reply@go2bng.com';
+						$mail->Password = 'no-reply@987';
 						$mail->SMTPSecure = 'tls';
 						$mail->Port     = 587;
 
-						$mail->setFrom('noreply@go2bng.com', 'noreply@go2bng.com');
-						$mail->addReplyTo('noreply@go2bng.com', 'noreply@go2bng.com');
+						$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
+						$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
 
 						// Add a recipient
 						$mail->addAddress($data['user_email']);
@@ -219,7 +221,6 @@ class Vendor extends CI_Controller {
 			$this->session->set_flashdata('warning', 'EmailID Not Exist! Please Register');
 			redirect('vendor/register');
 		}
-
 	}
 
 	public function ResetPassword()
@@ -230,9 +231,7 @@ class Vendor extends CI_Controller {
 		
 		$this->load->view('vendor/inc/header');
 		$this->load->view('vendor/resetpass',$data);
-		$this->load->view('vendor/inc/footer');
-
-			
+		$this->load->view('vendor/inc/footer');	
 	}
 
 
@@ -254,9 +253,8 @@ class Vendor extends CI_Controller {
 			$this->session->set_flashdata('warning', 'Something Misfortune Happen');
 			redirect($_SERVER['HTTP_REFERER']);	
 		}
-					
-		
 	}
+	
 	//Email Reverfication
 	public function ResendEmailVerification()
 	{
@@ -270,15 +268,15 @@ class Vendor extends CI_Controller {
 
 				// SMTP configuration
 				$mail->isSMTP();
-				$mail->Host     = 'mail.go2bng.com';
+				$mail->Host     = 'smtp.mandrillapp.com';
 				$mail->SMTPAuth = true;
-				$mail->Username = 'noreply@go2bng.com';
-				$mail->Password = 'noreply@987';
+				$mail->Username = 'Logistics';
+				$mail->Password = 'k64QCLTkpGJ6NsFW5xW5mw';
 				$mail->SMTPSecure = 'tls';
 				$mail->Port     = 587;
 
-				$mail->setFrom('noreply@go2bng.com', 'noreply@go2bng.com');
-				$mail->addReplyTo('noreply@go2bng.com', 'noreply@go2bng.com');
+				$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
+				$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
 
 				// Add a recipient
 				$mail->addAddress($auth['user_email']);
@@ -389,8 +387,6 @@ class Vendor extends CI_Controller {
 		}	
 	}
 
-
-
 	public function profilePassword()
 	{
 		$data =$this->session->vendor_account;
@@ -418,9 +414,6 @@ class Vendor extends CI_Controller {
 		}	
 	}
 
-
-
-	
 	public function Category()
 	{
 		$data= $this->session->vendor_account;
@@ -436,8 +429,6 @@ class Vendor extends CI_Controller {
 			redirect('vendor');	
 		}
 	}
-
-
 
 	//Course Add View
 	public function CategoryAdd()
@@ -563,8 +554,6 @@ class Vendor extends CI_Controller {
 		
 		}
 	}
-
-
 
 	public function Product()
 	{
@@ -789,7 +778,8 @@ class Vendor extends CI_Controller {
 	}
 
 	//Apply Coupon
-	public function ApplyCoupon(){
+	public function ApplyCoupon()
+	{
 		$coupon =$this->input->post('coupon');
 		if (!empty($coupon)) {
 			$ticket =$this->front_model->Getcoupon($coupon);
@@ -820,10 +810,10 @@ class Vendor extends CI_Controller {
 		}
 	}
 
-	function coupondestroy(){
+	public function coupondestroy()
+	{
 		$this->session->unset_userdata('ticket');	
 		redirect('checkout');
-	
 	}
 
  	public function razorPaySuccess()
@@ -846,12 +836,11 @@ class Vendor extends CI_Controller {
 		 				
 		 		}
 		 	}
-		
     }
     
     public function RazorThankYou()
     {
-		$this->session->set_flashdata('success', 'Order Successfully');
+	 $this->session->set_flashdata('success', 'Order Successfully');
      $this->load->view('front/inc/header');
      $this->load->view('front/inc/nav');
      $this->load->view('front/inc/footer'); 	
@@ -859,7 +848,6 @@ class Vendor extends CI_Controller {
      $this->session->unset_userdata('checkout');
      sleep(4);
      redirect('vendor/dashboard');
-
     }
 
     public function Requirement()
@@ -891,7 +879,6 @@ class Vendor extends CI_Controller {
 			$this->session->set_flashdata('warning', 'Access Denied');
 			redirect('vendor');	
 		}
-    	
     }
 
     public function Subscription()
@@ -908,7 +895,6 @@ class Vendor extends CI_Controller {
 			$this->session->set_flashdata('warning', 'Access Denied');
 			redirect('vendor');	
 		}
-    	
     }
     	
 }

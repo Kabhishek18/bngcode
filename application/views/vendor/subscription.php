@@ -30,7 +30,11 @@
                 <section class="invoice-print mb-1">
                     <div class="row">
                         <div class="col-12 col-md-7 d-flex flex-column flex-md-row justify-content-end">
-                            <button class="btn btn-primary btn-print mb-1 mb-md-0"> <i class="feather icon-file-text"></i> Print</button>
+                            <button class="btn btn-primary btn-print mb-1 mb-md-0"> <i class="feather icon-file-text"></i> Print</button> 
+                          
+                        </div>
+                        <div class="col-12 col-md-3 d-flex flex-column flex-md-row ">
+                             <button class="btn btn-primary "> <i class="fa fa-remove"></i> Cancel Subscription</button>
                         </div>
                     </div>
                 </section>

@@ -72,13 +72,13 @@ class Front extends CI_Controller {
 			$mail->isSMTP();
 			$mail->Host     = 'mail.go2bng.com';
 			$mail->SMTPAuth = true;
-			$mail->Username = 'noreply@go2bng.com';
-			$mail->Password = 'noreply@987';
+			$mail->Username = 'no-reply@go2bng.com';
+			$mail->Password = 'no-reply@987';
 			$mail->SMTPSecure = 'tls';
 			$mail->Port     = 587;
 
-			$mail->setFrom('noreply@go2bng.com', 'noreply@go2bng.com');
-			$mail->addReplyTo('noreply@go2bng.com', 'noreply@go2bng.com');
+			$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
+			$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
 
 			// Add a recipient
 			$mail->addAddress('support@techcentrica.com');
@@ -209,7 +209,7 @@ class Front extends CI_Controller {
 		$emailcheck =$this->front_model->CheckEmail($auth);
 		if ($emailcheck==true ) {
 			$this->session->set_flashdata('warning', 'EmailID Already Exist!');
-			redirect('register');
+			redirect($_SERVER['HTTP_REFERER']);
 		}
 
 
@@ -218,8 +218,9 @@ class Front extends CI_Controller {
 		$auth['user_status']='active';
 		$auth['user_verified']='unverified';
 
-		$messagebomb = 'Click to verify <a href="'.base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID().'" >Link</a>';
+		$linkurl = base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID();
 
+		
 		if ($auths['user_cpassword'] == $auth['user_password']) {
 				$insert =$this->front_model->InsertUsers($auth);	
 					if ($insert) {
@@ -231,15 +232,15 @@ class Front extends CI_Controller {
 
 						// SMTP configuration
 						$mail->isSMTP();
-						$mail->Host     = 'mail.go2bng.com';
+						$mail->Host     = 'smtp.mandrillapp.com';
 						$mail->SMTPAuth = true;
-						$mail->Username = 'noreply@go2bng.com';
-						$mail->Password = 'noreply@987';
+						$mail->Username = 'Logistics';
+						$mail->Password = 'k64QCLTkpGJ6NsFW5xW5mw';
 						$mail->SMTPSecure = 'tls';
 						$mail->Port     = 587;
 
-						$mail->setFrom('noreply@go2bng.com', 'noreply@go2bng.com');
-						$mail->addReplyTo('noreply@go2bng.com', 'noreply@go2bng.com');
+						$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
+						$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
 
 						// Add a recipient
 						$mail->addAddress($auth['user_email']);
@@ -255,7 +256,7 @@ class Front extends CI_Controller {
 						$mail->isHTML(true);
 
 						// Email body content
-						$mailContent = $messagebomb;
+						$mailContent =  EmailMessage($auth['user_name'],$linkurl);
 						$mail->Body = $mailContent;
 
 						// Send email
@@ -264,11 +265,11 @@ class Front extends CI_Controller {
 
 						}
 						
-						$this->session->set_flashdata('success', '<span style="color:green">Thank You, For Registration, Please Verfiy Your Email</span>');
+						$this->session->set_flashdata('success', 'Thank You, For Registration, Please Verfiy Your Email');
 						redirect('');		
 					}
 					else{
-						$this->session->set_flashdata('success', '<span style="color:red">Sorry, Something Misfortune Happen! </span>');
+						$this->session->set_flashdata('warning', 'Sorry, Something Misfortune Happen!');
 						redirect('');	
 					}
 				
@@ -277,7 +278,7 @@ class Front extends CI_Controller {
 
 		}
 		else{
-			$this->session->set_flashdata('warning', '<span>Sorry, Your Password Did not Match</span>');
+			$this->session->set_flashdata('warning', 'Sorry, Your Password Did not Match');
 			redirect('');	
 
 		}
@@ -322,13 +323,13 @@ class Front extends CI_Controller {
 				$mail->isSMTP();
 				$mail->Host     = 'mail.go2bng.com';
 				$mail->SMTPAuth = true;
-				$mail->Username = 'noreply@go2bng.com';
-				$mail->Password = 'noreply@987';
+				$mail->Username = 'no-reply@go2bng.com';
+				$mail->Password = 'no-reply@987';
 				$mail->SMTPSecure = 'tls';
 				$mail->Port     = 587;
 
-				$mail->setFrom('noreply@go2bng.com', 'noreply@go2bng.com');
-				$mail->addReplyTo('noreply@go2bng.com', 'noreply@go2bng.com');
+				$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
+				$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
 
 				// Add a recipient
 				$mail->addAddress($auth['user_email']);

@@ -107,7 +107,7 @@
               <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" />
               <label for="checkbox-1-1"></label>
               <label class="checkbox-lable">Remember Me</label>
-              <a href="#">Forgot Password?</a> </div>
+             </div>
             <div class="listing-form-field">
               <input class="submit" type="submit" value="login" />
             </div>
@@ -147,7 +147,7 @@
             <div class="listing-form-field clearfix margin-top-20 margin-bottom-20 login_form_text_center">
               <input type="checkbox" id="checkbox-1-2" class="regular-checkbox" />
               <label for="checkbox-1-2"></label>
-              <label class="checkbox-lable">i agree with</label> &nbsp; <a href="#">Terms & Conditions</a> </div>
+              <label class="checkbox-lable">i agree with</label> &nbsp; <a href="<?=base_url()?>/terms">Terms & Conditions</a> </div>
             <div class="listing-form-field">
               <input class="submit" type="submit" value="create account" />
             </div>
