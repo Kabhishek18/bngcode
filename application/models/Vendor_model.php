@@ -333,4 +333,10 @@ class Vendor_model extends CI_Model
     }
 
 
+    public function Subscripcancel($reg)
+    {
+        $this->db->where('uid',$reg);
+        $update = $this->db->delete($this->order);
+       return $update?true:false;
+    }
 }

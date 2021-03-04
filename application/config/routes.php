@@ -51,6 +51,7 @@ $route['payment'] ='vendor/Payment';
 $route['thankyou'] = 'vendor/RazorThankYou';
 $route['checkout'] ='vendor/Checkout';
 
+$route['cancelSubscrip'] ='vendor/cancelSubscrip';
 //Category
 
 $route['vendor/category'] ='vendor/Category';

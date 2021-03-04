@@ -325,6 +325,28 @@ class Admin extends CI_Controller {
 				if ($data['user_type'] =='admin') {
 					
 					$reg['id']=$this->input->post("id");
+					// Company Information
+					$company['company_name']=$this->input->post("company_name");
+					$company['company_phone']=$this->input->post("company_phone");
+					$company['company_email']=$this->input->post("company_email");
+					$company['company_address']=$this->input->post("company_address");
+						$dir ='uploads/profile/';
+						if (!is_dir($dir)) {
+							mkdir($dir, 0777, TRUE);
+						}
+						$config['upload_path'] =  $dir;
+				        $config['allowed_types'] = 'jpeg|jpg|png|jpeg|mp4|docx|pdf';
+				        $config['max_size'] = 3000;
+				        $this->load->library('upload', $config);
+						$this->upload->initialize($config);
+
+						if($this->upload->do_upload('comimg')){
+				 		$file= $this->upload->data();
+						$reg['company_logo'] =$file['file_name'];}
+						else{						
+						}
+					//
+					$reg['company']	=json_encode($company); 
 					$reg['product_name']=$this->input->post("product_name");
 					$reg['category_id']=$this->input->post("category_id");
 					$reg['product_information']=$this->input->post("product_information");
@@ -333,6 +355,7 @@ class Admin extends CI_Controller {
 					$reg['product_slug']=$this->input->post("product_slug");
 					$reg['product_status']=$this->input->post("product_status");
 					$reg['status']=$this->input->post("status");
+
 						$dir ='uploads/pro/';
 						if (!is_dir($dir)) {
 							mkdir($dir, 0777, TRUE);
@@ -348,7 +371,6 @@ class Admin extends CI_Controller {
 						$reg['product_image'] =$file['file_name'];}
 						else{						
 						}
-						
 					if ($reg['id'] == "") {
 						$reg['date_created']=date('Y-m-d');
 					}
@@ -450,4 +472,24 @@ class Admin extends CI_Controller {
 		}
 	}
 
+	public function cancelSubscrip()
+    {
+    	$data= $this->session->admin_account;
+    	$url= $this->uri->segment(3,0); 
+		if($data['user_verified'] =='verified'){
+				$update = $this->admin_model->Subscripcancel($url);
+				if($update){	
+					$this->session->set_flashdata('success', 'Subscription Cancelled');
+						redirect($_SERVER['HTTP_REFERER']);
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+						redirect($_SERVER['HTTP_REFERER']);
+				}
+			}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+				redirect($_SERVER['HTTP_REFERER']);
+		}
+    }	
 }

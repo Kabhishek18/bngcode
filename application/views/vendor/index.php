@@ -1,35 +1,35 @@
 <body class="vertical-layout vertical-menu-modern 1-column  navbar-floating footer-static bg-full-screen-image  blank-page blank-page" data-open="click" data-menu="vertical-menu-modern" data-col="1-column">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<?php if($this->session->flashdata('success')){ ?>
-    <script type="text/javascript">
-        swal("", "<?=($this->session->flashdata('success'))?>", "success");
-    </script>
-<?php }?>
-  
-<?php if($this->session->flashdata('danger')){ ?>
-     <script type="text/javascript">
-        swal("", "<?=($this->session->flashdata('danger'))?>", "danger");
-    </script>
-<?php }?>
-   
-<?php if($this->session->flashdata('warning')){ ?>
-     <script type="text/javascript">
-        swal("", "<?=($this->session->flashdata('warning'))?>", "warning");
-    </script>
-<?php }?>
-   
-<?php if($this->session->flashdata('info')){ ?>
-    <script type="text/javascript">
-        swal("", "<?=($this->session->flashdata('info'))?>", "info");
-    </script>
-<?php }?>
-  
-<?php if($this->session->flashdata('any')){ ?>
- <script type="text/javascript">
-        swal("", "<?=($this->session->flashdata('any'))?>", "any");
-    </script>
-<?php }?>
+        <?php if($this->session->flashdata('success')){ ?>
+            <script type="text/javascript">
+                swal("", "<?=($this->session->flashdata('success'))?>", "success");
+            </script>
+        <?php }?>
+          
+        <?php if($this->session->flashdata('danger')){ ?>
+             <script type="text/javascript">
+                swal("", "<?=($this->session->flashdata('danger'))?>", "danger");
+            </script>
+        <?php }?>
+           
+        <?php if($this->session->flashdata('warning')){ ?>
+             <script type="text/javascript">
+                swal("", "<?=($this->session->flashdata('warning'))?>", "warning");
+            </script>
+        <?php }?>
+           
+        <?php if($this->session->flashdata('info')){ ?>
+            <script type="text/javascript">
+                swal("", "<?=($this->session->flashdata('info'))?>", "info");
+            </script>
+        <?php }?>
+          
+        <?php if($this->session->flashdata('any')){ ?>
+         <script type="text/javascript">
+                swal("", "<?=($this->session->flashdata('any'))?>", "any");
+            </script>
+        <?php }?>
     <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -43,11 +43,11 @@
                         <div class="card bg-authentication rounded-0 mb-0">
                             <div class="row m-0">
                                 <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
-                                    <div class="card rounded-0 mb-0 px-2">
+                                    <div class="card rounded-0 mb-0 px-2" style="padding:15px;">
                                     <img src="<?=base_url()?>resource/images/logo.png" alt="branding logo">
-                                       <div class="form-group d-flex justify-content-between align-items-center" style="margin-top:15px;padding:30px;display:grid;width: 100%">
+                                       <div class="form-group d-flex justify-content-between align-items-center" style="margin-top:15px;padding-left: 40px;display:grid;width: 100%">
                                             
-                                                <a href="<?=base_url()?>" class="btn btn-outline-primary float-left btn-inline">
+                                                <a style="margin:15px;" href="<?=base_url()?>" class="btn btn-outline-primary float-left btn-inline">
                                                     <i class="fa fa-home"></i> Back To Home
                                                 </a>
                                             

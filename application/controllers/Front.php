@@ -467,6 +467,7 @@ class Front extends CI_Controller {
 			$reg['vid'] =$this->input->post('vid');
 				$vat['user_name'] =$this->input->post('user_name');
 				$vat['user_email'] =$this->input->post('user_email');
+				$vat['user_phone'] =$this->input->post('user_phone');
 				$vat['requirement'] =$this->input->post('requirement');
 			$reg['description'] =json_encode($vat);	
 			$reg['date_created'] =date('y-m-d');
@@ -482,7 +483,7 @@ class Front extends CI_Controller {
 			}
 		}
 		else{
-			$this->session->set_flashdata('warning', 'Access Denied');
+			$this->session->set_flashdata('warning', 'Please Login with Supplier');
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}

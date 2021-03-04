@@ -144,10 +144,6 @@ class Vendor extends CI_Controller {
 						$this->session->set_flashdata('success', '<span style="color:red">Sorry, Something Misfortune Happen! </span>');
 						redirect('vendor');	
 					}
-				
-			
-
-
 		}
 		else{
 			$this->session->set_flashdata('warning', '<span>Sorry, Your Password Did not Match</span>');
@@ -896,5 +892,24 @@ class Vendor extends CI_Controller {
 			redirect('vendor');	
 		}
     }
-    	
+    
+    public function cancelSubscrip()
+    {
+    	$data= $this->session->vendor_account;
+		if($data['user_verified'] =='verified'){
+				$update = $this->vendor_model->Subscripcancel($data['id']);
+				if($update){	
+					$this->session->set_flashdata('success', 'Subscription Cancelled');
+					redirect('vendor/dashboard');
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+					redirect('vendor/dashboard');
+				}
+			}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('vendor/dashboard');	
+		}
+    }	
 }

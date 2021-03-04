@@ -71,12 +71,62 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            
-                                               
+
+                                                <?php  $company = json_decode($datalist['company']);?>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
                                                         <div class="controls">
-                                                            <label>Image</label>
+                                                            <label>Company Name <span class="text-danger">*</span></label>
+                                                            <input class="form-control" type="text" name="company_name" placeholder="Company Name" data-validation-required-message="This Course Name field is required" value="<?=(!empty($company->company_name))?$company->company_name:''?>" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                            <label>Company Mobile <span class="text-danger">*</span></label>
+                                                            <input class="form-control" type="text" name="company_phone" placeholder="Company Mobile" data-validation-required-message="This field is required" value="<?=(!empty($company->company_phone))?$company->company_phone:''?>" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                            <label>Company email <span class="text-danger">*</span></label>
+                                                            <input class="form-control" type="email" name="company_email" placeholder="Company Email" data-validation-required-message="This is required" value="<?=(!empty($company->company_email))?$company->company_email:''?>">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                            <label>Company Address <span class="text-danger">*</span></label>
+                                                            <input class="form-control" type="text" name="company_address" placeholder="Company Address" data-validation value="<?=(!empty($company->company_address))?$company->company_address:''?>">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                 <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                            <label>Company Logo</label>
+                                                            <input type="file" class="form-control" name="comimg" >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                        
+                                                            <img src="<?=base_url()?>uploads/profile/<?=$datalist['company_logo']?>" value="<?=$datalist['company_logo']?>" width="25%">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                            <label>Product Image</label>
                                                             <input type="file" class="form-control" name="proimg" >
                                                         </div>
                                                     </div>
@@ -104,7 +154,7 @@
                                                             echo '<span class="text-danger">'.$cat_name['category_name'].'</span>';
                                                         } 
                                                         ?></label>
-                                                            <select class="form-control" name="category_id">
+                                                            <select class="select2" name="category_id">
 
                                                                 <?php
                                                         if($datalist['category_id'] =='0'){

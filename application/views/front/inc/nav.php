@@ -41,7 +41,9 @@
                      <li><a  href="<?=base_url()?>vendor/register"><i class="fa fa-angle-double-right"></i>Register </a></li>
                   </ul>   
                 </li>
-                    <?php }elseif($this->session->user_account){ $value = $this->session->user_account;?>
+                    <?php }if($this->session->user_account){ 
+                      $value = $this->session->user_account;
+                      ?>
                       <li>
                         <a class="btn-lg" href='<?=base_url()?>dashboard'>Hi, <?=$value['user_name']?></a>
                       </li>

@@ -1,4 +1,4 @@
-
+   <?php $company =json_decode($company);?>
 <link rel="stylesheet" href="<?=base_url()?>resource/css/superlist.css" type="text/css">
 <link rel="stylesheet" href="<?=base_url()?>resource/js/owl.carousel/owl.carousel.css" type="text/css">
 <link rel="stylesheet" href="<?=base_url()?>resource/js/colorbox/example1/colorbox.css" type="text/css">
@@ -6,19 +6,22 @@
   <div class="slt_block_bg"><img src="<?=base_url()?>resource/images/detail-view-bg.jpg" alt=""></div>
   <div class="container header_slt_block">
     <div class="slt_item_head">
-      <div class="user_logo_pic"> <img alt="" src="<?=base_url()?>resource/images/company-logo.jpg"> </div>
+      <div class="user_logo_pic">
+        <?php if(!empty($company_logo)){?>
+       <img alt="<?=(!empty($company_logo))?$company_logo:''?>" src="<?=base_url()?>uploads/profile/<?=(!empty($company_logo))?$company_logo:''?>"> 
+        <?php }else{?>
+       <img alt="logo" src="<?=base_url()?>resource/images/company-logo.jpg"> 
+
+         <?php }?> 
+     </div>
       <div class="slt_item_contant">
         <h1><?=$product_name?></h1>
-        <p class="contact_number"><i class="fa fa-phone"></i> +001 245 0154, &nbsp; +001 245 0154</p>
-		<p class="email_detail"><i class="fa fa-envelope-o"></i> <a href="mailto:directorylisting@gmail.com">directorylisting@gmail.com</a>, &nbsp; <a href="mailto:info@directorylisting.com">info@directorylisting.com</a></p>
-		<p class="location"><i class="fa fa-map-marker"></i> 124/47 22nd Avenue, New York City, USA</p>
-        <div class="rating-box">
-          <div class="rating"> <span> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </span> </div>
-        </div>
-        <div class="head-bookmark-bock">
-          <div class="detail-banner-btn"><a href="#"><i class="fa fa-bookmark-o"></i> Bookmark</a></div>
-          <div class="detail-banner-btn"><a href="#"><i class="fa fa-heart-o"></i> Give Heart</a></div>
-        </div>
+      
+        <p class="contact_number"><i class="fa fa-phone"></i> <?=(!empty($company->company_phone)?$company->company_phone:'')?></p>
+		<p class="email_detail"><i class="fa fa-envelope-o"></i> <?=(!empty($company->company_email)?$company->company_email:'')?></p>
+		<p class="location"><i class="fa fa-map-marker"></i> <?=(!empty($company->company_address)?$company->company_address:'')?></p>
+
+      
       </div>
     </div>
   </div>
@@ -30,20 +33,11 @@
         <div class="slider">
           <div class="detail-gallery">
             <div class="detail-gallery-preview"> <a href="<?=base_url()?>uploads/pro/<?=$product_image?>"> <img src="<?=base_url()?>uploads/pro/<?=$product_image?>" alt=""  width="100%"> </a> </div>
-            <ul class="detail-gallery-index">
-              <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>uploads/pro/<?=$product_image?>"><img src="<?=base_url()?>uploads/pro/<?=$product_image?>" alt=""> </a> </li>
-              <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>resource/images/product_item/gallery-2.jpg"><img src="<?=base_url()?>resource/images/product_item/gallery-2.jpg" alt=""> </a> </li>
-              <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>resource/images/product_item/gallery-3.jpg"><img src="<?=base_url()?>resource/images/product_item/gallery-3.jpg" alt=""> </a> </li>
-              <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>resource/images/product_item/gallery-4.jpg"><img src="<?=base_url()?>resource/images/product_item/gallery-4.jpg" alt=""> </a> </li>
-              <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>resource/images/product_item/gallery-5.jpg"><img src="<?=base_url()?>resource/images/product_item/gallery-5.jpg" alt=""> </a> </li>
-              <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>resource/images/product_item/gallery-6.jpg"><img src="<?=base_url()?>resource/images/product_item/gallery-6.jpg" alt=""> </a> </li>
-              <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>resource/images/product_item/gallery-7.jpg"><img src="<?=base_url()?>resource/images/product_item/gallery-7.jpg" alt=""> </a> </li>
-              <li class="detail-gallery-list-item active"><a data-target="<?=base_url()?>resource/images/product_item/gallery-8.jpg"><img src="<?=base_url()?>resource/images/product_item/gallery-8.jpg" alt=""> </a> </li>
-            </ul>
+ 
           </div>
         </div>
         <div class="dlt-title-item">
-          <h2>Product Discription</h2>
+          <h2>Product Description</h2>
            <?=$product_description?> 
         </div>
          <div class="dlt-title-item">
@@ -135,14 +129,20 @@
             <input type="hidden" value="<?=$id?>"  name="pid">
             <input type="hidden" value="<?=$user_id?>"  name="vid">
             <div class="controls">
-                <label>User Name</label>
-                <input type="text" name="user_name" class="form-control" placeholder="User Name">
+                <label>Name</label>
+                <input type="text" name="user_name" class="form-control" placeholder="Name">
             </div>
         </div>
         <div class="form-group">
             <div class="controls">
-                <label>User Email</label>
-                <input type="email" name="user_email" class="form-control" placeholder="User Email">
+                <label>Email</label>
+                <input type="email" name="user_email" class="form-control" placeholder="Email">
+            </div>
+        </div>
+       <div class="form-group">
+            <div class="controls">
+                <label>Phone</label>
+                <input type="number" name="user_phone" class="form-control" placeholder="phone">
             </div>
         </div>
         <div class="form-group">

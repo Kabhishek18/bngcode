@@ -4,7 +4,7 @@
       <div class="col-sm-12 text-center">
         <div class="breadcrum-inner-header">
           <h1>Categories</h1>
-          <a href="index.html">Home</a> <i class="fa fa-circle"></i> <a href="about.html"><span>Categories</span></a> </div>
+          <a href="<?=base_url()?>">Home</a> <i class="fa fa-circle"></i> <a href="<?=base_url()?>categories"><span>Categories</span></a> </div>
       </div>
     </div>
   </div>

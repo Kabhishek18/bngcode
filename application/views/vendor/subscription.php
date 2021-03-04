@@ -34,7 +34,7 @@
                           
                         </div>
                         <div class="col-12 col-md-3 d-flex flex-column flex-md-row ">
-                             <button class="btn btn-primary "> <i class="fa fa-remove"></i> Cancel Subscription</button>
+                             <a href="<?=base_url()?>cancelSubscrip" class="btn btn-primary "> <i class="fa fa-remove"></i> Cancel Subscription</a>
                         </div>
                     </div>
                 </section>

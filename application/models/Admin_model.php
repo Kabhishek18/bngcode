@@ -278,4 +278,11 @@ class Admin_model extends CI_Model
         
     }
 
+
+    public function Subscripcancel($reg)
+    {
+        $this->db->where('id',$reg);
+        $update = $this->db->delete($this->order);
+       return $update?true:false;
+    }
 }

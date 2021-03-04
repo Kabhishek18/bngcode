@@ -54,6 +54,7 @@
                                                         <th>Description</th>
                                                         <th>PlanName || PaymentMethod</th>
                                                         <th>Last Modified</th>
+                                                        <th>Actions</th>
                                                      
                                                     </tr>
                                                 </thead>
@@ -72,6 +73,13 @@
                                                       <td><?=$order['planname']?> || Payment<?=$order['paymentmethod']?></td>
                                                    
                                                       <td><?=$items['date_created']?></td>
+                                                      <td><span class="action-delete">
+                                                                <a href="<?=base_url()?>admin/cancelSubscrip/<?=$items['id']?>" onclick="return confirm('Are you sure, you want to delete it?')">
+                                                                     <span class="text-danger">
+                                                                    <i class="feather icon-trash"></i></span>
+                                                                </a>
+                                                            </span>
+                                                        </td>
                                                     </tr>                                                        
                                                    <?php endforeach;?>
                                                 </tbody>
@@ -84,6 +92,7 @@
                                                         <th>Description</th>
                                                         <th>PlanName || PaymentMethod</th>
                                                         <th>Last Modified</th>
+                                                        <th>Actions</th>
                                                         
                                                     </tr>
                                                 </tfoot>

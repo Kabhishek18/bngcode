@@ -76,7 +76,7 @@
                                                             echo '<span class="text-danger">'.$cat_name['category_name'].'</span>';
                                                         } 
                                                         ?></label>
-                                                            <select class="form-control" name="parent_id">
+                                                            <select class="form-control select2" name="parent_id">
 
                                                                 <?php
                                                         if($datalist['parent_id'] =='0'){

@@ -51,9 +51,6 @@
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-sm-4 col-xs-12">
-        <div class="news-search-lt">
-          <input class="form-control" placeholder="Search" type="text">
-          <span class="input-search"> <i class="fa fa-search"></i> </span> </div>
         <div class="left-slide-slt-block">
           <h3>Similar Subcategories</h3>
         </div>
@@ -74,7 +71,7 @@
       <?php $products = $this->front_model->GetSubPro($this->uri->segment(2,0));?>
       <div class="col-md-9 col-sm-8 col-xs-12">
         <div class="sorts-by-results">
-          <div class="col-md-6 col-sm-6 col-xs-6"> <span class="result-item-view">Your Search Returned <span class="yellow"><?=count($products)?></span> Results</span> </div>
+          <div class="col-md-6 col-sm-6 col-xs-6"> <span class="result-item-view">Your Search Results</span> </div>
           <div class="col-md-6 col-sm-6 col-xs-6">
          
           </div>
@@ -89,24 +86,20 @@
               <div class="feature-item-container-box listing-item">
                 <div class="feature-title-item">
                   <h1><?=$product['category_slug']?></h1>
-                  <img src="<?=base_url()?>resource/images/product/img1.png" alt="img1"> </div>
-                <div class="hover-overlay">
-                  <div class="hover-overlay-inner">                  
-                    <ul class="listing-links">
-                      <li><a href="#"><i class="fa fa-heart green-1 "></i></a></li>
-                      <li><a href="#"><i class="fa fa-map-marker blue-1"></i></a></li>
-                      <li><a href="#"><i class="fa fa-share yallow-1"></i></a></li>
-                    </ul>
-                  </div>
-                </div>
+                  <img src="<?=base_url()?>uploads/pro/<?=$product['product_image']?>" alt="img1"> </div>
+            
                 <div class="feature-box-text">
                   <h3><a href="<?=base_url()?>products/<?=$product['id']?>"><?=$product['product_name']?></a></h3>
-                  <a href="#"><i class="fa fa-phone"></i> +91 087 654 3210</a>
+                  <?php $company =json_decode($product['company']);?>
+                  <a href="tel:<?=(!empty($company->company_phone)?$company->company_phone:'')?>"><i class="fa fa-phone"></i> <?=(!empty($company->company_phone)?$company->company_phone:'')?></a>
                   <p><?=$product['product_slug']?></p>
+                  <p>Company: <?=(!empty($company->company_name)?$company->company_name:'')?></p>
                 </div>
                 <div class="feature-item-location">
-                  <h2><i class="fa fa-map-marker"></i> Your City Here</h2>
-                  <span> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </span> </div>
+                  <h2><i class="fa fa-map-marker"></i>Address:  
+                  <?=(!empty($company->company_address)?$company->company_address:'')?>
+                  </h2>
+                 </div>
               </div>
             </div>
            
@@ -144,30 +137,23 @@ function onSuccess(data) {
   let html = "";
   if(JSON.parse(data)){
       $.each(JSON.parse(data), function(key, value){
-
+         comp = JSON.parse(value.company);
          html += `
                <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="feature-item-container-box listing-item">
               <div class="feature-title-item">
                 <h1>${ value.category_slug}</h1>
-                <img src="<?=base_url()?>resource/images/product/img1.png" alt="img1"> </div>
-              <div class="hover-overlay">
-                <div class="hover-overlay-inner">                  
-                  <ul class="listing-links">
-                    <li><a href="#"><i class="fa fa-heart green-1 "></i></a></li>
-                    <li><a href="#"><i class="fa fa-map-marker blue-1"></i></a></li>
-                    <li><a href="#"><i class="fa fa-share yallow-1"></i></a></li>
-                  </ul>
-                </div>
-              </div>
+                <img src="<?=base_url()?>uploads/pro/${ value.product_image }" alt="img1"> </div>
+           
               <div class="feature-box-text">
                 <h3><a href="<?=base_url()?>products/${ value.id }">${ value.product_name }</a></h3>
-                <a href="#"><i class="fa fa-phone"></i> +91 087 654 3210</a>
+                <a href="tel:${comp.company_phone}"><i class="fa fa-phone"></i> ${comp.company_phone}</a>
                 <p>${ value.product_slug }</p>
+                <p>Company: ${comp.company_name}</p>
               </div>
               <div class="feature-item-location">
-                <h2><i class="fa fa-map-marker"></i> Your City Here</h2>
-                <span> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </span> </div>
+                <h2><i class="fa fa-map-marker"></i>Address: ${comp.company_address} </h2>
+                </div>
             </div>
           </div>
           `

@@ -23,41 +23,8 @@
          <?=include('dash_nav.php')?>
           <div class="col-md-9 col-sm-8 col-xs-12">
             <div id="dashboard_listing_blcok">
-              <div class="col-md-3 col-sm-6">
-                <div class="statusbox">
-                  <h3>Balance</h3>
-                  <div class="statusbox-content">
-                    <p class="ic_status_item ic_col_one"><i class="fa fa-balance-scale"></i></p>
-                    <h2>$16,00</h2>
-                    <span>Updated 12/01/2017</span> </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="statusbox">
-                  <h3>Progress</h3>
-                  <div class="statusbox-content">
-                    <p class="ic_status_item ic_col_two"><i class="fa fa-line-chart"></i></p>
-                    <h2>$19,00</h2>
-                    <span>Updated 23/01/2017</span> </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="statusbox">
-                  <h3>Payments</h3>
-                  <div class="statusbox-content">
-                    <p class="ic_status_item ic_col_three"><i class="fa fa-cc-paypal"></i></p>
-                    <h2>$22,00</h2>
-                    <span>Updated 02/02/2017</span> </div>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="statusbox">
-                  <h3>Avg. Salary</h3>
-                  <div class="statusbox-content">
-                    <p class="ic_status_item ic_col_four"><i class="fa fa-money"></i></p>
-                    <h2>$26,00</h2>
-                    <span>Updated 15/02/2017</span> </div>
-                </div>
+              <div class="text-center">
+                <h1>Welcome user</h1>
               </div>
             </div>
           </div>
