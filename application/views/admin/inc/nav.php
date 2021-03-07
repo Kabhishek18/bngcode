@@ -104,18 +104,20 @@
                     </ul>
                 </li>
                
-               <li class=" navigation-header"><span>Order & Requirement</span>
+               <li class=" navigation-header"><span>Subscription & Requirement</span>
                 </li>
-                <li class=" nav-item"><a href="javascript:void(0)"><i class="feather icon-list"></i><span class="menu-title" data-i18n="User">Order & Requirement</span></a>
+                <li class=" nav-item"><a href="javascript:void(0)"><i class="feather icon-list"></i><span class="menu-title" data-i18n="User">Subscription & Requirement</span></a>
                     <ul class="menu-content">
-                        <li><a href="<?=base_url()?>admin/Subscription"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Order</span></a>
+                        <li><a href="<?=base_url()?>admin/Subscription"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Subscription</span></a>
                         </li>
                         <li><a href="<?=base_url()?>admin/requirement"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="View">Requirement</span></a>
                         </li>
                     </ul>
                 </li>
          
-             
+                <li class="nav-item">
+                    <a href="<?=base_url()?>admin/vendor"><i class="feather icon-list"></i><span class="menu-title" data-i18n="User">Vendor</span></a>
+                </li>
 
 
             </ul>

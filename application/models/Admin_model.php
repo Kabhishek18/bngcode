@@ -285,4 +285,50 @@ class Admin_model extends CI_Model
         $update = $this->db->delete($this->order);
        return $update?true:false;
     }
+
+
+     public function GetVendor($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from($this->users);
+       
+        if($id){
+            $array = array('id' => $id,'user_type'=>'vendor');
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $array = array('user_type'=>'vendor');
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function ChangeVendor($reg)
+    {   
+        if ($reg['id']) {
+            $array = array('id' => $reg['id'],'user_type'=>'vendor');
+            $this->db->where($array);
+            $update = $this->db->update($this->users,$reg);
+            return $update?true:false;
+        }
+        else{
+            $insert = $this->db->insert($this->users,$reg);
+            return $insert?true:false;
+        }
+    }
+
+
+
+    public function DeleteVendor($reg)
+    {
+        $this->db->where('id', $reg);
+        $update = $this->db->delete($this->users);
+       return $update?true:false;
+    }
+
 }
