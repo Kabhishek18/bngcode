@@ -455,7 +455,61 @@ class Admin extends CI_Controller {
     	
     }
 
+    public function SubscriptionAdd()
+    {
+    	$data= $this->session->admin_account;
+		if($data['user_verified'] =='verified'){
+				$order['datalist'] = $this->admin_model->GetOrder();
+				$this->load->view('admin/inc/header');
+				$this->load->view('admin/inc/nav',$data);
+				$this->load->view('admin/subscriptionadd',$order);
+				$this->load->view('admin/inc/footer');
+			}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('admin');	
+		}
+    	
+    }
 
+    public function Subinsert($value='')
+    {
+    	$data= $this->session->admin_account;
+		if($data['user_verified'] =='verified'){
+
+					$reg['fname']=$this->input->post("fname");
+					$reg['lname']=$this->input->post("lname");
+					$reg['email']=$this->input->post("email");
+					$reg['address']=$this->input->post("address");
+					$reg['address2']=$this->input->post("address2");
+					$reg['paymentmethod']='Admin Panel';
+					$reg['planname']='Admin Plan';
+					$reg['planprice']=$this->input->post("order_amount");
+					$reg['country']=$this->input->post("country");
+					$reg['city']=$this->input->post("city");
+					$reg['postcode']=$this->input->post("postcode");
+					$var['order_detail'] =json_encode($reg);
+					$var['order_id']=$this->input->post("order_id");
+					$var['order_amount']=$this->input->post("order_amount");
+					$var['uid']=$this->input->post("uid");
+					$var['date_created'] =date('Y-m-d H:i:s');
+					$insert=$this->admin_model->InsertOrder($var);
+					if($insert){
+						$this->session->set_flashdata('success', 'Successfully Done');
+						redirect('admin/Subscription');	
+					}
+					else{
+						$this->session->set_flashdata('warning', 'Something misfortune happen!!');
+						redirect('admin/Subscription');	
+					}
+
+
+			}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('admin');	
+		}
+    }
 
     public function RequirementDelete()
 	{

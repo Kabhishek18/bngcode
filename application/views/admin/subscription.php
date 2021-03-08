@@ -11,12 +11,12 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Requirement</h2>
+                            <h2 class="content-header-title float-left mb-0">Subscription</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="<?=base_url('vendor/dashboard')?>">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Requirement List
+                                    <li class="breadcrumb-item active">Subscription List
                                     </li>
                                 </ol>
                             </div>
@@ -36,7 +36,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                 
+                                    <h4 class="card-title"><a href="<?=base_url()?>admin/SubscriptionAdd" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Subscription Add</a> </h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">
@@ -48,6 +48,7 @@
                                             <table class="table dataex-html5-selectors">
                                                 <thead>
                                                     <tr>
+                                                        <th>#</th>
                                                         <th>Order Created</th>
                                                         <th>Order_id</th>
                                                         <th>Order_amount</th>
@@ -59,8 +60,9 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                   <?php foreach($datalist as $items):?>
+                                                   <?php $i=1; foreach($datalist as $items):?>
                                                     <tr>
+                                                        <td><?=$i++?></td>
                                                       <td><?=$items['date_modified']?></td>
 
                                                       <td><?=$items['order_id']?></td>

@@ -12,7 +12,11 @@ class Admin_model extends CI_Model
 
         $this->requirement   = 'requirement';
     }
-
+     public function InsertOrder($value)
+    {
+         $insert = $this->db->insert($this->order,$value);
+         return $insert?true:false;
+    }
  
     public function Authentication($auth)
     {   
