@@ -79,6 +79,13 @@ $route['admin/speciallist'] ='admin/SpecialList';
 $route['admin/category'] ='admin/Category';
 $route['admin/category/edit/(:num)'] ='admin/CategoryAdd';
 $route['admin/category/add'] ='admin/CategoryAdd';
+
+$route['admin/vendor'] ='admin/Vendor';
+$route['admin/vendor/edit/(:num)'] ='admin/VendorAdd';
+$route['admin/vendor/add'] ='admin/VendorAdd';
+
+
+
 $route['admin/requirement'] ='admin/Requirement';
 $route['admin/product'] ='admin/Product';
 $route['admin/product/edit/(:num)'] ='admin/ProductAdd';

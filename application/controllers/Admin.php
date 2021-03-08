@@ -491,5 +491,149 @@ class Admin extends CI_Controller {
 			$this->session->set_flashdata('warning', 'Access Denied');
 				redirect($_SERVER['HTTP_REFERER']);
 		}
-    }	
+    }
+
+
+
+	public function Vendor()
+	{
+		$data= $this->session->admin_account;
+		if($data['user_verified'] =='verified'){
+			$value['datalist']=$this->admin_model->GetVendor();
+			$this->load->view('admin/inc/header');
+			$this->load->view('admin/inc/nav',$data);
+			$this->load->view('admin/vendor',$value);
+			$this->load->view('admin/inc/footer');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('admin');	
+		}
+	}
+
+	//Course Add View
+	public function VendorAdd()
+	{
+		$data = $this->session->admin_account;
+		if($data){	
+
+				if ($data['user_type'] =='admin') {
+					$this->load->view('admin/inc/header',$data);
+					$urlid = $this->uri->segment(4,0);
+
+					if($urlid){
+						//Update
+						$var['datalist'] = $this->admin_model->GetVendor($urlid);
+						$this->load->view('admin/vendoradd',$var);
+					}else{
+						//Add
+						$var['datalist'] = NULL;
+						$this->load->view('admin/vendoradd',$var);
+					}
+
+					$this->load->view('admin/inc/footer');
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Sorry, Admin Access Only. Please Contact Your WebAdministrator');
+					if(session_destroy())
+					{
+					$this->session->unset_userdata('admin_account');	   
+					$this->session->sess_destroy();
+					redirect('admin/dashboard');
+					}	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Course Insert And Update
+	public function Vendorinsert()
+	{
+		
+		$data = $this->session->admin_account;
+		if($data){	
+
+				if ($data['user_type'] =='admin') {
+					
+					$reg['id']=$this->input->post("id");
+					$reg['user_name']=$this->input->post("user_name");
+					$reg['user_email']=$this->input->post("user_email");
+					if(!empty($this->input->post("user_password"))){
+						$reg['user_password']=md5($this->input->post("user_password"));
+					}
+					$reg['user_phone']=$this->input->post("user_phone");
+					$reg['user_type']='vendor';
+					$reg['user_status']=$this->input->post("user_status");
+					$reg['user_verified']=$this->input->post("user_verified");
+						$dir ='uploads/profile/';
+						if (!is_dir($dir)) {
+							mkdir($dir, 0777, TRUE);
+						}
+					$config['upload_path'] =  $dir;
+			        $config['allowed_types'] = 'jpg|png|jpeg|mp4|docx|pdf';
+			        $config['max_size'] = 3000;
+			        $this->load->library('upload', $config);
+					$this->upload->initialize($config);
+
+						if($this->upload->do_upload('user_image')){
+				 		$file= $this->upload->data();
+						$reg['user_image'] =$file['file_name'];}
+						else{						
+						}
+
+					if ($reg['id'] == "") {
+						$reg['date_created']=date('Y-m-d');
+					}
+						$reg['date_modified']= date('Y-m-d H:i:s');
+
+					
+					
+						
+							$insert = $this->admin_model->ChangeVendor($reg);
+							if ($insert) {
+								$this->session->set_flashdata('success', 'Successfully Done');
+								redirect($_SERVER['HTTP_REFERER']);
+							}
+							else{
+								$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+								redirect($_SERVER['HTTP_REFERER']);	
+							}
+			
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Sorry, Admin Access Only. Please Contact Your WebAdministrator');
+					if(session_destroy())
+					{
+					$this->session->unset_userdata('admin_account');	   
+					$this->session->sess_destroy();
+					redirect('');
+					}	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Course Delete
+	public function VendorDelete()
+	{
+		$url= $this->uri->segment(3,0); 
+		$insert =$this->admin_model->DeleteVendor($url);
+		if($insert){
+			$this->session->set_flashdata('warning', 'Deleted Successfully');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect($_SERVER['HTTP_REFERER']);
+		
+		}
+	}	
 }
