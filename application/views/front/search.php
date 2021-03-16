@@ -59,7 +59,7 @@
 		            <ul>
 		              <?php $subcat =$this->front_model->GetCatSub($category['id']); 
 		              foreach($subcat as $sub){?>
-		              <li><a href="<?=base_url()?>subcategories/<?=$sub['id']?>"><i class="fa fa-hand-o-right"></i> <?=$sub['category_name']?></a><span>10</span></li>
+		              <li><a href="<?=base_url()?>subcategories/<?=$sub['id']?>"><i class="fa fa-hand-o-right"></i> <?=$sub['category_name']?></a></li>
 		              <?php }?>
 		            </ul>
 		          </div>

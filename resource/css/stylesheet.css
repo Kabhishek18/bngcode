@@ -5328,7 +5328,6 @@ a.tg-btn-list:hover, a.tg-btn-list:focus{
 }
 /************************************ error page **************************************/
 div.error-page-alt {
-	background:#ffffff url(../images/error-page-bg.jpg);
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	background-size: cover;

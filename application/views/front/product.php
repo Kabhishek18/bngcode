@@ -26,66 +26,98 @@
     </div>
   </div>
 </div>
+<style type="text/css">
+  .textbox{
+    border:1px solid #d6d6d6;
+    box-shadow: 2px 4px 8px #d6d6d6;
+    padding: 30px;
+  }
+  .boxtitle{
+    padding: 20px;
+  }
+  #vfx-product-inner-item{
+    background: #ffffff;
+    padding: 20px 0;
+  }
+  .formclass{
+    margin-top:20px;
+    border:1px solid #d6d6d6;
+    box-shadow: 2px 4px 8px #d6d6d6;
+    padding: 20px;
+    margin-bottom:40px;
+  }
+  .imgclass{
+    border: 2px solid #d6d6d6;
+     box-shadow: 2px 4px 8px #d6d6d6;
+  }
+</style>
 <div id="vfx-product-inner-item">
   <div class="container">
-    <div class="row">
-      <div class="col-md-7 col-sm-6 col-xs-12">
-        <div class="slider">
-          <div class="detail-gallery">
-            <div class="detail-gallery-preview"> <a href="<?=base_url()?>uploads/pro/<?=$product_image?>"> <img src="<?=base_url()?>uploads/pro/<?=$product_image?>" alt=""  width="100%"> </a> </div>
- 
+    <div class="text-title text-center boxtitle">
+        <h1><?=$product_name?></h1>
+      </div>
+    <div class="row textbox">
+      
+      <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="slider">
+            <div class="detail-gallery">
+              <div class="detail-gallery-preview"> <a href="<?=base_url()?>uploads/pro/<?=$product_image?>"> <img class="imgclass" src="<?=base_url()?>uploads/pro/<?=$product_image?>" alt="<?=$product_image?>"  width="100%"> </a> </div>
+   
+            </div>
           </div>
         </div>
-         <div class="card">
-          <form class="form-group" method="post" action="<?=base_url()?>front/Requirements">
-          <div class="form-group">
-            <input type="hidden" value="<?=$id?>"  name="pid">
-            <input type="hidden" value="<?=$user_id?>"  name="vid">
-            <div class="controls">
-                <label>Name</label>
-                <input type="text" name="user_name" class="form-control" placeholder="Name">
-            </div>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <div class="dlt-title-item">
+            <h2>Product Description</h2>
+             <?=$product_description?> 
+          </div>
+          <div class="dlt-title-item">
+            <h2>Product Information</h2>
+             <?=$product_information?> 
+          </div>
+        </div> 
+    </div>
+    <div class="row formclass">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="text-title text-center">
+          <h3>Requirement Form</h3>
         </div>
-        <div class="form-group">
-            <div class="controls">
-                <label>Email</label>
-                <input type="email" name="user_email" class="form-control" placeholder="Email">
+        <div class="card">
+            <form  method="post" action="<?=base_url()?>front/Requirements">
+            <div class=" col-md-6 form-group">
+              <input type="hidden" value="<?=$id?>"  name="pid">
+              <input type="hidden" value="<?=$user_id?>"  name="vid">
+              <div class="controls">
+                  <label>Name <span class="text-danger">*</span></label>
+                  <input type="text" name="user_name" class="form-control" placeholder="Name" required="">
+              </div>
             </div>
-        </div>
-       <div class="form-group">
-            <div class="controls">
-                <label>Phone</label>
-                <input type="number" name="user_phone" class="form-control" placeholder="phone">
+            <div class=" col-md-6 form-group">
+                <div class="controls">
+                    <label>Email <span class="text-danger">*</span></label>
+                    <input type="email" name="user_email" class="form-control" placeholder="Email" required="">
+                </div>
             </div>
+             <div class="col-md-6 form-group">
+                  <div class="controls">
+                      <label>Phone <span class="text-danger">*</span></label>
+                      <input type="number" name="user_phone" class="form-control" placeholder="phone" required="">
+                  </div>
+              </div>
+              <div class="col-md-12 form-group">
+                  <div class="controls">
+                      <label>Query <span class="text-danger">*</span></label>
+                      <textarea class="form-control" name="requirement" placeholder="Requirement" required=""></textarea>
+                  </div>
+              </div>
+              <div class="col-md-12  form-group">
+                  <div class="controls">
+                    <input type="submit" class="btn btn-success" name="submit">
+                  </div>
+              </div>
+            </form>
         </div>
-        <div class="form-group">
-            <div class="controls">
-                <label>Query</label>
-                <textarea class="form-control" name="requirement" placeholder="Requirement"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="controls">
-              <input type="submit" class="btn btn-success" name="submit">
-            </div>
-        </div>
-      </form>
-        </div>  
-      
-     
-
       </div>
-      <div class="col-md-5 col-sm-6 col-xs-12">
-            <div class="dlt-title-item">
-          <h2>Product Description</h2>
-           <?=$product_description?> 
-        </div>
-         <div class="dlt-title-item">
-          <h2>Product Information</h2>
-           <?=$product_information?> 
-        </div>
-       
-      </div>  
     </div>
   </div>
 </div>

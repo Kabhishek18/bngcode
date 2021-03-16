@@ -27,13 +27,13 @@
                 foreach($listing as $list){ ?>
                    <?php $pro = $this->front_model->GetProduct($list['pid']);?>
             <li>
-              <div class="news-thum"><a href="#"><img src="<?=base_url()?>uploads/pro/<?=$pro['product_image']?>" alt="new-thum-1"></a></div>
+              <div class="news-thum"><a href="<?=base_url()?>products/<?=$pro['id']?>"><img src="<?=base_url()?>uploads/pro/<?=$pro['product_image']?>" alt="new-thum-1"></a></div>
               <?php $list['description'] = json_decode($list['description'], True); ?>
               <div class="news-text-thum">
-                <h6><a href="listing_detail.html"><?=$list['description']['requirement']?></a></h6>
+                <h6><a href="javascript:void(0)"><?=$list['description']['requirement']?></a></h6>
                
                 <p><?=$list['description']['user_name']?></p>
-                <div>Product Name :</strong> <?=$pro['product_name']?></div>
+                <div><a href="<?=base_url()?>products/<?=$pro['id']?>">Product Name :</strong> <?=$pro['product_name']?></a></div>
               </div>
             </li>
                 <?php $i++;if($i==3){break;} }}?>
