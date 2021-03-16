@@ -55,7 +55,7 @@
                                   Admin
                                 </span></div><span><img class="round" src="<?=base_url()?>uploads/profile/<?=$user_image?>" alt="avatar" height="40" width="40"></span>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?=base_url()?>user/useredit/<?=$id?>"><i class="feather icon-user"></i> Edit Profile</a>
+                            <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="<?=base_url()?>vendor/profile"><i class="feather icon-user"></i> Edit Profile</a>
                                 <div class="dropdown-divider"></div><a class="dropdown-item" href="<?=base_url()?>Vendor/Logout"><i class="feather icon-power"></i> Logout</a>
                             </div>
                         </li>

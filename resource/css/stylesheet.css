@@ -158,7 +158,7 @@ option {
 	display: none;
 }
 #left-header h1 a:hover {
-	color: #ffce10;
+	color: #d07c18;
 }
 #right-header h1 {
 	font-size: 14px;
@@ -175,7 +175,7 @@ option {
 	transition: all 0.2s ease 0s;
 }
 #right-header a:hover {
-	color: #ffce10;
+	color: #d07c18;
 }
 #right-header a:hover i.fa {
 	transform: scale(1.2);
@@ -225,14 +225,14 @@ option {
 	margin-right: 0
 }
 #nav_menu_list li.active {
-	border-bottom: 5px solid #ffce10;
-	color: #ffce10;
+	border-bottom: 5px solid #d07c18;
+	color: #d07c18;
 }
 #nav_menu_list li.active a {
 	margin-bottom: 0px;
 }
 #nav_menu_list li a:hover {
-	color: #ffce10;
+	color: #d07c18;
 	background: transparent;
 }
 #nav_menu_list li.btn_item{
@@ -243,7 +243,7 @@ option {
 }
 #nav_menu_list li.btn_item ul li button.btn_login, #nav_menu_list li.btn_item ul li button.btn_register {
 	font-family:"Poppins", sans-serif;
-	background: transparent linear-gradient(to right, #262626 50%, #ffce10 50%) repeat scroll right bottom / 202% 100%;
+	background: transparent linear-gradient(to right, #262626 50%, #d07c18 50%) repeat scroll right bottom / 202% 100%;
 	border: 0 none;
 	border-radius: 20px;
 	color: #3d3d3d;
@@ -277,19 +277,19 @@ option {
 }
 .navbar-toggle {
 	margin-top: 4px;
-	background: #ffce10;
-	border-color: #ffce10;
+	background: #d07c18;
+	border-color: #d07c18;
 }
 .navbar-default .navbar-toggle .icon-bar {
 	background-color: #ffffff;
 }
 .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-	background-color: #ffce10;
-	border-color: #ffce10;
+	background-color: #d07c18;
+	border-color: #d07c18;
 }
 /************************ search section **************************/
 #search-section {
-	background: #ffce10;
+	background: #d07c18;
 	padding: 20px 0px;
 }
 #categorie-search-form {
@@ -344,8 +344,8 @@ input.form-control {
 }
 #location-search-btn button {
 	font-family:"Poppins", sans-serif;
-	background: -webkit-linear-gradient(left, #ffffff 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
-	background: linear-gradient(to right, #ffffff 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
+	background: -webkit-linear-gradient(left, #ffffff 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
+	background: linear-gradient(to right, #ffffff 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
 	color: #01273a;
 	padding: 14px;
 	font-size: 15px;
@@ -371,7 +371,7 @@ input.form-control {
 	font-family:"FontAwesome";
 	-webkit-animation: fa-spin 1s infinite steps(8);
 	animation: fa-spin 1s infinite steps(8);
-	color: #ffce10;
+	color: #d07c18;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -404,7 +404,7 @@ input.form-control {
 }
 /************************ inner categories search box **************************/
 #vfx-search-item-inner {
-	padding: 70px 0 70px 0px;
+	padding: 35px 0 35px 0px;
 	background: url(../images/inner_search_bg.png) center center no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -426,7 +426,7 @@ input.form-control {
 	font-size: 28px;
 }
 .vfx-search-categorie-title h1 span {
-	color: #ffce10;
+	color: #d07c18;
 }
 select#location-search-list {
 	box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.14) inset;
@@ -474,8 +474,8 @@ input.form-control {
 }
 #vfx-search-btn button {
 	font-family:"Poppins", sans-serif;
-	background: -webkit-linear-gradient(left, #01273a 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
-	background: linear-gradient(to right, #01273a 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
+	background: -webkit-linear-gradient(left, #01273a 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
+	background: linear-gradient(to right, #01273a 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
 	color: #01273a;
 	padding: 14px;
 	font-size: 16px;
@@ -494,18 +494,18 @@ input.form-control {
 }
 #vfx-search-btn button:hover {
 	background-position: left bottom;
-	color: #ffce10;
+	color: #d07c18;
 }
 /******************* main banner *****************************/
 #slider-banner-section {
 	
-	border-bottom: 7px solid #ffce10;
+	border-bottom: 7px solid #d07c18;
 }
 #location_slider_item_block {
 	text-align: center;
 }
 #location_slider_item_block button {
-	background: #ffce10;
+	background: #d07c18;
 	display: inline-block;
 	width: 80px;
 	height: 40px;
@@ -539,7 +539,7 @@ input.form-control {
 	text-align: center;
 }
 #home-slider-item span.helpyou_item span {
-	color: #ffce10;
+	color: #d07c18;
 }
 #home-slider-item h1 {
 	font-family:"Open Sans", sans-serif;
@@ -551,7 +551,7 @@ input.form-control {
 	text-transform: uppercase;
 }
 #home-slider-item h1 span {
-	color: #ffce10;
+	color: #d07c18;
 }
 #home-slider-item p {
 	font-family:"Poppins", sans-serif;
@@ -571,13 +571,13 @@ input.form-control {
 #search-categorie-item-block h1 {
 	font-size: 28px;
 	font-weight: 700;
-	color: #ffce10;
+	color: #d07c18;
 	margin: 0px;
 	text-transform: uppercase;
 }
 /********************** banner map **********************/
 #location-map-block {
-	border-bottom: 7px solid #ffce10;
+	border-bottom: 7px solid #d07c18;
 	width: 100%;
 }
 #location-link-item {
@@ -590,7 +590,7 @@ input.form-control {
 	border: none;
 	text-align: center;
 	margin: 0 auto;
-	background: #ffce10;
+	background: #d07c18;
 	width: 80px;
 	height: 40px;
 	bottom: 0;
@@ -621,7 +621,7 @@ input.form-control {
 #search-categories-section {
 	padding: 10px 0px 60px;
 	background: #f7f7f7;
-	border-bottom: 2px solid #ffce10;
+	border-bottom: 2px solid #d07c18;
 }
 #search-categories-section .categories-list {
 	background: #ffffff;
@@ -638,7 +638,7 @@ input.form-control {
 	font-size: 28px;
 }
 .categories-heading h1 span {
-	color: #ffce10;
+	color: #d07c18;
 }
 .categorie_item {
 	background: #dcdcdc61;
@@ -664,7 +664,7 @@ input.form-control {
 	padding: 30px 0;
 }
 .cate_item_social {
-	background: #ffce10;
+	background: #d07c18;
 	border-radius: 50px;
 	color: #ffffff;
 	height: 90px;
@@ -700,12 +700,12 @@ input.form-control {
 	font-weight:500;
 }
 .cate_item_block:hover {
-	background: #ffce10;
+	background: #d07c18;
 	color: #01273a;
 }
 .categorie_item:hover .cate_item_social i {
 	background: transparent;
-	color: #ffce10;
+	color: #d07c18;
 	border-radius: 50px;
 	border:1px solid rgba(0, 0, 0, 0.12);
 	width: 90px;
@@ -736,7 +736,7 @@ input.form-control {
 }
 .categorie_item:hover .hi-icon-effect-8 .hi-icon {
 	background: #fff;
-	color: #ffce10;
+	color: #d07c18;
 	cursor: pointer
 }
 .hi-icon-effect-8 .hi-icon::after {
@@ -826,7 +826,7 @@ transform:scale(1.5)
 	font-size: 28px;
 }
 .all-categorie-list-title h1 span {
-	color: #ffce10;
+	color: #d07c18;
 }
 .search-categories-boxes {
 	width: 100%;
@@ -836,13 +836,14 @@ transform:scale(1.5)
 	font-family:"Poppins", sans-serif;
 	margin: 0px;
 	padding: 10px 15px;
-	background: #ffbe00;
-	font-size: 15px;
-	text-align: left;	
-	color: #01273a;
+background: #d07c17;
+    font-size: 13px;
+    text-align: center;
+    color: #ffffff;
+
+
 	font-weight: 600;
 	position:relative;
-	padding-left:45px;
 	text-transform: uppercase;
 	height: 80px;
 	line-height: 22px;
@@ -896,7 +897,7 @@ transform:scale(1.5)
 }
 .categories-list ul li a {
 	font-family:"Poppins", sans-serif;
-	color: #696969;
+	color: #191818;
 	font-size: 13px;
 	font-weight: 500;
 }
@@ -907,7 +908,7 @@ transform:scale(1.5)
 	-moz-transition: all 0.3s ease 0s;
 }
 .categories-list ul li:hover a {
-	color: #ffce10;
+	color: #d07c18;
 }
 .categories-list ul li a i {
 	margin-right: 5px;
@@ -931,7 +932,7 @@ transform:scale(1.5)
 .categorie-item-search h2 {
 	margin: 0px;
 	padding: 10px 15px;
-	background: #ffce10;
+	background: #d07c18;
 	font-size: 16px;
 	text-align: left;
 	border-top-left-radius: 4px;
@@ -971,21 +972,21 @@ transform:scale(1.5)
 	padding-left: 3px;
 }
 .categories-list1 ul li:hover a {
-	color: #ffce10;
+	color: #d07c18;
 }
 .categories-list1 ul li::before {
 	content: "";
 	font-family:"FontAwesome";
 	font-size: 10px;
 	margin-right: 10px;
-	color: #ffce10;
+	color: #d07c18;
 }
 .categories-list1 ul li span {
 	float: right;
 }
 #search-categorie-item button {
-	background: -webkit-linear-gradient(left, #262626 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
-	background: linear-gradient(to right, #262626 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
+	background: -webkit-linear-gradient(left, #262626 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
+	background: linear-gradient(to right, #262626 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
 	border: none;
 	padding: 10px 30px;
 	border-radius: 4px;
@@ -1018,7 +1019,7 @@ transform:scale(1.5)
 	font-size: 28px;
 }
 .feature-item-listing-heading h1 span {
-	color: #ffce10;
+	color: #d07c18;
 }
 #feature-item_listing_block {
 	background: #ffffff;
@@ -1035,7 +1036,7 @@ transform:scale(1.5)
 	padding: 0px 30px;
 }
 #feature-item-listing-heading h1 span::after {
-	border-right: 3px solid #ffce10;
+	border-right: 3px solid #d07c18;
 	content: "";
 	height: 30px;
 	margin-left: 20px;
@@ -1044,7 +1045,7 @@ transform:scale(1.5)
 	top: 5px;
 }
 #feature-item-listing-heading h1 span::before {
-	border-left: 3px solid #ffce10;
+	border-left: 3px solid #d07c18;
 	bottom: 5px;
 	content: "";
 	height: 30px;
@@ -1079,7 +1080,7 @@ transform:scale(1.5)
 .feature-item-container-box .feature-title-item h1 {
 	font-family:"Poppins", sans-serif;
 	background: rgba(1, 39, 58, 0.8);
-	color: #ffce10;
+	color: #d07c18;
 	font-size: 13px;
 	font-weight: 600;
 	text-transform: uppercase;
@@ -1108,7 +1109,7 @@ transform:scale(1.5)
 }
 .feature-item-listing-item .feature-title-item h1 {
 	background: rgba(1, 39, 58, 0.8);
-	color: #ffce10;
+	color: #d07c18;
 	font-size: 15px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -1131,11 +1132,11 @@ transform:scale(1.5)
 	height: 200px;
 }
 .feature-item-container-box:hover {
-	border: 1px solid #ffce10;
+	border: 1px solid #d07c18;
 	box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
 }
 .feature-item-container-box.active {
-	border: 1px solid #ffce10;
+	border: 1px solid #d07c18;
 	box-shadow: 0 1px 15px rgba(0, 0, 0, 0.2);
 }
 .feature-item-container-box:hover .feature-title-item img {
@@ -1143,7 +1144,7 @@ transform:scale(1.5)
 	transition: all 0.4s ease 0s;
 }
 .feature-item-container-box.active .feature-box-text a h3 {
-	color: #ffce10;
+	color: #d07c18;
 }
 .feature-item-container-box .feature-box-text {
 	background: #fefefe;
@@ -1199,7 +1200,7 @@ transform:scale(1.5)
 	margin-top: 0;	
 }
 .feature-item-container-box .feature-box-text h3 a:hover{
-	color: #ffce10;	
+	color: #d07c18;	
 }
 .feature-item-container-box .feature-box-text p {
 	color: #7d7d7d;
@@ -1211,7 +1212,7 @@ transform:scale(1.5)
 }
 .feature-item-container-box .feature-box-text a {
 	font-family:"Poppins", sans-serif;
-	color: #ffce10;
+	color: #d07c18;
 	font-size: 13px;
 	font-weight:400;
 	letter-spacing:0.2px;
@@ -1220,7 +1221,7 @@ transform:scale(1.5)
 	color: #969595;
 }
 .feature-item-container-box .feature-box-text a i.fa {
-	color: #ffce10;
+	color: #d07c18;
 	margin-right: 3px;
 }
 .feature-title-item {
@@ -1279,7 +1280,7 @@ transform:scale(1.5)
 	display: list-item
 }
 .feature-item-container-box:hover .hover-overlay .hover-overlay-inner h3 a {
-	color: #ffce10;
+	color: #d07c18;
 	display: block;
 	font-size: 16px;
 	font-weight: 600;
@@ -1388,7 +1389,7 @@ transform:scale(1.5)
 	display: list-item
 }
 .feature-item-listing-item:hover .hover-overlay .hover-overlay-inner h3 a {
-	color: #ffce10;
+	color: #d07c18;
 	display: block;
 	font-size: 17px;
 	font-weight: 700;
@@ -1418,7 +1419,7 @@ transform:scale(1.5)
 	font-size: 28px;
 }
 .recent-item-listing-heading h1 span {
-	color: #ffce10;
+	color: #d07c18;
 }
 .listing-boxes {
 	padding-top: 50px;
@@ -1442,7 +1443,7 @@ transform:scale(1.5)
 	position: relative;
 }
 .recent-listing-box-container-item:hover {
-	border: 1px solid #ffce10;
+	border: 1px solid #d07c18;
 	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 .recent-listing-box-container-item:hover h1 span {
@@ -1506,7 +1507,7 @@ transform:scale(1.5)
 	display: list-item
 }
 .recent-listing-box-container-item:hover .hover-overlay .hover-overlay-inner h3 a {
-	color: #ffce10;
+	color: #d07c18;
 	display: block;
 	font-size: 17px;
 	font-weight: 700;
@@ -1539,7 +1540,7 @@ transform:scale(1.5)
 .recent-listing-box-image h1 {
 	font-family:"Poppins", sans-serif;
 	background: rgba(1, 39, 58, 0.8) none repeat scroll 0 0;
-	color: #ffce10;
+	color: #d07c18;
 	font-size: 13px;
 	font-weight: 600;
 	left: 0px;
@@ -1614,13 +1615,13 @@ transform:scale(1.5)
 }
 .listing-boxes-text a {
 	font-family:"Poppins", sans-serif;	
-	color: #ffce10;
+	color: #d07c18;
 	font-size: 13px;
 	font-weight: 400;
 	letter-spacing:0.2px;
 }
 .listing-boxes-text a i.fa {
-	color: #ffce10;
+	color: #d07c18;
 	margin-right: 3px;
 }
 /*********************** vfx counter block *********************/
@@ -1638,7 +1639,7 @@ transform:scale(1.5)
 	border-radius: 8px;
 	text-align: center;
 	padding: 55px 0;
-	border: 5px solid #ffce10;
+	border: 5px solid #d07c18;
 	box-shadow:0 7px 12px rgba(0, 0, 0, 0.20);
 	margin-bottom: 30px;
 }
@@ -1663,7 +1664,7 @@ transform:scale(1.5)
 .vfx-item-black-top-arrow i {
 	font-size: 46px;
 	line-height: 50px;
-	color: #ffce10
+	color: #d07c18
 }
 /*********************** pricing plan **********************/
 #pricing-item-block {
@@ -1673,7 +1674,7 @@ transform:scale(1.5)
 #pricing-section {
 	padding-bottom: 60px;
 	background: #f7f7f7;
-	border-bottom: 2px solid #ffce10;
+	border-bottom: 2px solid #d07c18;
 }
 .pricing-heading-title {
 	margin-bottom: 50px;
@@ -1687,7 +1688,7 @@ transform:scale(1.5)
 	font-size: 28px;
 }
 .pricing-heading-title h1 span {
-	color: #ffce10;
+	color: #d07c18;
 }
 .price-table-feature-block {
 	padding: 35px 0px;
@@ -1724,7 +1725,7 @@ transform:scale(1.5)
 .price-table-feature-block > hr {
 	width: 90px;
 	margin: 10px auto 15px auto;
-	border-color: #ffce10;
+	border-color: #d07c18;
 }
 .price-table-feature-block p {
 	color: #999999;
@@ -1733,7 +1734,7 @@ transform:scale(1.5)
 	padding: 0px 40px;
 }
 .price-table-feature-block p span {
-	color: #ffce10;
+	color: #d07c18;
 }
 .vfx-price-list-item {
 	display: block;
@@ -1754,7 +1755,7 @@ transform:scale(1.5)
 .vfx-price-list-item > h2:before {
 	content: "";
 	font-family:"FontAwesome";
-	color: #ffce10;
+	color: #d07c18;
 	margin-right: 10px;
 }
 .vfx-price-list-item p {
@@ -1799,8 +1800,8 @@ transform:scale(1.5)
 }
 .vfx-price-btn button.purchase-btn {
 	font-family:"Poppins", sans-serif;
-	background: -webkit-linear-gradient(left, #262626 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
-	background: linear-gradient(to right, #262626 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
+	background: -webkit-linear-gradient(left, #262626 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
+	background: linear-gradient(to right, #262626 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
 	color: #01273a;
 	text-transform: uppercase;
 	border-radius: 30px;
@@ -1822,7 +1823,7 @@ transform:scale(1.5)
 /******************** listing product **********************/
 #vfx-product-inner-item {
 	background: #ffffff;
-	padding: 80px 0;
+	padding: 35px 0;
 }
 .news-search-lt {
 	margin-bottom: 30px;
@@ -1847,7 +1848,7 @@ transform:scale(1.5)
 }
 .news-search-lt span.input-search i {
 	bottom: 0;
-	color: #ffce10;
+	color: #d07c18;
 	cursor: pointer;
 	display: inline-table;
 	float: right;
@@ -1863,15 +1864,15 @@ transform:scale(1.5)
 	border-radius: 30px;
 }
 a.list-group-item.active {
-	background: transparent linear-gradient(to right, #ffce10 50%, #f5f5f5 50%) repeat scroll right bottom / 207% 100%;
-	border-color: #ffce10;
+	background: transparent linear-gradient(to right, #d07c18 50%, #f5f5f5 50%) repeat scroll right bottom / 207% 100%;
+	border-color: #d07c18;
 	color: #01273a;
 	z-index: 0;
 	border-radius:30px;
 	background-position: left bottom;
 }
 a.list-group-item:hover {
-	background: transparent linear-gradient(to right, #ffce10 50%, #f5f5f5 50%) repeat scroll right bottom / 207% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #f5f5f5 50%) repeat scroll right bottom / 207% 100%;
 	color: #01273a;
 	text-decoration: none;
 	background-position: left bottom;
@@ -1879,7 +1880,7 @@ a.list-group-item:hover {
 }
 .list-group a.list-group-item span {
 	font-family:"Poppins", sans-serif;
-	background: #ffce10;
+	background: #d07c18;
 	border-radius: 30px;
 	color: #fff;
 	float: right;
@@ -1927,13 +1928,13 @@ a.list-group-item.active span {
 	letter-spacing:0.4px;
 }
 .list-group-item {
-	background: transparent linear-gradient(to right, #ffce10 50%, #ffffff 50%) repeat scroll right bottom / 207% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #ffffff 50%) repeat scroll right bottom / 207% 100%;
 	border: 1px solid #ddd;
 	display: block;
 	margin-bottom: 8px;
 	position: relative;
 	color: #696969;
-	font-size: 13px;
+	font-size: 10px;
 	border-radius:30px;
 	line-height: 46px;
 	padding: 0 12px 0 15px;
@@ -1968,7 +1969,7 @@ a.list-group-item, button.list-group-item {
 	padding: 5px 0;
 }
 .archive-tag ul li a {
-	background: transparent linear-gradient(to right, #ffce10 50%, #f1f1f1 50%) repeat scroll right bottom / 206% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #f1f1f1 50%) repeat scroll right bottom / 206% 100%;
 	color: #696969;
 	display: inline-block;
 	font-size: 13px;
@@ -1982,12 +1983,12 @@ a.list-group-item, button.list-group-item {
 	transition: all 0.3s ease 0s;
 }
 .archive-tag ul li a:hover {
-	background: transparent linear-gradient(to right, #ffce10 50%, #f1f1f1 50%) repeat scroll right bottom / 206% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #f1f1f1 50%) repeat scroll right bottom / 206% 100%;
 	color: #fff;
 	background-position: left bottom;
 }
 .archive-tag ul li a.active {
-	background: transparent linear-gradient(to right, #dadada 50%, #ffce10 50%) repeat scroll right bottom / 206% 100%;
+	background: transparent linear-gradient(to right, #dadada 50%, #d07c18 50%) repeat scroll right bottom / 206% 100%;
 	color: #ffffff;
 }
 .left-location-item {
@@ -2035,7 +2036,7 @@ a.list-group-item, button.list-group-item {
 }
 .left-location-item ul li a:hover {
 	padding-left:6px;
-	color: #ffce10;	
+	color: #d07c18;	
 	-webkit-transition: all .6s ease 0;
 	transition: all .6s ease 0;
 	transition: all 0.3s ease 0s;
@@ -2085,7 +2086,7 @@ a.list-group-item, button.list-group-item {
 }
 .left-archive-categor ul li a:hover {
 	padding-left:6px;
-	color: #ffce10;	
+	color: #d07c18;	
 	-webkit-transition: all .6s ease 0;
 	transition: all .6s ease 0;
 	transition: all 0.3s ease 0s;
@@ -2116,7 +2117,7 @@ a.list-group-item, button.list-group-item {
 #clients {
 	background: #ffffff;
 	padding: 40px 0px;
-	border-bottom: 2px solid #ffce10;
+	border-bottom: 2px solid #d07c18;
 }
 #clients .bx-viewport {
 	background: none;
@@ -2158,7 +2159,7 @@ a.more-detail {
 	width: 100%;
 }
 .site-footer a:hover {
-	color: #ffce10
+	color: #d07c18
 }
 .site-footer p .fa {
 	padding:0 .125rem
@@ -2277,8 +2278,8 @@ ul.use-slt-link li {
 }
 .btn-quote {
 	font-family:"Poppins", sans-serif;
-	background: -webkit-linear-gradient(left, #fffff 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
-	background: linear-gradient(to right, #ffffff 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
+	background: -webkit-linear-gradient(left, #fffff 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
+	background: linear-gradient(to right, #ffffff 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
 	border: 0 none;
 	border-radius: 30px;
 	color: #072d40;
@@ -2337,7 +2338,7 @@ ul.use-slt-link li {
 	letter-spacing:0.5px;
 }
 .site-footer .footer-top hr {
-	background: #ffce10;
+	background: #d07c18;
 	border: 0 none;
 	bottom: 0;
 	height: 2px;
@@ -2381,7 +2382,7 @@ ul.use-slt-link li {
 }
 /******************* breadcrum ***********************/
 #breadcrum-inner-block {
-	padding: 85px 0px;
+	padding: 35px 0px;
 	background: #0d273a;
 	/*background: url(../images/listing-detail.jpg) center top no-repeat;*/
 	background-size: cover;
@@ -2419,7 +2420,7 @@ ul.use-slt-link li {
 	text-transform: uppercase;
 }
 .breadcrum-inner-header a:hover{
-	color:#ffce10
+	color:#d07c18
 }
 .breadcrum-inner-header i.fa {
 	color: #ffffff;
@@ -2429,7 +2430,7 @@ ul.use-slt-link li {
 	bottom: 2px;
 }
 .breadcrum-inner-header a span {
-	color: #ffce10;
+	color: #d07c18;
 	font-size: 14px;
 	font-weight: 500;
 }
@@ -2456,7 +2457,7 @@ ul.use-slt-link li {
 	font-size: 28px;
 }
 .about-heading-title h1 span {
-	color: #ffce10;
+	color: #d07c18;
 }
 p.inner-secon-tl {
 	font-family:"Poppins", sans-serif;
@@ -2748,7 +2749,7 @@ input[type="checkbox"], input[type="radio"] {
 	display: none;
 }
 .regular-checkbox + label {
-	border: 2px solid #ffce10;
+	border: 2px solid #d07c18;
 	display: inline-block;
 	height: 20px;
 	line-height: 20px;
@@ -2763,7 +2764,7 @@ label.checkbox-lable {
 	top: -8px;
 }
 .listing-register-form .listing-form-field a {
-	color: #ffce10;
+	color: #d07c18;
 	float: none;
 	top: -8px;
 }
@@ -2785,7 +2786,7 @@ label.checkbox-lable {
 }
 .listing-modal-1 .modal-header .modal-title {
 	font-family:"Poppins", sans-serif;
-	color: #ffce10;
+	color: #d07c18;
 	font-size:20px;
 	line-height: 1;
 	text-align: left;
@@ -2842,10 +2843,10 @@ label.checkbox-lable {
 	position: relative;
 	text-align: right;
 	top: -4px;
-	color: #ffce10;
+	color: #d07c18;
 }
 .listing-register-form .listing-form-field a {
-	color: #ffce10;
+	color: #d07c18;
 	float: none;
 	top: -8px;
 }
@@ -2856,7 +2857,7 @@ label.checkbox-lable {
 	text-transform: uppercase;
 }
 .regular-checkbox:checked + label::after {
-	color: #ffce10;
+	color: #d07c18;
 	content: "✔";
 	font-size: 12px;
 	left: 0;
@@ -2874,7 +2875,7 @@ label.checkbox-lable {
 	margin-left: 5px;
 }
 .listing-register-form .listing-form-field a {
-	color: #ffce10;
+	color: #d07c18;
 	float: none;
 	top: -8px;
 }
@@ -2893,7 +2894,7 @@ label.checkbox-lable {
 	text-transform:normal;
 }
 .bottom-links p a {
-	color: #ffce10;
+	color: #d07c18;
 	display: inline-block;
 	margin-left: 10px;
 }
@@ -2911,7 +2912,7 @@ label.checkbox-lable {
 	margin-bottom: 20px;
 }
 .listing-form-field input.submit {
-	background: transparent linear-gradient(to right, #01273a 50%, #ffce10 50%) repeat scroll right bottom / 207% 100%;
+	background: transparent linear-gradient(to right, #01273a 50%, #d07c18 50%) repeat scroll right bottom / 207% 100%;
 	border: none;
 	margin:0 auto;
 	width:68%;
@@ -3012,7 +3013,7 @@ label.checkbox-lable {
 	text-transform: capitalize;
 }
 .listing-detail-text p span i.fa {
-	color: #ffce10;
+	color: #d07c18;
 }
 .listing-detail-text p i.fa-map-marker, .listing-detail-text p a {
 	color: #999999;
@@ -3075,7 +3076,7 @@ label.checkbox-lable {
 #reviews-section {
 	background: #ffffff;
 	padding: 50px 0px;
-	border-bottom: 2px solid #ffce10;
+	border-bottom: 2px solid #d07c18;
 }
 .reviews-section, .reviews-section-new {
 	position: relative;
@@ -3114,7 +3115,7 @@ label.checkbox-lable {
 	color: #636363;
 }
 .reviews-section-text p a:hover, .reviews-section-text h1 a:hover {
-	color: #ffce10;
+	color: #d07c18;
 }
 #write-review h1, #reviews h1 {
 	color: #242424;
@@ -3122,7 +3123,7 @@ label.checkbox-lable {
 	text-transform: uppercase;
 	font-size: 18px;
 	margin: 0px;
-	border-left: 2px solid #ffce10;
+	border-left: 2px solid #d07c18;
 	padding: 5px 15px;
 }
 #write-review hr, #reviews hr, .contact-heading hr {
@@ -3137,7 +3138,7 @@ label.checkbox-lable {
 .review-form .form-control, .contact-form .form-control {
 	height: 45px;
 	border: 1px solid #cccccc;
-	border-left-color: #ffce10;
+	border-left-color: #d07c18;
 	font-size: 14px;
 	transition: all 0.3s ease 0s;
 	-webkit-transition: all 0.3s ease 0s;
@@ -3149,7 +3150,7 @@ label.checkbox-lable {
 	background: transparent;
 }
 .review-form .form-control:focus, .contact-form .form-control:focus {
-	border-color: #ffce10;
+	border-color: #d07c18;
 }
 .review-form textarea.form-control {
 	height: 170px;
@@ -3163,8 +3164,8 @@ label.checkbox-lable {
 	margin-top: 15px;
 }
 #review-button button, #contact-button button {
-	background: -webkit-linear-gradient(left, #262626 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
-	background: linear-gradient(to right, #262626 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
+	background: -webkit-linear-gradient(left, #262626 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
+	background: linear-gradient(to right, #262626 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
 	color: #ffffff;
 	border-radius: 4px;
 	border: none;
@@ -3192,7 +3193,7 @@ label.checkbox-lable {
 	margin: 0px;
 	text-transform: uppercase;
 	padding: 5px 15px;
-	border-left: 2px solid #ffce10;
+	border-left: 2px solid #d07c18;
 	font-weight: 500;
 	font-size: 18px;
 	color: #242424;
@@ -3223,13 +3224,13 @@ label.checkbox-lable {
 	font-size: 16px;
 }
 #contact-map {
-	border-bottom: 2px solid #ffce10;
+	border-bottom: 2px solid #d07c18;
 }
 /******************** listing section ********************/
 #listing-section {
 	background: #f7f7f7;
 	padding-bottom: 55px;
-	border-bottom: 2px solid #ffce10;
+	border-bottom: 2px solid #d07c18;
 }
 .sorts-by-results {
 	border: 1px solid #ededed;
@@ -3252,7 +3253,7 @@ label.checkbox-lable {
 	color:#6b6b6b;
 }
 .sorts-by-results span.result-item-view span.yellow {
-	color: #ffce10;
+	color: #d07c18;
 	font-weight: 500;
 }
 .sorts-by-results .disp-f-right {
@@ -3277,12 +3278,12 @@ label.checkbox-lable {
 }
 .sorts-by-results .disp-style a:hover {
 	border: 2px solid rgba(255, 193, 7, 0.9);
-	color: #ffce10;
+	color: #d07c18;
 	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 }
 .sorts-by-results .disp-style.active a {
 	border: 2px solid rgba(255, 193, 7, 0.9);
-	color: #ffce10;
+	color: #d07c18;
 	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 }
 .list-view-item {
@@ -3296,15 +3297,15 @@ label.checkbox-lable {
 	background: rgba(0, 0, 0, 0) linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)) repeat scroll 0 0
 }
 .list-view-item:hover {
-	border: 1px solid #ffce10;
+	border: 1px solid #d07c18;
 	box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
 }
 .list-view-item.active {
-	border: 1px solid #ffce10;
+	border: 1px solid #d07c18;
 	box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
 }
 .list-view-item.active .recent-listing-box-item a h3 {
-	color: #ffce10;
+	color: #d07c18;
 }
 .list-view-item.active .recent-listing-box-item a, .list-view-item.active .recent-listing-box-item a i {
 	color: #969595;
@@ -3352,7 +3353,7 @@ ul.vfx-pagination li.active a, ul.vfx-pagination li:hover a {
 #add-listings {
 	background: #f7f7f7;
 	padding: 60px 0px;
-	border-bottom: 2px solid #ffce10;
+	border-bottom: 2px solid #d07c18;
 }
 #user-option {
 	background: #ffffff;
@@ -3385,7 +3386,7 @@ ul.vfx-pagination li.active a, ul.vfx-pagination li:hover a {
 	transition: all 0.3s ease 0s;
 }
 #user-option p span.selected {
-	color: #ffce10;
+	color: #d07c18;
 }
 #user-signup, #user-signin {
 	margin-top: 30px;
@@ -3533,7 +3534,7 @@ ul.vfx-pagination li.active a, ul.vfx-pagination li:hover a {
 	margin-left: 0;
 }
 .dlt-spons-item a {
-	background: transparent linear-gradient(to right, #ffce10 50%, #f1f1f1 50%) repeat scroll right bottom / 206% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #f1f1f1 50%) repeat scroll right bottom / 206% 100%;
 	color:#696969;
 	display: inline-block;
 	font-size: 13px;
@@ -3546,12 +3547,12 @@ ul.vfx-pagination li.active a, ul.vfx-pagination li:hover a {
 	transition: all 0.3s ease 0s;
 }
 .dlt-spons-item a:hover {
-	background: transparent linear-gradient(to right, #ffce10 50%, #f1f1f1 50%) repeat scroll right bottom / 206% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #f1f1f1 50%) repeat scroll right bottom / 206% 100%;
 	color: #ffffff;
 	background-position: left bottom;
 }
 .dlt-spons-item a.active {
-	background: transparent linear-gradient(to right, #f1f1f1 50%, #ffce10 50%) repeat scroll right bottom / 207% 100%;
+	background: transparent linear-gradient(to right, #f1f1f1 50%, #d07c18 50%) repeat scroll right bottom / 207% 100%;
 	color: #ffffff;
 }
 .dlt-com-lt-block {
@@ -3786,7 +3787,7 @@ span.comment-lt-time {
 	box-shadow: none;
 }
 .comments-wrapper .form-control:focus {
-	border-color: #ffce10;
+	border-color: #d07c18;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
 	outline: 0 none;
 }
@@ -3794,7 +3795,7 @@ span.comment-lt-time {
 	height: auto;
 }
 .comments-wrapper .comment-respond .btn {
-	background: transparent linear-gradient(to right, #ffce10 50%, #ffbe00 50%) repeat scroll right bottom / 207% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #ffbe00 50%) repeat scroll right bottom / 207% 100%;
 	border-radius: 0;
 	color: #01273a;
 	font-size: 17px;
@@ -3866,7 +3867,7 @@ div.tagsinput input {
 	margin-bottom: 0px;
 }
 div.tagsinput span.tag {
-	background: #ffce10;
+	background: #d07c18;
 	font-size: 12px;
 	color: #ffffff;
 	border: none;
@@ -4026,17 +4027,17 @@ input[type="checkbox"], input[type="radio"] {
 	margin-bottom: 15px;
 }
 input[type=radio]:checked {
-	color: #ffce10;
-	background: #ffce10;
+	color: #d07c18;
+	background: #d07c18;
 }
 #preview-add {
 	display: inline-block;
 	margin-top: 30px;
 }
 #preview-add button {
-	background: -webkit-linear-gradient(left, #262626 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
-	background: -o-linear-gradient(left, #262626 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
-	background: linear-gradient(to right, #262626 50%, #ffce10 50%) repeat scroll right bottom/207% 100% transparent;
+	background: -webkit-linear-gradient(left, #262626 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
+	background: -o-linear-gradient(left, #262626 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
+	background: linear-gradient(to right, #262626 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
 	border: none;
 	color: #ffffff;
 	-webkit-transition: all 0.3s ease 0s;
@@ -4083,11 +4084,11 @@ input[type=radio]:checked {
 	padding: 0px;
 }
 #process-section a span {
-	color: #ffce10;
+	color: #d07c18;
 	margin-right: 10px;
 }
 #process ul li a:hover, #process ul li a:focus, #process ul li a:active, #sidebar-navigation a:hover, .active a {
-	color: #ffce10;
+	color: #d07c18;
 	background-color: transparent;
 }
 #process hr, #sidebar-navigation hr {
@@ -4114,7 +4115,7 @@ input[type=radio]:checked {
 	background: #939393;
 }
 ul.dropdown li a {
-	background: transparent linear-gradient(to right, #ffce10 50%, #ffffff 50%) repeat scroll right bottom / 207% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #ffffff 50%) repeat scroll right bottom / 207% 100%;
 	text-transform: none;
 	width: 100%;
 	display: block;
@@ -4123,7 +4124,7 @@ ul.dropdown li a {
 	transition: background 350ms ease-in-out;
 }
 ul.dropdown li a:hover {
-	background: transparent linear-gradient(to left, #ffffff 50%, #ffce10 50%) repeat scroll left bottom / 207% 100% !important;
+	background: transparent linear-gradient(to left, #ffffff 50%, #d07c18 50%) repeat scroll left bottom / 207% 100% !important;
 	color: #262626 !important;
 	background-position: left bottom;
 }
@@ -4189,7 +4190,6 @@ ul.dropdown i.fa {
 	width: 100%;
 }
 .header_slt_block .user_logo_pic {
-	background: rgba(0, 0, 0, 0.15) linear-gradient(to bottom, rgba(16, 14, 13, 0.0) 0%, rgba(16, 14, 13, 0.8) 100%) repeat scroll 0 0;
 	border-radius: 90px;
 	height: 180px;
 	left: 0px;
@@ -4265,7 +4265,7 @@ ul.dropdown i.fa {
 	margin-right: 10px;
 }
 .slt_item_head .detail-banner-btn a {
-	background: transparent linear-gradient(to right, #ffffff 50%, #ffce10 50%) repeat scroll right bottom / 207% 100%;		
+	background: transparent linear-gradient(to right, #ffffff 50%, #d07c18 50%) repeat scroll right bottom / 207% 100%;		
 	color: #01273a;
 	cursor: pointer;
 	padding: 9px 15px;
@@ -4278,7 +4278,7 @@ ul.dropdown i.fa {
 	text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 .slt_item_head .detail-banner-btn a:hover {
-	background: transparent linear-gradient(to right, #ffffff 50%, #ffce10 50%) repeat scroll right bottom / 207% 100%;
+	background: transparent linear-gradient(to right, #ffffff 50%, #d07c18 50%) repeat scroll right bottom / 207% 100%;
 	background-position: left bottom;	
 	color: #01273a;
 	-webkit-transition: all .6s ease 0;
@@ -4456,15 +4456,15 @@ ul.dropdown i.fa {
 	padding: 10px;
 	width: 100%;
 	font-weight: 500;
-	background: transparent linear-gradient(to right, #ffce10 50%, #01273a 50%) repeat scroll right bottom / 206% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #01273a 50%) repeat scroll right bottom / 206% 100%;
 	color: #ffffff;
 	-webkit-transition: all .6s ease 0;
 	transition: all .6s ease 0;
 	transition: all 0.3s ease 0s;
 }
 .sidebar-listing-search-wrap form input.sidebar-listing-search-btn:hover {
-	border: 2px solid #ffce10;
-	background: transparent linear-gradient(to right, #ffce10 50%, #01273a 50%) repeat scroll right bottom / 206% 100%;
+	border: 2px solid #d07c18;
+	background: transparent linear-gradient(to right, #d07c18 50%, #01273a 50%) repeat scroll right bottom / 206% 100%;
 	background-position: left bottom;
 	color: #ffffff;
 }
@@ -4492,7 +4492,7 @@ ul.dropdown i.fa {
 	font-size: 28px;
 }
 .contact-heading-title h1 span {
-	color: #ffce10;
+	color: #d07c18;
 }
 .clt-content {
 	font-family:"Poppins", sans-serif;
@@ -4516,7 +4516,7 @@ ul.dropdown i.fa {
 	padding-left: 60px;
 }
 .from-list-lt input:focus {
-	border-color: #ffce10
+	border-color: #d07c18
 }
 .from-list-lt .from-input-ic {
 	border-right: 1px solid rgba(216, 216, 216, 0.6);
@@ -4550,7 +4550,7 @@ ul.dropdown i.fa {
 	padding-left: 60px;
 }
 .from-list-lt textarea:focus {
-	border-color: #ffce10
+	border-color: #d07c18
 }
 textarea.form-control {
 	height: 110px;
@@ -4567,7 +4567,7 @@ textarea.form-control {
 	width: 44px;
 }
 .from-list-lt .btn {
-	background: transparent linear-gradient(to right, #ffce10 50%, #ffbe00 50%) repeat scroll right bottom / 207% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #ffbe00 50%) repeat scroll right bottom / 207% 100%;
 	border-radius: 0;
 	color: #01273a;
 	font-size: 16px;
@@ -4750,7 +4750,7 @@ input.verifi_code {
 	width: 100%;
 }
 .dashboard_nav_item ul li {
-	background: transparent linear-gradient(to right, #ffce10 50%, #f9f9f9 50%) repeat scroll right bottom / 207% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #f9f9f9 50%) repeat scroll right bottom / 207% 100%;
 	width: 100%;
 	float:left;
 	margin-bottom:12px;
@@ -4781,13 +4781,13 @@ input.verifi_code {
 	text-align: center;
 }
 .dashboard_nav_item ul li:hover {
-	background: transparent linear-gradient(to right, #ffce10 50%, #f9f9f9 50%) repeat scroll right bottom / 207% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #f9f9f9 50%) repeat scroll right bottom / 207% 100%;
 	background-position: left bottom;
 	border: 1px solid #e9e6e0;
 	box-shadow:0 3px 3px rgba(0, 0, 0, 0.1);
 }
 .dashboard_nav_item ul li.active {
-	background: transparent linear-gradient(to right, #ffce10 50%, #f9f9f9 50%) repeat scroll right bottom / 207% 100%;
+	background: transparent linear-gradient(to right, #d07c18 50%, #f9f9f9 50%) repeat scroll right bottom / 207% 100%;
 	background-position: left bottom;
 	border: 1px solid #e9e6e0;
 	box-shadow:0 3px 3px rgba(0, 0, 0, 0.1);
@@ -4940,12 +4940,12 @@ input.verifi_code {
 	margin-bottom: 0;
 }
 .submit_listing_box .form-alt input:focus {
-	border-color: #ffce10;
+	border-color: #d07c18;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
 	outline: 0 none;
 }
 .submit_listing_box .form-alt textarea:focus {
-	border-color: #ffce10;
+	border-color: #d07c18;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
 	outline: 0 none;
 }
@@ -5192,7 +5192,7 @@ input[type="checkbox"] {
 	border-radius:30px;
 }
 a.tg-btn-list:hover, a.tg-btn-list:focus{
-	background:#ffce10;
+	background:#d07c18;
 	box-shadow:0 4px 5px rgba(0, 0, 0, 0.3);
 	color:#373542;
 }
@@ -5207,7 +5207,7 @@ a.tg-btn-list:hover, a.tg-btn-list:focus{
 	text-transform:uppercase;
 }
 .tg-listdata h4 a:hover{
-	color:#ffce10;
+	color:#d07c18;
 }
 .tg-listbox .tg-listdata span, .tg-listbox .tg-listdata time{
 	font-family:"Poppins", sans-serif;

@@ -316,24 +316,27 @@
         <?php $listing =$this->front_model->GetQueryList(); 
           if($listing){
           foreach($listing as $list){?>
-            <div class="col-md-6 col-sm-6 col-xs-12">
+             <?php $pro = $this->front_model->GetProduct($list['pid']);?>
+              <a href="<?=base_url()?>products/<?=$pro['id']?>">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+             
               <div class="recent-listing-box-container-item">
                     <?php $list['description'] = json_decode($list['description'], True); ?>
                   <div class="recent-listing-box-item">
-                    <div class="listing-boxes-text"> <a href="#">
-                      <h3></h3>
-                      </a> <a href="#"> <?=$list['description']['user_name']?></a>
-                      <p><?php $pro = $this->front_model->GetProduct($list['pid']);?>
-                       <strong>Product Name :</strong> <?=$pro['product_name']?>
-                      </p>
+                    <div class="listing-boxes-text">  <a href="<?=base_url()?>products/<?=$pro['id']?>"> <?=$list['description']['user_name']?></a>
+                      <p>
+                       <strong>Product Name :</strong><a href="<?=base_url()?>products/<?=$pro['id']?>">  <?=$pro['product_name']?>
+                        </a></p>
                       <p><?=$list['description']['requirement']?></p>
                     </div>
                     <div class="recent-feature-item-rating">
-                      <h2><i class="fa fa-map-marker"></i> <?=$list['description']['user_email']?></h2>
-                      <span> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </span> </div>
+                      <h2><i class="fa fa-envelope"></i> <?=$list['description']['user_email']?></h2>
+                     </div>
                   </div>
               </div>
+             
             </div>
+             </a>
           <?php }}?>
         </div>
       </div>

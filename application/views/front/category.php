@@ -65,7 +65,7 @@
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="categorie-list-box" style=" overflow: hidden; height: 350px;">
               <div class="search-categories-boxes">
-                <h2><i class="fa fa-suitcase"></i> <?=$category['category_name']?></h2>
+                <h2> <?=$category['category_name']?></h2>
               </div>
               <div class="categories-list">
                 <ul>

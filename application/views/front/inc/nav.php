@@ -45,21 +45,21 @@
                       $value = $this->session->user_account;
                       ?>
                       <li>
-                        <a class="btn-lg" href='<?=base_url()?>dashboard'>Hi, <?=$value['user_name']?></a>
+                        <a class="btn btn-warning" style="background:#ffce10;border:none;padding: 10px" href='<?=base_url()?>dashboard'>Hi, <?=$value['user_name']?></a>
                       </li>
                       <li>
-                        <a class="btn-lg" href='<?=base_url()?>logout'>Logout</a>
+                        <a class="btn btn-warning" style="background:#ffce10;border:none;padding: 10px" href='<?=base_url()?>logout'>Logout</a>
                       </li>
                     <?php  }elseif($this->session->vendor_account){ 
                       $vvalue = $this->session->vendor_account;?>
-                      <li>
-                        <a class="btn-lg" href='<?=base_url()?>vendor/dashboard'>Hi, <?=$vvalue['user_name']?></a>
+                      <li >
+                        <a class="btn btn-warning" style="background:#ffce10;border:none;padding: 10px" href='<?=base_url()?>vendor/dashboard'>Hi, <?=$vvalue['user_name']?></a>
                       </li>
                       <li>
-                        <a class="btn-lg" href='<?=base_url()?>vendor/logout'>Logout</a>
+                        <a class="btn btn-warning" style="background:#ffce10;border:none;padding: 10px" href='<?=base_url()?>vendor/logout'>Logout</a>
                       </li>
                     <?php } ?>
-                    <li><a class="btn-lg" href="tel:18005720558"><i class="fa fa-phone"></i> Call Us: 18005720558</a></li>
+                    
               </ul>
               <ul>
                   
