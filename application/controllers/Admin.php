@@ -690,4 +690,342 @@ class Admin extends CI_Controller {
 		
 		}
 	}	
+
+	public function EmailTrigger()
+	{
+		$data = $this->session->admin_account;
+		if($data){	
+			$orders = $this->admin_model->GetOrder();
+			$now = time(); // or your date as well
+			foreach ($orders as $order) {
+				$sdate = strtotime($order['date_modified']);
+				$datediff = $now - $sdate;
+				$datecount= round($datediff / (60 * 60 * 24));
+				$dateleft = 365 - $datecount;
+				$date = strtotime($order['date_modified']);
+				$new_date = strtotime('+ 1 year', $date);
+
+				if($dateleft < 0){
+					$this->admin_model->Subscripcancel($order['id']);
+					$user =	$this->admin_model->GetUser($order['uid']);
+						$template = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
+					                  <tbody>
+					                     <tr>
+					                        <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+					                           <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+					                              <tbody>
+					                                 <tr>
+					                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+					                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+					                                          <tbody>
+					                                             <tr>
+					                                                <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+					                                                   <a href="https://go2bng.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://go2bng.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+					                                                   <img width="50%" height="" src="https://go2bng.com/resource/images/logo.png" alt="Go2bng.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
+					                                                </td>
+					                                             </tr>
+					                                          </tbody>
+					                                       </table>
+					                                    </td>
+					                                 </tr>
+					                                 <tr>
+					                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+					                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0;border-top: 3px solid #ffce10; border-bottom:  3px solid #ffce10;">
+					                                          <tbody>
+					                                             <tr>
+					                                                <td style="font-family:calibri;padding:30px;margin:0;">
+					                                                   <p>Hi '.$user['user_name'].',</p>
+
+					                                                   <p>This is a reminder that your membership with <a href="https://go2bng.com">Go2bng.com</a> expired on '.date('F ,d Y', $new_date).'</p>
+					                                                   <p>If you’re still deciding whether or not to renew, or just haven’t gotten around to it yet, please let us remind you of what you’ll be missing if you do not renew:</p>
+					                                                   <ul>
+					                                                      <li>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE</li>
+					                                                      <li>TOP SEARCH RANKING</li>
+					                                                      <li>BANNER ADVERTISIMENT ON HOME PAGE</li>
+					                                                      <li>COMPLETE PROCUREMENT SOLUTION</li>
+					                                                      <li>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT SOLUTION</li>
+					                                                      <li>BUYER CONTACTS VIA BNG PLATFORM</li>
+					                                                      <li>TARGENT MARKET STATISTICS DATA REPORT</li>
+					                                                      <li>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT</li>
+					                                                      <li>DEDICATED TRADE EXPERT SUPPORT 24X7</li>
+					                                                      <li>LOGISTICS SUPPORT WHENEVER REQUIRED</li>
+					                                                   </ul>
+					                                                   <p>We hope that you will take the time to renew your membership and remain part of our community. </p>
+					                                                   <p>Kind regards,<br>
+					                                                      BNG Team</p>
+					                                                </td>
+					                                             </tr>
+					                                                
+					                                          </tbody>
+					                                       </table>
+					                                     
+					                                    </td>
+					                                 </tr>
+					                              </tbody>
+					                           </table>
+					                  
+					                        </td>
+					                     </tr>
+					                  </tbody>
+									</table>';
+
+
+						$this->load->library('phpmailer_lib');
+
+						// PHPMailer object
+						$mail = $this->phpmailer_lib->load();
+
+						// SMTP configuration
+						$mail->isSMTP();
+						$mail->Host     = 'smtp.sendgrid.net';
+						$mail->SMTPAuth = true;
+						$mail->Username = 'apikey';
+						$mail->Password = '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';
+						$mail->SMTPSecure = 'tls';
+						$mail->Port     = 587;
+
+						$mail->setFrom('support@go2bng.com', 'support@go2bng.com');
+						$mail->addReplyTo('support@go2bng.com', 'support@go2bng.com');
+
+
+						// Add a recipient
+						$mail->addAddress($user['user_email']);
+
+						// Add cc or bcc 
+						//$mail->addCC('');
+						//$mail->addBCC('pushapnaraingupta@gmail.com');
+
+						// Email subject
+						$mail->Subject =  'Subscription Expired';
+
+						// Set email format to HTML
+						$mail->isHTML(true);
+
+						// Email body content
+						$mailContent = $template;
+						$mail->Body = $mailContent;
+
+						// Send email
+						if(!$mail->send()){
+							$mail->ErrorInfo;
+
+						}
+				}
+				elseif($dateleft ==15){
+					$user =	$this->admin_model->GetUser($order['uid']);
+						$template = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
+					                  <tbody>
+					                     <tr>
+					                        <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+					                           <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+					                              <tbody>
+					                                 <tr>
+					                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+					                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+					                                          <tbody>
+					                                             <tr>
+					                                                <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+					                                                   <a href="https://go2bng.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://go2bng.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+					                                                   <img width="50%" height="" src="https://go2bng.com/resource/images/logo.png" alt="Go2bng.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
+					                                                </td>
+					                                             </tr>
+					                                          </tbody>
+					                                       </table>
+					                                    </td>
+					                                 </tr>
+					                                 <tr>
+					                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+					                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0;border-top: 3px solid #ffce10; border-bottom:  3px solid #ffce10;">
+					                                          <tbody>
+					                                             <tr>
+					                                                <td style="font-family:calibri;padding:30px;margin:0;">
+					                                                   <p>Hi '.$user['user_name'].',</p>
+
+					                                                   <p>This is a gentle reminder that your membership with <a href="https://go2bng.com">Go2bng.com</a> will expired on '.date('F ,d Y', $new_date).' and you are now within your membership grace period.</p>
+					                                                   <p>If you’re still deciding whether or not to renew, or just haven’t gotten around to it yet, please let us remind you of what you’ll be missing if you do not renew:</p>
+					                                                   <ul>
+					                                                      <li>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE</li>
+					                                                      <li>TOP SEARCH RANKING</li>
+					                                                      <li>BANNER ADVERTISIMENT ON HOME PAGE</li>
+					                                                      <li>COMPLETE PROCUREMENT SOLUTION</li>
+					                                                      <li>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT SOLUTION</li>
+					                                                      <li>BUYER CONTACTS VIA BNG PLATFORM</li>
+					                                                      <li>TARGENT MARKET STATISTICS DATA REPORT</li>
+					                                                      <li>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT</li>
+					                                                      <li>DEDICATED TRADE EXPERT SUPPORT 24X7</li>
+					                                                      <li>LOGISTICS SUPPORT WHENEVER REQUIRED</li>
+					                                                   </ul>
+					                                                   <p>We hope that you will take the time to renew your membership and remain part of our community. </p>
+					                                                   <p>Kind regards,<br>
+					                                                      BNG Team</p>
+					                                                </td>
+					                                             </tr>
+					                                                
+					                                          </tbody>
+					                                       </table>
+					                                     
+					                                    </td>
+					                                 </tr>
+					                              </tbody>
+					                           </table>
+					                  
+					                        </td>
+					                     </tr>
+					                  </tbody>
+									</table>';
+
+
+						$this->load->library('phpmailer_lib');
+
+						// PHPMailer object
+						$mail = $this->phpmailer_lib->load();
+
+						// SMTP configuration
+						$mail->isSMTP();
+						$mail->Host     = 'smtp.sendgrid.net';
+						$mail->SMTPAuth = true;
+						$mail->Username = 'apikey';
+						$mail->Password = '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';
+						$mail->SMTPSecure = 'tls';
+						$mail->Port     = 587;
+
+						$mail->setFrom('support@go2bng.com', 'support@go2bng.com');
+						$mail->addReplyTo('support@go2bng.com', 'support@go2bng.com');
+
+
+						// Add a recipient
+						$mail->addAddress($user['user_email']);
+
+						// Add cc or bcc 
+						//$mail->addCC('');
+						//$mail->addBCC('pushapnaraingupta@gmail.com');
+
+						// Email subject
+						$mail->Subject =  'Subscription Reminder 15 Days left';
+
+						// Set email format to HTML
+						$mail->isHTML(true);
+
+						// Email body content
+						$mailContent = $template;
+						$mail->Body = $mailContent;
+
+						// Send email
+						if(!$mail->send()){
+							$mail->ErrorInfo;
+
+						}
+				}
+				elseif($dateleft ==30){
+						$user =	$this->admin_model->GetUser($order['uid']);
+						$template = '<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
+					                  <tbody>
+					                     <tr>
+					                        <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+					                           <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+					                              <tbody>
+					                                 <tr>
+					                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+					                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+					                                          <tbody>
+					                                             <tr>
+					                                                <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+					                                                   <a href="https://go2bng.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://go2bng.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+					                                                   <img width="50%" height="" src="https://go2bng.com/resource/images/logo.png" alt="Go2bng.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
+					                                                </td>
+					                                             </tr>
+					                                          </tbody>
+					                                       </table>
+					                                    </td>
+					                                 </tr>
+					                                 <tr>
+					                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+					                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0;border-top: 3px solid #ffce10; border-bottom:  3px solid #ffce10;">
+					                                          <tbody>
+					                                             <tr>
+					                                                <td style="font-family:calibri;padding:30px;margin:0;">
+					                                                   <p>Hi '.$user['user_name'].',</p>
+
+					                                                   <p>This is a gentle reminder that your membership with <a href="https://go2bng.com">Go2bng.com</a> will expired on '.date('F ,d Y', $new_date).' and you are now within your membership grace period.</p>
+					                                                   <p>If you’re still deciding whether or not to renew, or just haven’t gotten around to it yet, please let us remind you of what you’ll be missing if you do not renew:</p>
+					                                                   <ul>
+					                                                      <li>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE</li>
+					                                                      <li>TOP SEARCH RANKING</li>
+					                                                      <li>BANNER ADVERTISIMENT ON HOME PAGE</li>
+					                                                      <li>COMPLETE PROCUREMENT SOLUTION</li>
+					                                                      <li>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT SOLUTION</li>
+					                                                      <li>BUYER CONTACTS VIA BNG PLATFORM</li>
+					                                                      <li>TARGENT MARKET STATISTICS DATA REPORT</li>
+					                                                      <li>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT</li>
+					                                                      <li>DEDICATED TRADE EXPERT SUPPORT 24X7</li>
+					                                                      <li>LOGISTICS SUPPORT WHENEVER REQUIRED</li>
+					                                                   </ul>
+					                                                   <p>We hope that you will take the time to renew your membership and remain part of our community. </p>
+					                                                   <p>Kind regards,<br>
+					                                                      BNG Team</p>
+					                                                </td>
+					                                             </tr>
+					                                                
+					                                          </tbody>
+					                                       </table>
+					                                     
+					                                    </td>
+					                                 </tr>
+					                              </tbody>
+					                           </table>
+					                  
+					                        </td>
+					                     </tr>
+					                  </tbody>
+									</table>';
+
+
+						$this->load->library('phpmailer_lib');
+
+						// PHPMailer object
+						$mail = $this->phpmailer_lib->load();
+
+						// SMTP configuration
+						$mail->isSMTP();
+						$mail->Host     = 'smtp.sendgrid.net';
+						$mail->SMTPAuth = true;
+						$mail->Username = 'apikey';
+						$mail->Password = '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';
+						$mail->SMTPSecure = 'tls';
+						$mail->Port     = 587;
+
+						$mail->setFrom('support@go2bng.com', 'support@go2bng.com');
+						$mail->addReplyTo('support@go2bng.com', 'support@go2bng.com');
+
+
+						// Add a recipient
+						$mail->addAddress($user['user_email']);
+
+						// Add cc or bcc 
+						//$mail->addCC('');
+						//$mail->addBCC('pushapnaraingupta@gmail.com');
+
+						// Email subject
+						$mail->Subject =  'Subscription Reminder 30 Days left';
+
+						// Set email format to HTML
+						$mail->isHTML(true);
+
+						// Email body content
+						$mailContent = $template;
+						$mail->Body = $mailContent;
+
+						// Send email
+						if(!$mail->send()){
+							$mail->ErrorInfo;
+
+						}
+				}
+			}
+			redirect($_SERVER['HTTP_REFERER']);
+		}	
+		else{
+			redirect();
+		}
+	}
 }

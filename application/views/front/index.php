@@ -499,7 +499,7 @@
               <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
               <div class="vfx-price-list-item">
                 <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE</h2>
-                <p>UNLIMITED</p>
+                <p>Max 50 PRODUCTS </p>
               </div>
               <div class="vfx-price-list-item">
                 <h2>TOP SEARCH RANKING </h2>
@@ -508,7 +508,7 @@
               
              <div class="vfx-price-list-item">
                 <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
-                 <p>5 BANNERS EARLY </p>
+                 <p>5 BANNERS YEARLY </p>
               </div>
               <div class="vfx-price-list-item">
                 <h2>COMPLETE PROCUREMENT SOLUTION</h2>
@@ -559,7 +559,7 @@
               </div>
               <div class="vfx-price-list-item">
                 <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
-                 <p>12 BANNERS EARLY </p>
+                 <p>12 BANNERS YEARLY </p>
               </div>
                <div class="vfx-price-list-item">
                 <h2>COMPLETE PROCUREMENT SOLUTION</h2>

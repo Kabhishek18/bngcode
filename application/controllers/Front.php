@@ -55,6 +55,212 @@ class Front extends CI_Controller {
 	}
 
 
+	public function Contact()
+	{
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/contact');
+		$this->load->view('front/inc/footer');
+	}
+
+
+	//Forgot Password
+	public function forgotPassword($value='')
+	{
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/forgot');
+		$this->load->view('front/inc/footer');
+	}
+
+	public function forgotPasswordEmail()
+	{
+		
+		$auth['user_email']=$this->input->post("user_email");
+		$emailcheck =$this->front_model->CheckEmail($auth);
+		if ($emailcheck==true ) {
+			$data = $this->front_model->EmailForgot($auth['user_email']);
+			$linkurl = base_url().'changeuser/'.$data['user_token'].'/'.$data['user_name'].'/'.generateUUID().'/user';
+
+			$template ='<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
+                  <tbody>
+                     <tr>
+                        <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+                           <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+                              <tbody>
+                                 <tr>
+                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                          <tbody>
+                                             <tr>
+                                                <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+                                                   <a href="https://go2bng.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://go2bng.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                   <img width="50%" height="" src="https://go2bng.com/resource/images/logo.png" alt="Go2bng.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0;border-top: 3px solid #ffce10; ">
+                                          <tbody>
+                                          
+                                             <tr>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                   <h3 style="text-align:left;margin:0;padding:5px 15px">Dear '.$data['user_name'].'</h3>
+                                                   <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:10px">
+                                                      You request has submitted. Please click on button to reset your password
+                                                   </h3>
+                                                   
+                                                </td>
+                                             </tr>
+                                             <tr>
+                                                <td style="width: 650px; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                   <table bgcolor="" width="100%" height="100px">
+                                                      <tr>
+                                                         <td></td>
+                                                           <td colspan="3" style="color:#000; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
+                                                            <h3 style="font-family:calibri;font-weight:normal;font-size:20px;margin-bottom:10px;margin-top:10px;text-align: center;">
+                                                            <a href="'.$linkurl.'" style="background: #f19220;color:white;padding: 15px;border-radius: 10px;">
+                                                                  Reset Password
+                                                            </a>
+                                                              </h3>
+
+                                                         </td>
+                                                         <td></td>
+
+                                                      </tr>
+                                                
+                                                   </table>
+                                                </td>
+                                               
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0;border-bottom: 3px solid #ffce10; "> 
+                                          <tbody>
+                                             <tr>
+                                                 <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
+                                                      <p>And as always, if you have questions or feedback for us, we love hearing from you.</p>
+                                                  </td> 
+                                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
+                                                      
+                                                  </td>        
+                                             </tr>
+                                              <tr>
+                                                 <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;border-bottom: 3px solid #ffce10;">
+                                                      <p>Cheers,<br/>
+                                                      BNG TEAM</p>
+                                                  </td> 
+                                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;border-bottom: 3px solid #ffce10;">
+                                                      <p>Follow Us: <a href="https://www.facebook.com/go2bngnetworks/">Facebook</a>
+                                                      <a href="https://twitter.com/gateway_network">Twitter</a>
+                                                      <a href="https://www.linkedin.com/in/business-network-gateway-ab6025205?_l=en_US">Linkdein</a>
+                                                   </p>
+                                                  </td>        
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                  
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>';
+
+
+			
+						$this->load->library('phpmailer_lib');
+
+						// PHPMailer object
+						$mail = $this->phpmailer_lib->load();
+
+						// SMTP configuration
+						$mail->isSMTP();
+						$mail->Host     = 'smtp.sendgrid.net';
+						$mail->SMTPAuth = true;
+						$mail->Username = 'apikey';
+						$mail->Password = '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';
+						$mail->SMTPSecure = 'tls';
+						$mail->Port     = 587;
+
+						$mail->setFrom('support@go2bng.com', 'support@go2bng.com');
+						$mail->addReplyTo('support@go2bng.com', 'support@go2bng.com');
+
+						// Add a recipient
+						$mail->addAddress($data['user_email']);
+
+						// Add cc or bcc 
+						//$mail->addCC('');
+						//$mail->addBCC('pushapnaraingupta@gmail.com');
+
+						// Email subject
+						$mail->Subject =  'Password Recovery Mail';
+
+						// Set email format to HTML
+						$mail->isHTML(true);
+
+						// Email body content
+						$mailContent = $template;
+						$mail->Body = $mailContent;
+
+						// Send email
+						if(!$mail->send()){
+							$mail->ErrorInfo;
+
+						}
+						
+				$this->session->set_flashdata('success', 'Reset Link Has Been Sent To Respective Mail');
+				redirect('');		
+			
+		}
+		else{
+			$this->session->set_flashdata('warning', 'EmailID Not Exist! Please Register');
+			redirect('');
+		}
+	}
+
+	public function ResetPassword()
+	{
+		$data['user_token'] =$this->uri->segment(2,0);
+		$data['user_name'] =$this->uri->segment(3,0);
+		$vendor =$this->uri->segment(5,0);
+		
+		$this->load->view('front/inc/header');
+		$this->load->view('front/resetpass',$data);
+		$this->load->view('front/inc/footer');	
+	}
+
+
+	public function ResetprofilePassword()
+	{
+		$data['user_token'] =$this->input->post('user_token');
+		$data['user_name']=$this->input->post('user_name');
+		$user['user_password'] =md5( $this->input->post('user_password')); 
+		$var['user_cpassword'] = md5($this->input->post('user_cpassword')); 
+		if($user['user_password'] !=$var['user_cpassword']){
+			$this->session->set_flashdata('warning', 'Password Mismatch');
+			redirect('changeuser/'.$data['user_token'].'/'.$data['user_name'].'/'.generateUUID().'/vendor');	
+		}
+		$update=$this->front_model->ResetUserData($user,$data['user_token'],$data['user_name']);
+		if($update){
+			$this->session->set_flashdata('success', 'Successfully Password Updated');
+			redirect('');
+		}else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+			redirect($_SERVER['HTTP_REFERER']);	
+		}
+	}
+
+
+
+
 	public function QuerySubmit()
 	{
 
@@ -64,31 +270,112 @@ class Front extends CI_Controller {
 		$message = $this->input->post('message');
 
 		$this->load->library('phpmailer_lib');
-		$messagebomb ='Username:'.$name.'<br>'.'Email:'.$email.'<br>'.'Phone:'.$phone.'<br>'.'message:'.$message.'<br>';
+		$messagebomb ='<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
+                  <tbody>
+                     <tr>
+                        <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+                           <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+                              <tbody>
+                                 <tr>
+                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                          <tbody>
+                                             <tr>
+                                                <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+                                                   <a href="https://go2bng.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://go2bng.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                   <img width="50%" height="" src="https://go2bng.com/resource/images/logo.png" alt="Go2bng.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0;border-top: 3px solid #ffce10; border-bottom:  3px solid #ffce10;">
+                                          <tbody>
+                                             <tr>
+                                                <th  style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px;margin-top: 10px"><h1>Customer Query  </h1></th>
+                                                 <th  style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px ;margin-top: 10px"><h1> Mail Received</h1></th>
+                                             </tr>
+                                             <tr>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                   Name :
+                                                   
+                                                </td>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                   '.$name.'
+                                                </td>
+                                             </tr>
+                                             
+                                             <tr>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                   Email :
+                                                   
+                                                </td>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                   '.$email.'
+                                                </td>
+                                             </tr>
+
+                                             <tr>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                   Phone :
+                                                   
+                                                </td>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                   '.$phone.'
+                                                </td>
+                                             </tr>
+                                             <tr>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                   Message :
+                                                   
+                                                </td>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                   '.$message.'
+                                                </td>
+
+                                             </tr>
+                                             <tr>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;margin-bottom: 50px"></td>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;margin-bottom: 50px"></td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                     
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                  
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>';
 			// PHPMailer object
 			$mail = $this->phpmailer_lib->load();
 
 			// SMTP configuration
-			$mail->isSMTP();
-			$mail->Host     = 'mail.go2bng.com';
+			$mail->Host     = 'smtp.sendgrid.net';
 			$mail->SMTPAuth = true;
-			$mail->Username = 'no-reply@go2bng.com';
-			$mail->Password = 'no-reply@987';
+			$mail->Username = 'apikey';
+			$mail->Password = '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';
 			$mail->SMTPSecure = 'tls';
 			$mail->Port     = 587;
 
-			$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
-			$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
+			$mail->setFrom('support@go2bng.com', 'support@go2bng.com');
+			$mail->addReplyTo('support@go2bng.com', 'support@go2bng.com');
 
 			// Add a recipient
-			$mail->addAddress('support@techcentrica.com');
+			$mail->addAddress('support@go2bng.com');
 
 			// Add cc or bcc 
 			//$mail->addCC('');
 			//$mail->addBCC('pushapnaraingupta@gmail.com');
 
 			// Email subject
-			$mail->Subject =  'Query Mail';
+			$mail->Subject =  'Customer Contact Mail';
 
 			// Set email format to HTML
 			$mail->isHTML(true);
@@ -103,7 +390,7 @@ class Front extends CI_Controller {
 
 			}
 			
-			$this->session->set_flashdata('success', 'Thank You, Your Query Has been Submitted');
+			$this->session->set_flashdata('success', 'Thank You, Your valuable request has been submitted');
 			redirect('');	
 	}
 
@@ -166,6 +453,8 @@ class Front extends CI_Controller {
 	{
 		$auth['user_email']=$this->input->post("email");
 		$auth['user_password']=md5($this->input->post("password"));	
+		$this->session->unset_userdata('user_account');	 
+		
 		$data=$this->front_model->Authentication($auth);
 		if($data)
 		 {
@@ -218,7 +507,104 @@ class Front extends CI_Controller {
 		$auth['user_status']='active';
 		$auth['user_verified']='unverified';
 
-		$linkurl = base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID();
+		$linkurl = base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID().'/user';
+
+
+
+
+		$template ='<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
+                  <tbody>
+                     <tr>
+                        <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+                           <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+                              <tbody>
+                                 <tr>
+                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                          <tbody>
+                                             <tr>
+                                                <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+                                                   <a href="https://go2bng.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://go2bng.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                   <img width="50%" height="" src="https://go2bng.com/resource/images/logo.png" alt="Go2bng.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0;border-top: 3px solid #ffce10; ">
+                                          <tbody>
+                                          
+                                             <tr>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                   <h3 style="text-align:left;margin:0;padding:5px 15px">Dear '.$auth['user_name'].'</h3>
+                                                   <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:10px">
+                                                      You are at final step to create account with please click on button to verify your email.
+                                                   </h3>
+                                                   
+                                                </td>
+                                             </tr>
+                                             <tr>
+                                                <td style="width: 650px; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                   <table bgcolor="" width="100%" height="100px">
+                                                      <tr>
+                                                         <td></td>
+                                                           <td colspan="3" style="color:#000; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
+                                                            <h3 style="font-family:calibri;font-weight:normal;font-size:20px;margin-bottom:10px;margin-top:10px;text-align: center;">
+                                                            <a href="'.$linkurl.'" style="background: #f19220;color:white;padding: 15px;border-radius: 10px;">
+                                                                  Click To Verify
+                                                            </a>
+                                                              </h3>
+
+                                                         </td>
+                                                         <td></td>
+
+                                                      </tr>
+                                                
+                                                   </table>
+                                                </td>
+                                               
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0;border-bottom: 3px solid #ffce10; "> 
+                                          <tbody>
+                                             <tr>
+                                                 <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
+                                                      <p>And as always, if you have questions or feedback for us, we love hearing from you.</p>
+                                                  </td> 
+                                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
+                                                      
+                                                  </td>        
+                                             </tr>
+                                              <tr>
+                                                 <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;border-bottom: 3px solid #ffce10;">
+                                                      <p>Cheers,<br/>
+                                                      BNG TEAM</p>
+                                                  </td> 
+                                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;border-bottom: 3px solid #ffce10;">
+                                                      <p>Follow Us: <a href="https://www.facebook.com/go2bngnetworks/">Facebook</a>
+                                                      <a href="https://twitter.com/gateway_network">Twitter</a>
+                                                      <a href="https://www.linkedin.com/in/business-network-gateway-ab6025205?_l=en_US">Linkdein</a>
+                                                   </p>
+                                                  </td>        
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                  
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>';
+
+
 
 		
 		if ($auths['user_cpassword'] == $auth['user_password']) {
@@ -232,15 +618,16 @@ class Front extends CI_Controller {
 
 						// SMTP configuration
 						$mail->isSMTP();
-						$mail->Host     = 'smtp.mandrillapp.com';
+						$mail->Host     = 'smtp.sendgrid.net';
 						$mail->SMTPAuth = true;
-						$mail->Username = 'Logistics';
-						$mail->Password = 'k64QCLTkpGJ6NsFW5xW5mw';
+						$mail->Username = 'apikey';
+						$mail->Password = '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';
 						$mail->SMTPSecure = 'tls';
 						$mail->Port     = 587;
 
-						$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
-						$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
+						$mail->setFrom('support@go2bng.com', 'support@go2bng.com');
+						$mail->addReplyTo('support@go2bng.com', 'support@go2bng.com');
+
 
 						// Add a recipient
 						$mail->addAddress($auth['user_email']);
@@ -256,7 +643,7 @@ class Front extends CI_Controller {
 						$mail->isHTML(true);
 
 						// Email body content
-						$mailContent =  EmailMessage($auth['user_name'],$linkurl);
+						$mailContent =  $template;
 						$mail->Body = $mailContent;
 
 						// Send email
@@ -295,7 +682,7 @@ class Front extends CI_Controller {
 		if ($update) {
 
 			$this->session->set_flashdata('success', 'Thank You For Email Verification');
-				if($vendor){
+				if($vendor=='vendor'){
 				redirect('vendor/login');
 				}
 				else{
@@ -314,22 +701,117 @@ class Front extends CI_Controller {
 	{
 		$auth= $this->session->user_account;
 		
-		$messagebomb = 'Click to verify <a href="'.base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID().'" >Link</a>';
+		$linkurl = base_url().'verify/'.$auth['user_token'].'/'.$auth['user_name'].'/'.generateUUID().'/user';
+
+
+
+				$template ='<table width="100%" cellpadding="0" cellspacing="0" border="0" id="m_-2287190302310609224m_-7533971164095270638background-table" style="border-collapse:collapse;padding:0;margin:0 auto;background-color:#ebebeb;font-size:12px">
+                  <tbody>
+                     <tr>
+                        <td valign="top" align="center" style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0;width:100%">
+                           <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;padding:0;margin:0 auto;width:600px">
+                              <tbody>
+                                 <tr>
+                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0">
+                                          <tbody>
+                                             <tr>
+                                                <td align="center"  style=" font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:15px 0px 10px 5px;margin:0">
+                                                   <a href="https://go2bng.com/" style="color:#3696c2;float:left;display:block" rel="noreferrer" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://go2bng.com/&amp;source=gmail&amp;ust=1612437442476000&amp;usg=AFQjCNGp8vRHo85GtG1KT4EjwDV7Yqv0Lg">
+                                                   <img width="50%" height="" src="https://go2bng.com/resource/images/logo.png" alt="Go2bng.com" border="0" style=" outline:none;text-decoration:none" class="CToWUd"></a>
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td align="center" style="background:#fff;font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0;border-top: 3px solid #ffce10; ">
+                                          <tbody>
+                                          
+                                             <tr>
+                                                <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;">
+                                                   <h3 style="text-align:left;margin:0;padding:5px 15px">Dear '.$auth['user_name'].'</h3>
+                                                   <h3 style="padding:5px 15px;font-family:calibri;font-weight:normal;font-size:17px;margin-bottom:10px;margin-top:10px">
+                                                      You are at final step to create account with please click on button to verify your email.
+                                                   </h3>
+                                                   
+                                                </td>
+                                             </tr>
+                                             <tr>
+                                                <td style="width: 650px; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:0;margin:0">
+                                                   <table bgcolor="" width="100%" height="100px">
+                                                      <tr>
+                                                         <td></td>
+                                                           <td colspan="3" style="color:#000; font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:5px 15px;margin:0;text-align:center">
+                                                            <h3 style="font-family:calibri;font-weight:normal;font-size:20px;margin-bottom:10px;margin-top:10px;text-align: center;">
+                                                            <a href="'.$linkurl.'" style="background: #f19220;color:white;padding: 15px;border-radius: 10px;">
+                                                                  Click To Verify
+                                                            </a>
+                                                              </h3>
+
+                                                         </td>
+                                                         <td></td>
+
+                                                      </tr>
+                                                
+                                                   </table>
+                                                </td>
+                                               
+                                                </td>
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                       <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;padding:0;margin:0;border-bottom: 3px solid #ffce10; "> 
+                                          <tbody>
+                                             <tr>
+                                                 <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
+                                                      <p>And as always, if you have questions or feedback for us, we love hearing from you.</p>
+                                                  </td> 
+                                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;">
+                                                      
+                                                  </td>        
+                                             </tr>
+                                              <tr>
+                                                 <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;border-bottom: 3px solid #ffce10;">
+                                                      <p>Cheers,<br/>
+                                                      BNG TEAM</p>
+                                                  </td> 
+                                                  <td style="font-family:calibri;font-weight:normal;border-collapse:collapse;vertical-align:top;padding:10px 15px;margin:10px;border-bottom: 3px solid #ffce10;">
+                                                      <p>Follow Us: <a href="https://www.facebook.com/go2bngnetworks/">Facebook</a>
+                                                      <a href="https://twitter.com/gateway_network">Twitter</a>
+                                                      <a href="https://www.linkedin.com/in/business-network-gateway-ab6025205?_l=en_US">Linkdein</a>
+                                                   </p>
+                                                  </td>        
+                                             </tr>
+                                          </tbody>
+                                       </table>
+                                    </td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                  
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>';
+
 		$this->load->library('phpmailer_lib');
 
 				// PHPMailer object
 				$mail = $this->phpmailer_lib->load();
 				// SMTP configuration
 				$mail->isSMTP();
-				$mail->Host     = 'mail.go2bng.com';
+				$mail->Host     = 'smtp.sendgrid.net';
 				$mail->SMTPAuth = true;
-				$mail->Username = 'no-reply@go2bng.com';
-				$mail->Password = 'no-reply@987';
+				$mail->Username = 'apikey';
+				$mail->Password = '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';
 				$mail->SMTPSecure = 'tls';
 				$mail->Port     = 587;
 
-				$mail->setFrom('no-reply@go2bng.com', 'no-reply@go2bng.com');
-				$mail->addReplyTo('no-reply@go2bng.com', 'no-reply@go2bng.com');
+				$mail->setFrom('support@go2bng.com', 'support@go2bng.com');
+				$mail->addReplyTo('support@go2bng.com', 'support@go2bng.com');
 
 				// Add a recipient
 				$mail->addAddress($auth['user_email']);
@@ -345,7 +827,7 @@ class Front extends CI_Controller {
 				$mail->isHTML(true);
 
 				// Email body content
-				$mailContent = $messagebomb;
+				$mailContent = $template;
 				$mail->Body = $mailContent;
 
 				// Send email

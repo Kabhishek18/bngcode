@@ -37,6 +37,10 @@
                             <div class="card">
                                 <div class="card-header">
                                     <h4 class="card-title"><a href="<?=base_url()?>admin/SubscriptionAdd" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Subscription Add</a> </h4>
+
+                                    <h4 class="card-title">
+                                        <a href="<?=base_url()?>admin/EmailTrigger" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Send End Mail Subscription</a>
+                                    </h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">

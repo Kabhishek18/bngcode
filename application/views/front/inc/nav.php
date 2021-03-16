@@ -28,7 +28,7 @@
                 
                 <li><a href="<?=base_url()?>categories">Categories</a></li>
                  <?php if(!$this->session->user_account){?> 
-                <li><a href="#">Buyers <i class="fa fa-caret-down"></i></a>
+                <li><a href="javascript:void(0)">Buyers <i class="fa fa-caret-down"></i></a>
                   <ul class="dropdown">
                     <li><a data-toggle="modal" data-target="#login"><i class="fa fa-angle-double-right"></i>Login </a></li>
                      <li><a  data-toggle="modal" data-target="#register"><i class="fa fa-angle-double-right"></i>Register </a></li>
@@ -59,6 +59,10 @@
                         <a class="btn-lg" href='<?=base_url()?>vendor/logout'>Logout</a>
                       </li>
                     <?php } ?>
+                    <li><a class="btn-lg" href="tel:18005720558"><i class="fa fa-phone"></i> Call Us: 18005720558</a></li>
+              </ul>
+              <ul>
+                  
               </ul>
             </div>
           </div>

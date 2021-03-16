@@ -8,6 +8,8 @@
           <p class="about-lt">BNG “Business Network Gateway” is a trustworthy platform developed by the BNG INFO MEDIA & TECHNOLOGIES LLP.   BNG is an online B2B Portal for all kind of manufacturers, exporters and importers. 
       of customers world-wide. </p>
           <a href="<?=base_url()?>about" class="btn-primary-link more-detail"><i class="fa fa-hand-o-right"></i> Read More</a>
+          <p><a href="tel:18005720558"><i class="fa fa-phone"></i> Call Us: 18005720558</a></p>
+          <p><i class="fa fa-home"></i> Address: NOIDA ONE" C-321, 3RD FLOOR, PLOT NO. B-8, IT PARK, Sector 62, Noida, Delhi 201309</p>
           <h2>Follow Us</h2>
           <hr>
           <ul class="social-icons">
@@ -20,22 +22,21 @@
           <h2>Recent Listing</h2>
           <hr>
           <ul class="widget-news-simple">
+          <?php $listing =$this->front_model->GetQueryList(); 
+                if($listing){ $i=0;
+                foreach($listing as $list){ ?>
+                   <?php $pro = $this->front_model->GetProduct($list['pid']);?>
             <li>
-              <div class="news-thum"><a href="#"><img src="<?=base_url()?>resource/images/new-thum-1.png" alt="new-thum-1"></a></div>
+              <div class="news-thum"><a href="#"><img src="<?=base_url()?>uploads/pro/<?=$pro['product_image']?>" alt="new-thum-1"></a></div>
+              <?php $list['description'] = json_decode($list['description'], True); ?>
               <div class="news-text-thum">
-                <h6><a href="listing_detail.html">Hello Directory Listing</a></h6>
-                <p>Phasellus ut condimentum diam, eget tempus lorem...</p>
-                <div>Price: $117</div>
+                <h6><a href="listing_detail.html"><?=$list['description']['requirement']?></a></h6>
+               
+                <p><?=$list['description']['user_name']?></p>
+                <div>Product Name :</strong> <?=$pro['product_name']?></div>
               </div>
             </li>
-            <li>
-              <div class="news-thum"><a href="#"><img src="<?=base_url()?>resource/images/new-thum-1.png" alt="new-thum-1"></a></div>
-              <div class="news-text-thum">
-                <h6><a href="listing_detail.html">Hello Directory Listing</a></h6>
-                <p>Phasellus ut condimentum diam, eget tempus lorem...</p>
-                <div>Price: $117</div>
-              </div>
-            </li>
+                <?php $i++;if($i==3){break;} }}?>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -47,6 +48,7 @@
             <li><a href="<?=base_url()?>privacy"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Privacy & Policy</a></li>
             <li><a href="#"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Sitemap</a></li>
             <li><a href="<?=base_url()?>terms"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Terms & Condition</a></li>
+            <li><a href="<?=base_url()?>contact"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Contact Us</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -107,14 +109,13 @@
               <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" />
               <label for="checkbox-1-1"></label>
               <label class="checkbox-lable">Remember Me</label>
+
+              <a href="<?=base_url()?>front/forgotPassword">Forgot Password ??</a>
              </div>
             <div class="listing-form-field">
               <input class="submit" type="submit" value="login" />
             </div>
           </form>
-          <div class="bottom-links">
-            <p>Not a Member?<a href="#">Create Account</a></p>
-          </div>
         </div>
       </div>
     </div>
