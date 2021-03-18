@@ -16,6 +16,7 @@ $route['privacy'] = 'front/Privacy';
 $route['about'] = 'front/About';
 $route['terms'] = 'front/Terms';
 $route['contact'] = 'front/Contact';
+$route['pricings'] = 'front/Pricings';
 $route['product-listing'] = 'front/ProductListing';
 $route['dashboard'] ='front/dashboard';
 $route['requirement'] ='front/Requirement';

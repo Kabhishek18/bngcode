@@ -73,6 +73,14 @@ class Front extends CI_Controller {
 		$this->load->view('front/inc/footer');
 	}
 
+	public function Pricings()
+	{
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/pricing');
+		$this->load->view('front/inc/footer');
+	}
+
 	public function forgotPasswordEmail()
 	{
 		
@@ -493,6 +501,7 @@ class Front extends CI_Controller {
 		
 		$auth['user_name']=$this->input->post("user_name");	
 		$auth['user_email']=$this->input->post("user_email");
+		$auth['user_phone']=$this->input->post("user_phone");
 		$auth['user_password']=md5($this->input->post("user_password"));	
 		$auths['user_cpassword']=md5($this->input->post("user_cpassword"));
 		$emailcheck =$this->front_model->CheckEmail($auth);
@@ -965,7 +974,7 @@ class Front extends CI_Controller {
 			}
 		}
 		else{
-			$this->session->set_flashdata('warning', 'Please Login with Supplier');
+			$this->session->set_flashdata('warning', 'Please Login with Buyers');
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}

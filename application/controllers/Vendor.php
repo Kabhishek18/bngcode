@@ -593,10 +593,26 @@ class Vendor extends CI_Controller {
 	{
 		$data= $this->session->vendor_account;
 		if($data['user_verified'] =='verified'){
-			$this->load->view('vendor/inc/header');
-			$this->load->view('vendor/inc/nav',$data);
-			$this->load->view('vendor/dashboard');
-			$this->load->view('vendor/inc/footer');
+
+			$order = $this->vendor_model->GetOrder($data['id']);
+			if(!empty($order)){
+				$orderplan  =json_decode($order['order_detail'],true);
+				if($orderplan['product'] ==1){
+					$limit =10;
+					$start = 5 ;
+				}elseif ($orderplan['product'] ==2) {
+					$limit =25;
+					$start =0;	
+				}else{
+					$limit=null;
+					$start = null;
+				}	
+				$value['datalist']= $this->vendor_model->GetQueryListLimit($limit,$start,$data['id']);
+			}
+				$this->load->view('vendor/inc/header');
+				$this->load->view('vendor/inc/nav',$data);
+				$this->load->view('vendor/dashboard',(!empty($value['datalist'])?$value:''));
+				$this->load->view('vendor/inc/footer');
 		}
 		else{
 			$this->session->set_flashdata('warning', 'Access Denied');
@@ -866,7 +882,7 @@ class Vendor extends CI_Controller {
 
 					if($urlid){
 						//Update
-						$var['datalist'] = $this->vendor_model->GetProduct($urlid);
+						$var['datalist'] = $this->vendor_model->GetCategoryId($urlid);
 						$this->load->view('vendor/productadd',$var);
 					}else{
 						//Add
@@ -1013,6 +1029,10 @@ class Vendor extends CI_Controller {
 			$data = array('name' =>'Elite Plan' ,'price' =>'1199' );
 			echo json_encode($data);	
 		}
+		elseif($value =='5'){
+			$data = array('name' =>'Free Plan' ,'price' =>'0' );
+			echo json_encode($data);	
+		}
 		else{
 			echo "error";
 		}
@@ -1036,6 +1056,21 @@ class Vendor extends CI_Controller {
 			$reg['planname'] =$this->input->post('planname');
 			$reg['planprice'] =$this->input->post('planprice');
 
+			if($reg['planprice'] ==0){
+				$order['uid'] = $data['id'];
+	    		$order['order_amount'] =$_SESSION['order']['planprice'];
+	    		$order['order_detail'] =json_encode($_SESSION['order']);
+	    		$order['date_created'] =date('F,d Y');
+	    		$order['order_id'] = uniqid();
+				$insert= $this->vendor_model->insertorder($order);
+				if($insert){
+		    		 $this->session->set_flashdata('success', 'Payment Successfully');
+					redirect('vendor/login');	
+		 		}
+		 		else {
+	 			 $this->session->set_flashdata('warning', 'Something Misfortune Happened!!');
+		    		redirect($_SERVER['HTTP_REFERER']);	}
+			}
 			$this->session->set_userdata('order',$reg);
 
 			 if($reg['paymentmethod'] =='razorpay')

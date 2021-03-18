@@ -58,7 +58,7 @@
             <div class="feature-item-container-box listing-item" style="height: 350px;">
               <div class="feature-title-item">
                 <h1><?=$subcat['category_slug']?></h1>
-                <img src="<?=base_url()?>uploads/cat/<?=$subcat['category_image']?>" alt="img1"> </div>
+               <a href="<?=base_url()?>subcategories/<?=$subcat['id']?>"> <img src="<?=base_url()?>uploads/cat/<?=$subcat['category_image']?>" alt="img1"> </a></div>
          
               <div class="feature-box-text">
                 <h3><a href="<?=base_url()?>subcategories/<?=$subcat['id']?>"><?=$subcat['category_name']?></a></h3>

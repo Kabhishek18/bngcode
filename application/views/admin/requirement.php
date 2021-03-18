@@ -66,7 +66,12 @@
                                                        <td><?=$product['product_name']?></td>
                                                        <?php $user = $this->admin_model->GetUser($items['uid'])?>
                                                        <td><?=$user['user_name']?></td>
-                                                       <td><?=$items['description']?></td>
+                                                       <?php $data = json_decode($items['description'],true)?>
+                                                       <td><code><?=$data['user_name']?>
+                                                            <br><?=$data['user_email']?>
+                                                            <br><?=$data['user_phone']?>
+                                                            <br><?=$data['requirement']?>
+                                                       </code></td>
                                                        <td><?=$items['date_created']?></td>
                                                        <td><span class="action-delete">
                                                                 <a href="<?=base_url()?>admin/RequirementDelete/<?=$items['id']?>" onclick="return confirm('Are you sure, you want to delete it?')">
@@ -79,14 +84,13 @@
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>Order Created</th>
-
-                                                       <th>Product</th>
+                                                         <th>Order Created</th>
+                                                        <th>Requirement ID</th>
+                                                        <th>Product</th>
                                                         <th>User</th>
                                                         <th>Description</th>
-                                                        <th>Last Modified</th>  
+                                                        <th>Last Modified</th>
                                                         <th>Delete</th>
-
                                                         
                                                     </tr>
                                                 </tfoot>

@@ -9,7 +9,7 @@
       of customers world-wide. </p>
           <a href="<?=base_url()?>about" class="btn-primary-link more-detail"><i class="fa fa-hand-o-right"></i> Read More</a>
           <p><a href="tel:18005720558"><i class="fa fa-phone"></i> Call Us: 18005720558</a></p>
-          <p><i class="fa fa-home"></i> Address: NOIDA ONE" C-321, 3RD FLOOR, PLOT NO. B-8, IT PARK, Sector 62, Noida, Delhi 201309</p>
+          <p style="color: #cfcfcf;"><a href="javascript:void(0)"><i class="fa fa-home"></i> Address: NOIDA ONE" C-321, 3RD FLOOR, PLOT NO. B-8, IT PARK, Sector 62, Noida, Delhi 201309</a></p>
           <h2>Follow Us</h2>
           <hr>
           <ul class="social-icons">
@@ -52,7 +52,7 @@
           </ul>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <h2>Have you any Query?</h2>
+          <h2>Get free quotes from multiple seller??</h2>
           <hr>
           <form class="form-alt"  method="post" action="<?=base_url()?>front/QuerySubmit">
             <div class="form-group">
@@ -65,7 +65,7 @@
               <input type="text" name="phone" placeholder="Phone :-" required class="form-control">
             </div>
             <div class="form-group">
-              <textarea name="message" placeholder="Message :-" required class="form-control"></textarea>
+              <textarea name="message" rows="1" placeholder="Message :-" required class="form-control"></textarea>
             </div>
             <div class="form-group">
               <button type="submit" class="btn-quote">Send Now</button>
@@ -94,7 +94,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel"> Login</h4>
+        <h4 class="modal-title" id="myModalLabel"> Sign In to your account</h4>
       </div>
       <div class="modal-body">
         <div class="listing-login-form">
@@ -110,10 +110,42 @@
               <label for="checkbox-1-1"></label>
               <label class="checkbox-lable">Remember Me</label>
 
-              <a href="<?=base_url()?>front/forgotPassword">Forgot Password ??</a>
+              <a data-dismiss="modal" data-toggle="modal" data-target="#forgot">Forgot Password ?? </a>
+
+              
              </div>
+             <div class="text-center" >
+                <h5>
+                    <a style="color: #d07c18" data-dismiss="modal" data-toggle="modal" data-target="#register">Register Here</a> 
+                </h5>
+              </div>
             <div class="listing-form-field">
               <input class="submit" type="submit" value="login" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- login form -->
+<div class="modal fade" id="forgot" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="listing-modal-1 modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Reset Password</h4>
+      </div>
+      <div class="modal-body">
+        <div class="listing-login-form">
+          <form method="post" action="<?=base_url()?>Front/forgotPasswordEmail">
+            <div class="listing-form-field"> <i class="fa fa-user blue-1"></i>
+              <input type="text" name="user_email" class="form-field bgwhite" id="user-name" placeholder="Enter Your Email Id" required>
+            </div>
+            <div class="listing-form-field">
+              <input class="submit" type="submit" value="Send Mail" />
             </div>
           </form>
         </div>
@@ -128,7 +160,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel2">Registration</h4>
+        <h4 class="modal-title" id="myModalLabel2">Create your account</h4>
       </div>
       <div class="modal-body">
         <div class="listing-register-form">
@@ -139,6 +171,9 @@
             <div class="listing-form-field"> <i class="fa fa-envelope blue-1"></i>
               <input class="form-field bgwhite" type="email" name="user_email" placeholder="Email" />
             </div>
+             <div class="listing-form-field"> <i class="fa fa-phone blue-1"></i>
+              <input class="form-field bgwhite" type="phone" name="user_phone" placeholder="Phone" />
+            </div>
             <div class="listing-form-field"> <i class="fa fa-lock blue-1"></i>
               <input class="form-field bgwhite" type="password" name="user_password" placeholder="Password"  />
             </div>
@@ -148,7 +183,7 @@
             <div class="listing-form-field clearfix margin-top-20 margin-bottom-20 login_form_text_center">
               <input type="checkbox" id="checkbox-1-2" class="regular-checkbox" />
               <label for="checkbox-1-2"></label>
-              <label class="checkbox-lable">i agree with</label> &nbsp; <a href="<?=base_url()?>/terms">Terms & Conditions</a> </div>
+              <label class="checkbox-lable">I agree with</label> &nbsp; <a href="<?=base_url()?>terms">Terms & Conditions</a> </div>
             <div class="listing-form-field">
               <input class="submit" type="submit" value="create account" />
             </div>

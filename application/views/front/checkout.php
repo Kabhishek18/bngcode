@@ -11,8 +11,6 @@
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <style type="text/css">
-	
-
 		.card-input-element {
 		    display: none;
 		}
@@ -29,6 +27,22 @@
 		.card-input-element:checked + .card-input {
 		     box-shadow: 0 0px 2px 2px #ffce10;
 		 }
+
+		 label{
+		 	font-weight: 400;
+		 }
+		.planbox{
+			border: 1px solid #ffecd3;
+		    padding: 20px;
+		    box-shadow: 1px 1px 8px #ffecd3;
+		}
+		.paymentbox{
+			padding: 10px;
+    		margin-top: 50px;
+		   font-size: 20px;
+		}
+		.paymentstrip{
+		}
 </style>
 <div id="dashboard_inner_block">
   <div class="container">
@@ -90,61 +104,36 @@
 					</div>
 
 						<hr>
-					
+						<div class="row planbox">
+						    	<h4 class="text-left">Choose Your Plan</h4>
+						    	<div class="col-md-3 col-lg-3 col-sm-1">
+				    		         <label>
+						          <input type="radio" name="product" id="plan-5" value="5" class="card-input-element" />
 
-						<div class="row">
-						    	<h4 class="text-center">Choose Your Plan</h4>
+						            <div class=" text-center card-input">
+						               <div class="price-table-feature-block">
+							                 <h1 style="color: #d07c18">Free </h1>
+								              <hr>
+								                <p><span>$0</span> Half Per Year</p>
+								             
+							           
+							            </div>
+							          
+						            </div>
+
+						        </label>
+						    	</div>
 						      <div class="col-md-3 col-lg-3 col-sm-1">
-						        
+						
 						        <label>
 						          <input type="radio" name="product" id="plan-1" value="1" class="card-input-element" />
 
 						            <div class=" text-center card-input">
-						               <div class="price-table-feature-block" style="height: 1350px;">
+						               <div class="price-table-feature-block">
 							                 <h1>Basic</h1>
 								              <hr>
 								              <p><span>$50</span> Per Year</p>
-								              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
-								              <div class="vfx-price-list-item">
-								                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
-								                <p> Upto 5 PRODUCTS </p>
-								              </div>
-								              <div class="vfx-price-list-item">
-								                <h2>TOP SEARCH RANKING </h2>
-								                <p>N/A </p>
-								              </div>
-								              <div class="vfx-price-list-item">
-								                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
-								                 <p>N/A </p>
-								              </div>
-								              <div class="vfx-price-list-item">
-								                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
-								                 <p>N/A </p>
-								              </div>
-								              <div class="vfx-price-list-item">
-								                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
-								                 <p>N/A </p>
-								              </div>
-								              <div class="vfx-price-list-item">
-								                <h2>BUYER CONTACTS VIA BNG PLATFORM </h2>
-								                 <p>10 NOS. MAX PER MONTH</p>
-								              </div>
-								              <div class="vfx-price-list-item"> 
-								                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
-								                 <p>N/A </p>
-								              </div>
-								              <div class="vfx-price-list-item"> 
-								                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
-								                 <p>N/A </p>
-								              </div>
-								               <div class="vfx-price-list-item"> 
-								                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
-								                 <p>N/A </p>
-								              </div>
-								               <div class="vfx-price-list-item"> 
-								                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
-								                 <p>N/A </p>
-								              </div>
+								             
 							           
 							            </div>
 							          
@@ -159,51 +148,11 @@
 						          <input type="radio" name="product" id="plan-2" value="2" class="card-input-element" />
 
 						            <div class="text-center card-input">
-						              <div class="price-table-feature-block" style="height: 1350px;"> 
+						              <div class="price-table-feature-block"> 
 							              <h1>SUPER</h1>
 							              <hr>
 							              <p><span>$99</span> Per Year</p>
-							              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
-							              <div class="vfx-price-list-item">
-							                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
-							                <p> Max 25 PRODUCTS </p>
-							              </div>
-							              <div class="vfx-price-list-item">
-							                <h2>TOP SEARCH RANKING </h2>
-							                <p>N/A </p>
-							              </div>
-							              <div class="vfx-price-list-item">
-							                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
-							                 <p>N/A </p>
-							              </div>
-							              <div class="vfx-price-list-item">
-							                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
-							                 <p>N/A </p>
-							              </div>
-							              <div class="vfx-price-list-item">
-							                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
-							                 <p>N/A </p>
-							              </div>
-							              <div class="vfx-price-list-item">
-							                <h2>BUYER CONTACTS VIA BNG PLATFORM </h2>
-							                 <p>25 NOS. MAX PER MONTH</p>
-							              </div>
-							              <div class="vfx-price-list-item"> 
-							                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
-							                 <p>N/A </p>
-							              </div>
-							              <div class="vfx-price-list-item"> 
-							                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
-							                 <p>N/A </p>
-							              </div>
-							               <div class="vfx-price-list-item"> 
-							                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
-							                 <p>N/A </p>
-							              </div>
-							               <div class="vfx-price-list-item"> 
-							                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
-							                 <p>AVAILABLE </p>
-							              </div>
+							              
 							            
 							            </div>
 						            </div>
@@ -216,52 +165,11 @@
 						          <input type="radio" name="product" id="plan-3" value="3" class="card-input-element" />
 
 						            <div class="text-center card-input">
-						                  <div class="price-table-feature-block" style="height: 1350px;">
+						                  <div class="price-table-feature-block">
 								             <h1>PREMIUM</h1>
 								              <hr>
 								              <p><span>$499</span> Per Year</p>
-								              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
-								              <div class="vfx-price-list-item">
-								                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE</h2>
-								                <p>UNLIMITED</p>
-								              </div>
-								              <div class="vfx-price-list-item">
-								                <h2>TOP SEARCH RANKING </h2>
-								                <p>AVAILABLE </p>
-								              </div>
-								              
-								             <div class="vfx-price-list-item">
-								                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
-								                 <p>5 BANNERS EARLY </p>
-								              </div>
-								              <div class="vfx-price-list-item">
-								                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
-								                 <p>AVAILABLE </p>
-								              </div>
-								              <div class="vfx-price-list-item">
-								                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
-								                 <p>UPTO 600 EMAIL TO TARGET CUSTOMERS YEARLY</p>
-								              </div>
-								              <div class="vfx-price-list-item">
-								                <h2>BUYER CONTACTS VIA BNG PLATFORM </h2>
-								                 <p>50 NOS. MAX PER MONTH</p>
-								              </div>
-								              <div class="vfx-price-list-item"> 
-								                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
-								                 <p>N/A </p>
-								              </div>
-								              <div class="vfx-price-list-item"> 
-								                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
-								                 <p>N/A </p>
-								              </div>
-								               <div class="vfx-price-list-item"> 
-								                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
-								                 <p>AVAILABLE </p>
-								              </div>
-								               <div class="vfx-price-list-item"> 
-								                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
-								                 <p>AVAILABLE </p>
-								              </div>
+								             
 								           
 								            </div>
 						            </div>
@@ -278,47 +186,7 @@
 							             <h1>ELITE </h1>
 							              <hr>
 							              <p><span>$1199</span> Per Year</p>
-							              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
-							              <div class="vfx-price-list-item">
-							                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
-							                <p>UNLIMITED</p>
-							              </div>
-							              <div class="vfx-price-list-item">
-							                <h2>TOP SEARCH RANKING </h2>
-							                <p>AVAILABLE </p>
-							              </div>
-							              <div class="vfx-price-list-item">
-							                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
-							                 <p>12 BANNERS EARLY </p>
-							              </div>
-							               <div class="vfx-price-list-item">
-							                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
-							                 <p>AVAILABLE </p>
-							              </div>
-							              <div class="vfx-price-list-item">
-							                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
-							                 <p>UPTO 2400 EMAIL TO TARGET CUSTOMERS YEARLY</p>
-							              </div>
-							              <div class="vfx-price-list-item">
-							                <h2>BUYER CONTACTS VIA BNG PLATEFORM </h2>
-							                 <p>UNLIMITED</p>
-							              </div>
-							              <div class="vfx-price-list-item"> 
-							                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
-							                 <p>AVAILABLE </p>
-							              </div>
-							              <div class="vfx-price-list-item"> 
-							                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
-							                 <p>AVAILABLE </p>
-							              </div>
-							               <div class="vfx-price-list-item"> 
-							                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
-							                 <p>AVAILABLE </p>
-							              </div>
-							               <div class="vfx-price-list-item"> 
-							                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
-							                 <p>AVAILABLE </p>
-							              </div>
+							            
             
 							            
 							            </div>
@@ -326,43 +194,32 @@
 						        </label>
 						        
 						      </div>
-						  </div>
+						</div>
 
-						<hr>
-
-						<h4>Payment</h4>
+						<div class="row paymentbox">
+							
+						
 						<div class="col-md-6">
+							<strong>Payment Mode</strong>
 							<div class="form-group">
 								<input type="radio" class="form-check-input" name="paymentmethod" value="razorpay" checked required>
 								<label for="credit" class="form-check-label">Razorpay <img src="https://i0.wp.com/www.ecommerce-nation.com/wp-content/uploads/2019/02/Razorpay-the-new-epayment-that-will-break-everything-in-2019.png?resize=1000%2C600&ssl=1" width="200px"></label>
 								
 							</div>
 
-							<div class="form-group">
-								<input type="radio" class="form-check-input" name="paymentmethod" value="paypal" required>
-								<label for="paypal" class="form-check-label">PayPal <img src="https://www.arcadier.com/learn/assets/uploads/payments/logo1511166968img.png" width="200px"></label>
-								
-							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<table class="table">
-									<thead>
-										<tr>
-											<th>MemberShip plan</th>
-											<th>Price ( $ )</th>
-										</tr>
-									</thead>
-									<tbody  class="editview-radio-box">
-										
-									</tbody>
-								
-								</table>
+						<div class="col-md-6 paymentstrip">
+							<div class="col-md-6">
+								<strong>MemberShip plan</strong>
 							</div>
+							<div  class="col-md-6">
+								<strong>Price ( $ )</strong>
+							</div>
+							<span class="editview-radio-box"></span>
 						</div>
-							<hr class="mb-4">
 						
 							<button class="btn btn-primary bt-lg btn-block" type="submit">Continue to Checkout</button>
+						</div>
 				</form>
 		</div>
 	</div>
@@ -397,16 +254,17 @@
 			    					
 			      //         `
 			      // });
-			      html +=`<tr>
+			      html +=`<div class=""><div class='col-md-6'>
 											
-										<td>  ${ obj.name }</td><td>$  ${ obj.price }</td> <input type="hidden" name="planname" value="${ obj.name }"> <input type="hidden" name="planprice" value="${ obj.price }">
-			      </tr><tr>
-										<th>Total</th>
-										<th>$ ${ obj.price }</th></tr>
+										  ${ obj.name }</div><div class='col-md-6'>$  ${ obj.price }</div> <input type="hidden" name="planname" value="${ obj.name }"> <input type="hidden" name="planprice" value="${ obj.price }">
+			      			</div></div>	
+										<div class='col-md-6'>Total</div>
+										<div class='col-md-6'>$ ${ obj.price }</div>
+									
 			      `
 			    }
 			  else{
-			        html +=`<td class="text-danger"> Error</td >`;
+			        html +=`<div class="text-danger"> Error</div >`;
 			  }
 			  $('.editview-radio-box').html(html);
 			}

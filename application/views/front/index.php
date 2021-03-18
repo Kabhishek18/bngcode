@@ -1,5 +1,5 @@
 
-<div id="slider-banner-section" style="border-top:16px solid #ffce10">   
+<div id="slider-banner-section" style="border-top:16px solid #d07c18">   
    <!-- #region Jssor Slider Begin -->
     <!-- Generator: Jssor Slider Composer -->
     <!-- Source: https://www.jssor.com/demos/image-slider.slider/=edit -->
@@ -127,7 +127,7 @@
                               </div>
                               <div class="col-sm-9 nopadding">
                                 <div class="form-group">
-                                  <input id="location-search-data-store" class="form-control" name="search" placeholder="Enter Keyword" required>
+                                  <input id="location-search-data-store" class="form-control" name="search" placeholder="Search for products & find verified sellers near you" required>
                                 </div>
                               </div>
                             </div>
@@ -161,7 +161,7 @@
                               </div>
                               <div class="col-sm-9 nopadding">
                                 <div class="form-group">
-                                  <input id="location-search-data-store" class="form-control" name="search" placeholder="Enter Keyword" required>
+                                  <input id="location-search-data-store" class="form-control" name="search" placeholder="Search for products & find verified sellers near you" required>
                                 </div>
                               </div>
                             </div>
@@ -194,7 +194,7 @@
                               </div>
                               <div class="col-sm-9 nopadding">
                                 <div class="form-group">
-                                  <input id="location-search-data-store" class="form-control" name="search" placeholder="Enter Keyword" required>
+                                  <input id="location-search-data-store" class="form-control" name="search" placeholder="Search for products & find verified sellers near you" required>
                                 </div>
                               </div>
                             </div>
@@ -287,7 +287,7 @@
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="categorie_item">
 
-              <div class="cate_item_block hi-icon-effect-8" style="height:320px">
+              <div class="cate_item_block hi-icon-effect-8" >
               <a href="<?=base_url()?>category/<?=$category['id']?>">
                 <!--<div class="cate_item_social hi-icon"><i class="fa fa-home"></i></div>-->
                 <img src="<?=base_url()?>uploads/cat/<?=$category['category_image']?>" height="200px"> 
@@ -314,7 +314,7 @@
         <div class="row">
 
         <?php $listing =$this->front_model->GetQueryList(); 
-          if($listing){
+          if($listing){ $k=0;
           foreach($listing as $list){?>
              <?php $pro = $this->front_model->GetProduct($list['pid']);?>
               <a href="<?=base_url()?>products/<?=$pro['id']?>">
@@ -337,7 +337,7 @@
              
             </div>
              </a>
-          <?php }}?>
+          <?php $k++; if($k==6){break;} }}?>
         </div>
       </div>
     </div>
@@ -393,211 +393,38 @@
         </div>
         <div class="row">
           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="price-table-feature-block" style="height: 1450px;">
+            <div class="price-table-feature-block" >
               <h1>Basic</h1>
               <hr>
               <p><span>$50</span> Per Year</p>
-              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
-              <div class="vfx-price-list-item">
-                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
-                <p> Upto 5 PRODUCTS </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>TOP SEARCH RANKING </h2>
-                <p>N/A </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
-                 <p>N/A </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
-                 <p>N/A </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
-                 <p>N/A </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>BUYER CONTACTS VIA BNG PLATFORM </h2>
-                 <p>10 NOS. MAX PER MONTH</p>
-              </div>
-              <div class="vfx-price-list-item"> 
-                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
-                 <p>N/A </p>
-              </div>
-              <div class="vfx-price-list-item"> 
-                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
-                 <p>N/A </p>
-              </div>
-               <div class="vfx-price-list-item"> 
-                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
-                 <p>N/A </p>
-              </div>
-               <div class="vfx-price-list-item"> 
-                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
-                 <p>N/A </p>
-              </div>
-              <div class="vfx-price-btn">
-                <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'"><i class="fa fa-unlock-alt"></i> Purchase Now</button>
-              </div>
             </div>
           </div>
           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="price-table-feature-block" style="height: 1450px;">
+            <div class="price-table-feature-block">
               <h1>SUPER</h1>
               <hr>
               <p><span>$99</span> Per Year</p>
-              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
-              <div class="vfx-price-list-item">
-                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
-                <p> Max 25 PRODUCTS </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>TOP SEARCH RANKING </h2>
-                <p>N/A </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
-                 <p>N/A </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
-                 <p>N/A </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
-                 <p>N/A </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>BUYER CONTACTS VIA BNG PLATFORM </h2>
-                 <p>25 NOS. MAX PER MONTH</p>
-              </div>
-              <div class="vfx-price-list-item"> 
-                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
-                 <p>N/A </p>
-              </div>
-              <div class="vfx-price-list-item"> 
-                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
-                 <p>N/A </p>
-              </div>
-               <div class="vfx-price-list-item"> 
-                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
-                 <p>N/A </p>
-              </div>
-               <div class="vfx-price-list-item"> 
-                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
-                 <p>AVAILABLE </p>
-              </div>
-              <div class="vfx-price-btn">
-                <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'"><i class="fa fa-unlock-alt"></i> Purchase Now</button>
-              </div>
+       
             </div>
           </div>
           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="price-table-feature-block" style="height: 1450px;">
+            <div class="price-table-feature-block" >
               <h1>PREMIUM</h1>
               <hr>
               <p><span>$499</span> Per Year</p>
-              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
-              <div class="vfx-price-list-item">
-                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE</h2>
-                <p>Max 50 PRODUCTS </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>TOP SEARCH RANKING </h2>
-                <p>AVAILABLE </p>
-              </div>
-              
-             <div class="vfx-price-list-item">
-                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
-                 <p>5 BANNERS YEARLY </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
-                 <p>AVAILABLE </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
-                 <p>UPTO 600 EMAIL TO TARGET CUSTOMERS YEARLY</p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>BUYER CONTACTS VIA BNG PLATFORM </h2>
-                 <p>50 NOS. MAX PER MONTH</p>
-              </div>
-              <div class="vfx-price-list-item"> 
-                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
-                 <p>N/A </p>
-              </div>
-              <div class="vfx-price-list-item"> 
-                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
-                 <p>N/A </p>
-              </div>
-               <div class="vfx-price-list-item"> 
-                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
-                 <p>AVAILABLE </p>
-              </div>
-               <div class="vfx-price-list-item"> 
-                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
-                 <p>AVAILABLE </p>
-              </div>
-              <div class="vfx-price-btn">
-                <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'" ><i class="fa fa-unlock-alt"></i> Purchase Now</button>
-              </div>
             </div>
           </div>
           <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="price-table-feature-block" style="height: 1450px;">
+            <div class="price-table-feature-block">
               <h1>ELITE </h1>
               <hr>
               <p><span>$1199</span> Per Year</p>
-              <div class="vfx-pl-seperator"> <span><i class="fa fa-caret-down"></i></span> </div>
-              <div class="vfx-price-list-item">
-                <h2>FREE LISTING OF PRODUCTS, LOGO, CATALOGUE </h2>
-                <p>UNLIMITED</p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>TOP SEARCH RANKING </h2>
-                <p>AVAILABLE </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>BANNER ADVERTISIMENT ON HOME PAGE </h2>
-                 <p>12 BANNERS YEARLY </p>
-              </div>
-               <div class="vfx-price-list-item">
-                <h2>COMPLETE PROCUREMENT SOLUTION</h2>
-                 <p>AVAILABLE </p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>SOCIAL MEDIA MARKETING, EMAIL MARKETING SUPPORT  SOLUTION </h2>
-                 <p>UPTO 2400 EMAIL TO TARGET CUSTOMERS YEARLY</p>
-              </div>
-              <div class="vfx-price-list-item">
-                <h2>BUYER CONTACTS VIA BNG PLATEFORM </h2>
-                 <p>UNLIMITED</p>
-              </div>
-              <div class="vfx-price-list-item"> 
-                <h2>TARGENT MARKET STATISTICS DATA REPORT </h2>
-                 <p>AVAILABLE </p>
-              </div>
-              <div class="vfx-price-list-item"> 
-                <h2>NEGOTATIONS WITH SELLERS VIA DEDICATED TRADE EXPERT </h2>
-                 <p>AVAILABLE </p>
-              </div>
-               <div class="vfx-price-list-item"> 
-                <h2>DEDICATED TRADE EXPERT SUPPORT  24X7</h2>
-                 <p>AVAILABLE </p>
-              </div>
-               <div class="vfx-price-list-item"> 
-                <h2>LOGISTICS SUPPORT WHENEVER REQUIRED </h2>
-                 <p>AVAILABLE </p>
-              </div>
-            
-              <div class="vfx-price-btn">
-                <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>checkout'" ><i class="fa fa-unlock-alt"></i> Purchase Now</button>
-              </div>
+              
             </div>
           </div>
+          <div class="vfx-price-btn">
+            <button class="purchase-btn" onclick="window.location.href='<?=base_url()?>pricings'" ><i class="fa fa-unlock-alt"></i> See Our Pricing Plan</button>
+          </div>  
         </div>
       </div>
     </div>

@@ -12,6 +12,23 @@ class Vendor_model extends CI_Model
         $this->requirement   = 'requirement';
     }
 
+    public function CountAllProduct()
+    {
+       $this->db->select('*');
+       $this->db->from($this->products);
+       $query = $this->db->get();
+       return $query->num_rows();
+    }
+
+     public function CountVendorProduct($userid)
+    {
+       $this->db->select('*');
+       $this->db->from($this->products);
+       $array = array('user_id' => $userid);
+        $this->db->where($array);
+       $query = $this->db->get();
+       return $query->num_rows();
+    }
  
     public function Authentication($auth)
     {   
@@ -125,6 +142,7 @@ class Vendor_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
+    
     
 
     public function GetCategoryId($id ='')

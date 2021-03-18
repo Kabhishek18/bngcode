@@ -661,7 +661,7 @@ input.form-control {
 	border:1px solid rgba(0, 0, 0, 0.10);
 	border-radius: 6px;
 	text-align: center;
-	padding: 30px 0;
+	height: 260px;
 }
 .cate_item_social {
 	background: #d07c18;
@@ -690,7 +690,7 @@ input.form-control {
 .cate_item_block h1 {
 	color:#4a4a4a;
 	margin-bottom: 0px;
-	font-size: 18px;
+	font-size: 14px;
 	font-weight:600;
 	text-transform: uppercase;
 }
@@ -1404,7 +1404,7 @@ background: #d07c17;
 }
 /************************ recent listings ********************************/
 #recent-product-item-listing {
-	padding: 80px 0px 60px 0;
+	padding: 15px 0px 15px 0;
 	background: #ffffff;
 }
 .recent-item-listing-heading {
@@ -1626,26 +1626,26 @@ background: #d07c17;
 }
 /*********************** vfx counter block *********************/
 .vfx-counter-block {
-	background: #fafafa url(../images/vfx_counter_bg.png) no-repeat center top;
-	background-position: cover;
+	background-image: url(../images/bg-map.png) ;
+	background-color:  #f7f7f7;
 	background-attachment: fixed;
 	background-size: 100% 100%;
 	padding: 60px 0px 30px 0;
 }
 .vfx-item-countup {
-	background:rgba(255, 255, 255, 0.4);
+	background:rgb(0 0 0 / 75%);
 	width: 262px;
 	height: 262px;
 	border-radius: 8px;
 	text-align: center;
 	padding: 55px 0;
-	border: 5px solid #d07c18;
+	border: 5px solid #bbbbbb;
 	box-shadow:0 7px 12px rgba(0, 0, 0, 0.20);
 	margin-bottom: 30px;
 }
 .vfx-item-counter-up .count_number {
 	font-family:"Poppins", sans-serif;
-	color: #4a4a4a;
+	color: 	#ffffff;
 	font-size: 50px;
 	line-height: 60px;
 	font-weight: 800;
@@ -1653,7 +1653,7 @@ background: #d07c17;
 }
 .vfx-item-counter-up .counter_text {
 	font-family:"Poppins", sans-serif;
-	color: #696969;
+	color: #ffffff;
 	font-size: 18px;
 	font-weight: 500;
 	text-transform: uppercase;
@@ -1668,7 +1668,6 @@ background: #d07c17;
 }
 /*********************** pricing plan **********************/
 #pricing-item-block {
-	background: #f2f2f2;
 	padding: 80px 0px;
 }
 #pricing-section {
@@ -4149,6 +4148,7 @@ ul.dropdown i.fa {
 }
 #nav_menu_list a i.fa {
 	margin-left: 5px;
+	
 }
 .navbar ul li ul.dropdown li {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);

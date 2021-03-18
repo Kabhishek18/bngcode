@@ -86,7 +86,7 @@
               <div class="feature-item-container-box listing-item">
                 <div class="feature-title-item">
                   <h1><?=$product['category_slug']?></h1>
-                  <img src="<?=base_url()?>uploads/pro/<?=$product['product_image']?>" alt="img1"> </div>
+                  <a href="<?=base_url()?>products/<?=$product['id']?>"> <img src="<?=base_url()?>uploads/pro/<?=$product['product_image']?>" alt="img1"></a> </div>
             
                 <div class="feature-box-text">
                   <h3><a href="<?=base_url()?>products/<?=$product['id']?>"><?=$product['product_name']?></a></h3>
@@ -143,7 +143,7 @@ function onSuccess(data) {
             <div class="feature-item-container-box listing-item">
               <div class="feature-title-item">
                 <h1>${ value.category_slug}</h1>
-                <img src="<?=base_url()?>uploads/pro/${ value.product_image }" alt="img1"> </div>
+                <a href="<?=base_url()?>products/${value.id}"><img src="<?=base_url()?>uploads/pro/${ value.product_image }" alt="img1"></a> </div>
            
               <div class="feature-box-text">
                 <h3><a href="<?=base_url()?>products/${ value.id }">${ value.product_name }</a></h3>

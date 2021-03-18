@@ -50,7 +50,7 @@
                                     <div class="card-body">
                                     	<?php echo form_open_multipart('vendor/Productinsert','class="form-horizontal"') ?> 
                                             <?php if($datalist){?>
-                                            <input type="hidden" name="id" value="<?=$datalist['id']?>">
+                                            <input type="hidden" name="id" value="<?=(!empty($datalist['id'])?$datalist['id']:'')?>">
                                         <?php }?>
                                             <div class="row">
                                                 <div class="col-sm-6">
@@ -71,7 +71,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            
                                                
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
@@ -104,7 +103,7 @@
                                                             echo '<span class="text-danger">'.$cat_name['category_name'].'</span>';
                                                         } 
                                                         ?></label>
-                                                            <select class="form-control" name="category_id">
+                                                            <select class="form-control select2" name="category_id">
 
                                                                 <?php
                                                         if($datalist['category_id'] =='0'){
@@ -116,7 +115,9 @@
 
                                                         }
                                                         else{
-                                                            $cat_name = $this->vendor_model->GetCategory($datalist['category_id']);
+                                                            $cat_name = $this->vendor_model->GetCategory($id,$datalist['category_id']);
+                                                            var_dump($cat_name);
+                                                            exit();
                                                             echo "<optgroup>Selected</optgroup>";
                                                             echo '<option value="'.$cat_name['id'].'">'.$cat_name['category_name'].'</option>';
                                                             echo "<optgroup>Non Selected</optgroup>";
