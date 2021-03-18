@@ -430,3 +430,37 @@
     </div>
   </div>
 </div>
+<style type="text/css">
+  .box-modal{
+    font-family: "Poppins", sans-serif;
+    background: -webkit-linear-gradient(left, #262626 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
+    background: linear-gradient(to right, #262626 50%, #d07c18 50%) repeat scroll right bottom/207% 100% transparent;
+    color: whitesmoke;
+    text-transform: uppercase;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-weight: 500;
+    -webkit-transition: background 350ms ease-in-out;
+    transition: background 350ms ease-in-out;
+    border: none;
+    outline: 0;
+
+}
+</style>
+<div class="modal fade" id="notification" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="listing-modal-1 modal-dialog expand">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
+        <h4 class="modal-title text-center" id="myModalLabel2">Subscribe Our Free 6 Months Plan (Suppliers) </h4>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-3">
+          <div class="card" style="margin-left: 125px;">
+            <button class="btn btn-default box-modal" onclick="window.location.href='http://localhost/sites/bng/pricings'"> <i class="fa fa-unlock-alt"></i> See Our Pricing Plan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

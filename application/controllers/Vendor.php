@@ -1056,6 +1056,9 @@ class Vendor extends CI_Controller {
 			$reg['planname'] =$this->input->post('planname');
 			$reg['planprice'] =$this->input->post('planprice');
 
+			$this->session->set_userdata('order',$reg);
+			
+			$data= $this->session->vendor_account;
 			if($reg['planprice'] ==0){
 				$order['uid'] = $data['id'];
 	    		$order['order_amount'] =$_SESSION['order']['planprice'];
@@ -1071,7 +1074,7 @@ class Vendor extends CI_Controller {
 	 			 $this->session->set_flashdata('warning', 'Something Misfortune Happened!!');
 		    		redirect($_SERVER['HTTP_REFERER']);	}
 			}
-			$this->session->set_userdata('order',$reg);
+		
 
 			 if($reg['paymentmethod'] =='razorpay')
 			 {

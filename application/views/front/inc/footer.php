@@ -52,7 +52,7 @@
           </ul>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <h2>Get free quotes from multiple seller??</h2>
+          <h2>Get free quotes from multiple seller?</h2>
           <hr>
           <form class="form-alt"  method="post" action="<?=base_url()?>front/QuerySubmit">
             <div class="form-group">
@@ -68,7 +68,7 @@
               <textarea name="message" rows="1" placeholder="Message :-" required class="form-control"></textarea>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn-quote">Send Now</button>
+              <button type="submit" class="btn-quote">Enquire Now</button>
             </div>
           </form>
         </div>
@@ -79,7 +79,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-12">
-          <p class="text-xs-center">Copyright © 2020 All Rights Reserved.</p>
+          <p class="text-xs-center">Credit & Designed By: TechCentrica</p>
         </div>
         <div><a href="#" class="scrollup">Scroll</a></div>
       </div>
@@ -110,7 +110,7 @@
               <label for="checkbox-1-1"></label>
               <label class="checkbox-lable">Remember Me</label>
 
-              <a data-dismiss="modal" data-toggle="modal" data-target="#forgot">Forgot Password ?? </a>
+              <a data-dismiss="modal" data-toggle="modal" data-target="#forgot">Forgot Password ? </a>
 
               
              </div>
@@ -194,6 +194,7 @@
   </div>
 </div>
 
+
 <!-- Scripts --> 
 <script src="<?=base_url()?>resource/js/jquery-2.2.4.min.js"></script> 
 <script src="<?=base_url()?>resource/js/bootstrap.min.js"></script> 
@@ -202,7 +203,11 @@
 <script src="<?=base_url()?>resource/js/jquery_custom.js"></script> 
 <script src="<?=base_url()?>resource/js/homemap_custom.js"></script> 
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script> 
-
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $('#notification').modal('show');
+    });
+</script>
 <?php if($this->uri->segment(1) == 'products'){?>
   <script src="<?=base_url()?>resource/js/colorbox/jquery.colorbox-min.js"></script> 
 <script src="<?=base_url()?>resource/js/bootstrap-select/bootstrap-select.min.js"></script> 

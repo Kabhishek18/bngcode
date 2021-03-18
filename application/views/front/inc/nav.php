@@ -18,7 +18,7 @@
           <div class="collapse navbar-collapse" id="thrift-1"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"></a>
             <div id="nav_menu_list">
               <ul>
-                <li class="active"><a href="<?=base_url()?>">HOME</a></li>
+                <li ><a href="<?=base_url()?>">HOME</a></li>
                 <li><a href="#">LOGISTICS LEAD  <i class="fa fa-caret-down"></i></a>
                   <ul class="dropdown">
                     <li><a href="<?=base_url()?>logistics">  <i class="fa fa-angle-double-right"></i>POST LEAD</a></li>

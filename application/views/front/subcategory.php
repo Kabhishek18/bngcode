@@ -91,15 +91,10 @@
                 <div class="feature-box-text">
                   <h3><a href="<?=base_url()?>products/<?=$product['id']?>"><?=$product['product_name']?></a></h3>
                   <?php $company =json_decode($product['company']);?>
-                  <a href="tel:<?=(!empty($company->company_phone)?$company->company_phone:'')?>"><i class="fa fa-phone"></i> <?=(!empty($company->company_phone)?$company->company_phone:'')?></a>
-                  <p><?=$product['product_slug']?></p>
+               <p><?=$product['product_slug']?></p>
                   <p>Company: <?=(!empty($company->company_name)?$company->company_name:'')?></p>
                 </div>
-                <div class="feature-item-location">
-                  <h2><i class="fa fa-map-marker"></i>Address:  
-                  <?=(!empty($company->company_address)?$company->company_address:'')?>
-                  </h2>
-                 </div>
+             
               </div>
             </div>
            
@@ -147,13 +142,10 @@ function onSuccess(data) {
            
               <div class="feature-box-text">
                 <h3><a href="<?=base_url()?>products/${ value.id }">${ value.product_name }</a></h3>
-                <a href="tel:${comp.company_phone}"><i class="fa fa-phone"></i> ${comp.company_phone}</a>
                 <p>${ value.product_slug }</p>
                 <p>Company: ${comp.company_name}</p>
               </div>
-              <div class="feature-item-location">
-                <h2><i class="fa fa-map-marker"></i>Address: ${comp.company_address} </h2>
-                </div>
+           
             </div>
           </div>
           `

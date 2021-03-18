@@ -2767,6 +2767,11 @@ label.checkbox-lable {
 	float: none;
 	top: -8px;
 }
+
+.listing-modal-1.modal-dialog.expand{
+	width: 600px;
+	border-radius: 25px;
+}
 .listing-modal-1.modal-dialog {
 	width: 395px;
 }
