@@ -1,51 +1,19 @@
-<div id="vfx-search-item-inner">
+<div id="breadcrum-inner-block">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 vfx-search-categorie-title text-center bt_heading_3">
-        <h1>Search & Business <span>Listing</span></h1>
-        <div class="blind line_1"></div>
-        <div class="flipInX-1 blind icon"><span class="icon"><i class="fa fa-stop"></i>&nbsp;&nbsp;<i class="fa fa-stop"></i></span></div>
-        <div class="blind line_2"></div>
-      </div>
-      <div class="col-md-12">
-        <form id="search-form"  method="post" action="<?=base_url()?>front/SearchMain">
-          <div class="col-sm-9 col-md-10 nopadding">
-            <div id="vfx-search-box">
-              <div class="col-sm-3 nopadding">
-                <select id="search-location" class="form-control" name="typesearch">
-                  <option value="category">All Categories</option>
-                    <option value="subcategory">All Subcategories</option>
-                    <option value="buyers">Buyers</option>
-                    <option value="sellers">Sellers</option>
-                </select>
-              </div>
-              <div class="col-sm-9 nopadding">
-                <div class="form-group">
-                  <input id="search-data" class="form-control" name="search" placeholder="Enter Keyword" required>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3 col-md-2 text-right nopadding-right">
-            <div id="vfx-search-btn">
-              <button type="submit" id="search"><i class="fa fa-search"></i>Search</button>
-            </div>
-          </div>
-        </form>
+      <div class="col-sm-12 text-center">
+        <div class="breadcrum-inner-header">
+          <h1>Product Listing Policy</h1>
+          <a href="<?=base_url()?>">Home</a> <i class="fa fa-circle"></i> <a href="javascript:void(0)"><span>Product Lissting Policy </span></a> </div>
       </div>
     </div>
   </div>
 </div>
 <div id="dashboard_inner_block">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="head-title text-center" style="background: #f7d055;color:white;padding: 10px;margin-bottom:10px">
-           <h2>PRODUCT LISTING POLICY</h2>
-        </div>
-      </div>  
+    <div class="row" style="padding: 15px;margin-bottom:10px">
+
       <div class="col-md-12 col-sm-12 col-xs-12" >
-        <div class="row" style="padding: 15px;margin-bottom:10px">
           <h3>A) GENERAL POLICY </h3>
             <ol type="I" style="padding: 15px;">
               <li><p>You cannot post or sell any item that is restricted or prohibited by a federal, state or local law in worldwide country’s and their jurisdiction. Please be aware that the www.go2bng.com functions as a global networking, advertisement and business promotion marketplace, thus the selling or posting of items may be prohibited because of laws outside of the jurisdiction where you reside. Below, we have listed some categories of prohibited or restricted items. However, this list is not exhaustive; you, as the seller, are responsible for ensuring that you are not posting an item that is prohibited by law in any jurisdiction.</p></li>
@@ -283,7 +251,6 @@
 
 
 
-        </div>
       </div>
     </div>
   </div>      	

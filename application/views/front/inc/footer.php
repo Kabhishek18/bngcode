@@ -43,7 +43,7 @@
           <h2>Useful links</h2>
           <hr>
           <ul class="use-slt-link">
-            <li><a href="<?=base_url()?>about"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;About</a></li>
+            <li><a href="<?=base_url()?>about"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;About Us</a></li>
             <li><a href="<?=base_url()?>product-listing"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Product Listing Policy</a></li>
             <li><a href="<?=base_url()?>privacy"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Privacy & Policy</a></li>
             <li><a href="#"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Sitemap</a></li>
