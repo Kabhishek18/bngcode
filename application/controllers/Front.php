@@ -407,13 +407,14 @@ class Front extends CI_Controller {
 	{	
 		$typesearch = $this->input->post('typesearch');
 		$search = $this->input->post('search');
+		if($this->input->post('search')){
 		if($typesearch == 'category'){
 			$value = $this->front_model->GetCategorySearch($search);	
 			if($value){
 				$data['categories'] =$value;
 			}
 			else{
-				$this->session->set_flashdata('warning', $search.' No Similar Category Found');
+				$this->session->set_flashdata('warning', $search.' No Possible Result Found');
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 		}
@@ -423,7 +424,7 @@ class Front extends CI_Controller {
 				$data['subcategories'] =$value;
 			}
 			else{
-				$this->session->set_flashdata('warning', $search.' No Similar Category Found');
+				$this->session->set_flashdata('warning', $search.' No Possible Result Found');
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 		}
@@ -433,7 +434,7 @@ class Front extends CI_Controller {
 				$data['buyers'] =$value;
 			}
 			else{
-				$this->session->set_flashdata('warning', $search.' No Similar buyer Found');
+				$this->session->set_flashdata('warning', $search.' No Possible Result Found');
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 		}
@@ -454,6 +455,9 @@ class Front extends CI_Controller {
 		$this->load->view('front/inc/nav');
 		$this->load->view('front/search',$data);
 		$this->load->view('front/inc/footer');
+		}else{
+			redirect('');
+		}
 	}
 
 
@@ -468,17 +472,17 @@ class Front extends CI_Controller {
 		 {
 	  	 	$this->session->set_userdata('user_account',$data);
 	  	 	$this->session->set_flashdata('success', 'Welcome User');
-			redirect('dashboard');
+			redirect($_SERVER['HTTP_REFERER']);
 		  	 }
 	  	 else{
 	  	 	$red['user_email']=$auth['user_email'];
 			$emailcheck =$this->front_model->CheckEmail($red);
 				if ($emailcheck==true ) {
 					$this->session->set_flashdata('warning', 'Wrong Password!');
-					redirect('');
+					redirect($_SERVER['HTTP_REFERER']);
 				}else{
 		  	 		$this->session->set_flashdata('warning', 'Invalid Credential');
-		  	 		redirect('');
+		  	 		redirect($_SERVER['HTTP_REFERER']);
 	  	 		}
 	  	 }		
 	}

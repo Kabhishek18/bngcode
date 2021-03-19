@@ -9,6 +9,11 @@
     </div>
   </div>
 </div>
+<style type="text/css">
+  code{
+    color: #b77c1a;
+  }
+</style>
  <?php if($this->session->vendor_account){ ?>
 
    <?php $data =$this->session->vendor_account;
@@ -16,90 +21,83 @@
                 <?php if(empty($order)){}else{?>
 <div id="dashboard_inner_block">
   <div class="container">
-    <div class="row"> 
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="row" style="padding-bottom: 100px">
-         
+    <div class="row"  style="padding-bottom: 100px"> 
+     
           <?php if($leads){ ?>
           <?php foreach($leads as $lead){?>
             <?php $value = json_decode($lead['lead']);?>
-            <div class="col-md-12 col-sm-12 col-xs-12" style="padding:10px">
-              <a data-toggle="collapse" href="#collapseExample<?=($lead['id'])?>" role="button" aria-expanded="false" aria-controls="collapseExample"> 
-                 <h4> Freight Title : <?=$value->freightleadtitle?> Loading Port :  ( <?=$value->loadingport?>)  Destination Port : ( <?=$value->destinationport?> )</h4>
+            <div class="col-md-5 col-sm-12 col-xs-12" style="padding:10px;border:1px solid #fec218;margin: 10px">
+              <a data-toggle="collapse" href="#collapseExample<?=($lead['id'])?>" role="button" aria-expanded="false" aria-controls="collapseExample" style="display: flex;"> 
+                 
+                 <span style="padding: 10px;  font-size: 45px;"><i class="fa fa-hand-o-right"></i></span><h4>Freight Title : <code><?=$value->freightleadtitle?></code> <br>Loading Port :   <code><?=$value->loadingport?></code><br>  Destination Port :  <code><?=$value->destinationport?></code> </h4>
                </a>
                <div class="collapse" id="collapseExample<?=($lead['id'])?>">
-                <div class="card card-body">
-                  <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="feature-item-container-box listing-item">
-                      <div class="feature-title-item">
-                      <div class="feature-box-text">
-                  
+                  <div class="card card-body">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      
+                    
 
-                         <table class="table table-striped">
-                           
-                            <tr>
-                              <td><strong>Lead Title</strong></td>
-                               <td><?=$value->freightleadtitle?></td>
-                            </tr>
-                            <tr>
-                              <td><strong>Company Name </strong></td>
-                               <td><?=$value->companyname?></td>
-                            </tr>
-                            <tr>
-                              <td><strong>Customer Name</strong></td>
-                              <td><?=$value->contactperson?></td>
-                            </tr>
-                            <tr>
-                              <td><strong>Customer Email</strong></td>
-                              <td><?=$value->emailid?></td>
-                            </tr>
-                            <tr>
-                              <td><strong>Customer Phone</strong></td>
-                              <td><?=$value->mobileno?></td>
-                            </tr>
-                            <tr>
-                              <td><strong>Date </strong></td>
-                               <td><?=$value->dateoflead?> - <?=$value->lastdate?></td>
-                            </tr>
-                            <tr>
-                              <td><strong>City </strong></td>
-                               <td><?=$value->city?></td>
-                            </tr>
-                            <tr>
-                              <td><strong>Country</strong></td>
-                               <td><?=$value->country?></td>
-                            </tr>
-                            <tr>
-                              <td><strong>Loading Port</strong></td>
-                               <td><?=$value->loadingport?></td>
-                            </tr>
-                            <tr>
-                              <td><strong>Destination Port</strong></td>
-                               <td><?=$value->destinationport?></td>
-                            </tr>
+                           <table class="table table-striped">
+                             
                               <tr>
-                                <td><strong>Number of Package</strong></td>
-                                <td><?=$value->noofpackage?></td>
+                                <td><strong>Lead Title</strong></td>
+                                 <td><?=$value->freightleadtitle?></td>
                               </tr>
-                            <tr>
-                              <td><strong>Net Weight</strong></td>
-                               <td><?=$value->netweight?></td>
-                            </tr>
-                         </table> 
+                              <tr>
+                                <td><strong>Company Name </strong></td>
+                                 <td><?=$value->companyname?></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Customer Name</strong></td>
+                                <td><?=$value->contactperson?></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Customer Email</strong></td>
+                                <td><?=$value->emailid?></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Customer Phone</strong></td>
+                                <td><?=$value->mobileno?></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Date </strong></td>
+                                 <td><?=$value->dateoflead?> - <?=$value->lastdate?></td>
+                              </tr>
+                              <tr>
+                                <td><strong>City </strong></td>
+                                 <td><?=$value->city?></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Country</strong></td>
+                                 <td><?=$value->country?></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Loading Port</strong></td>
+                                 <td><?=$value->loadingport?></td>
+                              </tr>
+                              <tr>
+                                <td><strong>Destination Port</strong></td>
+                                 <td><?=$value->destinationport?></td>
+                              </tr>
+                                <tr>
+                                  <td><strong>Number of Package</strong></td>
+                                  <td><?=$value->noofpackage?></td>
+                                </tr>
+                              <tr>
+                                <td><strong>Net Weight</strong></td>
+                                 <td><?=$value->netweight?></td>
+                              </tr>
+                           </table> 
 
-                      </div>
-                      </div>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
             <?php }?>
           <?php }?>
 
-      </div>
-    </div>
   </div>
+</div>
 </div>
 <?php }?>
 <?php  }else{  

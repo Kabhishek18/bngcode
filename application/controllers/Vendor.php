@@ -61,7 +61,7 @@ class Vendor extends CI_Controller {
 		$this->session->unset_userdata('vendor_account');	 
 		$this->session->set_flashdata('success', 'Successfully Logout');  
 		$this->session->sess_destroy();
-		redirect('vendor');
+		redirect('');
 		}
 	}
 

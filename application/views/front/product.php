@@ -141,7 +141,7 @@
                  <div class="col-md-12 form-group">
                       <div class="controls">
                           <p>Phone <span class="text-danger">*</span></p>
-                          <input type="number" name="user_phone" class="form-control" placeholder="phone" required="">
+                          <input type="number" name="user_phone" class="form-control" placeholder="Phone" required="">
                       </div>
                   </div>
                   <div class="col-md-12 form-group">
