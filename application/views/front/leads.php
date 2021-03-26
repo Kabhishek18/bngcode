@@ -34,59 +34,174 @@
                <div class="collapse" id="collapseExample<?=($lead['id'])?>">
                   <div class="card card-body">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                      
-                    
-
+                          
                            <table class="table table-striped">
                              
                               <tr>
-                                <td><strong>Lead Title</strong></td>
+                                <th>Lead Title</th>
                                  <td><?=$value->freightleadtitle?></td>
                               </tr>
+
+
                               <tr>
-                                <td><strong>Company Name </strong></td>
+                                <th>Date Of Lead</th>
+                                 <td><?=$value->dateoflead?></td>
+                              </tr>
+                              <tr>
+                                <th>Last Date</th>
+                                 <td><?=$value->lastdate?></td>
+                              </tr>
+                              <tr>
+                                <th>Company Name</th>
                                  <td><?=$value->companyname?></td>
                               </tr>
                               <tr>
-                                <td><strong>Customer Name</strong></td>
-                                <td><?=$value->contactperson?></td>
+                                <th>Address</th>
+                                 <td><?=$value->address?></td>
                               </tr>
                               <tr>
-                                <td><strong>Customer Email</strong></td>
-                                <td><?=$value->emailid?></td>
-                              </tr>
-                              <tr>
-                                <td><strong>Customer Phone</strong></td>
-                                <td><?=$value->mobileno?></td>
-                              </tr>
-                              <tr>
-                                <td><strong>Date </strong></td>
-                                 <td><?=$value->dateoflead?> - <?=$value->lastdate?></td>
-                              </tr>
-                              <tr>
-                                <td><strong>City </strong></td>
+                                <th>City</th>
                                  <td><?=$value->city?></td>
                               </tr>
                               <tr>
-                                <td><strong>Country</strong></td>
+                                <th>Country</th>
                                  <td><?=$value->country?></td>
                               </tr>
                               <tr>
-                                <td><strong>Loading Port</strong></td>
+                                <th>Pincode</th>
+                                 <td><?=$value->pincode?></td>
+                              </tr>
+                           
+                              <tr>
+                                <th>Contact Person</th>
+                                 <td><?=$value->contactperson?></td>
+                              </tr>
+                              <tr>
+                                <th>Phone No</th>
+                                 <td><?=$value->phoneno?></td>
+                              </tr>
+                              <tr>
+                                <th>Mobile No</th>
+                                 <td><?=$value->mobileno?></td>
+                              </tr>
+                              <tr>
+                                <th>Email Id</th>
+                                 <td><?=$value->emailid?></td>
+                              </tr>
+                              <tr>
+                                <th>Loading Port</th>
                                  <td><?=$value->loadingport?></td>
                               </tr>
                               <tr>
-                                <td><strong>Destination Port</strong></td>
+                                <th>Destination Port</th>
                                  <td><?=$value->destinationport?></td>
                               </tr>
-                                <tr>
-                                  <td><strong>Number of Package</strong></td>
-                                  <td><?=$value->noofpackage?></td>
-                                </tr>
                               <tr>
-                                <td><strong>Net Weight</strong></td>
+                                <th>Commodity</th>
+                                 <td><?=$value->commodity?></td>
+                              </tr>
+                              <tr>
+                                <th>Description of Goods and other information</th>
+                                 <td><?=$value->descriptiongood?></td>
+                              </tr>
+
+
+
+                              <tr>
+                                <th>Packing Type</th>
+                                 <td><?=$value->packingtype?></td>
+                              </tr>
+                              <tr>
+                                <th>Incoterms</th>
+                                 <td><?=$value->incoterms?></td>
+                              </tr>
+                              <tr>
+                                <th>Mode</th>
+                                 <td><?=$value->mode?></td>
+                              </tr>
+
+                              <tr>
+                                <th>No of Package</th>
+                                 <td><?=$value->noofpackage?></td>
+                              </tr>
+                              <tr>
+                                <th>Net Weight</th>
                                  <td><?=$value->netweight?></td>
                               </tr>
+                              <tr>
+                                <th>Gr. Weight</th>
+                                 <td><?=$value->grweight?></td>
+                              </tr>
+                              <tr>
+                                <th>Cargo Value</th>
+                                 <td><?=$value->cargovalue?></td>
+                              </tr>
+                              <tr>
+                                <th>Stackable</th>
+                                 <td><?=$value->stackable?></td>
+                              </tr>
+                              <tr>
+                                <th>Vol. Weight</th>
+                                 <td><?=$value->volweight?></td>
+                              </tr>
+
+
+                              <tr>
+                                <th>Type of Container</th>
+                                 <td><?=$value->typeofcontainer?></td>
+                              </tr>
+                              <tr>
+                                <th>No of Container</th>
+                                 <td><?=$value->noofcontainer?></td>
+                              </tr>
+
+                              <?php $i=1;  foreach($value->unno as $unno){?>
+
+                              <tr>
+                                <th>UN NO <?=$i++?> </th>
+                                 <td><?=$unno?></td>
+                              </tr>
+                              <?php  }?>
+
+                              <?php $j=1; foreach($value->class as $class){?>
+
+                              <tr>
+                                <th>Class <?=$j++?> </th>
+                                 <td><?=$class?></td>
+                              </tr>
+                              <?php  }?>
+                              <?php $k=1 ;foreach($value->pack as $pack){?>
+
+                              <tr>
+                                <th>Packing Instruction <?=$k++?> </th>
+                                 <td><?=$pack?></td>
+                              </tr>
+                              <?php  }?>
+                              <?php $l=1;foreach($value->hscode as $hscode){?>
+
+                              <tr>
+                                <th>HS Code<?=$l++?> </th>
+                                 <td><?=$hscode?></td>
+                              </tr>
+                              <?php  }?>
+
+                              <?php $m=1; foreach($value->casno as $casno){?>
+
+                              <tr>
+                                <th>CAS No <?=$m++?> </th>
+                                 <td><?=$casno?></td>
+                              </tr>
+                              <?php  }?>
+                              <tr>
+                                <th>Any Special Requirement</th>
+                                 <td><?=$value->specialreq?></td>
+                              </tr>
+                        
+                      
+
+
+
+                              
                            </table> 
 
                     </div>

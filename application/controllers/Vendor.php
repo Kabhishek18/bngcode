@@ -642,6 +642,7 @@ class Vendor extends CI_Controller {
 			
 			$user['user_name'] = $this->input->post('user_name'); 
 			$user['user_phone'] = $this->input->post('user_phone'); 
+			$user['user_address'] = $this->input->post('user_address'); 
 			$value['company_name'] = $this->input->post('company_name');
 			$value['business_type'] = $this->input->post('business_type');
 			$value['estab_year'] = $this->input->post('estab_year');
@@ -882,7 +883,7 @@ class Vendor extends CI_Controller {
 
 					if($urlid){
 						//Update
-						$var['datalist'] = $this->vendor_model->GetCategoryId($urlid);
+						$var['datalist'] = $this->vendor_model->GetProduct($data['id'],$urlid);
 						$this->load->view('vendor/productadd',$var);
 					}else{
 						//Add
@@ -918,6 +919,20 @@ class Vendor extends CI_Controller {
 
 				if ($data['user_type'] =='vendor') {
 					
+					$comp = json_decode($data['user_description']);
+
+
+					$company['company_name']=$comp->company_name;
+					$company['company_phone']=$data['user_phone'];
+					$company['company_email']=$data['user_email'];
+					$company['company_address']=$data['user_address'];
+					$company_desc['business_type']=$comp->business_type;
+					$company_desc['estab_year']=$comp->estab_year;
+					$company_desc['iso_cert']=$comp->iso_cert;
+					$company_desc['annual_sale']=$comp->annual_sale;
+
+					$reg['company'] =json_encode($company);
+					$reg['company_desc'] =json_encode($company_desc);
 					$reg['id']=$this->input->post("id");
 					$reg['user_id'] =$data['id'];
 					$reg['product_name']=$this->input->post("product_name");

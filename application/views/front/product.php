@@ -100,7 +100,33 @@
           </ul>
         </div>
       </div>
+      <?php if(!empty($this->session->vendor_account)){?>
+      <div class="formclass col-md-12 col-sm-12 col-md-12">
+        <div class="left-slide-slt-block">
+          <h3>Company Detail</h3>
+        </div>
+        <div class="col-md-6 col-sm-12 col-md-12">
+          <ul style="list-style: none">
+            <li>Company Name: <strong><?=$company->company_name?></strong></li>
+            <li>Company Phone: <strong><?=$company->company_phone?></strong>  </li>
+             <li>Company Email: <strong><?=$company->company_email?></strong></li>
+            <li>Company Address: <strong><?=$company->company_address?></strong></li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-sm-12 col-md-12">
+          <ul style="list-style: none">
+            <?php $loo =json_decode($company_desc); ?>
+
+            <li>Company Type: <strong><?=$loo->business_type?></strong></li>
+            <li>Company Annual Sale: <strong><?=$loo->annual_sale?></strong></li>
+            <li>Company ISO CERT: <strong><?=$loo->iso_cert?></strong></li>
+            <li>Company Establishment Year: <strong><?=$loo->estab_year?></strong>  </li>
        
+          </ul>
+        </div>
+      </div>
+      <?php }?>
+
     </div>
     <div class="row formclass">
       <div class="col-md-7 col-sm-12 col-xs-12">

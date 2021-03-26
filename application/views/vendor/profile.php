@@ -92,6 +92,15 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                  <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <div class="controls">
+                                                            <?=$user_address?>
+                                                            <label>Address <span class="text-danger">*</span></label>
+                                                            <input type="number" name="user_address" class="form-control" placeholder="Address" required data-validation-required-message="This Name field is required" value="<?=(!empty($user_address)?$user_address:'')?>">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <?php $datalist =json_decode($user_description,true) ?>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">

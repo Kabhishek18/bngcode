@@ -49,9 +49,9 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body">
                                     	<?php echo form_open_multipart('vendor/Productinsert','class="form-horizontal"') ?> 
-                                            <?php if($datalist){?>
+                                          <?php if($datalist){?>
                                             <input type="hidden" name="id" value="<?=(!empty($datalist['id'])?$datalist['id']:'')?>">
-                                        <?php }?>
+                                              <?php }?>
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
@@ -92,37 +92,33 @@
                                                     <div class="form-group">
                                                         <div class="controls">
                                                             <label>Category <?php
-                                                        if($datalist['category_id'] =='0'){
-                                                            echo '<span class="text-danger">Main</span>';
+                                                        if(!empty($datalist['category_id'])){
+                                                            if($datalist['category_id'] =='0'){
+                                                                echo '<span class="text-danger">Main</span>';
+                                                            }
+                                                            else{
+                                                                $cat_name = $this->vendor_model->GetCategoryId($datalist['category_id']);
+                                                                echo '<span class="text-danger">'.$cat_name['category_name'].'</span>';
+                                                            } 
                                                         }
-
-                                                        elseif(empty($datalist['category_id'])){
-
-                                                        }else{
-                                                            $cat_name = $this->vendor_model->GetCategory($datalist['category_id']);
-                                                            echo '<span class="text-danger">'.$cat_name['category_name'].'</span>';
-                                                        } 
                                                         ?></label>
                                                             <select class="form-control select2" name="category_id">
 
                                                                 <?php
-                                                        if($datalist['category_id'] =='0'){
-                                                            echo "<optgroup>Selected</optgroup>";
-                                                            echo '<option value="0">Main</option>';
-                                                            echo "<optgroup>Non Selected</optgroup>";
+                                                        if(!empty($datalist['category_id'])){        
+                                                            if($datalist['category_id'] =='0'){
+                                                                echo "<optgroup>Selected</optgroup>";
+                                                                echo '<option value="0">Main</option>';
+                                                                echo "<optgroup>Non Selected</optgroup>";
+                                                            }
+                                                            else{
+                                                                $cat_name = $this->vendor_model->GetCategoryId($datalist['category_id']);
+                                                                echo "<optgroup>Selected</optgroup>";
+                                                                echo '<option value="'.$cat_name['id'].'">'.$cat_name['category_name'].'</option>';
+                                                                echo "<optgroup>Non Selected</optgroup>";
+                                                                
+                                                            } 
                                                         }
-                                                        elseif(empty($datalist['category_id'])){
-
-                                                        }
-                                                        else{
-                                                            $cat_name = $this->vendor_model->GetCategory($id,$datalist['category_id']);
-                                                            var_dump($cat_name);
-                                                            exit();
-                                                            echo "<optgroup>Selected</optgroup>";
-                                                            echo '<option value="'.$cat_name['id'].'">'.$cat_name['category_name'].'</option>';
-                                                            echo "<optgroup>Non Selected</optgroup>";
-                                                            
-                                                        } 
                                                         ?>
                                                                 <?php $cat =$this->vendor_model->GetSubCategory();
                                                                     foreach($cat as $cate) {?>

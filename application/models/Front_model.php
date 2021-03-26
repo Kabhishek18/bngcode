@@ -308,6 +308,17 @@ class Front_model extends CI_Model
         return !empty($result)?$result:false;
     }
 
+     public function GetVendor($id)
+    {
+        $this->db->select('*');
+        $this->db->from($this->users);
+        $array = array('id'=>$id,'user_status'=>'active');
+        $this->db->where($array);
+        $query  = $this->db->get();
+        $result = $query->row_array();
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
     // Featured Home page
     public function GetUserType($user_type)
     {

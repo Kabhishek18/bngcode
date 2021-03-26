@@ -330,6 +330,10 @@ class Admin extends CI_Controller {
 					$company['company_phone']=$this->input->post("company_phone");
 					$company['company_email']=$this->input->post("company_email");
 					$company['company_address']=$this->input->post("company_address");
+					$company_desc['business_type']='';
+					$company_desc['estab_year']='';
+					$company_desc['iso_cert']='';
+					$company_desc['annual_sale']='';
 						$dir ='uploads/profile/';
 						if (!is_dir($dir)) {
 							mkdir($dir, 0777, TRUE);
@@ -347,6 +351,7 @@ class Admin extends CI_Controller {
 						}
 					//
 					$reg['company']	=json_encode($company); 
+					$reg['company_desc'] =json_encode($company_desc);
 					$reg['product_name']=$this->input->post("product_name");
 					$reg['category_id']=$this->input->post("category_id");
 					$reg['product_information']=$this->input->post("product_information");
