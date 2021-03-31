@@ -50,6 +50,63 @@ class Admin extends CI_Controller {
 	  	 }		
 	}
 
+	//Testimonial
+	public function Testimonial()
+	{
+		$data= $this->session->admin_account;
+		if($data['user_verified'] =='verified'){
+			$var['datalist'] = $this->admin_model->GetTestimonial();
+			$this->load->view('admin/inc/header');
+			$this->load->view('admin/inc/nav',$data);
+			$this->load->view('admin/testimonial',$var);
+			$this->load->view('admin/inc/footer');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('admin');	
+		}	
+	}
+
+	public function ChangeTestimonial()
+	{
+		$url= $this->uri->segment(3,0); 
+		$status= $this->uri->segment(4,0); 
+		if($status=='Active'){
+			$status ='Inactive';
+		}
+		else{
+			$status ='Active';
+		}
+		$update =$this->admin_model->TestimonialChange($url,$status);
+		if($update){
+			$this->session->set_flashdata('warning', 'Updated Successfully');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect($_SERVER['HTTP_REFERER']);
+		
+		}
+	}
+	//Testimonial Delete
+	public function TestimonialDelete()
+	{
+		$url= $this->uri->segment(3,0); 
+		$insert =$this->admin_model->DeleteTestimonial($url);
+		if($insert){
+			$this->session->set_flashdata('warning', 'Deleted Successfully');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect($_SERVER['HTTP_REFERER']);
+		
+		}
+	}
+
+
+
+
 	//Logout
 	public function Logout()
 	{

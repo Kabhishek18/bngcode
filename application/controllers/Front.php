@@ -63,6 +63,13 @@ class Front extends CI_Controller {
 		$this->load->view('front/inc/footer');
 	}
 
+	public function ReviewUs()
+	{
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/reviewus');
+		$this->load->view('front/inc/footer');
+	}
 
 	//Forgot Password
 	public function forgotPassword($value='')
@@ -402,6 +409,24 @@ class Front extends CI_Controller {
 			redirect('');	
 	}
 
+
+	public function TestQuerySubmit()
+	{
+
+		$data['author'] = $this->input->post('name');
+		$data['author_email'] = $this->input->post('email');
+		$data['description'] = $this->input->post('message');
+		$data['date_created'] =date('y-m-d H:i:s');
+		$data['status'] ='Inactive';
+		$insert =$this->front_model->InsertTestimonial($data);
+		if($insert){
+			$this->session->set_flashdata('success', 'Successfully Submited Your Review');
+			redirect($_SERVER['HTTP_REFERER']);
+		}else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+			redirect($_SERVER['HTTP_REFERER']);	
+		}
+	}
 
 	public function SearchMain()
 	{	

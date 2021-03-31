@@ -49,6 +49,7 @@
             <li><a href="#"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Sitemap</a></li>
             <li><a href="<?=base_url()?>terms"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Terms & Condition</a></li>
             <li><a href="<?=base_url()?>contact"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Contact Us</a></li>
+             <li><a href="<?=base_url()?>reviewus"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Review Us</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
@@ -210,25 +211,52 @@
     outline: 0;
 
 }
+.listing-modal-1.modal-dialog.expand.test {
+    width: 525px;
+  }
+
+  @media only screen and (max-width: 600px) {
+  .listing-modal-1.modal-dialog.expand.test {
+    width: auto;
+  }
+  .listing-modal-1 .modal-header .modal-title {
+    margin-bottom: 50px;
+  }
+}
 </style>
 <div class="modal fade" id="notification" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="listing-modal-1 modal-dialog expand">
+  <div class="listing-modal-1 modal-dialog expand test">
     <div class="modal-content">
       <div class="modal-header">
         <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button> -->
-        <h4 class="modal-title text-center" id="myModalLabel2">Subscribe Our Free 6 Months Plan (Suppliers) </h4>
+        <h4 class="modal-title text-center" id="myModalLabel2">Subscribe Our <span  style="font-size: 43px;
+    font-weight: 800;">FREE</span><br> 6 Months Plan (Suppliers) </h4>
       </div>
       <div class="modal-body">
         <div class="col-md-3">
-          <div class="card" style="margin-left: 125px;">
-            <button class="btn btn-default box-modal" onclick="window.location.href='<?=base_url()?>pricings'"> <i class="fa fa-unlock-alt"></i> See Our Pricing Plan</button>
+          <div class="card" >
+            <button class="btn btn-default box-modal" onclick="window.location.href='<?=base_url()?>pricings'"> <i class="fa fa-unlock-alt" style="font-size: 40px;"></i> See Our Pricing Plan</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
+ <script type="text/javascript">
+        function googleTranslateElementInit() {
+            $.when(
+                new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'es',
+                    layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT}, 'google_translate_element')
+            ).done(function(){
+                var select = document.getElementsByClassName('goog-te-combo')[0];
+                select.selectedIndex = 1;
+                select.addEventListener('click', function () {
+                    select.dispatchEvent(new Event('change'));
+                });
+                select.click();
+            });
+        }
+    </script>
 <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script><script>window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#222222","text":"#ffffff","border":"#fde296"},"button":{"background":"#fde296","text":"#000000"}},"position":"bottom","content":{"href":"https://go2bng.com/privacy","button":"Got It","message":"We use cookies to deliver the best possible experience on our website. By continuing to use this site, or closing this box, you consent to our use of cookies."}})});</script>
 <!-- Scripts --> 
 <script src="<?=base_url()?>resource/js/jquery-2.2.4.min.js"></script> 

@@ -430,3 +430,152 @@
     </div>
   </div>
 </div>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<style type="text/css">
+  .page-width {
+  max-width: 1200px;
+  margin: auto;
+}
+.text-left {
+  text-align: left;
+}
+.quotes {
+  display: flex;
+  padding: 1rem 1rem;
+  align-items: center;
+}
+
+.quotes-slide {
+  width: 33%;
+  padding: 3rem;
+  background-color: white;
+  opacity: .4;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px 1px #d5d5d5;
+  line-height: 1.55;
+  font-family: 'Roboto', sans-serif;
+  transition: all .5s ease;
+  outline: none;
+}
+
+.quotes-slide--active {
+    transform: scale(1.2);
+    z-index: 10;
+    opacity: 1;
+    border: none;
+    box-shadow: 1px 0px 10px 5px #eaeaea;
+    color: #999999;
+}
+blockquote {
+  margin: 0;
+}
+cite{
+  font-style: normal;
+  font-size: 12px;
+}
+cite::before {
+    content: '\2014 \0020';
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: #f19220;
+}
+</style>
+<?php $testimonials = $this->front_model->ClientTestimonial();?>
+<?php if(!empty($testimonials)){?>
+  <div class="container-fluid" style="padding-bottom: 50px">
+    <div class="row">
+        <div class="text-center col-md-12 pricing-heading-title bt_heading_3">
+          <h1>Client's <span>Testimonials</span></h1>
+          <div class="blind line_1"></div>
+          <div class="flipInX-1 blind icon"><span class="icon"><i class="fa fa-stop"></i>&nbsp;&nbsp;<i class="fa fa-stop"></i></span></div>
+          <div class="blind line_2"></div>
+        </div>
+      <div class="quotes page-width">
+        <?php $i=0; foreach($testimonials as $testimonial){?>
+          <div class="quotes-slide slideshow__slide--active"  data-slider-slide-index="<?=$i++?>" aria-hidden="false" tabindex="-1">
+              <blockquote class="quotes-slider__text text-left" style="border-left:5px">
+                  <span class="quote-icon">
+                    <svg aria-hidden="true" focusable="false" role="presentation"  class="icon icon-quote" viewBox="0 0 41 35">
+                          <path d="M10.208 17.711h6.124v16.332H0V21.684C0 8.184 5.444.956 16.332 0v6.125c-4.083 1.14-6.124 4.414-6.124 9.82v1.766zm24.498 0h6.124v16.332H24.498V21.684C24.498 8.184 29.942.956 40.83 0v6.125c-4.083 1.14-6.124 4.414-6.124 9.82v1.766z"></path>
+                      </svg>
+                  </span>
+
+                  <div class="content">
+                      <p><?=$testimonial['description']?>
+                      </p>
+                  </div>
+                  <cite><?=$testimonial['author']?></cite>
+              </blockquote>
+          </div>
+        <?php if($i==3){break;}}?>  
+          
+ 
+
+      </div>
+    </div>
+  </div>    
+<?php }?>
+<script type="text/javascript">
+  const testimonialPage = document.querySelector(".quotes-slide[data-slider-slide-index='1']");
+testimonialPage.classList.add("quotes-slide--active");
+
+
+document.querySelector(".quotes").addEventListener("mouseout", function(){
+  document.querySelector(".quotes-slide--active").classList.remove("quotes-slide--active")
+  document.querySelector(".quotes-slide[data-slider-slide-index='1']").classList.add("quotes-slide--active")
+});
+
+
+document.querySelectorAll(".quotes-slide").forEach( 
+  elem => elem.addEventListener("mouseover", function(){
+    document.querySelector(".quotes-slide--active").classList.remove("quotes-slide--active")
+    this.classList.add("quotes-slide--active")
+  })
+)
+</script>
+
+
+<!--  <div class="container-fluid" style="padding-bottom: 50px">
+    <div class="row">
+        <div class="text-center col-md-12 pricing-heading-title bt_heading_3">
+          <h1>Our <span>Partners</span></h1>
+          <div class="blind line_1"></div>
+          <div class="flipInX-1 blind icon"><span class="icon"><i class="fa fa-stop"></i>&nbsp;&nbsp;<i class="fa fa-stop"></i></span></div>
+          <div class="blind line_2"></div>
+        </div>
+   <section class="customer-logos slider">
+      <div class="col-md-12" style="margin-bottom:10px">
+        <div class="col-md-2">
+          <img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg">
+        </div>
+        <div class="col-md-2">
+          <img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg">
+        </div>
+        <div class="col-md-2">
+          <img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg">
+        </div>
+        <div class="col-md-2">
+          <img src="https://image.freepik.com/free-vector/colors-curl-logo-template_23-2147536125.jpg">
+        </div>
+        <div class="col-md-2">
+          <img src="https://image.freepik.com/free-vector/abstract-cross-logo_23-2147536124.jpg">
+        </div>
+        <div class="col-md-2">
+          <img src="https://image.freepik.com/free-vector/football-logo-background_1195-244.jpg">
+        </div>
+      </div>
+      <div class="col-md-12" style="margin-bottom:10px"> 
+        <div class="col-md-2">
+          <img src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg">
+        </div>
+        <div class="col-md-2">
+          <img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg">
+        </div>
+      </div>
+   </section>
+  </div>
+</div> -->

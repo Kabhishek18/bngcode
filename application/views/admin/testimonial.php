@@ -11,12 +11,12 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">Subscription</h2>
+                            <h2 class="content-header-title float-left mb-0">Testimonial</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="<?=base_url('vendor/dashboard')?>">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active">Subscription List
+                                    <li class="breadcrumb-item active">Testimonial List
                                     </li>
                                 </ol>
                             </div>
@@ -35,13 +35,6 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title"><a href="<?=base_url()?>admin/SubscriptionAdd" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Subscription Add</a> </h4>
-
-                                    <h4 class="card-title">
-                                        <a href="<?=base_url()?>admin/EmailTrigger" class="btn btn-outline-light mr-1 mb-1 waves-effect waves-light">Send End Mail Subscription</a>
-                                    </h4>
-                                </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">
                                         <p class="card-text">
@@ -53,53 +46,37 @@
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Order Created</th>
-                                                        <th>Order_id</th>
-                                                        <th>Order_amount</th>
+                                                        <th>Author</th>
+                                                        <th>Email</th>
                                                         <th>Description</th>
-                                                        <th>PlanName || PaymentMethod</th>
                                                         <th>Last Modified</th>
+                                                        <th>Status</th>
                                                         <th>Actions</th>
                                                      
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                   <?php $i=1; foreach($datalist as $items):?>
+                                                  <?php $i=1;foreach($datalist as $item){?>
                                                     <tr>
                                                         <td><?=$i++?></td>
-                                                      <td><?=$items['date_modified']?></td>
-
-                                                      <td><?=$items['order_id']?></td>
-                                                      <td><?=$items['order_amount']?></td>
-                                                      <td ><?php $order= json_decode($items['order_detail'],true)?>
-                                                          <pre style="color: white"><?=$order['fname']?> <?=$order['lname']?></pre>
-                                                          <pre style="color: white"><?=$order['email']?></pre>
-                                                          <pre style="color: white"><?=$order['address']?>, <?=$order['address2']?> <?=$order['city']?> <?=$order['postcode']?></pre>
-                                                      </td>
-                                                      <td><?=$order['planname']?> || Payment<?=$order['paymentmethod']?></td>
-                                                   
-                                                      <td><?=$items['date_created']?></td>
-                                                      <td><span class="action-delete">
-                                                                <a href="<?=base_url()?>admin/cancelSubscrip/<?=$items['id']?>" onclick="return confirm('Are you sure, you want to delete it?')">
-                                                                     <span class="text-danger">
-                                                                    <i class="feather icon-trash"></i></span>
-                                                                </a>
-                                                            </span>
-                                                        </td>
-                                                    </tr>                                                        
-                                                   <?php endforeach;?>
+                                                        <td><?=$item['author']?></td>
+                                                        <td><?=$item['author_email']?></td>
+                                                        <td><?=$item['description']?></td>
+                                                        <td><?=date('F,d y h:i:s',strtotime($item['date_modified']))?></td>
+                                                        <td><a onclick="return confirm('Are You Sure, you want to <?=($item['status']=='Active'?'Inactive':'Active')?> ')" href="<?=base_url()?>admin/ChangeTestimonial/<?=$item['id']?>/<?=$item['status']?>"><span class="<?=($item['status']=='Active'?'text-info':'text-danger')?>" ><i class="fa fa-recycle"></i><?=$item['status']?></span></a></td>
+                                                        <td><a onclick="return confirm('Are you sure, you want to delete it?')" href="<?=base_url()?>admin/TestimonialDelete/<?=$item['id']?>"><span class="text-danger"><i class="fa fa-trash"></i></span></a></td>
+                                                    </tr>
+                                                  <?php }?>
                                                 </tbody>
                                                 <tfoot>
                                                     <tr>
-                                                         <th>#</th>
-                                                        <th>Order Created</th>
-                                                        <th>Order_id</th>
-                                                        <th>Order_amount</th>
+                                                        <th>#</th>
+                                                        <th>Author</th>
+                                                        <th>Email</th>
                                                         <th>Description</th>
-                                                        <th>PlanName || PaymentMethod</th>
                                                         <th>Last Modified</th>
+                                                        <th>Status</th>
                                                         <th>Actions</th>
-                                                        
                                                     </tr>
                                                 </tfoot>
                                             </table>

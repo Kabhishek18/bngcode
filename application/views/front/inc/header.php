@@ -26,6 +26,7 @@
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/x-icon" href="<?=base_url()?>resource/images/favicon.png">
 <!-- Style Sheets -->
+
 <link rel="stylesheet" href="<?=base_url()?>resource/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="<?=base_url()?>resource/css/animate.css" type="text/css">
 <link rel="stylesheet" href="<?=base_url()?>resource/css/stylesheet.css" type="text/css">

@@ -369,4 +369,34 @@ class Front_model extends CI_Model
         // return fetched data
         return !empty($result)?$result:false;
     }
+
+
+     public function ClientTestimonial($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from('testimonials');
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $this->db->order_by("date_modified", "desc");  
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $this->db->order_by("date_modified", "desc");  
+            $array = array('status'=>'Active');
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function InsertTestimonial($auth)
+    {
+        $insert = $this->db->insert('testimonials',$auth);
+         return $insert?true:false;
+    }
 }

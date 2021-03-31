@@ -332,7 +332,47 @@ class Admin_model extends CI_Model
     {
         $this->db->where('id', $reg);
         $update = $this->db->delete($this->users);
-       return $update?true:false;
+        return $update?true:false;
     }
 
+    public function GetTestimonial($id='')
+    {
+        $this->db->select('*');
+        $this->db->from('testimonials');
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $this->db->order_by("date_modified", "desc");  
+         
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $this->db->order_by("date_modified", "desc");  
+         
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+
+
+    public function TestimonialChange($url,$status)
+    {       
+        $this->db->set('status', $status);
+        $this->db->where('id', $url);
+        $update =  $this->db->update('testimonials');
+        return $update?true:false;
+    }
+
+
+    public function DeleteTestimonial($id='')
+    {
+        $this->db->where('id', $id);
+        $update = $this->db->delete('testimonials');
+        return $update?true:false;
+    }
 }

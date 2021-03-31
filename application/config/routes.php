@@ -20,6 +20,7 @@ $route['pricings'] = 'front/Pricings';
 $route['product-listing'] = 'front/ProductListing';
 $route['dashboard'] ='front/dashboard';
 $route['requirement'] ='front/Requirement';
+$route['reviewus'] ='front/ReviewUs';
 $route['verify/(:any)/(:any)/(:any)/(:any)'] ='front/EmailVerification';
 $route['logisticslead'] ='front/LogisticsLead';
 
@@ -91,6 +92,7 @@ $route['admin/vendor/add'] ='admin/VendorAdd';
 
 
 $route['admin/requirement'] ='admin/Requirement';
+$route['admin/testimonial'] ='admin/Testimonial';
 $route['admin/product'] ='admin/Product';
 $route['admin/product/edit/(:num)'] ='admin/ProductAdd';
 $route['admin/product/add'] ='admin/ProductAdd';

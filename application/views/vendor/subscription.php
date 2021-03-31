@@ -68,7 +68,7 @@
                                 <h5>Recipient</h5>
                                 <?php $recp =json_decode($sub['order_detail'],true)?>
                                 <div class="recipient-info my-2">
-                                    <p><?=$recp['fname']?><?=$recp['lname']?></p>
+                                    <p><?=$recp['fname']?> <?=$recp['lname']?></p>
                                     <p><?=$recp['address']?></p>
                                     <p><?=$recp['address2']?>,<?=$recp['city']?></p>
                                     <p><?=$recp['country']?>,<?=$recp['postcode']?></p>
@@ -82,20 +82,20 @@
                                 </div>
                             </div>
                             <div class="col-sm-6 col-12 text-right">
-                                <h5>Microsion Technologies Pvt. Ltd.</h5>
+                                <h5>BUSINESS NETWORK GATEWAY PVT LTD</h5>
                                 <div class="company-info my-2">
-                                    <p>9 N. Sherwood Court</p>
-                                    <p>Elyria, OH</p>
-                                    <p>94203</p>
+                                    <p>NOIDA ONE" C-321, 3RD FLOOR, PLOT NO. </p>
+                                    <p>B-8, IT PARK, Sector 62, Noida, Uttar Pradesh </p>
+                                    <p>201309</p>
                                 </div>
                                 <div class="company-contact">
                                     <p>
                                         <i class="feather icon-mail"></i>
-                                        hello@pixinvent.net
+                                        support@go3bng.com
                                     </p>
                                     <p>
                                         <i class="feather icon-phone"></i>
-                                        +91 999 999 9999
+                                        +911202975447
                                     </p>
                                 </div>
                             </div>
@@ -152,11 +152,11 @@
 
                         <!-- Invoice Footer -->
                         <div id="invoice-footer" class="text-right pt-3">
-                            <p>Transfer the amounts to the business amount below. Please include invoice number on your check.
+                           <!--  <p>Transfer the amounts to the business amount below. Please include invoice number on your check.
                                 <p class="bank-details mb-0">
                                     <span class="mr-4">BANK: <strong>FTSBUS33</strong></span>
                                     <span>IBAN: <strong>G882-1111-2222-3333</strong></span>
-                                </p>
+                                </p> -->
                         </div>
                         <!--/ Invoice Footer -->
 

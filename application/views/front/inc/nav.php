@@ -56,7 +56,15 @@
                             <a class="btn btn-warning" style="background:#ffce10;border:none;padding: 10px" href='<?=base_url()?>vendor/logout'>LOGOUT</a>
                           </li>
                         <?php } ?>
-                    
+ <style>
+           .skiptranslate, #google_translate_element {display: none;}
+            body {min-height: 0px !important; position: static !important; top: 0px !important;}
+        </style>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+                    <li id="google_translate_element"></li>
               </ul>
               <ul>
                   
