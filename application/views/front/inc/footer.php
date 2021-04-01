@@ -50,6 +50,7 @@
             <li><a href="<?=base_url()?>terms"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Terms & Condition</a></li>
             <li><a href="<?=base_url()?>contact"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Contact Us</a></li>
              <li><a href="<?=base_url()?>reviewus"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Review Us</a></li>
+             <li><a href="<?=base_url()?>blogs"><i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;Blog</a></li>
           </ul>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">

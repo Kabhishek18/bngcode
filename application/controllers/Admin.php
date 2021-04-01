@@ -104,9 +104,6 @@ class Admin extends CI_Controller {
 		}
 	}
 
-
-
-
 	//Logout
 	public function Logout()
 	{
@@ -118,7 +115,6 @@ class Admin extends CI_Controller {
 		redirect('admin');
 		}
 	}
-
 
 	public function Dashboard()
 	{
@@ -132,6 +128,235 @@ class Admin extends CI_Controller {
 		else{
 			$this->session->set_flashdata('warning', 'Access Denied');
 			redirect('admin');	
+		}
+	}
+	public function ClientLogo()
+	{
+		$data= $this->session->admin_account;
+		if($data['user_verified'] =='verified'){
+			$value['datalist']=$this->admin_model->Getclient();
+			$this->load->view('admin/inc/header');
+			$this->load->view('admin/inc/nav',$data);
+			$this->load->view('admin/clientlogo',$value);
+			$this->load->view('admin/inc/footer');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('admin');	
+		}
+	}
+
+	public function Clientinsert()
+	{
+		
+		$data = $this->session->admin_account;
+		if($data){	
+
+				if ($data['user_type'] =='admin') {
+					
+					
+						$dir ='uploads/client/';
+						if (!is_dir($dir)) {
+							mkdir($dir, 0777, TRUE);
+						}
+					$config['upload_path'] =  $dir;
+			        $config['allowed_types'] = 'jpg|png|jpeg|mp4|docx|pdf';
+			        $config['max_size'] = 3000;
+			        $this->load->library('upload', $config);
+					$this->upload->initialize($config);
+
+						if($this->upload->do_upload('image')){
+				 		$file= $this->upload->data();
+						$reg['image'] =$file['file_name'];}
+						else{						
+						}
+
+					if ($reg['id'] == "") {
+						$reg['date_created']=date('Y-m-d');
+					}
+						$reg['date_modified']= date('Y-m-d H:i:s');
+
+					
+					
+						
+							$insert = $this->admin_model->ChangeClient($reg);
+							if ($insert) {
+								$this->session->set_flashdata('success', 'Successfully Done');
+								redirect($_SERVER['HTTP_REFERER']);
+							}
+							else{
+								$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+								redirect($_SERVER['HTTP_REFERER']);	
+							}
+			
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Sorry, Admin Access Only. Please Contact Your WebAdministrator');
+					if(session_destroy())
+					{
+					$this->session->unset_userdata('admin_account');	   
+					$this->session->sess_destroy();
+					redirect('');
+					}	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	public function ClientDelete()
+	{
+		$url= $this->uri->segment(3,0); 
+		$insert =$this->admin_model->DeleteClient($url);
+		if($insert){
+			$this->session->set_flashdata('warning', 'Deleted Successfully');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect($_SERVER['HTTP_REFERER']);
+		
+		}
+	}
+	public function Blog()
+	{
+		$data= $this->session->admin_account;
+		if($data['user_verified'] =='verified'){
+			$value['datalist']=$this->admin_model->GetBlogs();
+			$this->load->view('admin/inc/header');
+			$this->load->view('admin/inc/nav',$data);
+			$this->load->view('admin/blog',$value);
+			$this->load->view('admin/inc/footer');
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Access Denied');
+			redirect('admin');	
+		}
+	}
+
+	//Course Add View
+	public function BlogAdd()
+	{
+		$data = $this->session->admin_account;
+		if($data){	
+
+				if ($data['user_type'] =='admin') {
+					$this->load->view('admin/inc/header',$data);
+					$urlid = $this->uri->segment(4,0);
+
+					if($urlid){
+						//Update
+						$var['datalist'] = $this->admin_model->GetBlogs($urlid);
+						$this->load->view('admin/blogadd',$var);
+					}else{
+						//Add
+						$var['datalist'] = NULL;
+						$this->load->view('admin/blogadd',$var);
+					}
+
+					$this->load->view('admin/inc/footer');
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Sorry, Admin Access Only. Please Contact Your WebAdministrator');
+					if(session_destroy())
+					{
+					$this->session->unset_userdata('admin_account');	   
+					$this->session->sess_destroy();
+					redirect('admin/dashboard');
+					}	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Course Insert And Update
+	public function Bloginsert()
+	{
+		
+		$data = $this->session->admin_account;
+		if($data){	
+
+				if ($data['user_type'] =='admin') {
+					
+					$reg['id']=$this->input->post("id");
+					$reg['title']=$this->input->post("title");
+					$reg['subtitle']=$this->input->post("subtitle");
+					$reg['meta']=$this->input->post("meta");
+					$reg['author']=$this->input->post("author");
+					$reg['author_email']=$this->input->post("author_email");
+					$reg['blog_description']=$this->input->post("blog_description");
+						$dir ='uploads/blog/';
+						if (!is_dir($dir)) {
+							mkdir($dir, 0777, TRUE);
+						}
+					$config['upload_path'] =  $dir;
+			        $config['allowed_types'] = 'jpg|png|jpeg|mp4|docx|pdf';
+			        $config['max_size'] = 3000;
+			        $this->load->library('upload', $config);
+					$this->upload->initialize($config);
+
+						if($this->upload->do_upload('blog_image')){
+				 		$file= $this->upload->data();
+						$reg['blog_image'] =$file['file_name'];}
+						else{						
+						}
+
+					if ($reg['id'] == "") {
+						$reg['date_created']=date('Y-m-d');
+					}
+						$reg['date_modified']= date('Y-m-d H:i:s');
+
+					
+					
+						
+							$insert = $this->admin_model->ChangeBlogs($reg);
+							if ($insert) {
+								$this->session->set_flashdata('success', 'Successfully Done');
+								redirect($_SERVER['HTTP_REFERER']);
+							}
+							else{
+								$this->session->set_flashdata('warning', 'Something Misfortune Happen');
+								redirect($_SERVER['HTTP_REFERER']);	
+							}
+			
+				}
+				else{
+					$this->session->set_flashdata('warning', 'Sorry, Admin Access Only. Please Contact Your WebAdministrator');
+					if(session_destroy())
+					{
+					$this->session->unset_userdata('admin_account');	   
+					$this->session->sess_destroy();
+					redirect('');
+					}	
+				}
+			}
+
+		
+		else{
+			redirect();
+		}
+	}
+
+	//Course Delete
+	public function BlogDelete()
+	{
+		$url= $this->uri->segment(3,0); 
+		$insert =$this->admin_model->DeleteBlogs($url);
+		if($insert){
+			$this->session->set_flashdata('warning', 'Deleted Successfully');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		else{
+			$this->session->set_flashdata('warning', 'Something Misfortune Happened!');
+			redirect($_SERVER['HTTP_REFERER']);
+		
 		}
 	}
 

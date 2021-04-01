@@ -117,6 +117,12 @@
                 <li class="nav-item">
                     <a href="<?=base_url()?>admin/testimonial"><i class="feather icon-users"></i><span class="menu-title">Testimonial</span></a>
                 </li>
+                <li class="nav-item">
+                    <a href="<?=base_url()?>admin/clientlogo"><i class="feather icon-user"></i><span class="menu-title">Client Logo</span></a>
+                </li>
+                 <li class="nav-item">
+                    <a href="<?=base_url()?>admin/blog"><i class="feather icon-book"></i><span class="menu-title">Blog</span></a>
+                </li>
          
                 <li class="nav-item">
                     <a href="<?=base_url()?>admin/vendor"><i class="feather icon-list"></i><span class="menu-title" data-i18n="User">Vendor</span></a>

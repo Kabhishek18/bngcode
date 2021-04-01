@@ -38,6 +38,29 @@ class Front extends CI_Controller {
 		$this->load->view('front/inc/footer');
 	}
 
+	public function Blog()
+	{
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/blog');
+		$this->load->view('front/inc/footer');
+	}
+
+	public function Blogedit()
+	{
+		if(is_numeric($this->uri->segment(2,0))){
+			$blogs = $this->front_model->GetBlog($this->uri->segment(2,0));
+			$this->load->view('front/inc/header',$blogs);
+			$this->load->view('front/inc/nav');
+			$this->load->view('front/blogview',$blogs);
+			$this->load->view('front/inc/footer');
+		}else
+		{
+			redirect('blogs');
+		}
+
+	}
+
 	public function Terms()
 	{
 		$this->load->view('front/inc/header');

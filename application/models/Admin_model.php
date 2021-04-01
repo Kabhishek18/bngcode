@@ -375,4 +375,83 @@ class Admin_model extends CI_Model
         $update = $this->db->delete('testimonials');
         return $update?true:false;
     }
+
+    public function GetBlogs($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from('blogs');
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function ChangeBlogs($reg)
+    {   
+        if ($reg['id']) {
+            $this->db->where('id',$reg['id']);
+            $update = $this->db->update('blogs',$reg);
+            return $update?true:false;
+        }
+        else{
+            $insert = $this->db->insert('blogs',$reg);
+            return $insert?true:false;
+        }
+    }
+
+    public function DeleteBlogs($reg)
+    {
+        $this->db->where('id',$reg);
+        $update = $this->db->delete('blogs');
+       return $update?true:false;
+    }
+
+
+       public function GetClient($id ='')
+    {
+        $this->db->select('*');
+        $this->db->from('client_logo');
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+    public function ChangeClient($reg)
+    {   
+        if ($reg['id']) {
+            $this->db->where('id',$reg['id']);
+            $update = $this->db->update('client_logo',$reg);
+            return $update?true:false;
+        }
+        else{
+            $insert = $this->db->insert('client_logo',$reg);
+            return $insert?true:false;
+        }
+    }
+
+    public function DeleteClient($reg)
+    {
+        $this->db->where('id',$reg);
+        $update = $this->db->delete('client_logo');
+       return $update?true:false;
+    }
 }

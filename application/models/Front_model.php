@@ -399,4 +399,48 @@ class Front_model extends CI_Model
         $insert = $this->db->insert('testimonials',$auth);
          return $insert?true:false;
     }
+
+    public function ClientLogo($id ='')
+    {
+        
+        $this->db->select('*');
+        $this->db->from('client_logo');
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $this->db->order_by("date_modified", "desc");  
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $this->db->order_by("date_modified", "desc");  
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
+
+     public function GetBlog($id ='')
+    {
+        
+        $this->db->select('*');
+        $this->db->from('blogs');
+       
+        if($id){
+            $array = array('id' => $id);
+            $this->db->where($array);
+            $this->db->order_by("date_modified", "desc");  
+            $query  = $this->db->get();
+            $result = $query->row_array();
+        }else{
+            $this->db->order_by("date_modified", "desc");  
+            $query  = $this->db->get();
+            $result = $query->result_array();
+        }
+        
+        // return fetched data
+        return !empty($result)?$result:false;
+    }
 }

@@ -267,7 +267,6 @@
     </script>
     <!-- #endregion Jssor Slider End -->  
   <!-- Banner Slider -->
-
 </div>
 <div id="search-categorie-item">
   <div class="container">
@@ -538,8 +537,9 @@ document.querySelectorAll(".quotes-slide").forEach(
 )
 </script>
 
-
-<!--  <div class="container-fluid" style="padding-bottom: 50px">
+<?php $clientlogo = $this->front_model->ClientLogo();?>
+<?php if(!empty($clientlogo)){?>
+ <div class="container-fluid" style="padding-bottom: 50px">
     <div class="row">
         <div class="text-center col-md-12 pricing-heading-title bt_heading_3">
           <h1>Our <span>Partners</span></h1>
@@ -547,35 +547,68 @@ document.querySelectorAll(".quotes-slide").forEach(
           <div class="flipInX-1 blind icon"><span class="icon"><i class="fa fa-stop"></i>&nbsp;&nbsp;<i class="fa fa-stop"></i></span></div>
           <div class="blind line_2"></div>
         </div>
+   <style type="text/css">
+     .sliderbox{
+      width: 210px;
+      height:210px;
+     }
+     .sliderbox:hover{
+     transform: scale(1.2);
+      z-index: 10;
+      opacity: 1;
+      border: none;
+      color: #999999;
+     }
+     .marquee {
+    position: relative;
+    overflow: hidden;
+    --offset: 20vw;
+    --move-initial: calc(-25% + var(--offset));
+    --move-final: calc(-50% + var(--offset));
+}
+
+.marquee__inner {
+    width: fit-content;
+    display: flex;
+    position: relative;
+    transform: translate3d(var(--move-initial), 0, 0);
+    animation: marquee 5s linear infinite;
+    animation-play-state: paused;
+}
+
+.marquee span {
+    font-size: 10vw;
+    padding: 0 2vw;
+}
+
+.marquee:hover .marquee__inner {
+    animation-play-state: running;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translate3d(var(--move-initial), 0, 0);
+    }
+
+    100% {
+        transform: translate3d(var(--move-final), 0, 0);
+    }
+}
+   </style>       
+
    <section class="customer-logos slider">
-      <div class="col-md-12" style="margin-bottom:10px">
-        <div class="col-md-2">
-          <img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg">
-        </div>
-        <div class="col-md-2">
-          <img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg">
-        </div>
-        <div class="col-md-2">
-          <img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg">
-        </div>
-        <div class="col-md-2">
-          <img src="https://image.freepik.com/free-vector/colors-curl-logo-template_23-2147536125.jpg">
-        </div>
-        <div class="col-md-2">
-          <img src="https://image.freepik.com/free-vector/abstract-cross-logo_23-2147536124.jpg">
-        </div>
-        <div class="col-md-2">
-          <img src="https://image.freepik.com/free-vector/football-logo-background_1195-244.jpg">
-        </div>
-      </div>
-      <div class="col-md-12" style="margin-bottom:10px"> 
-        <div class="col-md-2">
-          <img src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg">
-        </div>
-        <div class="col-md-2">
-          <img src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg">
-        </div>
+      <div class="col-md-12">
+        <div class="marquee">
+          <div class="marquee__inner" aria-hidden="true">
+       <?php $j=0; foreach($clientlogo as $logo){?>
+          <div class="sliderbox col-md-2">
+            <img src="<?=base_url()?>uploads/client/<?=$logo['image']?>">
+          </div>
+        <?php }?>
+          </div>
+        </div>  
       </div>
    </section>
   </div>
-</div> -->
+</div>
+<?php }?>

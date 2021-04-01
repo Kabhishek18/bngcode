@@ -13,6 +13,8 @@ $route['translate_uri_dashes'] = FALSE;
 $route['default_controller'] = 'front/index';
 
 $route['privacy'] = 'front/Privacy';
+$route['blogs'] = 'front/Blog';
+$route['blogs/(:num)'] = 'front/Blogedit';
 $route['about'] = 'front/About';
 $route['terms'] = 'front/Terms';
 $route['contact'] = 'front/Contact';
@@ -89,6 +91,15 @@ $route['admin/vendor'] ='admin/Vendor';
 $route['admin/vendor/edit/(:num)'] ='admin/VendorAdd';
 $route['admin/vendor/add'] ='admin/VendorAdd';
 
+
+
+//Blog 
+$route['admin/blog'] ='admin/Blog';
+$route['admin/blog/edit/(:num)'] ='admin/BlogAdd';
+$route['admin/blog/add'] ='admin/BlogAdd';
+
+//Client Logo
+$route['admin/clientlogo'] ='admin/ClientLogo';
 
 
 $route['admin/requirement'] ='admin/Requirement';
