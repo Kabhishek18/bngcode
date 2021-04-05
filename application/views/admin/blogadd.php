@@ -74,7 +74,8 @@
                                                     <div class="form-group">
                                                         <div class="controls">
                                                             <label>Blog Meta </label>
-                                                            <input type="text" name="meta" class="form-control" placeholder="Blog Meta" value="<?=(!empty($datalist['meta'])?$datalist['meta']:'')?>">
+                                                            <textarea name="meta" name="meta" class="form-control" placeholder="Blog Meta"><?=(!empty($datalist['meta'])?$datalist['meta']:'')?></textarea>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>

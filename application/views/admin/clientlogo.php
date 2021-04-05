@@ -75,11 +75,7 @@
                                                         <td><?=$i++?></td>
                                                         <td><img src="<?=base_url()?>uploads/client/<?=$items['image']?>" width="100px"></td>   
                                                         <td>
-                                                            <span class="action-edit">
-                                                                <a href="<?=base_url()?>admin/blog/edit/<?=$items['id']?>">
-                                                                <i class="feather icon-edit"></i>
-                                                                </a>
-                                                            </span>
+                                                   
                                                             <span class="action-delete">
                                                                 <a href="<?=base_url()?>admin/ClientDelete/<?=$items['id']?>" onclick="return confirm('Are you sure, you want to delete it?')">
                                                                      <span class="text-danger">
