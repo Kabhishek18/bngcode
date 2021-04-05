@@ -97,7 +97,6 @@
                     </div>
                 </section>
                 <!-- Column selectors with Export Options and print table -->
-
             </div>
         </div>
     </div>

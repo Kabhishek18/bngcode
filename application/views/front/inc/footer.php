@@ -225,6 +225,7 @@
   }
 }
 </style>
+<?php if(empty($this->session->vendor_account) AND empty($this->session->user_account) ){ ?>
 <div class="modal fade" id="notification" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="listing-modal-1 modal-dialog expand test">
     <div class="modal-content">
@@ -243,6 +244,7 @@
     </div>
   </div>
 </div>
+<?php }?>
  <script type="text/javascript">
         function googleTranslateElementInit() {
             $.when(
