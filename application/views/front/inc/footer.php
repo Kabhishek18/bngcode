@@ -261,6 +261,7 @@
         }
     </script>
 <link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css"/><script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script><script>window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#222222","text":"#ffffff","border":"#fde296"},"button":{"background":"#fde296","text":"#000000"}},"position":"bottom","content":{"href":"https://go2bng.com/privacy","button":"Got It","message":"We use cookies to deliver the best possible experience on our website. By continuing to use this site, or closing this box, you consent to our use of cookies."}})});</script>
+<script>(function(w, d) { w.CollectId = "607429ab5d8493507d583346"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
 <!-- Scripts --> 
 <script src="<?=base_url()?>resource/js/jquery-2.2.4.min.js"></script> 
 <script src="<?=base_url()?>resource/js/bootstrap.min.js"></script> 

@@ -94,6 +94,14 @@ class Front extends CI_Controller {
 		$this->load->view('front/inc/footer');
 	}
 
+	function ViewAllQuery(){
+		$data['listing'] =$this->front_model->GetQueryList();
+		$this->load->view('front/inc/header');
+		$this->load->view('front/inc/nav');
+		$this->load->view('front/queryall',$data);
+		$this->load->view('front/inc/footer');
+	}
+
 	//Forgot Password
 	public function forgotPassword($value='')
 	{

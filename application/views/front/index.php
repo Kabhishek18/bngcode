@@ -317,26 +317,39 @@
           foreach($listing as $list){?>
              <?php $pro = $this->front_model->GetProduct($list['pid']);?>
               <a href="<?=base_url()?>products/<?=$pro['id']?>">
-              <div class="col-md-6 col-sm-6 col-xs-12">
-             
-              <div class="recent-listing-box-container-item">
-                    <?php $list['description'] = json_decode($list['description'], True); ?>
-                  <div class="recent-listing-box-item">
-                    <div class="listing-boxes-text">  <a href="<?=base_url()?>products/<?=$pro['id']?>"> <?=$list['description']['user_name']?></a>
-                      <p>
-                       <strong>Product Name :</strong><a href="<?=base_url()?>products/<?=$pro['id']?>">  <?=$pro['product_name']?>
-                        </a></p>
-                      <p><?=$list['description']['requirement']?></p>
-                    </div>
-                    <div class="recent-feature-item-rating">
-                      <h2><i class="fa fa-envelope"></i> <?=$list['description']['user_email']?></h2>
-                     </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                 
+                  <div class="recent-listing-box-container-item">
+                        <?php $list['description'] = json_decode($list['description'], True); ?>
+                      <div class="recent-listing-box-item">
+                        <div class="listing-boxes-text"> 
+
+                         <a href="<?=base_url()?>products/<?=$pro['id']?>"> <?=$list['description']['user_name']?></a>
+                       
+                            <a href="javascript:void(0)" class="text-success " style="color: green">
+                              <img src="<?=base_url()?>badge.png" width="12px"> Verified</a>
+                          
+                          
+                          <p>
+                           <strong>Product Name :</strong><a href="<?=base_url()?>products/<?=$pro['id']?>">  <?=$pro['product_name']?>
+                            </a></p>
+                          <p><?=$list['description']['requirement']?></p>
+                        </div>
+                        <div class="recent-feature-item-rating">
+                          <h2><i class="fa fa-envelope"></i> <?=$list['description']['user_email']?></h2>
+                          <span class="text-right">
+                           <h2><i class="fa fa-calendar"></i>  <?=date('F d y',strtotime($list['date_created']))?></h2>
+                          </span>
+                         </div>
+                      </div>
                   </div>
-              </div>
-             
-            </div>
+                 
+                </div>
              </a>
-          <?php $k++; if($k==6){break;} }}?>
+          <?php $k++; if($k==8){break;} }}?>
+         
+          <div class="col-md-12">
+             <br><a class="btn btn-default box-modal" href="<?=base_url()?>Front/ViewAllQuery">View More</a></div>
         </div>
       </div>
     </div>
@@ -539,76 +552,140 @@ document.querySelectorAll(".quotes-slide").forEach(
 
 <?php $clientlogo = $this->front_model->ClientLogo();?>
 <?php if(!empty($clientlogo)){?>
- <div class="container-fluid" style="padding-bottom: 50px">
+
+
+<div style="padding-bottom: 50px">
     <div class="row">
         <div class="text-center col-md-12 pricing-heading-title bt_heading_3">
           <h1>Our <span>Partners</span></h1>
-          <div class="blind line_1"></div>
-          <div class="flipInX-1 blind icon"><span class="icon"><i class="fa fa-stop"></i>&nbsp;&nbsp;<i class="fa fa-stop"></i></span></div>
-          <div class="blind line_2"></div>
-        </div>
-   <style type="text/css">
-     .sliderbox{
-      width: 210px;
-      height:210px;
-     }
-     .sliderbox:hover{
-     transform: scale(1.2);
-      z-index: 10;
-      opacity: 1;
-      border: none;
-      color: #999999;
-     }
-     .marquee {
-    position: relative;
-    overflow: hidden;
-    --offset: 20vw;
-    --move-initial: calc(-25% + var(--offset));
-    --move-final: calc(-50% + var(--offset));
-}
 
-.marquee__inner {
-    width: fit-content;
-    display: flex;
-    position: relative;
-    transform: translate3d(var(--move-initial), 0, 0);
-    animation: marquee 5s linear infinite;
-    animation-play-state: paused;
-}
 
-.marquee span {
-    font-size: 10vw;
-    padding: 0 2vw;
-}
 
-.marquee:hover .marquee__inner {
-    animation-play-state: running;
-}
+    <br>
 
-@keyframes marquee {
-    0% {
-        transform: translate3d(var(--move-initial), 0, 0);
-    }
 
-    100% {
-        transform: translate3d(var(--move-final), 0, 0);
-    }
-}
-   </style>       
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 
-   <section class="customer-logos slider">
-      <div class="col-md-12">
-        <div class="marquee">
-          <div class="marquee__inner" aria-hidden="true">
-       <?php $j=0; foreach($clientlogo as $logo){?>
-          <div class="sliderbox col-md-2">
-            <img src="<?=base_url()?>uploads/client/<?=$logo['image']?>">
+  <style>
+        /* bx-wrapper Styling */
+      .bx-wrapper {
+        box-shadow: none !important;
+        border: none !important;
+        background: #fff !important;
+        margin: auto !important;
+        
+      }
+
+      .bx-wrapper .bx-caption {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        background: rgba(80, 80, 80, 0.5) !important;
+        width: 100% !important;
+        
+      }
+
+      .bx-wrapper .bx-caption span {
+        color: #fff !important;
+        font-family: Arial !important;
+        display: block !important;
+        font-size: 8px !important;
+        padding: 10px !important;
+        
+        text-align: center;
+      }
+
+      .bx-wrapper .bx-controls-direction a {
+        position: absolute;
+        top: 50%;
+        margin-top: -16px;
+        outline: 0;
+        width: 32px;
+        height: 32px;
+        text-indent: -9999px;
+        z-index: 9999;
+        
+      }
+
+      .bx-wrapper .bx-prev {
+        left: 10px;
+        background: url(images/controls.png) no-repeat 0 -32px;
+      }
+
+      .bx-wrapper .bx-next {
+        right: 10px;
+        background: url(images/controls.png) no-repeat -43px -32px;
+      }
+      /* End bx-wrapper Styling */
+
+      .logosImgs {
+        display: -webkit-flex;
+        display: flex;
+        justify-content: center;
+        
+      }
+
+      .logosImgs img {
+        max-height: 100%;
+       
+        opacity: .65;
+        transition: all .5s;
+      }
+
+      .logosImgs img:hover {
+        opacity: 1;
+        
+      }
+
+
+      @media screen and (max-width: 800px) {
+          .logosImgs img {
+            max-width: 125px;
+            max-height: 88px;
+            margin: 5px 8px;
+        }
+      }
+
+      @media screen and (max-width: 560px) {
+        .logosImgs img {
+            max-width: 85px;
+            max-height: 60px;
+            margin: 3px 5px;
+        }
+      }
+  </style>
+
+
+<div class="bxslider logosImgs">
+   <?php $j=0; foreach($clientlogo as $logo){?>
+          <div>
+            <img src="<?=base_url()?>uploads/client/<?=$logo['image']?>" alt="<?=$logo['image']?>">
           </div>
         <?php }?>
-          </div>
-        </div>  
-      </div>
-   </section>
+</div>
+
+
+<!-- partial -->
+  <script>
+    $('.bxslider').bxSlider({
+      default: '',
+    autoHover: true,
+    auto: true,
+    slideWidth: 250,
+    minSlides: 2,
+    maxSlides: 6,
+    controls: true,
+    pager: true,
+    speed: 5650,
+    captions: true,
+    slideMargin: 3,
+  });
+  </script>
+
+
   </div>
 </div>
 <?php }?>
